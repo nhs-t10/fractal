@@ -1,2 +1,3 @@
-![fractal](fractal.png | width=300)
+<img src="fractal.png" width="500" />
+
 T-10's modular codebase
