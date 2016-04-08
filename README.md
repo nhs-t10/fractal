@@ -1,4 +1,4 @@
-<p align="center"><img src="fractal.png" align="center"/></p>
+<p align="center"><img src="markdown/fractal.png" align="center"/></p>
 
 T-10's modular codebase
 ***
