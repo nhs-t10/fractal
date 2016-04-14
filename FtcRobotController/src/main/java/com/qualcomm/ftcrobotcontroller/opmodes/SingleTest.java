@@ -46,5 +46,6 @@ public class SingleTest extends LinearOpMode {
       waitForStart();
       Motor mymotor = new Motor(Hardware.MotorLeftRear);
       String test = mymotor.test();
+      telemetry.addData("test", test);
   }
 }

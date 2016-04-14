@@ -8,8 +8,14 @@ public class Motor {
     public Motor(DcMotor m) {
         motor = m;
     }
+    public void move(double power) {
+        motor.setPower(power);
+    }
+    public void stop() {
+        motor.setPower(0);
+    }
     public String test() {
-        motor.setPower(0.5f);
+        this.move(0.5f);
         try {
             Thread.sleep(1000);
         }
@@ -17,7 +23,7 @@ public class Motor {
             err.printStackTrace();
             return "oh my";
         }
-        motor.setPower(0);
+        this.stop();
         return "yee";
     }
 }
