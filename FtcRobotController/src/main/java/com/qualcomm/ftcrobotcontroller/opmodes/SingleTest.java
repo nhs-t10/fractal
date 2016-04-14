@@ -43,7 +43,9 @@ import com.qualcomm.ftcrobotcontroller.tissues.Motor;
 public class SingleTest extends LinearOpMode {
   @Override
   public void runOpMode() throws InterruptedException {
+      Hardware.init(hardwareMap);
       waitForStart();
+
       Motor mymotor = new Motor(Hardware.MotorLeftRear);
       String test = mymotor.test();
       telemetry.addData("test", test);
