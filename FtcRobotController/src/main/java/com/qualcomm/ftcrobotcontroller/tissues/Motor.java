@@ -4,7 +4,11 @@ import com.qualcomm.robotcore.hardware.DcMotor;
  * Created by robotics on 4/12/16.
  */
 public class Motor {
-    public String test(DcMotor motor) {
+    private DcMotor motor;
+    public Motor(DcMotor m) {
+        motor = m;
+    }
+    public String test() {
         motor.setPower(0.5f);
         try {
             Thread.sleep(1000);
@@ -17,3 +21,6 @@ public class Motor {
         return "yee";
     }
 }
+
+//new Test(true, "motor was completed")
+// [✓] "motor was done"

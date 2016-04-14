@@ -360,7 +360,7 @@ public class FtcRobotControllerActivity extends Activity {
 
     HardwareFactory factory;
 
-    // Modern Robotics Factory for use with Modern Robotics hardware
+    // Modern Robotics Factory for use with Modern Robotics Hardware
     HardwareFactory modernRoboticsFactory = new HardwareFactory(context);
     modernRoboticsFactory.setXmlInputStream(fis);
     factory = modernRoboticsFactory;

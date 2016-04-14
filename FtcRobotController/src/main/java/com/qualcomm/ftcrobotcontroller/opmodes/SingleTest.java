@@ -32,7 +32,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. */
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.hardware.DcMotorController;
+import com.qualcomm.ftcrobotcontroller.mappings.Hardware;
 import com.qualcomm.ftcrobotcontroller.tissues.Motor;
 
 /**
@@ -44,7 +44,7 @@ public class SingleTest extends LinearOpMode {
   @Override
   public void runOpMode() throws InterruptedException {
       waitForStart();
-      Motor mymotor = new Motor();
-      String test = mymotor.test(hardwareMap.dcMotor.get("m1"));
+      Motor mymotor = new Motor(Hardware.MotorLeftRear);
+      String test = mymotor.test();
   }
 }
