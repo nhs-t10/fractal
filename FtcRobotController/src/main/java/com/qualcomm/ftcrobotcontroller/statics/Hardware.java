@@ -1,11 +1,7 @@
-package com.qualcomm.ftcrobotcontroller.mappings;
+package com.qualcomm.ftcrobotcontroller.statics;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.HardwareDevice;
 import com.qualcomm.robotcore.hardware.HardwareMap;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by robotics on 4/14/16.

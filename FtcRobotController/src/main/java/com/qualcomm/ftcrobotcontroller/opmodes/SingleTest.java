@@ -32,7 +32,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. */
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.ftcrobotcontroller.mappings.Hardware;
+import com.qualcomm.ftcrobotcontroller.statics.Hardware;
 import com.qualcomm.ftcrobotcontroller.tissues.Motor;
 
 /**
