@@ -3,10 +3,10 @@
 T-10's modular codebase
 
 ##Structure & Reference
-Please check the [wiki](https://github.com/nhs-t10/fractal/wiki) to learn in detail the core concepts of fractal.
+Please check the [wiki](https://github.com/nhs-t10/fractal/wiki) to learn the core concepts of fractal in detail.
 
-***
 ##Setup
+
 1. On your [git bash][Git], go to the directory you want this repo to be saved in and type ```git clone https://github.com/nhs-t10/Fractal.git```.
 2. In [Android Studio][Studio], open ```[your directory]/Fractal```.
 3. In the project, locate ```\FtcRobotController\src\main\java\com\qualcomm\ftcrobotcontroller\opmodes``` and run ```NullOp.java```.
