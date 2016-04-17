@@ -93,8 +93,8 @@ public class ControlParser {
             control += query.get(i);
         }
 
-        if(shiftCheck) results.addAll(getResult(gamepad, shift));
-        results.addAll(getResult(gamepad, control));
+        if(shiftCheck) results.addAll(getResult(gamepad, shift)); //[true]
+        results.addAll(getResult(gamepad, control)); //[true, true]
 
         return results;
     }
