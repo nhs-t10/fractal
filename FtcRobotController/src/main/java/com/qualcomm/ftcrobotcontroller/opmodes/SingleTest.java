@@ -33,7 +33,7 @@ package com.qualcomm.ftcrobotcontroller.opmodes;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.ftcrobotcontroller.statics.Hardware;
-import com.qualcomm.ftcrobotcontroller.tissues.Motor;
+import com.qualcomm.ftcrobotcontroller.tissues.TMotor;
 
 /**
  * TeleOp Mode
@@ -46,7 +46,7 @@ public class SingleTest extends LinearOpMode {
       Hardware.init(hardwareMap);
       waitForStart();
 
-      Motor mymotor = new Motor(Hardware.MotorLeftRear);
+      TMotor mymotor = new TMotor(Hardware.MotorLeftRear);
       String test = mymotor.test();
       telemetry.addData("test", test);
   }

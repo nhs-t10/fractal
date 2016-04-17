@@ -3,9 +3,9 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 /**
  * Created by robotics on 4/12/16.
  */
-public class Motor {
+public class TMotor {
     private DcMotor motor;
-    public Motor(DcMotor m) {
+    public TMotor(DcMotor m) {
         motor = m;
     }
     public void move(double power) {
@@ -24,7 +24,7 @@ public class Motor {
             return "oh my";
         }
         this.stop();
-        return "yee";
+        return "yee" + motor.getConnectionInfo();
     }
 }
 
