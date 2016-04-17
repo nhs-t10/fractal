@@ -2,6 +2,7 @@ package com.qualcomm.ftcrobotcontroller.statics;
 
 import com.qualcomm.robotcore.hardware.Gamepad;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -19,20 +20,8 @@ public class ControlParser {
         gamepad2 = g2;
         shift = s;
     }
-    public static ArrayList control(String controlString) { //"^A1"
+    private static ArrayList<Object> getResult(Gamepad gamepad, String control) {
         ArrayList<Object> results = new ArrayList<Object>();
-        List<String> query = Arrays.asList(controlString.split("")); //["^", "A", "1"]
-        String gnum = query.get(query.size() - 1); //"1"
-        query.remove(gnum); //["^", "A"]
-
-        Gamepad gamepad = (gnum == "1" ? gamepad1 : gamepad2);
-        Boolean shiftCheck = (query.get(0) == "^");
-        if(shiftCheck) query.remove(query.get(0)); //["A"]
-
-        String control = "";
-        for(int i=0; i<query.size(); i++) { //"A"
-            control += query.get(i);
-        }
 
         if(control.equals("A")) {
             results.add(gamepad.a);
@@ -85,6 +74,27 @@ public class ControlParser {
             results.add(gamepad.left_stick_y);
         }
         else throw new Error("No valid control specified.");
+
+        return results;
+    }
+
+    public static ArrayList control(String controlString) { //"^A1"
+        ArrayList<Object> results = new ArrayList<Object>();
+        List<String> query = Arrays.asList(controlString.split("")); //["^", "A", "1"]
+        String gnum = query.get(query.size() - 1); //"1"
+        query.remove(gnum); //["^", "A"]
+
+        Gamepad gamepad = (gnum == "1" ? gamepad1 : gamepad2);
+        Boolean shiftCheck = (query.get(0) == "^");
+        if(shiftCheck) query.remove(query.get(0)); //["A"]
+
+        String control = "";
+        for(int i=0; i<query.size(); i++) { //"A"
+            control += query.get(i);
+        }
+
+        if(shiftCheck) results.addAll(getResult(gamepad, shift));
+        results.addAll(getResult(gamepad, control));
 
         return results;
     }
