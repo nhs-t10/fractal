@@ -11,6 +11,8 @@ public class Hardware {
 
     private static HardwareMap hardwareMap;
 
+    public static HardwareMap getHardwareMap() { return hardwareMap; }
+
     public static void init(HardwareMap h) {
         hardwareMap = h;
 
