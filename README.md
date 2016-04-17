@@ -1,6 +1,10 @@
 <p align="center"><img src="markdown/fractal.png" align="center"/></p>
 
 T-10's modular codebase
+
+##Structure & Reference
+Please check the [wiki](https://github.com/nhs-t10/fractal/wiki) to learn in detail the core concepts of fractal.
+
 ***
 ##Setup
 1. On your [git bash][Git], go to the directory you want this repo to be saved in and type ```git clone https://github.com/nhs-t10/Fractal.git```.
