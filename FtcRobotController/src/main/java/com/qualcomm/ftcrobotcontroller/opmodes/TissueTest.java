@@ -37,11 +37,6 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.ftcrobotcontroller.statics.Hardware;
 import com.qualcomm.ftcrobotcontroller.tissues.TMotor;
 
-/**
- * TeleOp Mode
- * <p>
- *Enables control of the robot via the gamepad
- */
 public class TissueTest extends LinearOpMode {
   @Override
   public void runOpMode() throws InterruptedException {
