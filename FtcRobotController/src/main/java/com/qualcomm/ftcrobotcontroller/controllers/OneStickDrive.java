@@ -1,5 +1,6 @@
 package com.qualcomm.ftcrobotcontroller.controllers;
 
+import com.qualcomm.ftcrobotcontroller.debug.Logger;
 import com.qualcomm.ftcrobotcontroller.neurons.HumanDriving;
 import com.qualcomm.ftcrobotcontroller.organs.DriveTrain;
 import com.qualcomm.ftcrobotcontroller.organs.TreadDrivetrain;
@@ -33,5 +34,6 @@ public class OneStickDrive {
         ArrayList<Float> powers = HumanDriving.JoyToDirection(joyValues);
 
         dt.drive(powers.get(0), powers.get(1));
+        Logger.logLine("left: " + Float.toString(powers.get(0)));
     }
 }
