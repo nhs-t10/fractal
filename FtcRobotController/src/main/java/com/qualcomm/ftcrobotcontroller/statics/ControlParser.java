@@ -89,8 +89,29 @@ public class ControlParser {
         return results;
     }
 
-    public static ArrayList<Float> range(String controlString) { //"^A1"
+    public static ArrayList<Float> range(String controlString) { //"LS1"
         ArrayList<Float> results = new ArrayList<Float>();
+        List<String> query = Arrays.asList(controlString.split("")); //["L", "S", "1"]
+        String gnum = query.get(query.size() - 1); //"1"
+        query.remove(gnum); //["L", "S"]
+
+        Gamepad gamepad = (gnum == "1" ? gamepad1 : gamepad2);
+        Boolean shiftCheck = (query.get(0) == "^");
+        if(shiftCheck) query.remove(query.get(0)); //["L", "S"]
+
+        String control = "";
+        for(int i=0; i<query.size(); i++) { //"LS"
+            control += query.get(i);
+        }
+
+        if(shiftCheck) results.addAll(getRangeResult(gamepad, shift)); //[true]
+        results.addAll(getRangeResult(gamepad, control)); //[true, true]
+
+        return results;
+    }
+
+    public static ArrayList<Boolean> button(String controlString) { //"^A1"
+        ArrayList<Boolean> results = new ArrayList<Boolean>();
         List<String> query = Arrays.asList(controlString.split("")); //["^", "A", "1"]
         String gnum = query.get(query.size() - 1); //"1"
         query.remove(gnum); //["^", "A"]
@@ -104,8 +125,7 @@ public class ControlParser {
             control += query.get(i);
         }
 
-        if(shiftCheck) results.addAll(getRangeResult(gamepad, shift)); //[true]
-        results.addAll(getRangeResult(gamepad, control)); //[true, true]
+        results.addAll(getButtonResult(gamepad, control)); //[true, true]
 
         return results;
     }

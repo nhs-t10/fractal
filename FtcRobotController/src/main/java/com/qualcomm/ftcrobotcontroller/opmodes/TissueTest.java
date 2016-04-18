@@ -31,6 +31,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. */
 
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
+import com.qualcomm.ftcrobotcontroller.debug.Logger;
 import com.qualcomm.ftcrobotcontroller.tissues.TIMU;
 import com.qualcomm.ftcrobotcontroller.tissues.TServo;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -41,6 +42,7 @@ public class TissueTest extends LinearOpMode {
   @Override
   public void runOpMode() throws InterruptedException {
       Hardware.init(hardwareMap);
+      Logger.init(telemetry);
       waitForStart();
 
       TMotor mymotor = new TMotor(Hardware.MotorLeftRear);

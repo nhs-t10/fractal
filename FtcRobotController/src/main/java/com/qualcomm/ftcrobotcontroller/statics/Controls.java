@@ -5,5 +5,5 @@ package com.qualcomm.ftcrobotcontroller.statics;
  */
 public class Controls {
     public static String Shift = "LT";
-    public static String JoyDrive = "J1";
+    public static String JoyDrive = "LS1";
 }
