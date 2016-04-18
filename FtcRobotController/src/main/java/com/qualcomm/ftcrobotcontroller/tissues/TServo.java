@@ -1,11 +1,12 @@
 package com.qualcomm.ftcrobotcontroller.tissues;
 
+import com.qualcomm.ftcrobotcontroller.debug.Component;
 import com.qualcomm.robotcore.hardware.Servo;
 
 /**
  * Created by max on 4/17/16.
  */
-public class TServo {
+public class TServo implements Component {
     private Servo servo;
     public TServo(Servo s) {
         servo = s;

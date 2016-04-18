@@ -1,11 +1,12 @@
 package com.qualcomm.ftcrobotcontroller.tissues;
 
+import com.qualcomm.ftcrobotcontroller.debug.Component;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 
 /**
  * Created by max on 4/17/16.
  */
-public class TColor {
+public class TColor implements Component {
     private ColorSensor colorsensor;
 
     private int offsetRed, offsetGreen, offsetBlue, offsetAlpha;
