@@ -28,5 +28,4 @@ public class TMotor {
     }
 }
 
-//new Test(true, "motor was completed")
-// [✓] "motor was done"
+//TODO: Encoder support

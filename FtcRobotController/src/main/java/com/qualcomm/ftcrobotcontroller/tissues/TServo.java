@@ -22,3 +22,5 @@ public class TServo {
         return "success" + servo.getConnectionInfo();
     }
 }
+
+//TODO: better multi direction
