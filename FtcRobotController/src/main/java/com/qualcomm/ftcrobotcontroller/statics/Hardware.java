@@ -1,5 +1,7 @@
 package com.qualcomm.ftcrobotcontroller.statics;
 
+import com.qualcomm.robotcore.hardware.AnalogInput;
+import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
@@ -14,6 +16,10 @@ public class Hardware {
 
     public static String IMU;
 
+    public static ColorSensor Color;
+
+    public static AnalogInput Ultra;
+
     private static HardwareMap hardwareMap;
 
     public static HardwareMap getHardwareMap() { return hardwareMap; }
@@ -25,7 +31,11 @@ public class Hardware {
         MotorRightRear = hardwareMap.dcMotor.get("m2");
         MotorLeftFront = hardwareMap.dcMotor.get("m3");
         MotorRightFront = hardwareMap.dcMotor.get("m4");
+
         ServoTop = hardwareMap.servo.get("s1");
+
         IMU = "g1";
+        Color = hardwareMap.colorSensor.get("c1");
+        Ultra = hardwareMap.analogInput.get("u1");
     }
 }
