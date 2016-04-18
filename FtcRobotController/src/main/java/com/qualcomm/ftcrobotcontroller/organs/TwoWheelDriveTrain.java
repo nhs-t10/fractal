@@ -8,9 +8,9 @@ import com.qualcomm.robotcore.util.Range;
 /**
  * Created by Admin on 4/18/2016.
  */
-public class TwoWheelDrivetrain extends DriveTrain implements Test {
+public class TwoWheelDriveTrain extends DriveTrain implements Test {
     private TMotor leftWheel, rightWheel;
-    public TwoWheelDrivetrain() {
+    public TwoWheelDriveTrain() {
         leftWheel = new TMotor(Hardware.MotorLeftFront);
         rightWheel = new TMotor(Hardware.MotorRightFront);
     }
