@@ -21,10 +21,10 @@ public class TMotor {
         }
         catch(Exception err) {
             err.printStackTrace();
-            return "oh my";
+            return "Error.";
         }
         this.stop();
-        return "yee" + motor.getConnectionInfo();
+        return "Motor: " + motor.getConnectionInfo();
     }
 }
 

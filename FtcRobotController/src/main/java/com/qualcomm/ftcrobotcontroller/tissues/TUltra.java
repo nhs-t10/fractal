@@ -17,6 +17,6 @@ public class TUltra {
     }
 
     public String test() {
-        return "No test specified";
+        return "Distance: " + this.distance();
     }
 }
