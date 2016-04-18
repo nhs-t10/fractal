@@ -10,6 +10,11 @@ import java.util.List;
 /**
  * Created by max on 4/17/16.
  */
+
+/*
+* ControlParser.range(String controlString) for float-y controls
+* ControlParser.button(String controlString) for bool-y controls
+* */
 public class ControlParser {
     private static Gamepad gamepad1;
     private static Gamepad gamepad2;
@@ -20,9 +25,8 @@ public class ControlParser {
         gamepad2 = g2;
         shift = s;
     }
-    private static ArrayList<Object> getResult(Gamepad gamepad, String control) {
-        ArrayList<Object> results = new ArrayList<Object>();
-
+    private static ArrayList<Boolean> getButtonResult(Gamepad gamepad, String control) {
+        ArrayList<Boolean> results = new ArrayList<Boolean>();
         if(control.equals("A")) {
             results.add(gamepad.a);
         }
@@ -53,17 +57,24 @@ public class ControlParser {
         else if(control.equals("RB")) {
             results.add(gamepad.right_bumper);
         }
-        else if(control.equals("LT")) {
-            results.add(gamepad.left_trigger);
-        }
-        else if(control.equals("RT")) {
-            results.add(gamepad.right_trigger);
-        }
         else if(control.equals("RSB")) {
             results.add(gamepad.right_stick_button);
         }
         else if(control.equals("LSB")) {
             results.add(gamepad.left_stick_button);
+        }
+        else throw new Error("No valid control specified.");
+
+        return results;
+    }
+    private static ArrayList<Float> getRangeResult(Gamepad gamepad, String control) {
+        ArrayList<Float> results = new ArrayList<Float>();
+
+        if(control.equals("LT")) {
+            results.add(gamepad.left_trigger);
+        }
+        else if(control.equals("RT")) {
+            results.add(gamepad.right_trigger);
         }
         else if(control.equals("RS")) {
             results.add(gamepad.right_stick_x);
@@ -78,8 +89,8 @@ public class ControlParser {
         return results;
     }
 
-    public static ArrayList control(String controlString) { //"^A1"
-        ArrayList<Object> results = new ArrayList<Object>();
+    public static ArrayList<Float> range(String controlString) { //"^A1"
+        ArrayList<Float> results = new ArrayList<Float>();
         List<String> query = Arrays.asList(controlString.split("")); //["^", "A", "1"]
         String gnum = query.get(query.size() - 1); //"1"
         query.remove(gnum); //["^", "A"]
@@ -93,8 +104,8 @@ public class ControlParser {
             control += query.get(i);
         }
 
-        if(shiftCheck) results.addAll(getResult(gamepad, shift)); //[true]
-        results.addAll(getResult(gamepad, control)); //[true, true]
+        if(shiftCheck) results.addAll(getRangeResult(gamepad, shift)); //[true]
+        results.addAll(getRangeResult(gamepad, control)); //[true, true]
 
         return results;
     }

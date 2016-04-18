@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.hardware.Servo;
  * Created by robotics on 4/14/16.
  */
 public class Hardware {
-    public static DcMotor MotorLeftRear, MotorRightRear;
+    public static DcMotor MotorLeftRear, MotorRightRear, MotorLeftFront, MotorRightFront;
 
     public static Servo ServoTop;
 
@@ -23,6 +23,8 @@ public class Hardware {
 
         MotorLeftRear = hardwareMap.dcMotor.get("m1");
         MotorRightRear = hardwareMap.dcMotor.get("m2");
+        MotorLeftFront = hardwareMap.dcMotor.get("m3");
+        MotorRightFront = hardwareMap.dcMotor.get("m4");
         ServoTop = hardwareMap.servo.get("s1");
         IMU = "g1";
     }
