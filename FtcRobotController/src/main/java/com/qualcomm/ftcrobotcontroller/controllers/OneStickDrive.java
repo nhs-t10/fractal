@@ -20,12 +20,7 @@ public class OneStickDrive {
 
     private static DriveTrain drivetrain;
 
-    public static void init() {
-        //default drivetrain
-        drivetrain = new TreadDrivetrain();
-    }
-
-    public static void setDriveTrain(DriveTrain dt) {
+    public static void init(DriveTrain dt) {
         drivetrain = dt;
     }
 

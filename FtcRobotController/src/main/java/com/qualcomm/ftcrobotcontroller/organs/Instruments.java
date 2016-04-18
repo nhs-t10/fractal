@@ -12,34 +12,31 @@ import com.qualcomm.ftcrobotcontroller.tissues.TUltra;
  * Could also manipulate motor mounted sensors.
  */
 public class Instruments {
-    private static TColor colorsensor;
-    private static TUltra ultrasensor;
-    private static TIMU imusensor;
-    private static Boolean inited = false;
+    private TColor colorsensor;
+    private TUltra ultrasensor;
+    private TIMU imusensor;
 
-    public static class color {
-        public static int red, green, blue;
+    private class Color {
+        public int red, green, blue;
     }
-    public static double distance;
-    public static double yaw;
-    
-    private static void tick() {
+    public Color color = new Color();
+    public double distance;
+    public double yaw;
+
+    private void tick() {
         color.red = colorsensor.red();
         color.green = colorsensor.green();
         color.blue = colorsensor.blue();
         distance = ultrasensor.distance();
         yaw = imusensor.getYaw();
     }
-    private static void beginCycle() {
+    private void beginCycle() {
         tick();
     }
-    public static void init() {
-        if(!inited) {
-            colorsensor = new TColor(Hardware.Color);
-            ultrasensor = new TUltra(Hardware.Ultra);
-            imusensor = new TIMU(Hardware.IMU);
-            inited = true;
-            beginCycle();
-        }
+    public Instruments() {
+        colorsensor = new TColor(Hardware.Color);
+        ultrasensor = new TUltra(Hardware.Ultra);
+        imusensor = new TIMU(Hardware.IMU);
+        beginCycle();
     }
 }

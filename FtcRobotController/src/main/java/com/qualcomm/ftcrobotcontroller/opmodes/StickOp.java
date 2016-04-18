@@ -33,6 +33,8 @@ package com.qualcomm.ftcrobotcontroller.opmodes;
 
 import com.qualcomm.ftcrobotcontroller.controllers.OneStickDrive;
 import com.qualcomm.ftcrobotcontroller.debug.Logger;
+import com.qualcomm.ftcrobotcontroller.organs.DriveTrain;
+import com.qualcomm.ftcrobotcontroller.organs.TreadDrivetrain;
 import com.qualcomm.ftcrobotcontroller.statics.ControlParser;
 import com.qualcomm.ftcrobotcontroller.statics.Controls;
 import com.qualcomm.ftcrobotcontroller.statics.Hardware;
@@ -47,7 +49,9 @@ public class StickOp extends OpMode {
         Logger.init(telemetry);
         ControlParser.init(gamepad1, gamepad2, Controls.Shift);
         Hardware.init(hardwareMap);
-        OneStickDrive.init();
+
+        DriveTrain treads = new TreadDrivetrain();
+        OneStickDrive.init(treads);
     }
     @Override
     public void loop() {
