@@ -1,12 +1,12 @@
 package com.qualcomm.ftcrobotcontroller.tissues;
 
-import com.qualcomm.ftcrobotcontroller.debug.Test;
+import com.qualcomm.ftcrobotcontroller.debug.Component;
 import com.qualcomm.robotcore.hardware.AnalogInput;
 
 /**
  * Created by max on 4/17/16.
  */
-public class TUltra implements Test {
+public class TUltra implements Component {
     private AnalogInput ultrasonic;
 
     public TUltra(AnalogInput u) {

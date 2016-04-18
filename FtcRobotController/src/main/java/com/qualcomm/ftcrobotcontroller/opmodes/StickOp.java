@@ -39,9 +39,7 @@ import com.qualcomm.ftcrobotcontroller.statics.Hardware;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
 /**
- * TeleOp Mode
- * <p>
- *Enables control of the robot via the gamepad
+ * StickOp - test one stick drive
  */
 public class StickOp extends OpMode {
     @Override

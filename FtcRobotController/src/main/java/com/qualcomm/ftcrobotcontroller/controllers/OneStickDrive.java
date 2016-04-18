@@ -18,22 +18,22 @@ public class OneStickDrive {
      * I can explain more in person if you need any more information.
      */
 
-    private static DriveTrain dt;
+    private static DriveTrain drivetrain;
 
     public static void init() {
         //default drivetrain
-        dt = new TreadDrivetrain();
+        drivetrain = new TreadDrivetrain();
     }
 
     public static void setDriveTrain(DriveTrain dt) {
-        OneStickDrive.dt = dt;
+        drivetrain = dt;
     }
 
     public static void tick() {
         ArrayList<Float> joyValues = ControlParser.range(Controls.JoyDrive);
         ArrayList<Float> powers = HumanDriving.JoyToDirection(joyValues);
 
-        dt.drive(powers.get(0), powers.get(1));
+        drivetrain.drive(powers.get(0), powers.get(1));
         Logger.logLine("left: " + Float.toString(powers.get(0)));
     }
 }

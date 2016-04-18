@@ -1,11 +1,11 @@
 package com.qualcomm.ftcrobotcontroller.tissues;
-import com.qualcomm.ftcrobotcontroller.debug.Test;
+import com.qualcomm.ftcrobotcontroller.debug.Component;
 import com.qualcomm.ftcrobotcontroller.utils.Sleep;
 import com.qualcomm.robotcore.hardware.DcMotor;
 /**
  * Created by robotics on 4/12/16.
  */
-public class TMotor implements Test {
+public class TMotor implements Component {
     private DcMotor motor;
     public TMotor(DcMotor m) {
         motor = m;

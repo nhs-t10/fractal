@@ -1,6 +1,6 @@
 package com.qualcomm.ftcrobotcontroller.tissues;
 
-import com.qualcomm.ftcrobotcontroller.debug.Test;
+import com.qualcomm.ftcrobotcontroller.debug.Component;
 import com.qualcomm.ftcrobotcontroller.lib.AdafruitIMU;
 import com.qualcomm.ftcrobotcontroller.statics.Hardware;
 import com.qualcomm.robotcore.exception.RobotCoreException;
@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.exception.RobotCoreException;
 /**
  * Created by max on 4/17/16.
  */
-public class TIMU implements Test {
+public class TIMU implements Component {
     private AdafruitIMU imu;
     volatile double[] rollAngle = new double[2], pitchAngle = new double[2], yawAngle = new double[2];
 
