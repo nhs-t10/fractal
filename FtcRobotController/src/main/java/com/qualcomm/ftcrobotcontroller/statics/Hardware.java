@@ -2,12 +2,17 @@ package com.qualcomm.ftcrobotcontroller.statics;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.Servo;
 
 /**
  * Created by robotics on 4/14/16.
  */
 public class Hardware {
     public static DcMotor MotorLeftRear, MotorRightRear;
+
+    public static Servo ServoTop;
+
+    public static String IMU;
 
     private static HardwareMap hardwareMap;
 
@@ -18,5 +23,7 @@ public class Hardware {
 
         MotorLeftRear = hardwareMap.dcMotor.get("m1");
         MotorRightRear = hardwareMap.dcMotor.get("m2");
+        ServoTop = hardwareMap.servo.get("s1");
+        IMU = "g1";
     }
 }
