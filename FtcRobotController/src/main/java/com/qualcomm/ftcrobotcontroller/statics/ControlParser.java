@@ -101,7 +101,7 @@ public class ControlParser {
             value = ControlMap.get(control);
             gp = gamepad2;
         }
-        
+
         try {
             if (value != null && value.getGenericType().toString().equals("float")) {
                 results.add(value.getFloat(gp));
