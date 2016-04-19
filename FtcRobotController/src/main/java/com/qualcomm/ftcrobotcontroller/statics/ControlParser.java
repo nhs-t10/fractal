@@ -26,27 +26,36 @@ public class ControlParser {
     private static Gamepad gamepad2;
     private static String shift;
 
-    private static final Map<String, Pair<?, ?>> ControlMap;
+    private static final Map<String, Field> ControlMap;
+    private static Pair<Field, Field> leftStick;
+    private static Pair<Field, Field> rightStick;
     static {
-        ControlMap = new HashMap<String, Pair<?, ?>>();
-        //Boolean control maps
-        ControlMap.put("A", Pair.of(gamepad1.a, gamepad2.a));
-        ControlMap.put("B", Pair.of(gamepad1.b, gamepad2.b));
-        ControlMap.put("X", Pair.of(gamepad1.x, gamepad2.x));
-        ControlMap.put("Y", Pair.of(gamepad1.y, gamepad2.y));
-        ControlMap.put("DD", Pair.of(gamepad1.dpad_down, gamepad2.dpad_down));
-        ControlMap.put("DL", Pair.of(gamepad1.dpad_left, gamepad2.dpad_up));
-        ControlMap.put("DR", Pair.of(gamepad1.dpad_right, gamepad2.dpad_right));
-        ControlMap.put("DU", Pair.of(gamepad1.dpad_up, gamepad2.dpad_up));
-        ControlMap.put("LB", Pair.of(gamepad1.left_bumper, gamepad2.left_bumper));
-        ControlMap.put("RB", Pair.of(gamepad1.right_bumper, gamepad2.right_bumper));
-        ControlMap.put("LSB", Pair.of(gamepad1.left_stick_button, gamepad2.left_stick_button));
-        ControlMap.put("RSB", Pair.of(gamepad1.right_stick_button, gamepad2.right_stick_button));
-        //Floating pointer control maps
-        ControlMap.put("LT", Pair.of(gamepad1.left_trigger, gamepad2.left_trigger));
-        ControlMap.put("RT", Pair.of(gamepad1.right_trigger, gamepad2.right_trigger));
-        ControlMap.put("LS", Pair.of(Pair.of(gamepad1.left_stick_x, gamepad1.left_stick_y), Pair.of(gamepad2.left_stick_x, gamepad2.left_stick_y)));
-        ControlMap.put("RS", Pair.of(Pair.of(gamepad1.right_stick_x, gamepad1.right_stick_y), Pair.of(gamepad2.right_stick_x, gamepad2.right_stick_y)));
+        ControlMap = new HashMap<String, Field>();
+        try {
+            leftStick = Pair.of(Gamepad.class.getField("left_stick_x"), Gamepad.class.getField("left_stick_y"));
+            rightStick = Pair.of(Gamepad.class.getField("right_stick_x"), Gamepad.class.getField("right_stick_y"));
+
+            //Boolean control maps
+            ControlMap.put("A", Gamepad.class.getField("a"));
+            ControlMap.put("B", Gamepad.class.getField("b"));
+            ControlMap.put("X", Gamepad.class.getField("x"));
+            ControlMap.put("Y", Gamepad.class.getField("y"));
+            ControlMap.put("DD", Gamepad.class.getField("dpad_down"));
+            ControlMap.put("DL", Gamepad.class.getField("dpad_left"));
+            ControlMap.put("DR", Gamepad.class.getField("dpad_right"));
+            ControlMap.put("DU", Gamepad.class.getField("dpad_up"));
+            ControlMap.put("LB", Gamepad.class.getField("left_bumper"));
+            ControlMap.put("RB", Gamepad.class.getField("right_bumper"));
+            ControlMap.put("LSB", Gamepad.class.getField("left_stick_button"));
+            ControlMap.put("RSB", Gamepad.class.getField("right_stick_button"));
+            //Floating pointer control maps
+            ControlMap.put("LT", Gamepad.class.getField("left_trigger"));
+            ControlMap.put("RT",  Gamepad.class.getField("right_trigger"));
+            ControlMap.put("LS", ControlParser.class.getDeclaredField("leftStick"));
+            ControlMap.put("RS", ControlParser.class.getDeclaredField("rightStick"));
+        } catch(NoSuchFieldException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void init(Gamepad g1, Gamepad g2, String s) {
@@ -57,39 +66,53 @@ public class ControlParser {
 
     private static ArrayList<Boolean> getButtonResult(int gamepadId, String control) {
         ArrayList<Boolean> results = new ArrayList<Boolean>();
-        Object value = null;
+        Field value = null;
+        Gamepad gp = gamepad1;
 
         if(gamepadId == 1) {
-            value = ControlMap.get(control).first;
+            value = ControlMap.get(control);
+            gp = gamepad1;
         } else if(gamepadId == 2) {
-            value = ControlMap.get(control).second;
+            value = ControlMap.get(control);
+            gp = gamepad2;
         }
 
-        if(value instanceof Boolean) {
-            results.add((Boolean)value);
-        } else {
-            throw new Error("No valid control specified.");
+        try {
+            if (value != null && value.getGenericType().toString().equals("boolean")) {
+                results.add(value.getBoolean(gp));
+            } else {
+                throw new Error("No valid control specified.");
+            }
+        } catch(IllegalAccessException e) {
+            e.printStackTrace();
         }
 
         return results;
     }
     private static ArrayList<Float> getRangeResult(int gamepadId, String control) {
         ArrayList<Float> results = new ArrayList<Float>();
-        Object value = null;
+        Field value = null;
+        Gamepad gp = gamepad1;
 
         if(gamepadId == 1) {
-            value = ControlMap.get(control).first;
+            value = ControlMap.get(control);
+            gp = gamepad1;
         } else if(gamepadId == 2) {
-            value = ControlMap.get(control).second;
+            value = ControlMap.get(control);
+            gp = gamepad2;
         }
-
-        if(value instanceof Float) {
-            results.add((Float)value);
-        } else if(value instanceof Pair) {
-            results.add((Float)((Pair) value).first);
-            results.add((Float)((Pair) value).second);
-        } else {
-            throw new Error("No valid control specified.");
+        
+        try {
+            if (value != null && value.getGenericType().toString().equals("float")) {
+                results.add(value.getFloat(gp));
+            } else if(value!= null && value.getGenericType().toString().equals("Pair")) {
+                results.add((Float)((Pair)value.get(null)).first);
+                results.add((Float)((Pair)value.get(null)).second);
+            } else {
+                throw new Error("No valid control specified.");
+            }
+        } catch(IllegalAccessException e) {
+            e.printStackTrace();
         }
 
         return results;
