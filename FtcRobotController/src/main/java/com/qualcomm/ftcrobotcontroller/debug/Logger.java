@@ -49,13 +49,13 @@ public class Logger {
 
     public static String test() {
         logLine("hello");
-        Sleep.secs(0.2);
+        Sleep.secs(1);
         logLine("my");
-        Sleep.secs(0.2);
+        Sleep.secs(1);
         logLine("name");
-        Sleep.secs(0.2);
+        Sleep.secs(1);
         logLine("is");
-        Sleep.secs(0.2);
+        Sleep.secs(1);
         logLine("logger");
         return "Logger success";
     }
