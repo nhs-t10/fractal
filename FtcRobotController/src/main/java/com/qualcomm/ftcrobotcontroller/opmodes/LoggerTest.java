@@ -31,24 +31,20 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. */
 
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
-import com.qualcomm.robotcore.eventloop.opmode.OpModeManager;
-import com.qualcomm.robotcore.eventloop.opmode.OpModeRegister;
+import com.qualcomm.ftcrobotcontroller.debug.Logger;
+import com.qualcomm.ftcrobotcontroller.statics.Hardware;
+import com.qualcomm.ftcrobotcontroller.tissues.TIMU;
+import com.qualcomm.ftcrobotcontroller.tissues.TMotor;
+import com.qualcomm.ftcrobotcontroller.tissues.TServo;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
-/**
- * Register Op Modes
- */
-public class FtcOpModeRegister implements OpModeRegister {
+public class LoggerTest extends LinearOpMode {
+  @Override
+  public void runOpMode() throws InterruptedException {
+      Hardware.init(hardwareMap);
+      Logger.init(telemetry);
+      waitForStart();
 
-  /**
-   * The Op Mode Manager will call this method when it wants a list of all
-   * available op modes. Add your op mode to the list to enable it.
-   *
-   * @param manager op mode manager
-   */
-  public void register(OpModeManager manager) {
-    manager.register("NullOp", NullOp.class);
-    manager.register("TissueTest", TissueTest.class);
-    manager.register("StickDrive", StickDrive.class);
-      manager.register("LoggerTest", LoggerTest.class);
+      Logger.test();
   }
 }
