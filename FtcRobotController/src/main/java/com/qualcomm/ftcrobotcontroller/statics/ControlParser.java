@@ -4,14 +4,12 @@ import com.qualcomm.ftcrobotcontroller.debug.Logger;
 import com.qualcomm.ftcrobotcontroller.lib.Pair;
 import com.qualcomm.robotcore.hardware.Gamepad;
 
-import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 /**
  * Created by max on 4/17/16.
