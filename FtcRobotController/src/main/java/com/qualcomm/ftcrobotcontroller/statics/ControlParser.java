@@ -120,11 +120,11 @@ public class ControlParser {
         ArrayList<Float> results = new ArrayList<Float>();
         List<String> query = Arrays.asList(controlString.split("")); //["L", "S", "1"]
         String gnum = query.get(query.size() - 1); //"1"
-        query.remove(gnum); //["L", "S"]
+        query.remove(query.size() - 1); //["L", "S"]
 
         int gamepad = (gnum.equals("1") ? 1 : 2);
         Boolean shiftCheck = (query.get(0).equals("^"));
-        if(shiftCheck) query.remove(query.get(0)); //["L", "S"]
+        if(shiftCheck) query.remove(0); //["L", "S"]
 
         String control = "";
         for(int i=0; i<query.size(); i++) { //"LS"
@@ -141,11 +141,11 @@ public class ControlParser {
         ArrayList<Boolean> results = new ArrayList<Boolean>();
         List<String> query = Arrays.asList(controlString.split("")); //["^", "A", "1"]
         String gnum = query.get(query.size() - 1); //"1"
-        query.remove(gnum); //["^", "A"]
+        query.remove(query.size() - 1); //["^", "A"]
 
         int gamepad = (gnum.equals("1") ? 1 : 2);
         boolean shiftCheck = (query.get(0).equals("^"));
-        if(shiftCheck) query.remove(query.get(0)); //["A"]
+        if(shiftCheck) query.remove(0); //["A"]
 
         String control = "";
         for(int i=0; i<query.size(); i++) { //"A"
