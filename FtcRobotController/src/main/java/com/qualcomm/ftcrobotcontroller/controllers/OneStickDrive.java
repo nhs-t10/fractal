@@ -28,6 +28,7 @@ public class OneStickDrive {
         ArrayList<Float> joyValues = ControlParser.range(Controls.JoyDrive);
         ArrayList<Float> powers = HumanDriving.JoyToDirection(joyValues);
 
+        Logger.logLine("" + powers.get(0) + ", " + powers.get(1));
         drivetrain.drive(powers.get(0), powers.get(1));
         Logger.logLine("left: " + Float.toString(powers.get(0)));
     }

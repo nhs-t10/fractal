@@ -118,7 +118,9 @@ public class ControlParser {
 
     public static ArrayList<Float> range(String controlString) { //"LS1"
         ArrayList<Float> results = new ArrayList<Float>();
-        List<String> query = Arrays.asList(controlString.split("")); //["L", "S", "1"]
+        List<String> query = new ArrayList<String>(Arrays.asList(controlString.split(""))); //["L", "S", "1"]
+        System.out.println("--------------------------------------->" + query + " len: " + query.size() + " last:" + query.get(query.size() - 1));
+        Logger.logLine("Yes");
         String gnum = query.get(query.size() - 1); //"1"
         query.remove(query.size() - 1); //["L", "S"]
 
@@ -132,7 +134,9 @@ public class ControlParser {
         }
 
         if(shiftCheck) results.addAll(getRangeResult(gamepad, shift)); //[true]
-        results.addAll(getRangeResult(gamepad, control)); //[true, true]
+        //results.addAll(getRangeResult(gamepad, control)); //[true, true]
+        results.add(0.0f);
+        results.add(1.0f);
 
         return results;
     }
