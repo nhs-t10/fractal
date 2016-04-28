@@ -1,15 +1,12 @@
 package com.qualcomm.ftcrobotcontroller.statics;
 
 import com.qualcomm.ftcrobotcontroller.debug.Logger;
-import com.qualcomm.ftcrobotcontroller.lib.Pair;
 import com.qualcomm.robotcore.hardware.Gamepad;
 
-import java.lang.reflect.Field;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by max on 4/17/16.
@@ -24,94 +21,88 @@ public class ControlParser {
     private static Gamepad gamepad2;
     private static String shift;
 
-    private static final Map<String, Field> ControlMap;
-    private static Pair<Field, Field> leftStick;
-    private static Pair<Field, Field> rightStick;
-    static {
-        ControlMap = new HashMap<String, Field>();
-        try {
-            leftStick = Pair.of(Gamepad.class.getField("left_stick_x"), Gamepad.class.getField("left_stick_y"));
-            rightStick = Pair.of(Gamepad.class.getField("right_stick_x"), Gamepad.class.getField("right_stick_y"));
-
-            //Boolean control maps
-            ControlMap.put("A", Gamepad.class.getField("a"));
-            ControlMap.put("B", Gamepad.class.getField("b"));
-            ControlMap.put("X", Gamepad.class.getField("x"));
-            ControlMap.put("Y", Gamepad.class.getField("y"));
-            ControlMap.put("DD", Gamepad.class.getField("dpad_down"));
-            ControlMap.put("DL", Gamepad.class.getField("dpad_left"));
-            ControlMap.put("DR", Gamepad.class.getField("dpad_right"));
-            ControlMap.put("DU", Gamepad.class.getField("dpad_up"));
-            ControlMap.put("LB", Gamepad.class.getField("left_bumper"));
-            ControlMap.put("RB", Gamepad.class.getField("right_bumper"));
-            ControlMap.put("LSB", Gamepad.class.getField("left_stick_button"));
-            ControlMap.put("RSB", Gamepad.class.getField("right_stick_button"));
-            //Floating pointer control maps
-            ControlMap.put("LT", Gamepad.class.getField("left_trigger"));
-            ControlMap.put("RT",  Gamepad.class.getField("right_trigger"));
-            ControlMap.put("LS", ControlParser.class.getDeclaredField("leftStick"));
-            ControlMap.put("RS", ControlParser.class.getDeclaredField("rightStick"));
-        } catch(NoSuchFieldException e) {
-            e.printStackTrace();
-        }
-    }
-
     public static void init(Gamepad g1, Gamepad g2, String s) {
         gamepad1 = g1;
         gamepad2 = g2;
         shift = s;
     }
-
-    private static ArrayList<Boolean> getButtonResult(int gamepadId, String control) {
+    private static ArrayList<Boolean> getButtonResult(int gamepadid, String control) {
         ArrayList<Boolean> results = new ArrayList<Boolean>();
-        Field value = null;
-        Gamepad gp = gamepad1;
 
-        if(gamepadId == 1) {
-            value = ControlMap.get(control);
-            gp = gamepad1;
-        } else if(gamepadId == 2) {
-            value = ControlMap.get(control);
-            gp = gamepad2;
+        Gamepad gamepad = gamepad1;
+
+        if(gamepadid == 1) {
+            gamepad = gamepad1;
+        } else if(gamepadid == 2){
+            gamepad = gamepad2;
         }
 
-        try {
-            if (value != null && value.getGenericType().toString().equals("boolean")) {
-                results.add(value.getBoolean(gp));
-            } else {
-                throw new Error("No valid control specified.");
-            }
-        } catch(IllegalAccessException e) {
-            e.printStackTrace();
+        if(control.equals("A")) {
+            results.add(gamepad.a);
         }
+        else if(control.equals("B")) {
+            results.add(gamepad.b);
+        }
+        else if(control.equals("X")) {
+            results.add(gamepad.x);
+        }
+        else if(control.equals("Y")) {
+            results.add(gamepad.y);
+        }
+        else if(control.equals("DD")) {
+            results.add(gamepad.dpad_down);
+        }
+        else if(control.equals("DL")) {
+            results.add(gamepad.dpad_left);
+        }
+        else if(control.equals("DR")) {
+            results.add(gamepad.dpad_right);
+        }
+        else if(control.equals("DU")) {
+            results.add(gamepad.dpad_up);
+        }
+        else if(control.equals("LB")) {
+            results.add(gamepad.left_bumper);
+        }
+        else if(control.equals("RB")) {
+            results.add(gamepad.right_bumper);
+        }
+        else if(control.equals("RSB")) {
+            results.add(gamepad.right_stick_button);
+        }
+        else if(control.equals("LSB")) {
+            results.add(gamepad.left_stick_button);
+        }
+        else throw new Error("No valid control specified.");
 
         return results;
     }
-    private static ArrayList<Float> getRangeResult(int gamepadId, String control) {
+    private static ArrayList<Float> getRangeResult(int gamepadid, String control) {
         ArrayList<Float> results = new ArrayList<Float>();
-        Field value = null;
-        Gamepad gp = gamepad1;
 
-        if(gamepadId == 1) {
-            value = ControlMap.get(control);
-            gp = gamepad1;
-        } else if(gamepadId == 2) {
-            value = ControlMap.get(control);
-            gp = gamepad2;
+        Gamepad gamepad = gamepad1;
+
+        if(gamepadid == 1) {
+            gamepad = gamepad1;
+        } else if(gamepadid == 2){
+            gamepad = gamepad2;
         }
 
-        try {
-            if (value != null && value.getGenericType().toString().equals("float")) {
-                results.add(value.getFloat(gp));
-            } else if(value!= null && value.getGenericType().toString().equals("Pair")) {
-                results.add((Float)((Pair)value.get(null)).first);
-                results.add((Float)((Pair)value.get(null)).second);
-            } else {
-                throw new Error("No valid control specified.");
-            }
-        } catch(IllegalAccessException e) {
-            e.printStackTrace();
+        if(control.equals("LT")) {
+            results.add(gamepad.left_trigger);
         }
+        else if(control.equals("RT")) {
+            results.add(gamepad.right_trigger);
+        }
+        else if(control.equals("RS")) {
+            results.add(gamepad.right_stick_x);
+            results.add(gamepad.right_stick_y);
+        }
+        else if(control.equals("LS")) {
+            results.add(gamepad.left_stick_x);
+            results.add(gamepad.left_stick_y);
+        }
+        else throw new Error("No valid control specified.");
 
         return results;
     }
@@ -134,9 +125,9 @@ public class ControlParser {
         }
 
         if(shiftCheck) results.addAll(getRangeResult(gamepad, shift)); //[true]
-        //results.addAll(getRangeResult(gamepad, control)); //[true, true]
-        results.add(0.0f);
-        results.add(1.0f);
+        results.addAll(getRangeResult(gamepad, control)); //[true, true]
+        //results.add(0.0f);
+        //results.add(1.0f);
 
         return results;
     }
