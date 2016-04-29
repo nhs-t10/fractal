@@ -27,7 +27,7 @@ public abstract class T10Opmode extends OpMode {
     }
 
     /**
-     * A methcd called after waitForStart().
+     * A method called after waitForStart().
      */
     public abstract void run();
 

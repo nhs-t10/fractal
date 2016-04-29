@@ -46,7 +46,6 @@ public class FtcOpModeRegister implements OpModeRegister {
    * @param manager op mode manager
    */
   public void register(OpModeManager manager) {
-    manager.register("NullOp", NullOp.class);
     manager.register("TissueTest", TissueTest.class);
     manager.register("StickDrive", StickDrive.class);
       manager.register("LoggerTest", LoggerTest.class);
