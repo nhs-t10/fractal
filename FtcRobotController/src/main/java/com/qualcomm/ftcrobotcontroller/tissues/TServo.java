@@ -18,8 +18,8 @@ public class TServo implements Component {
         servo.setPosition(pos);
     }
     public String test() {
-        this.moveTo(30);
-        this.moveTo(80);
+        this.moveTo(0.1);
+        this.moveTo(0.5);
         return "success" + servo.getConnectionInfo();
     }
 }
