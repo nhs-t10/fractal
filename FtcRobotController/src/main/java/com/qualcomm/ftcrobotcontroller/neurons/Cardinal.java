@@ -8,30 +8,30 @@ import java.util.ArrayList;
  * IMU related activities
  */
 public class Cardinal {
-    private static double scaleToAngle(double val) {
+    private static double scaleToAngle(double val) { //make values over/under 0-360 normalized
         double scaledVal = val;
         while(scaledVal >= 360) {
-            scaledVal-=360;
+            scaledVal -= 360;
         }
         while(scaledVal < 0) {
-            scaledVal+=360;
+            scaledVal += 360;
         }
 
         return scaledVal;
     }
 
-    public static double addAngle(double a, double b) {
+    public static double addAngle(double a, double b) { //angle-safe arithmetic -- (300, 90) gives 30
         return scaleToAngle(a + b);
     }
-    public static ArrayList<Float> AngleToDirection(double currentYaw, double destYaw) {
+    public static ArrayList<Float> AngleToDirection(double currentYaw, double destYaw) { //overriding
         return AngleToDirection(currentYaw, destYaw, 5);
     }
-    public static ArrayList<Float> AngleToDirection(double currentYaw, double destYaw, int precision) {
+    public static ArrayList<Float> AngleToDirection(double currentYaw, double destYaw, int precision) { //Gives motor instructions for a current and dest yaw
         ArrayList<Float> directions = new ArrayList<Float>();
 
         float driveSpeed = 0.5f;
 
-        if((currentYaw > scaleToAngle(destYaw - precision)) && currentYaw < scaleToAngle(destYaw + precision)) {
+        if((currentYaw > scaleToAngle(destYaw - precision)) && currentYaw < scaleToAngle(destYaw + precision)) { //if done, make 0. Check for this in your controller!
             directions.add(0f);
             directions.add(0f);
         }
