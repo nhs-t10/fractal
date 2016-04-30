@@ -29,13 +29,9 @@ public class ControlParser {
     private static ArrayList<Boolean> getButtonResult(int gamepadid, String control) {
         ArrayList<Boolean> results = new ArrayList<Boolean>();
 
-        Gamepad gamepad = gamepad1;
+        Gamepad gamepad;
 
-        if(gamepadid == 1) {
-            gamepad = gamepad1;
-        } else if(gamepadid == 2){
-            gamepad = gamepad2;
-        }
+        gamepad = (gamepadid == 1 ? gamepad1 : gamepad2);
 
         if(control.equals("A")) {
             results.add(gamepad.a);
@@ -80,13 +76,9 @@ public class ControlParser {
     private static ArrayList<Float> getRangeResult(int gamepadid, String control) {
         ArrayList<Float> results = new ArrayList<Float>();
 
-        Gamepad gamepad = gamepad1;
+        Gamepad gamepad;
 
-        if(gamepadid == 1) {
-            gamepad = gamepad1;
-        } else if(gamepadid == 2){
-            gamepad = gamepad2;
-        }
+        gamepad = (gamepadid == 1 ? gamepad1 : gamepad2);
 
         if(control.equals("LT")) {
             results.add(gamepad.left_trigger);
@@ -110,8 +102,6 @@ public class ControlParser {
     public static ArrayList<Float> range(String controlString) { //"LS1"
         ArrayList<Float> results = new ArrayList<Float>();
         List<String> query = new ArrayList<String>(Arrays.asList(controlString.split(""))); //["L", "S", "1"]
-        System.out.println("--------------------------------------->" + query + " len: " + query.size() + " last:" + query.get(query.size() - 1));
-        Logger.logLine("Yes");
         String gnum = query.get(query.size() - 1); //"1"
         query.remove(query.size() - 1); //["L", "S"]
 
@@ -124,10 +114,7 @@ public class ControlParser {
             control += query.get(i);
         }
 
-        if(shiftCheck) results.addAll(getRangeResult(gamepad, shift)); //[true]
         results.addAll(getRangeResult(gamepad, control)); //[true, true]
-        //results.add(0.0f);
-        //results.add(1.0f);
 
         return results;
     }
@@ -147,6 +134,7 @@ public class ControlParser {
             control += query.get(i);
         }
 
+        if(shiftCheck) results.addAll(getButtonResult(gamepad, shift)); //[true]
         results.addAll(getButtonResult(gamepad, control)); //[true, true]
 
         return results;
