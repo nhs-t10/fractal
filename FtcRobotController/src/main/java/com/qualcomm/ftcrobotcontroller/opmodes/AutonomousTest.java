@@ -9,7 +9,7 @@ import com.qualcomm.ftcrobotcontroller.organs.TreadDrivetrain;
 public class AutonomousTest extends T10Autonomous {
     public void registration()  {
         TreadDrivetrain tdt = new TreadDrivetrain();
-        OneStickDrive.init(tdt);
-        //registerController(OneStickDrive);
+        OneStickDrive osd = new OneStickDrive(tdt);
+        registerController(osd);
     }
 }

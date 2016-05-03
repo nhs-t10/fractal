@@ -13,12 +13,14 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
  * Created by Admin on 4/19/2016.
  */
 public class StickDrive extends T10Opmode {
+    private OneStickDrive osd;
+
     public void run()  {
         TreadDrivetrain tdt = new TreadDrivetrain();
-        OneStickDrive.init(tdt);
+        osd = new OneStickDrive(tdt);
     }
 
     public void tick() {
-        OneStickDrive.tick();
+        osd.tick();
     }
 }
