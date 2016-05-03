@@ -1,5 +1,6 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
+import com.qualcomm.ftcrobotcontroller.controllers.Controller;
 import com.qualcomm.ftcrobotcontroller.debug.Logger;
 import com.qualcomm.ftcrobotcontroller.statics.ControlParser;
 import com.qualcomm.ftcrobotcontroller.statics.Controls;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
  * Created by Admin on 4/19/2016.
  */
 public abstract class T10Autonomous extends OpMode {
-    private ArrayList<Object> queue = new ArrayList<Object>(); //must be fixed so we can call .tick() on any static controller
+    private ArrayList<Controller> queue = new ArrayList<Controller>(); //must be fixed so we can call .tick() on any static controller
 
     private int index = 0;
 
@@ -27,18 +28,17 @@ public abstract class T10Autonomous extends OpMode {
     }
 
     public final void loop() {
-        /*
         boolean complete = queue.get(index).tick();
         if(complete) {
             Logger.logLine("Task complete: " + index);
             index++;
-        }*/
+        }
     }
 
     /**
     * Called by the child to register a controller into the queueing system
     */
-    public void registerController(Object ctrl) {
+    public void registerController(Controller ctrl) {
         queue.add(ctrl);
     }
 
