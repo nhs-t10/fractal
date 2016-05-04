@@ -24,7 +24,6 @@ public abstract class T10Autonomous extends OpMode {
 
     public final void initStatics() {
         Hardware.init(hardwareMap);
-        ControlParser.init(gamepad1, gamepad2, Controls.Shift);
         Logger.init(telemetry);
     }
 

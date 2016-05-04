@@ -1,6 +1,6 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
-import com.qualcomm.ftcrobotcontroller.controllers.OneStickDrive;
+import com.qualcomm.ftcrobotcontroller.controllers.teleop.OneStickDrive;
 import com.qualcomm.ftcrobotcontroller.organs.TreadDrivetrain;
 
 /**

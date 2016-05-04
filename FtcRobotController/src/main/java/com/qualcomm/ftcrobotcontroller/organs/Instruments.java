@@ -22,7 +22,7 @@ public class Instruments {
     public Color color = new Color();
     public double distance;
     public double yaw;
-
+    //TODO: make a cycle
     private void tick() {
         color.red = colorsensor.red();
         color.green = colorsensor.green();
