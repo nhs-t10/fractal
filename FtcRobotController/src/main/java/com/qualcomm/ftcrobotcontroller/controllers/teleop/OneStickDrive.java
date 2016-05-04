@@ -1,5 +1,6 @@
-package com.qualcomm.ftcrobotcontroller.controllers;
+package com.qualcomm.ftcrobotcontroller.controllers.teleop;
 
+import com.qualcomm.ftcrobotcontroller.controllers.Controller;
 import com.qualcomm.ftcrobotcontroller.debug.Logger;
 import com.qualcomm.ftcrobotcontroller.neurons.HumanDriving;
 import com.qualcomm.ftcrobotcontroller.organs.DriveTrain;
