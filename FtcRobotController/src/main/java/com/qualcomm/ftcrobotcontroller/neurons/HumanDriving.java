@@ -57,4 +57,15 @@ public class HumanDriving {
 
         return directions;
     }
+    public static enum Direction {FORWARD, REVERSE, LEFT, RIGHT, NONE};
+    public static Direction joyDirection(ArrayList<Float> joyValues) {
+        float threshold = 0.2f;
+        float x = joyValues.get(0);
+        float y = joyValues.get(1);
+        if(x > threshold) return Direction.RIGHT;
+        else if(0 - threshold > x) return Direction.LEFT;
+        else if(y > threshold) return Direction.FORWARD;
+        else if(0 - threshold > y) return Direction.REVERSE;
+        return Direction.NONE;
+    }
 }
