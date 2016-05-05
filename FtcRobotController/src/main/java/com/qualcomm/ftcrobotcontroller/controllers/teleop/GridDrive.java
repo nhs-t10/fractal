@@ -12,6 +12,9 @@ import java.util.ArrayList;
 
 /**
  * Created by max on 5/5/16.
+ *
+ * Play the robot like pacman! Left/right joy turns robot 90 degrees,
+ * top/bottom forward/reverse
  */
 public class GridDrive implements Controller {
     private DriveTrain drivetrain;
