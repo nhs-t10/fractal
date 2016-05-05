@@ -1,13 +1,15 @@
 package com.qualcomm.ftcrobotcontroller.tissues;
 
 import com.qualcomm.ftcrobotcontroller.debug.Component;
+import com.qualcomm.ftcrobotcontroller.debug.Logger;
 import com.qualcomm.robotcore.hardware.AnalogInput;
 
 /**
  * Created by max on 4/17/16.
  */
-public class TUltra implements Component {
+public class TUltra extends Component {
     private AnalogInput ultrasonic;
+    public String name = "Ultrasonic";
 
     public TUltra(AnalogInput u) {
         ultrasonic = u;
@@ -17,7 +19,8 @@ public class TUltra implements Component {
         return ultrasonic.getValue();
     }
 
-    public String test() {
-        return "Distance: " + this.distance();
+    public Boolean test() {
+        Logger.logLine("distance: " + this.distance());
+        return true;
     }
 }

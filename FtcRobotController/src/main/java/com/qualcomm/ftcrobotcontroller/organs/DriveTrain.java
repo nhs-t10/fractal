@@ -1,9 +1,13 @@
 package com.qualcomm.ftcrobotcontroller.organs;
 
+import com.qualcomm.ftcrobotcontroller.debug.Component;
+import com.qualcomm.ftcrobotcontroller.utils.Sleep;
+
 /**
  * Created by Admin on 4/17/2016.
  */
-public abstract class DriveTrain {
+public abstract class DriveTrain extends Component {
+    public String name = "Drive Train";
     public abstract void drive(float left, float right);
 
     public void goForward(float pwr) {
@@ -20,5 +24,14 @@ public abstract class DriveTrain {
 
     public void stop() {
         drive(0.0f, 0.0f);
+    }
+    public Boolean test() {
+        this.goForward(0.5f);
+        Sleep.secs(2);
+        this.stop();
+        this.turn(-0.5f);
+        Sleep.secs(2);
+        this.stop();
+        return true;
     }
 }

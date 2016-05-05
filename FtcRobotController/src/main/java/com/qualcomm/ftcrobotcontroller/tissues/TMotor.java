@@ -5,8 +5,9 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 /**
  * Created by robotics on 4/12/16.
  */
-public class TMotor implements Component {
+public class TMotor extends Component {
     private DcMotor motor;
+    public String name = "Motor";
     public TMotor(DcMotor m) {
         motor = m;
     }
@@ -19,11 +20,11 @@ public class TMotor implements Component {
     public void stop() {
         motor.setPower(0);
     }
-    public String test() {
+    public Boolean test() {
         this.move(0.5f);
         Sleep.secs(2);
         this.stop();
-        return "Motor: " + motor.getConnectionInfo();
+        return true;
     }
 }
 

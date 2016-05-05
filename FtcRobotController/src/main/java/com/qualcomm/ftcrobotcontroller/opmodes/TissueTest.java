@@ -46,12 +46,12 @@ public class TissueTest extends LinearOpMode {
       waitForStart();
 
       TMotor mymotor = new TMotor(Hardware.MotorLeftRear);
-      Logger.logLine(mymotor.test());
+      Logger.logLine((mymotor.test() ? "yes" : "no"));
 
       TServo myservo = new TServo(Hardware.ServoTop);
-      Logger.logLine(myservo.test());
+      Logger.logLine((myservo.test() ? "yes" : "no"));
 
       TIMU myimu = new TIMU(Hardware.IMU);
-      Logger.logLine(myimu.test());
+      Logger.logLine((myimu.test() ? "yes" : "no"));
   }
 }

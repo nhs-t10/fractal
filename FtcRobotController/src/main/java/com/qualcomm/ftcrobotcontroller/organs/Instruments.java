@@ -1,5 +1,6 @@
 package com.qualcomm.ftcrobotcontroller.organs;
 
+import com.qualcomm.ftcrobotcontroller.debug.Component;
 import com.qualcomm.ftcrobotcontroller.statics.Hardware;
 import com.qualcomm.ftcrobotcontroller.tissues.TColor;
 import com.qualcomm.ftcrobotcontroller.tissues.TIMU;
@@ -11,10 +12,12 @@ import com.qualcomm.ftcrobotcontroller.tissues.TUltra;
  * Represents the sensor array on the robot. Acts as an asynchronous state container for sensor values to prevent over-polling.
  * Could also manipulate motor mounted sensors.
  */
-public class Instruments {
+public class Instruments extends Component {
     private TColor colorsensor;
     private TUltra ultrasensor;
     private TIMU imusensor;
+
+    public String name = "Instruments";
 
     private class Color {
         public int red, green, blue;
@@ -38,5 +41,10 @@ public class Instruments {
         ultrasensor = new TUltra(Hardware.Ultra);
         imusensor = new TIMU(Hardware.IMU);
         beginCycle();
+    }
+
+    public Boolean test() {
+        this.tick();
+        return true;
     }
 }
