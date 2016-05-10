@@ -48,6 +48,6 @@ public class FtcOpModeRegister implements OpModeRegister {
   public void register(OpModeManager manager) {
     manager.register("TissueTest", TissueTest.class);
     manager.register("StickDrive", StickDrive.class);
-      manager.register("LoggerTest", LoggerTest.class);
+    manager.register("Tester", Tester.class);
   }
 }

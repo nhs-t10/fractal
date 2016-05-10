@@ -6,8 +6,9 @@ import com.qualcomm.robotcore.hardware.Servo;
 /**
  * Created by max on 4/17/16.
  */
-public class TServo implements Component {
+public class TServo extends Component {
     private Servo servo;
+    public String name = "Servo";
     public TServo(Servo s) {
         servo = s;
     }
@@ -17,10 +18,10 @@ public class TServo implements Component {
     public void moveTo(double pos) {
         servo.setPosition(pos);
     }
-    public String test() {
+    public Boolean test() {
         this.moveTo(0.1);
         this.moveTo(0.5);
-        return "success" + servo.getConnectionInfo();
+        return true;
     }
 }
 

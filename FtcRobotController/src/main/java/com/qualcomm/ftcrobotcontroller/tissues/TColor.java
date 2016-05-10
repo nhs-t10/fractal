@@ -1,13 +1,16 @@
 package com.qualcomm.ftcrobotcontroller.tissues;
 
 import com.qualcomm.ftcrobotcontroller.debug.Component;
+import com.qualcomm.ftcrobotcontroller.debug.Logger;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 
 /**
  * Created by max on 4/17/16.
  */
-public class TColor implements Component {
+public class TColor extends Component {
     private ColorSensor colorsensor;
+
+    public String name = "Color";
 
     private int offsetRed, offsetGreen, offsetBlue, offsetAlpha;
     private int threshold = 50;
@@ -54,8 +57,9 @@ public class TColor implements Component {
         offsetAlpha = colorsensor.alpha();
     }
 
-    public String test() {
-        return colorsensor.getConnectionInfo() + " r:" + this.red() + " g:" + this.green() + " b:" + this.blue();
+    public Boolean test() {
+        Logger.logLine(colorsensor.getConnectionInfo() + " r:" + this.red() + " g:" + this.green() + " b:" + this.blue());
+        return true;
     }
 
 }

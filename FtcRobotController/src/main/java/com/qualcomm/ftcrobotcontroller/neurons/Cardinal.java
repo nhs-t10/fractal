@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Created by max on 4/30/16.
  *
- * IMU related activities
+ * Yaw-related calculations
  */
 public class Cardinal {
     private static double scaleToAngle(double val) { //make values over/under 0-360 normalized

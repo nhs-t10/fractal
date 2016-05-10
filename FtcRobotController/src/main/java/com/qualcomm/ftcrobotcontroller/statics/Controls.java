@@ -6,4 +6,5 @@ package com.qualcomm.ftcrobotcontroller.statics;
 public class Controls {
     public static String Shift = "B";
     public static String JoyDrive = "LS1";
+    public static String GridDrive = "LS1";
 }

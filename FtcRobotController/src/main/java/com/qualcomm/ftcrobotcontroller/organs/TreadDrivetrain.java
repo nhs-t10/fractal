@@ -9,7 +9,7 @@ import com.qualcomm.ftcrobotcontroller.utils.Sleep;
 /**
  * Created by max on 4/17/16.
  */
-public class TreadDrivetrain extends DriveTrain implements Component {
+public class TreadDrivetrain extends DriveTrain {
     private TMotor leftRear, leftFront, rightRear, rightFront;
     public TreadDrivetrain() {
         leftRear = new TMotor(Hardware.MotorLeftRear);
@@ -32,15 +32,5 @@ public class TreadDrivetrain extends DriveTrain implements Component {
         left = (float)Range.clip(left, -1.0, 1.0);
 
         this.driveQuad(left, left, right, right);
-    }
-
-    public String test() {
-        this.goForward(0.5f);
-        Sleep.secs(2);
-        this.stop();
-        this.turn(-0.5f);
-        Sleep.secs(2);
-        this.stop();
-        return "Driving test complete.";
     }
 }
