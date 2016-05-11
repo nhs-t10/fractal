@@ -16,6 +16,8 @@ import java.util.Map;
  * Could also manipulate motor mounted sensors.
  */
 public class Instruments extends Thread {
+    private static final long NANOS_PER_MILLI = 1000000L;
+
     //Sensors
     private TColor colorsensor;
     private TUltra ultrasensor;
@@ -34,6 +36,7 @@ public class Instruments extends Thread {
     public double yaw = -1;
 
     private boolean gatherData;
+    private long tickInterval;
 
     public Instruments() {
         /*colorsensor = new TColor(Hardware.Color);
@@ -41,14 +44,25 @@ public class Instruments extends Thread {
         imusensor = new TIMU(Hardware.IMU);
 
         gatherData = false;
+        tickInterval = 100 * NANOS_PER_MILLI;
+    }
+
+    public void setTickInterval(int millis) {
+        tickInterval = millis* NANOS_PER_MILLI;
     }
 
 
     @Override
     public void run() {
         gatherData = true;
+
+        long initialTime = System.nanoTime();
+
         while(gatherData) {
-            tick();
+            if(System.nanoTime() - initialTime > tickInterval) {
+                tick();
+                initialTime = System.nanoTime();
+            }
         }
     }
 
