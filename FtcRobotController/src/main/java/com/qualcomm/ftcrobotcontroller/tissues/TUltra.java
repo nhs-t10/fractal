@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.AnalogInput;
 /**
  * Created by max on 4/17/16.
  */
-public class TUltra extends Component {
+public class TUltra implements Component {
     private AnalogInput ultrasonic;
     public String name = "Ultrasonic";
 
@@ -15,6 +15,10 @@ public class TUltra extends Component {
         ultrasonic = u;
     }
 
+    /**
+     * Gets the value being returned by the ultrasonic.
+     * @return value read from sensor
+     */
     public double distance() {
         return ultrasonic.getValue();
     }

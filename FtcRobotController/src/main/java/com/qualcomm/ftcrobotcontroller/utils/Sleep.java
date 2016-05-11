@@ -11,9 +11,19 @@ public class Sleep {
             err.printStackTrace();
         }
     }
+
+    /**
+     * Performs a thread sleep for a given amount of seconds.
+     * @param length
+     */
     public static void secs(double length) {
         sleep((long) length * 1000);
     }
+
+    /**
+     * Performs a thread sleep for a given amount of milliseconds.
+     * @param length
+     */
     public static void ms(int length) {
         sleep((long) length);
     }

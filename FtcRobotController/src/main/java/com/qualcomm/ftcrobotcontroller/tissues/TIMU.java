@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.exception.RobotCoreException;
 /**
  * Created by max on 4/17/16.
  */
-public class TIMU extends Component {
+public class TIMU implements Component {
     private AdafruitIMU imu;
     public String name = "IMU";
     volatile double[] rollAngle = new double[2], pitchAngle = new double[2], yawAngle = new double[2];
@@ -28,16 +28,28 @@ public class TIMU extends Component {
         }
     }
 
+    /**
+     * Gets the yaw of the IMU
+     * @return yaw value read by the IMU
+     */
     public double getYaw() {
         imu.getIMUGyroAngles(rollAngle, pitchAngle, yawAngle);
         return 180 + yawAngle[0];
     }
 
+    /**
+     * Gets the roll of the IMU
+     * @return roll value read by the IMU
+     */
     public double getRoll() {
         imu.getIMUGyroAngles(rollAngle, pitchAngle, yawAngle);
         return 180 + rollAngle[0];
     }
 
+    /**
+     * Gets the pitch of the IMU
+     * @return pitch value read by the IMU
+     */
     public double getPitch() {
         imu.getIMUGyroAngles(rollAngle, pitchAngle, yawAngle);
         return 180 + pitchAngle[0];
