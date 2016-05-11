@@ -33,6 +33,6 @@ public class Tester extends LinearOpMode {
 
         ArrayList<Component> tests = new ArrayList<Component>();
         tests.add(new TreadDrivetrain());
-        tests.add(new Instruments());
+        //tests.add(new Instruments());
     }
 }

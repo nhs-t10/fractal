@@ -1,5 +1,6 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
+import com.qualcomm.ftcrobotcontroller.controllers.TeleSensors;
 import com.qualcomm.ftcrobotcontroller.controllers.teleop.OneStickDrive;
 import com.qualcomm.ftcrobotcontroller.organs.TreadDrivetrain;
 
@@ -8,13 +9,16 @@ import com.qualcomm.ftcrobotcontroller.organs.TreadDrivetrain;
  */
 public class StickDrive extends T10Opmode {
     private OneStickDrive osd;
+    private TeleSensors ts;
 
     public void run()  {
         TreadDrivetrain tdt = new TreadDrivetrain();
         osd = new OneStickDrive(tdt);
+        ts = new TeleSensors();
     }
 
     public void tick() {
         osd.tick();
+        ts.tick();
     }
 }
