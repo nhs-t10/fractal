@@ -30,9 +30,8 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. */
 
 package com.qualcomm.ftcrobotcontroller.opmodes;
-
-import com.qualcomm.ftcrobotcontroller.controllers.teleop.GridDrive;
 import com.qualcomm.ftcrobotcontroller.opmodes.tests.AutonomousTest;
+import com.qualcomm.ftcrobotcontroller.opmodes.tests.Grid;
 import com.qualcomm.ftcrobotcontroller.opmodes.tests.StickDrive;
 import com.qualcomm.robotcore.eventloop.opmode.OpModeManager;
 import com.qualcomm.robotcore.eventloop.opmode.OpModeRegister;
@@ -50,8 +49,9 @@ public class FtcOpModeRegister implements OpModeRegister {
    */
   public void register(OpModeManager manager) {
     manager.register("Stick Drive", StickDrive.class);
-    manager.register("Grid Drive", GridDrive.class);
+    manager.register("Grid Drive", Grid.class);
     manager.register("Tester", Tester.class);
+    manager.register("Tester", ControllerTester.class);
     manager.register("Autonomous", AutonomousTest.class);
   }
 }

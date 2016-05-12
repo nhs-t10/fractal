@@ -11,7 +11,7 @@ import java.util.Arrays;
  */
 public class Logger {
     private static Telemetry telemetry;
-    private static ArrayList<String> lines = new ArrayList<String>(Arrays.asList("", "", ""));
+    private static ArrayList<String> lines = new ArrayList<String>(Arrays.asList("", "", "", "", ""));
     private static int mode = 1;
 
     public static void init(Telemetry t) {

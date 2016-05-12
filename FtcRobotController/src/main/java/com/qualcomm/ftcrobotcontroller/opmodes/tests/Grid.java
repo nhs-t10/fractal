@@ -16,6 +16,7 @@ public class Grid extends T10Opmode {
     public void run()  {
         QuadDrivetrain tdt = new QuadDrivetrain();
         Instruments instruments = new Instruments();
+        instruments.start();
         gd = new GridDrive(tdt, instruments);
     }
 
