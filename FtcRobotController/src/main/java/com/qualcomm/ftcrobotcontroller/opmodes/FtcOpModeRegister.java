@@ -31,6 +31,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. */
 
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
+import com.qualcomm.ftcrobotcontroller.controllers.teleop.GridDrive;
+import com.qualcomm.ftcrobotcontroller.opmodes.tests.AutonomousTest;
+import com.qualcomm.ftcrobotcontroller.opmodes.tests.StickDrive;
 import com.qualcomm.robotcore.eventloop.opmode.OpModeManager;
 import com.qualcomm.robotcore.eventloop.opmode.OpModeRegister;
 
@@ -46,8 +49,9 @@ public class FtcOpModeRegister implements OpModeRegister {
    * @param manager op mode manager
    */
   public void register(OpModeManager manager) {
-    manager.register("StickDrive", StickDrive.class);
+    manager.register("Stick Drive", StickDrive.class);
+    manager.register("Grid Drive", GridDrive.class);
     manager.register("Tester", Tester.class);
-    manager.register("Autonomius", AutonomousTest.class);
+    manager.register("Autonomous", AutonomousTest.class);
   }
 }

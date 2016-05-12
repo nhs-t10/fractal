@@ -1,6 +1,7 @@
-package com.qualcomm.ftcrobotcontroller.opmodes;
+package com.qualcomm.ftcrobotcontroller.opmodes.tests;
 
 import com.qualcomm.ftcrobotcontroller.controllers.autonomous.GoToWall;
+import com.qualcomm.ftcrobotcontroller.opmodes.T10Autonomous;
 import com.qualcomm.ftcrobotcontroller.organs.Instruments;
 import com.qualcomm.ftcrobotcontroller.organs.QuadDrivetrain;
 import com.qualcomm.ftcrobotcontroller.organs.TreadDrivetrain;
