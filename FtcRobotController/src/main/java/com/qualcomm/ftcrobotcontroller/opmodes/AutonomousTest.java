@@ -12,7 +12,7 @@ public class AutonomousTest extends T10Autonomous {
     public void registration()  {
         QuadDrivetrain tdt = new QuadDrivetrain();
         Instruments instruments = new Instruments();
-
+        instruments.start();
         GoToWall gtw = new GoToWall(tdt, instruments);
         registerController(gtw);
     }

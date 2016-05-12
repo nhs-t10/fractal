@@ -34,6 +34,9 @@ public class Tester extends LinearOpMode {
 
         ArrayList<Component> tests = new ArrayList<Component>();
         tests.add(new QuadDrivetrain());
-        //tests.add(new Instruments());
+
+        for(int i=0; i<tests.size(); i++) {
+            testComponent(tests.get(i));
+        }
     }
 }
