@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 /**
  * Created by max on 5/5/16.
+ * Tests organs/tissues sequentially and indicates their success
  */
 public class Tester extends LinearOpMode {
     private void testComponent(Component c) {

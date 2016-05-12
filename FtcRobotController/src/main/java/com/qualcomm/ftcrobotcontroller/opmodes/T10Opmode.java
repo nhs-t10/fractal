@@ -9,6 +9,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
 /**
  * Created by Admin on 4/19/2016.
+ * Generic ticking opmode
  */
 public abstract class T10Opmode extends OpMode {
     public final void init() {

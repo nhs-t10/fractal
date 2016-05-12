@@ -11,6 +11,8 @@ import java.util.ArrayList;
 
 /**
  * Created by Admin on 4/19/2016.
+ *
+ * Sequential autonomous controller-ticker
  */
 public abstract class T10Autonomous extends OpMode {
     private ArrayList<Controller> queue = new ArrayList<Controller>(); //must be fixed so we can call .tick() on any static controller
