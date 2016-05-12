@@ -11,6 +11,7 @@ import com.qualcomm.robotcore.util.Range;
  */
 public class TwoWheelDriveTrain extends DriveTrain {
     private TMotor leftWheel, rightWheel;
+    public String getName(){return "Two Wheel Drive Train";}
     public TwoWheelDriveTrain() {
         leftWheel = new TMotor(Hardware.MotorLeftFront);
         rightWheel = new TMotor(Hardware.MotorRightFront);

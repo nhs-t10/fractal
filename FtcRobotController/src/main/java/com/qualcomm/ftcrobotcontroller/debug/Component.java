@@ -4,8 +4,8 @@ package com.qualcomm.ftcrobotcontroller.debug;
  * Created by Admin on 4/17/2016.
  */
 public interface Component {
-    //temporary var to fix syntax errors
-    public String name = "";
+
+    public abstract String getName();
 
     /**
      * Provides a basic test for the component

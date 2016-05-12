@@ -3,6 +3,7 @@ package com.qualcomm.ftcrobotcontroller.opmodes;
 import com.qualcomm.ftcrobotcontroller.debug.Component;
 import com.qualcomm.ftcrobotcontroller.debug.Logger;
 import com.qualcomm.ftcrobotcontroller.organs.Instruments;
+import com.qualcomm.ftcrobotcontroller.organs.QuadDrivetrain;
 import com.qualcomm.ftcrobotcontroller.organs.TreadDrivetrain;
 import com.qualcomm.ftcrobotcontroller.statics.Hardware;
 import com.qualcomm.ftcrobotcontroller.tissues.TIMU;
@@ -19,10 +20,10 @@ public class Tester extends LinearOpMode {
     private void testComponent(Component c) {
         try {
             Boolean success = c.test();
-            Logger.logLine((success ? "[✓] " : "[×] ") + c.name);
+            Logger.logLine((success ? "[✓] " : "[×] ") + c.getName());
         }
         catch(Error error) {
-            Logger.logLine("[×] " + c.name + " " + error.toString());
+            Logger.logLine("[×] " + c.getName() + " " + error.toString());
         }
     }
     @Override
@@ -32,7 +33,7 @@ public class Tester extends LinearOpMode {
         waitForStart();
 
         ArrayList<Component> tests = new ArrayList<Component>();
-        tests.add(new TreadDrivetrain());
+        tests.add(new QuadDrivetrain());
         //tests.add(new Instruments());
     }
 }

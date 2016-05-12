@@ -11,7 +11,7 @@ import com.qualcomm.robotcore.exception.RobotCoreException;
  */
 public class TIMU implements Component {
     private AdafruitIMU imu;
-    public String name = "IMU";
+    public String getName(){return "IMU";}
     volatile double[] rollAngle = new double[2], pitchAngle = new double[2], yawAngle = new double[2];
 
     public TIMU(String map) {

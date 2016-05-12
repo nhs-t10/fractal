@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
  */
 public class TMotor implements Component {
     private DcMotor motor;
-    public String name = "Motor";
+    public String getName(){return  "Motor";}
     public TMotor(DcMotor m) {
         motor = m;
     }

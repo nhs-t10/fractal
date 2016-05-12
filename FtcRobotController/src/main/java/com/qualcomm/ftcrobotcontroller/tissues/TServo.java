@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.hardware.Servo;
  */
 public class TServo implements Component {
     private Servo servo;
-    public String name = "Servo";
+    public String getName(){return "Servo";}
     public TServo(Servo s) {
         servo = s;
     }

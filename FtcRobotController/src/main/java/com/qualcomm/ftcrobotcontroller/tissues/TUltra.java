@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.hardware.AnalogInput;
  */
 public class TUltra implements Component {
     private AnalogInput ultrasonic;
-    public String name = "Ultrasonic";
+    public String getName(){return "Ultrasonic";}
 
     public TUltra(AnalogInput u) {
         ultrasonic = u;

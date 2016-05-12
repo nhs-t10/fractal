@@ -7,7 +7,7 @@ import com.qualcomm.ftcrobotcontroller.utils.Sleep;
  * Created by Admin on 4/17/2016.
  */
 public abstract class DriveTrain implements Component {
-    public String name = "Drive Train";
+    public String getName(){return "Drive Train";}
     public abstract void drive(float left, float right);
 
     public void goForward(float pwr) {

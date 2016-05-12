@@ -10,7 +10,7 @@ import com.qualcomm.robotcore.hardware.ColorSensor;
 public class TColor implements Component {
     private ColorSensor colorsensor;
 
-    public String name = "Color";
+    public String getName(){return "Color";}
 
     private int offsetRed, offsetGreen, offsetBlue, offsetAlpha;
     private int threshold = 50;
