@@ -7,9 +7,9 @@ Please check the [wiki](https://github.com/nhs-t10/fractal/wiki) to learn the co
 
 ##Setup
 
-1. On your [git bash][Git], go to the directory you want this repo to be saved in and type ```git clone https://github.com/nhs-t10/Fractal.git```.
-2. In [Android Studio][Studio], open ```[your directory]/Fractal```.
-3. In the project, locate ```\FtcRobotController\src\main\java\com\qualcomm\ftcrobotcontroller\opmodes``` and run ```NullOp.java```.
+1. On your [git bash][Git], go to the directory you want this repo to be saved in and type ```git clone https://github.com/nhs-t10/fractal.git```.
+2. In [Android Studio][Studio], open ```[your directory]/fractal```.
+3. In the project, locate ```/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes``` and run ```NullOp.java```.
 4. If you set up the repository properly, you should see a window prompting you to choose a device. If not, see [common errors](https://github.com/nhs-t10/Fractal#common-errors) or google search your error.
 
 ##Common Errors
