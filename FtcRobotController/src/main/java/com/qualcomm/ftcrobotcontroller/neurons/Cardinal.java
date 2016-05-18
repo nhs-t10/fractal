@@ -24,12 +24,12 @@ public class Cardinal {
         return scaleToAngle(a + b);
     }
     public static ArrayList<Float> AngleToDirection(double currentYaw, double destYaw) { //overriding
-        return AngleToDirection(currentYaw, destYaw, 5);
+        return AngleToDirection(currentYaw, destYaw, 7);
     }
     public static ArrayList<Float> AngleToDirection(double currentYaw, double destYaw, int precision) { //Gives motor instructions for a current and dest yaw
         ArrayList<Float> directions = new ArrayList<Float>();
 
-        float driveSpeed = 0.5f;
+        float driveSpeed = 0.2f;
 
         if((currentYaw > scaleToAngle(destYaw - precision)) && currentYaw < scaleToAngle(destYaw + precision)) { //if done, make 0. Check for this in your controller!
             directions.add(0f);

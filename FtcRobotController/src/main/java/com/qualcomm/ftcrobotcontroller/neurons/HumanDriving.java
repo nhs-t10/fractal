@@ -57,7 +57,23 @@ public class HumanDriving {
 
         return directions;
     }
-    public static enum Direction {FORWARD, REVERSE, LEFT, RIGHT, NONE};
+    public static enum Direction {
+        //FORWARD("forward"), REVERSE("backward"), LEFT("leeft"), RIGHT("right"), NONE;
+        FORWARD, REVERSE, LEFT, RIGHT, NONE;
+        /*private String text;
+
+        Direction() {
+            text = "null";
+        }
+
+        Direction(String t) {
+            text = t;
+        }
+
+        public String toString() {
+            return text;
+        }*/
+    };
     public static Direction joyDirection(ArrayList<Float> joyValues) {
         float threshold = 0.2f;
         float x = joyValues.get(0);
