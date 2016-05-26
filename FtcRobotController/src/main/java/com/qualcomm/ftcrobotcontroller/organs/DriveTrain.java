@@ -19,7 +19,7 @@ public abstract class DriveTrain implements Component {
      * @param pwr power used for turn
      */
     public void turn(float pwr) {
-        drive(-pwr, pwr);
+        drive(pwr, -pwr);
     }
 
     public void stop() {

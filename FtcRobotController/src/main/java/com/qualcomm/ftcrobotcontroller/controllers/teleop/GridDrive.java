@@ -52,16 +52,13 @@ public class GridDrive implements Controller {
                 direction == HumanDriving.Direction.RIGHT) && !debounce) {
             debounce = true;
             increment(dir);
-            ArrayList<Float> powers = Cardinal.AngleToDirection(instruments.yaw,
-                    angles[index]);
+            ArrayList<Float> powers = Cardinal.AngleToDirection(instruments.yaw, angles[index]);
             drivetrain.drive(powers.get(0), powers.get(1));
-
         }
 
         else if(direction == HumanDriving.Direction.NONE) {
             debounce = false;
-            ArrayList<Float> powers = Cardinal.AngleToDirection(instruments.yaw,
-                    angles[index]);
+            ArrayList<Float> powers = Cardinal.AngleToDirection(instruments.yaw, angles[index]);
             drivetrain.drive(powers.get(0), powers.get(1));
         }
         Logger.logLine("Yaw: " + instruments.yaw + " dest: " + angles[index] + "HELLo");
