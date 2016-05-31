@@ -121,7 +121,7 @@ public class ControlParser {
 
     public static ArrayList<Boolean> button(String controlString) { //"^A1"
         ArrayList<Boolean> results = new ArrayList<Boolean>();
-        List<String> query = Arrays.asList(controlString.split("")); //["^", "A", "1"]
+        List<String> query = new ArrayList<String>(Arrays.asList(controlString.split(""))); //["^", "A", "1"]
         String gnum = query.get(query.size() - 1); //"1"
         query.remove(query.size() - 1); //["^", "A"]
 
