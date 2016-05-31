@@ -1,8 +1,11 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
 import com.qualcomm.ftcrobotcontroller.controllers.Controller;
+import com.qualcomm.ftcrobotcontroller.controllers.teleop.GimbalBumpers;
 import com.qualcomm.ftcrobotcontroller.controllers.teleop.GridDrive;
+import com.qualcomm.ftcrobotcontroller.controllers.teleop.OneStickDrive;
 import com.qualcomm.ftcrobotcontroller.debug.Component;
+import com.qualcomm.ftcrobotcontroller.organs.Gimbal;
 import com.qualcomm.ftcrobotcontroller.organs.Instruments;
 import com.qualcomm.ftcrobotcontroller.organs.QuadDrivetrain;
 
@@ -21,9 +24,11 @@ public class ControllerTester extends T10Opmode {
         QuadDrivetrain tdt = new QuadDrivetrain();
         Instruments instruments = new Instruments();
         instruments.start();
+        Gimbal gimbal = new Gimbal();
 
         //add controllers here
-        tests.add(new GridDrive(tdt, instruments));
+        tests.add(new OneStickDrive(tdt));
+        tests.add(new GimbalBumpers(gimbal));
     }
 
     public void tick() {
