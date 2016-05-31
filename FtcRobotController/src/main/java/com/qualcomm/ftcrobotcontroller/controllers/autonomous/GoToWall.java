@@ -17,7 +17,7 @@ public class GoToWall implements Controller {
         instruments = i;
     }
     public boolean tick() {
-        if(Distance.isAtWall(instruments.distance)) {
+        if(instruments.distance <= Distance.WALL_DISTANCE) {
             drivetrain.stop();
             return true;
         }

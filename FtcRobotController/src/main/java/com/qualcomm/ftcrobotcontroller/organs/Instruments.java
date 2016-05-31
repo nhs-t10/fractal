@@ -39,12 +39,12 @@ public class Instruments extends Thread {
     private long tickInterval;
 
     public Instruments() {
-        /*colorsensor = new TColor(Hardware.Color);
-        ultrasensor = new TUltra(Hardware.Ultra);*/
+        //colorsensor = new TColor(Hardware.Color);
+        ultrasensor = new TUltra(Hardware.Ultra);
         imusensor = new TIMU(Hardware.IMU);
 
         gatherData = false;
-        tickInterval = 100 * NANOS_PER_MILLI;
+        tickInterval = 30 * NANOS_PER_MILLI;
     }
 
     /**
@@ -80,9 +80,9 @@ public class Instruments extends Thread {
         /*color.RED = colorsensor.red();
         color.BLUE = colorsensor.red();
         color.GREEN = colorsensor.red();
-        color.ALPHA = colorsensor.alpha();
+        color.ALPHA = colorsensor.alpha();*/
 
-        distance = ultrasensor.distance();*/
+        distance = ultrasensor.distance();
         yaw = imusensor.getYaw();
     }
 }

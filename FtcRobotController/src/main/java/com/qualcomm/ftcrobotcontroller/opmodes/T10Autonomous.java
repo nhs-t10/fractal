@@ -30,17 +30,20 @@ public abstract class T10Autonomous extends OpMode {
     }
 
     public final void loop() {
-        boolean complete = queue.get(index).tick();
-        if(complete) {
-            Logger.logLine("Task complete: " + index);
-            index++;
+        if(index < queue.size()) {
+            boolean complete = queue.get(index).tick();
+
+            if(complete) {
+                Logger.logLine("Task complete: " + index);
+                index++;
+            }
         }
     }
 
     /**
     * Called by the child to register a controller into the queueing system
     */
-    public void registerController(Controller ctrl) {
+    public final void registerController(Controller ctrl) {
         queue.add(ctrl);
     }
 
