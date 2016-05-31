@@ -15,8 +15,8 @@ public class GimbalBumpers implements Controller {
     }
     public boolean tick() {
         if(ControlParser.button(Controls.HorizontalGimbal).get(0)) {
-            gimbal.moveHorizontal(-0.25f);
-            gimbal.moveVertical(0.125f);
+            gimbal.moveHorizontal(-0.5f);
+            gimbal.moveVertical(0.25f);
         }
         else gimbal.stopHorizontal();
         if(ControlParser.button(Controls.VerticalGimbal).get(0)) gimbal.moveVertical(0.5f);
