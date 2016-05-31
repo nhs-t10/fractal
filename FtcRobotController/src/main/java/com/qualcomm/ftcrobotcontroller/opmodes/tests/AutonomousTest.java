@@ -11,7 +11,7 @@ import com.qualcomm.ftcrobotcontroller.organs.TreadDrivetrain;
  */
 public class AutonomousTest extends T10Autonomous {
     public void registration()  {
-        QuadDrivetrain tdt = new QuadDrivetrain();
+        TreadDrivetrain tdt = new TreadDrivetrain();
         Instruments instruments = new Instruments();
         instruments.start();
         GoToWall gtw = new GoToWall(tdt, instruments);
