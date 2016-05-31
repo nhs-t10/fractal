@@ -8,6 +8,7 @@ import com.qualcomm.ftcrobotcontroller.debug.Component;
 import com.qualcomm.ftcrobotcontroller.organs.Gimbal;
 import com.qualcomm.ftcrobotcontroller.organs.Instruments;
 import com.qualcomm.ftcrobotcontroller.organs.QuadDrivetrain;
+import com.qualcomm.ftcrobotcontroller.organs.TreadDrivetrain;
 
 import java.util.ArrayList;
 
@@ -21,7 +22,7 @@ public class ControllerTester extends T10Opmode {
 
     public void run()  {
         //add organs here
-        QuadDrivetrain tdt = new QuadDrivetrain();
+        TreadDrivetrain tdt = new TreadDrivetrain();
         Instruments instruments = new Instruments();
         instruments.start();
         Gimbal gimbal = new Gimbal();
