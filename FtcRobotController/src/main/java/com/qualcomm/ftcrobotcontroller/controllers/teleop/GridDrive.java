@@ -21,7 +21,7 @@ public class GridDrive implements Controller {
     private DriveTrain drivetrain;
     private Instruments instruments;
 
-    private int[] angles = {0, 90, 180, 270};
+    private int[] angles = {180, 270, 0, 90};
     private int index = 0;
     private boolean debounce = false; //prevent multiple increments (held down joy)
 
@@ -41,6 +41,7 @@ public class GridDrive implements Controller {
     public boolean tick() {
         ArrayList<Float> joyValues = ControlParser.range(Controls.GridDrive);
         HumanDriving.Direction direction = HumanDriving.joyDirection(joyValues);
+        double yaw = Cardinal.addAngle(instruments.yaw, 180);
 
         int dir = ((direction == HumanDriving.Direction.FORWARD ||
         direction == HumanDriving.Direction.RIGHT) ? 1 : -1);
@@ -52,16 +53,16 @@ public class GridDrive implements Controller {
                 direction == HumanDriving.Direction.RIGHT) && !debounce) {
             debounce = true;
             increment(dir);
-            ArrayList<Float> powers = Cardinal.AngleToDirection(instruments.yaw, angles[index]);
+            ArrayList<Float> powers = Cardinal.AngleToDirection(yaw, angles[index]);
             drivetrain.drive(powers.get(0), powers.get(1));
         }
 
         else if(direction == HumanDriving.Direction.NONE) {
             debounce = false;
-            ArrayList<Float> powers = Cardinal.AngleToDirection(instruments.yaw, angles[index]);
+            ArrayList<Float> powers = Cardinal.AngleToDirection(yaw, angles[index]);
             drivetrain.drive(powers.get(0), powers.get(1));
         }
-        Logger.logLine("Yaw: " + instruments.yaw + " dest: " + angles[index] + "HELLo");
+        Logger.logLine("Yaw: " + yaw + " dest: " + angles[index] + "HELLo");
         return false;
     }
 }
