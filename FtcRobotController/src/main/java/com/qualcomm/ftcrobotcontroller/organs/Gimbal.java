@@ -8,7 +8,7 @@ import com.qualcomm.ftcrobotcontroller.tissues.TMotor;
  * Created by robotics on 5/31/16.
  */
 public class Gimbal implements Component {
-    public String getName() {return "GimbalBumpers";}
+    public String getName() {return "Jonathan's 2 axis Gimbal";}
     public TMotor MHorizontal, MVertical;
     public Gimbal() {
         MHorizontal = new TMotor(Hardware.GimbalHorizontal);
