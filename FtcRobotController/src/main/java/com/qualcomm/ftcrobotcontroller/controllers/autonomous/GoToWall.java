@@ -17,13 +17,12 @@ public class GoToWall implements Controller {
         instruments = i;
     }
     public boolean tick() {
-        if(instruments.distance <= Distance.WALL_DISTANCE) {
+        if(Distance.isAtWall(instruments.distance)) {
             drivetrain.stop();
-            return true;
         }
         else {
             drivetrain.goForward(0.5f);
-            return false;
         }
+        return Distance.isAtWall(instruments.distance);
     }
 }
