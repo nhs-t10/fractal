@@ -1,6 +1,6 @@
 package com.qualcomm.ftcrobotcontroller.debug;
 
-import com.qualcomm.ftcrobotcontroller.utils.Sleep;
+import com.qualcomm.ftcrobotcontroller.lib.Sleep;
 import com.qualcomm.robotcore.robocol.Telemetry;
 
 import java.util.ArrayList;

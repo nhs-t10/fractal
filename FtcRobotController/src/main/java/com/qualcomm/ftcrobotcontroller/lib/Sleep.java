@@ -1,4 +1,4 @@
-package com.qualcomm.ftcrobotcontroller.utils;
+package com.qualcomm.ftcrobotcontroller.lib;
 
 /**
  * Created by max on 4/17/16.

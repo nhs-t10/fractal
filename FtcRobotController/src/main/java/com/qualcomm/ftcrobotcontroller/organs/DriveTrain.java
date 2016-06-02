@@ -1,7 +1,7 @@
 package com.qualcomm.ftcrobotcontroller.organs;
 
 import com.qualcomm.ftcrobotcontroller.debug.Component;
-import com.qualcomm.ftcrobotcontroller.utils.Sleep;
+import com.qualcomm.ftcrobotcontroller.lib.Sleep;
 
 /**
  * Created by Admin on 4/17/2016.

@@ -1,9 +1,7 @@
 package com.qualcomm.ftcrobotcontroller.organs;
 
-import com.qualcomm.ftcrobotcontroller.debug.Component;
 import com.qualcomm.ftcrobotcontroller.statics.Hardware;
 import com.qualcomm.ftcrobotcontroller.tissues.TMotor;
-import com.qualcomm.ftcrobotcontroller.utils.Sleep;
 import com.qualcomm.robotcore.util.Range;
 
 /**
