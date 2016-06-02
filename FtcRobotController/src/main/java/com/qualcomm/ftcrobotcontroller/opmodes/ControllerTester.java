@@ -1,6 +1,7 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
 import com.qualcomm.ftcrobotcontroller.controllers.Controller;
+import com.qualcomm.ftcrobotcontroller.controllers.teleop.AccStickDrive;
 import com.qualcomm.ftcrobotcontroller.controllers.teleop.GimbalBumpers;
 import com.qualcomm.ftcrobotcontroller.controllers.teleop.GridDrive;
 import com.qualcomm.ftcrobotcontroller.controllers.teleop.OneStickDrive;
@@ -28,7 +29,7 @@ public class ControllerTester extends T10Opmode {
         Gimbal gimbal = new Gimbal();
 
         //add controllers here
-        tests.add(new OneStickDrive(tdt));
+        tests.add(new AccStickDrive(tdt));
         tests.add(new GimbalBumpers(gimbal));
     }
 
