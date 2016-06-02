@@ -5,6 +5,7 @@ import com.qualcomm.ftcrobotcontroller.controllers.teleop.AccStickDrive;
 import com.qualcomm.ftcrobotcontroller.controllers.teleop.GimbalBumpers;
 import com.qualcomm.ftcrobotcontroller.controllers.teleop.GridDrive;
 import com.qualcomm.ftcrobotcontroller.controllers.teleop.OneStickDrive;
+import com.qualcomm.ftcrobotcontroller.controllers.tests.ButtonTest;
 import com.qualcomm.ftcrobotcontroller.debug.Component;
 import com.qualcomm.ftcrobotcontroller.organs.Gimbal;
 import com.qualcomm.ftcrobotcontroller.organs.Instruments;
@@ -31,6 +32,7 @@ public class ControllerTester extends T10Opmode {
         //add controllers here
         tests.add(new AccStickDrive(tdt));
         tests.add(new GimbalBumpers(gimbal));
+        tests.add(new ButtonTest("^A1"));
     }
 
     public void tick() {
