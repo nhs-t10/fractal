@@ -6,6 +6,8 @@ import com.qualcomm.ftcrobotcontroller.statics.ControlParser;
 
 /**
  * Created by max on 6/2/16.
+ *
+ * Use for testing simple mappings!
  */
 public class ButtonTest implements Controller {
     private String control;

@@ -19,6 +19,7 @@ public class AccStickDrive implements Controller {
     private final float interval = 0.01f;
     public AccStickDrive(DriveTrain dt) {
         drivetrain = dt;
+        Logger.logLine("Initialized stick drive.");
     }
 
     public boolean tick() {
