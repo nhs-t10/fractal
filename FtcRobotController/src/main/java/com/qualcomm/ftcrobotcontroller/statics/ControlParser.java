@@ -1,6 +1,7 @@
 package com.qualcomm.ftcrobotcontroller.statics;
 
 import com.qualcomm.ftcrobotcontroller.debug.Logger;
+import com.qualcomm.robotcore.exception.RobotCoreException;
 import com.qualcomm.robotcore.hardware.Gamepad;
 
 import java.lang.reflect.Array;
@@ -69,7 +70,10 @@ public class ControlParser {
         else if(control.equals("LSB")) {
             results.add(gamepad.left_stick_button);
         }
-        else throw new Error("No valid control specified.");
+        else {
+            Logger.logLine("No valid control specified (" + control + ")");
+            results.add(false);
+        }
 
         return results;
     }
@@ -94,7 +98,9 @@ public class ControlParser {
             results.add(gamepad.left_stick_x);
             results.add(gamepad.left_stick_y);
         }
-        else throw new Error("No valid control specified.");
+        else {
+            Logger.logLine("No valid control specified (" + control + ")");
+        }
 
         return results;
     }
@@ -135,7 +141,6 @@ public class ControlParser {
         }
 
         if(shiftCheck) results.addAll(getButtonResult(gamepad, shift)); //[true]
-        Logger.logLine(control);
         results.addAll(getButtonResult(gamepad, control)); //[true, true]
 
         return results;
