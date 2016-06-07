@@ -135,6 +135,7 @@ public class ControlParser {
         }
 
         if(shiftCheck) results.addAll(getButtonResult(gamepad, shift)); //[true]
+        Logger.logLine(control);
         results.addAll(getButtonResult(gamepad, control)); //[true, true]
 
         return results;
