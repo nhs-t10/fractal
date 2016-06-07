@@ -3,6 +3,7 @@ package com.qualcomm.ftcrobotcontroller.statics;
 import com.qualcomm.ftcrobotcontroller.debug.Logger;
 import com.qualcomm.robotcore.exception.RobotCoreException;
 import com.qualcomm.robotcore.hardware.Gamepad;
+import com.qualcomm.robotcore.robocol.Telemetry;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -133,6 +134,7 @@ public class ControlParser {
 
         int gamepad = (gnum.equals("1") ? 1 : 2);
         boolean shiftCheck = (query.get(0).equals("^"));
+        Logger.logLine("Shifts" + query.get(0));
         if(shiftCheck) query.remove(0); //["A"]
 
         String control = "";
