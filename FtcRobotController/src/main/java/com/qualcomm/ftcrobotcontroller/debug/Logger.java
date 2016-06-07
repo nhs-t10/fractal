@@ -28,6 +28,12 @@ public class Logger {
         }
     }
 
+    public static void logLine(int contents) { logLine("" + contents, 1); }
+
+    public static void logLine(double contents) { logLine("" + contents, 1); }
+
+    public static void logLine(float contents) { logLine("" + contents, 1); }
+
     public static void logLine(String contents) {
         logLine(contents, 1);
     }
