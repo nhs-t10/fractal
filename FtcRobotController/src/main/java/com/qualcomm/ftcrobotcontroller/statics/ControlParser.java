@@ -134,7 +134,7 @@ public class ControlParser {
 
         int gamepad = (gnum.equals("1") ? 1 : 2);
         boolean shiftCheck = (query.get(0).equals("^"));
-        Logger.logLine("Shifts" + query.get(0));
+        Logger.logLine("Shifts " + query.get(0) + " " + query.toString());
         if(shiftCheck) query.remove(0); //["A"]
 
         String control = "";
