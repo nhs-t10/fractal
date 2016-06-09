@@ -46,6 +46,11 @@ public class Logger {
         }
     }
 
+    public static void logLines(ArrayList<String> contents) {
+        lines = contents;
+        renderLines();
+    }
+
     public static void clear() {
         for(int i=0; i<lines.size(); i++) {
             lines.set(i, "");
