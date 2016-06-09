@@ -1,9 +1,11 @@
+// // TO UNCOMMENT: Ctrl-A; Ctrl-/
 //package com.qualcomm.ftcrobotcontroller.lib;
 //
 ///**
 // * Created by Olavi Kamppari on 9/25/2015.
 // *
 // * Usage at http://olliesworkshops.blogspot.com/2015/10/i2c-color-sensor-for-ftc-on-qualcomm.html
+// * https://github.com/OliviliK/FTC_Library/blob/master/TCS34725_ColorSensor.java
 // */
 //import android.util.Log;
 //
