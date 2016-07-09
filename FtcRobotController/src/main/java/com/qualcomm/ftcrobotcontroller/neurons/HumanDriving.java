@@ -40,7 +40,7 @@ public class HumanDriving {
         // return scaled value.
         return dScale;
     }
-    public static ArrayList<Float> JoyToDirection(ArrayList<Float> joyValues) {
+    public static ArrayList<Float> joyToPowers(ArrayList<Float> joyValues) {
         ArrayList<Float> directions = new ArrayList<Float>();
 
         Float X = (float) scaleInput(Range.clip(joyValues.get(0), -1, 1));

@@ -14,8 +14,8 @@ import java.util.ArrayList;
  */
 public class AccStickDrive implements Controller {
     private DriveTrain drivetrain;
-    private float prevPowerL;
-    private float prevPowerR;
+    private float prevPowerL = 0;
+    private float prevPowerR = 0;
     private final float interval = 0.01f;
     public AccStickDrive(DriveTrain dt) {
         drivetrain = dt;
@@ -24,7 +24,7 @@ public class AccStickDrive implements Controller {
 
     public boolean tick() {
         ArrayList<Float> joyValues = ControlParser.range(Controls.JoyDrive);
-        ArrayList<Float> powers = HumanDriving.JoyToDirection(joyValues);
+        ArrayList<Float> powers = HumanDriving.joyToPowers(joyValues);
         float pL = powers.get(0);
         float pR = powers.get(1);
         if(powers.get(0) == 0 && powers.get(1) == 0 && prevPowerL != 0 && prevPowerR != 0) {

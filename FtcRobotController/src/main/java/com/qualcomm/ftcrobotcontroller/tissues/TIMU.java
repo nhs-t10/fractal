@@ -23,8 +23,9 @@ public class TIMU implements Component {
                     (byte)AdafruitIMU.OPERATION_MODE_IMU
             );
             imu.startIMU();
+            Logger.logLine("IMU Initialized");
         } catch(RobotCoreException rce) {
-            throw new Error("Encountered an error.");
+            Logger.logLine(rce.toString(), 1);
         }
     }
 
