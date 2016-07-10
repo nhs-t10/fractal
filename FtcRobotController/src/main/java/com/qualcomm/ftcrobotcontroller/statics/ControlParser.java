@@ -143,6 +143,8 @@ public class ControlParser {
         }
 
         if(shiftCheck) results.addAll(getButtonResult(gamepad, shift)); //[true]
+        else if(getButtonResult(gamepad, shift).get(0)) results.add(false); //protect against misfiring when shift is hit
+
         results.addAll(getButtonResult(gamepad, control)); //[true, true]
 
         return results;

@@ -46,6 +46,11 @@ public class Logger {
         }
     }
 
+
+    /**
+     * Print an entire list as a replacable log
+     * @param contents Arraylist of strings to log
+     */
     public static void logLines(ArrayList<String> contents) {
         lines = contents;
         renderLines();
