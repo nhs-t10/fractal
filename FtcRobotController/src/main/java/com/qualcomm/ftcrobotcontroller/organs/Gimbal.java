@@ -1,6 +1,7 @@
 package com.qualcomm.ftcrobotcontroller.organs;
 
 import com.qualcomm.ftcrobotcontroller.debug.Component;
+import com.qualcomm.ftcrobotcontroller.lib.Sleep;
 import com.qualcomm.ftcrobotcontroller.statics.Hardware;
 import com.qualcomm.ftcrobotcontroller.tissues.TMotor;
 
@@ -27,6 +28,14 @@ public class Gimbal implements Component {
         MVertical.stop();
     }
     public Boolean test() {
+        moveHorizontal(0.2f);
+        Sleep.secs(2);
+        stopHorizontal();
+
+        moveVertical(0.2f);
+        Sleep.secs(2);
+        stopVertical();
+        
         return true;
     }
 }
