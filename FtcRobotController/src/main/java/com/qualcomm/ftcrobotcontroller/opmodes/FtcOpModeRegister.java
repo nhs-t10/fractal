@@ -51,7 +51,8 @@ public class FtcOpModeRegister implements OpModeRegister {
     manager.register("Stick Drive", StickDrive.class);
     manager.register("Grid Drive", Grid.class);
     manager.register("Tester", Tester.class);
-    manager.register("C_Tester", ControllerTester.class);
+    manager.register("ControlTester", ControllerTester.class);
     manager.register("Autonomous", AutonomousTest.class);
+    manager.register("TestSelector", TestSelector.class);
   }
 }

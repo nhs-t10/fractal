@@ -35,7 +35,7 @@ public class Gimbal implements Component {
         moveVertical(0.2f);
         Sleep.secs(2);
         stopVertical();
-        
+
         return true;
     }
 }
