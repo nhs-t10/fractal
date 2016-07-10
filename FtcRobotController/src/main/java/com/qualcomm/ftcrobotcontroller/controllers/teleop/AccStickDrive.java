@@ -22,12 +22,14 @@ public class AccStickDrive implements Controller {
         Logger.logLine("Initialized stick drive.");
     }
 
+    //future implementation: if(abs(prevPower - curPower) > interval)) power = power +/- interval;
+
     public boolean tick() {
         ArrayList<Float> joyValues = ControlParser.range(Controls.JoyDrive);
         ArrayList<Float> powers = HumanDriving.joyToPowers(joyValues);
         float pL = powers.get(0);
         float pR = powers.get(1);
-        if(powers.get(0) == 0 && powers.get(1) == 0 && prevPowerL != 0 && prevPowerR != 0) {
+        if(powers.get(0) == 0 && powers.get(1) == 0 && prevPowerL != 0 && prevPowerR != 0) { //if jump to 0, decrease
             pL = prevPowerL - interval;
             pR = prevPowerR - interval;
         }

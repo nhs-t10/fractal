@@ -2,13 +2,15 @@ package com.qualcomm.ftcrobotcontroller.tissues;
 
 import com.qualcomm.ftcrobotcontroller.debug.Component;
 import com.qualcomm.ftcrobotcontroller.debug.Logger;
+import com.qualcomm.ftcrobotcontroller.lib.AdafruitColor;
+import com.qualcomm.ftcrobotcontroller.statics.Hardware;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 
 /**
  * Created by max on 4/17/16.
  */
 public class TColor implements Component {
-    private ColorSensor colorsensor;
+    private AdafruitColor colorsensor;
 
     public String getName(){return "Color";}
 
@@ -19,25 +21,30 @@ public class TColor implements Component {
         RED, BLUE, WHITE, NONE
     }
 
-    public TColor(ColorSensor c) {
-        colorsensor = c;
+    public TColor(String c) {
+        colorsensor = new AdafruitColor(Hardware.getHardwareMap(), c);
         this.calibrate();
     }
 
+
     /**
-     * Sets i2c adress of the color sensor
-     * @param newAddress address to be set.
+     * Sets gain
+     * @param gain
      */
-    public void setI2C(int newAddress) {
-        colorsensor.setI2cAddress(newAddress);
-    }
+    public void setGain(int gain) { colorsensor.setGain(gain); }
+
+    /**
+     * Sets the integration time
+     * @param ms
+     */
+    public void setIntegration(double ms) { colorsensor.setIntegrationTime(ms); }
 
     /**
      * Gets the red of the color sensor
      * @return red value read by the color sensor
      */
     public int red() {
-        return Math.abs(colorsensor.red() - offsetRed);
+        return Math.abs(colorsensor.redColor() - offsetRed);
     }
 
     /**
@@ -45,7 +52,7 @@ public class TColor implements Component {
      * @return green value read by the color sensor
      */
     public int green() {
-        return Math.abs(colorsensor.green() - offsetGreen);
+        return Math.abs(colorsensor.greenColor() - offsetGreen);
     }
 
     /**
@@ -53,7 +60,7 @@ public class TColor implements Component {
      * @return blue value read by the color sensor
      */
     public int blue() {
-        return Math.abs(colorsensor.blue() - offsetBlue);
+        return Math.abs(colorsensor.blueColor() - offsetBlue);
     }
 
     /**
@@ -61,7 +68,7 @@ public class TColor implements Component {
      * @return alpha value read by the color sensor
      */
     public int alpha() {
-        return Math.abs(colorsensor.alpha() - offsetAlpha);
+        return Math.abs(colorsensor.clearColor() - offsetAlpha);
     }
 
     /**
@@ -76,14 +83,14 @@ public class TColor implements Component {
      * Calibrates the color sensor.
      */
     public void calibrate() {
-        offsetRed = colorsensor.red();
-        offsetGreen = colorsensor.green();
-        offsetBlue = colorsensor.blue();
-        offsetAlpha = colorsensor.alpha();
+        offsetRed = colorsensor.redColor();
+        offsetGreen = colorsensor.greenColor();
+        offsetBlue = colorsensor.blueColor();
+        offsetAlpha = colorsensor.clearColor();
     }
 
     public Boolean test() {
-        Logger.logLine(colorsensor.getConnectionInfo() + " r:" + this.red() + " g:" + this.green() + " b:" + this.blue());
+        Logger.logLine("r:" + this.red() + " g:" + this.green() + " b:" + this.blue());
         return true;
     }
 }

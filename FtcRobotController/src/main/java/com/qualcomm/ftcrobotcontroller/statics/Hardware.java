@@ -15,9 +15,7 @@ public class Hardware {
 
     public static Servo ServoTop;
 
-    public static String IMU;
-
-    public static ColorSensor Color;
+    public static String IMU, Color;
 
     public static AnalogInput Ultra;
 
@@ -39,7 +37,7 @@ public class Hardware {
         ServoTop = hardwareMap.servo.get("s1");
 
         IMU = "g1";
-        Color = hardwareMap.colorSensor.get("c1");
+        Color = "c1";
         Ultra = hardwareMap.analogInput.get("u1");
     }
 }

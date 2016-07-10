@@ -360,7 +360,7 @@ public class AdafruitColor implements I2cController.I2cPortReadyCallback {
         return red;
     }
 
-    public int greenrColor() {
+    public int greenColor() {
         return green;
     }
 
