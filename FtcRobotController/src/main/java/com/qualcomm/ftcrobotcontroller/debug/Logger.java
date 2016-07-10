@@ -51,6 +51,10 @@ public class Logger {
         renderLines();
     }
 
+    public static void addData(String key, String value) {
+        telemetry.addData(key, value);
+    }
+
     public static void clear() {
         for(int i=0; i<lines.size(); i++) {
             lines.set(i, "");
