@@ -32,9 +32,6 @@ public class QuadDrivetrain extends DriveTrain {
     }
 
     public void drive(float left, float right) {
-        right = (float)Range.clip(right, -1.0, 1.0);
-        left = (float)Range.clip(left, -1.0, 1.0);
-
         this.driveQuad(left, left, right, right);
     }
 }
