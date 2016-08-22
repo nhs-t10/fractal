@@ -2,6 +2,7 @@ package com.qualcomm.ftcrobotcontroller.tissues;
 
 import com.qualcomm.ftcrobotcontroller.debug.Component;
 import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.util.Range;
 
 /**
  * Created by max on 4/17/16.
@@ -26,6 +27,7 @@ public class TServo implements Component {
      * @param pos double between 0.0 and 1.0
      */
     public void moveTo(double pos) {
+        pos = (float) Range.clip(pos, 0, 1.0);
         servo.setPosition(pos);
     }
 

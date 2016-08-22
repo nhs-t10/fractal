@@ -2,6 +2,8 @@ package com.qualcomm.ftcrobotcontroller.tissues;
 import com.qualcomm.ftcrobotcontroller.debug.Component;
 import com.qualcomm.ftcrobotcontroller.lib.Sleep;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.util.Range;
+
 /**
  * Created by robotics on 4/12/16.
  */
@@ -26,6 +28,7 @@ public class TMotor implements Component {
      *              direction.
      */
     public void move(double power) {
+        power = (float) Range.clip(power, -1.0, 1.0);
         motor.setPower(power);
     }
 
