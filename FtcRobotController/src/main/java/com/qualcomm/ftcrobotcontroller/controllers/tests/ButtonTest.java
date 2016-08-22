@@ -15,11 +15,9 @@ public class ButtonTest implements Controller {
         control = ctrl;
     }
     public boolean tick() {
-        if(ControlParser.button(control).size() > 1) {
-            if(ControlParser.button(control).get(0) && ControlParser.button(control).get(1))
+        if(ControlParser.button(control)) {
                 Logger.logLine("Button " + control + " pressed!");
         }
-        else if(ControlParser.button(control).size() == 1 && ControlParser.button(control).get(0)) Logger.logLine("Button " + control + " pressed!");
         return false;
     }
 }

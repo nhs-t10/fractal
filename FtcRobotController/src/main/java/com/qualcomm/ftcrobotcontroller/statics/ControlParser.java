@@ -28,55 +28,55 @@ public class ControlParser {
         gamepad2 = g2;
         shift = s;
     }
-    private static ArrayList<Boolean> getButtonResult(int gamepadid, String control) {
-        ArrayList<Boolean> results = new ArrayList<Boolean>();
+    private static Boolean getButtonResult(int gamepadid, String control) {
+        boolean result = false;
 
         Gamepad gamepad;
 
         gamepad = (gamepadid == 1 ? gamepad1 : gamepad2);
 
         if(control.equals("A")) {
-            results.add(gamepad.a);
+            result = gamepad.a;
         }
         else if(control.equals("B")) {
-            results.add(gamepad.b);
+            result = gamepad.b;
         }
         else if(control.equals("X")) {
-            results.add(gamepad.x);
+            result = gamepad.x;
         }
         else if(control.equals("Y")) {
-            results.add(gamepad.y);
+            result = gamepad.y;
         }
         else if(control.equals("DD")) {
-            results.add(gamepad.dpad_down);
+            result = gamepad.dpad_down;
         }
         else if(control.equals("DL")) {
-            results.add(gamepad.dpad_left);
+            result = gamepad.dpad_left;
         }
         else if(control.equals("DR")) {
-            results.add(gamepad.dpad_right);
+            result = gamepad.dpad_right;
         }
         else if(control.equals("DU")) {
-            results.add(gamepad.dpad_up);
+            result = gamepad.dpad_up;
         }
         else if(control.equals("LB")) {
-            results.add(gamepad.left_bumper);
+            result = gamepad.left_bumper;
         }
         else if(control.equals("RB")) {
-            results.add(gamepad.right_bumper);
+            result = gamepad.right_bumper;
         }
         else if(control.equals("RSB")) {
-            results.add(gamepad.right_stick_button);
+            result = gamepad.right_stick_button;
         }
         else if(control.equals("LSB")) {
-            results.add(gamepad.left_stick_button);
+            result = gamepad.left_stick_button;
         }
         else {
             Logger.logLine("No valid control specified (" + control + ")");
-            results.add(false);
+            result = false;
         }
 
-        return results;
+        return result;
     }
     private static ArrayList<Float> getRangeResult(int gamepadid, String control) {
         ArrayList<Float> results = new ArrayList<Float>();
@@ -126,8 +126,7 @@ public class ControlParser {
         return results;
     }
 
-    public static ArrayList<Boolean> button(String controlString) { //"^A1"
-        ArrayList<Boolean> results = new ArrayList<Boolean>();
+    public static Boolean button(String controlString) { //"^A1"
         List<String> query = new ArrayList<String>(Arrays.asList(controlString.split(""))); //["^", "A", "1"]
         String gnum = query.get(query.size() - 1); //"1"
         query.remove(query.size() - 1); //["^", "A"]
@@ -142,10 +141,9 @@ public class ControlParser {
             control += query.get(i);
         }
 
-        if(shiftCheck) results.addAll(getButtonResult(gamepad, shift)); //[true]
-        else if(getButtonResult(gamepad, shift).get(0)) results.add(false); //protect against misfiring when shift is hit
-
-        results.addAll(getButtonResult(gamepad, control)); //[true, true]
+        boolean results = (shiftCheck
+        ? getButtonResult(gamepad, shift) && getButtonResult(gamepad, control)
+        : getButtonResult(gamepad, control));
 
         return results;
     }

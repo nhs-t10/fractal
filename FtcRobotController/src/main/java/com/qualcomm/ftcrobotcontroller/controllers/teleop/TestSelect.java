@@ -58,7 +58,7 @@ public class TestSelect implements Controller {
         if(direction == HumanDriving.Direction.FORWARD) increment(1);
         else if(direction == HumanDriving.Direction.REVERSE) increment(-1);
 
-        if(ControlParser.button("A1").get(0)) testComponent(tests.get(index));
+        if(ControlParser.button("A1")) testComponent(tests.get(index));
 
         render();
 
