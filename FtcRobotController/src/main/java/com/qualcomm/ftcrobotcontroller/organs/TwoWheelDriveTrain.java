@@ -17,7 +17,7 @@ public class TwoWheelDriveTrain extends DriveTrain {
 
     public void drive(float left, float right) {
         left = Range.clip(left, -1.0f, 1.0f);
-        left = Range.clip(left, -1.0f, 1.0f);
+        right = Range.clip(right, -1.0f, 1.0f);
 
         leftWheel.move(left);
         rightWheel.move(right);
