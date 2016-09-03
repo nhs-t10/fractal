@@ -143,7 +143,7 @@ public class ControlParser {
 
         boolean results = (shiftCheck
         ? getButtonResult(gamepad, shift) && getButtonResult(gamepad, control)
-        : getButtonResult(gamepad, control));
+        : !getButtonResult(gamepad, shift) && getButtonResult(gamepad, control));
 
         return results;
     }
