@@ -36,7 +36,7 @@ public class TestSelect implements Controller {
         }
     }
 
-    public void render() {
+    private void render() {
         menu.clear();
         menu.add("Select a test:");
         for(int i=0; i<tests.size(); i++) {
