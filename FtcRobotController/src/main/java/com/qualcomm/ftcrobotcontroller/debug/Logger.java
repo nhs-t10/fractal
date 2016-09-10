@@ -67,7 +67,7 @@ public class Logger {
         renderLines();
     }
 
-    public static String test() {
+    public static Boolean test() {
         logLine("hello");
         Sleep.secs(1);
         logLine("my");
@@ -77,6 +77,6 @@ public class Logger {
         logLine("is");
         Sleep.secs(1);
         logLine("logger");
-        return "Logger success";
+        return true;
     }
 }
