@@ -1,6 +1,6 @@
 <p align="center"><img src="markdown/fractal.png" align="center"/></p>
 
-T-10's modular codebase
+This branch is in charge of updating fractal to the newest version of ftc_app. Please do not push your code changes here.
 
 ##Structure & Reference
 Please check the [wiki](https://github.com/nhs-t10/fractal/wiki) to learn the core concepts of fractal in detail.
