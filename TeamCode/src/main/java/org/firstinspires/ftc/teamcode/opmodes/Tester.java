@@ -1,0 +1,43 @@
+package org.firstinspires.ftc.teamcode.opmodes;
+
+import org.firstinspires.ftc.teamcode.debug.Component;
+import org.firstinspires.ftc.teamcode.debug.Logger;
+import org.firstinspires.ftc.teamcode.organs.Instruments;
+import org.firstinspires.ftc.teamcode.organs.QuadDrivetrain;
+import org.firstinspires.ftc.teamcode.organs.TreadDrivetrain;
+import org.firstinspires.ftc.teamcode.statics.Hardware;
+import org.firstinspires.ftc.teamcode.tissues.TIMU;
+import org.firstinspires.ftc.teamcode.tissues.TMotor;
+import org.firstinspires.ftc.teamcode.tissues.TServo;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+
+import java.util.ArrayList;
+
+/**
+ * Created by max on 5/5/16.
+ * Tests organs/tissues sequentially and indicates their success
+ */
+public class Tester extends LinearOpMode {
+    private void testComponent(Component c) {
+        try {
+            Boolean success = c.test();
+            Logger.logLine((success ? "[✓] " : "[×] ") + c.getName());
+        }
+        catch(Error error) {
+            Logger.logLine("[×] " + c.getName() + " " + error.toString());
+        }
+    }
+    @Override
+    public void runOpMode() throws InterruptedException {
+        Hardware.init(hardwareMap);
+        Logger.init(telemetry);
+        waitForStart();
+
+        ArrayList<Component> tests = new ArrayList<Component>();
+        tests.add(new QuadDrivetrain());
+
+        for(int i=0; i<tests.size(); i++) {
+            testComponent(tests.get(i));
+        }
+    }
+}
