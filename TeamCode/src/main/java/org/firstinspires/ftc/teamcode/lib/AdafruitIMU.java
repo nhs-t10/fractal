@@ -3,9 +3,9 @@ package org.firstinspires.ftc.teamcode.lib;
 import android.util.Log;
 
 import com.qualcomm.robotcore.exception.RobotCoreException;
-import com.qualcomm.robotcore.hardware.DeviceInterfaceModule;
 import com.qualcomm.robotcore.hardware.HardwareDevice;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.I2cAddr;
 import com.qualcomm.robotcore.hardware.I2cController;
 import com.qualcomm.robotcore.hardware.I2cDevice;
 
@@ -51,6 +51,7 @@ import java.util.concurrent.locks.Lock;
  *
  */
 
+@SuppressWarnings("all")
 public class AdafruitIMU implements HardwareDevice, I2cController.I2cPortReadyCallback{
 
     public static final int BNO055_ADDRESS_A = 0x28;//From Adafruit_BNO055.h
@@ -402,83 +403,11 @@ public class AdafruitIMU implements HardwareDevice, I2cController.I2cPortReadyCa
         } finally {
             i2cWriteCacheLock.unlock();
         }
-        i2cIMU.enableI2cWriteMode(baseI2Caddress, registerAddress, byteCount);
+        i2cIMU.enableI2cWriteMode(new I2cAddr(baseI2Caddress), registerAddress, byteCount);
         i2cIMU.setI2cPortActionFlag();  //Set the "go do it" flag
         i2cIMU.writeI2cCacheToController(); //Then write it and the cache out
         snooze(250);//Give the data time to go from the Interface Module to the IMU hardware
         return true;
-    }
-
-    //
-    private boolean autoCalibrationOK2(int timeOutSeconds){
-        boolean readingEnabled = false, calibrationDone = false;
-        long calibrationStart = System.nanoTime(), rightNow = System.nanoTime(),
-                loopStart = System.nanoTime();;
-
-        while ((System.nanoTime() - calibrationStart) <= 60000000000L) {//Set a 1-minute overall timeout
-            try {
-                loopStart = System.nanoTime();
-                while ((!i2cIMU.isI2cPortReady())
-                        && (((rightNow = System.nanoTime()) - loopStart) < (timeOutSeconds * 1000000000L))) {
-                    Thread.sleep(250);//"Snooze" right here, until the port is ready (a good thing) OR n billion
-                    //nanoseconds pass with the port "stuck busy" (a VERY bad thing)
-                }
-            } catch (InterruptedException e) {
-                Log.i("FtcRobotController", "Unexpected interrupt while \"sleeping\" in autoCalibrationOK.");
-                return false;
-            }
-            if ((rightNow - loopStart) >= (timeOutSeconds * 1000000000L)) {
-                Log.i("FtcRobotController", "IMU I2C port \"stuck busy\" for "
-                        + (rightNow - loopStart) + " ns.");
-                return false;//Signals the "stuck busy" condition
-            }
-            if (!readingEnabled) {//Start a stream of reads of the calibration status byte
-                i2cIMU.enableI2cReadMode(baseI2Caddress, BNO055_CALIB_STAT_ADDR, 2);
-                //i2cIMU.enableI2cReadMode(baseI2Caddress, BNO055_CHIP_ID_ADDR, 1); //FOR TESTING ONLY!
-                //i2cIMU.enableI2cReadMode(baseI2Caddress, BNO055_PAGE_ID_ADDR, 1); //FOR TESTING ONLY!
-                i2cIMU.setI2cPortActionFlag();//Set this flag to do the next read
-                i2cIMU.writeI2cCacheToController();
-                snooze(250);//Give the data time to go from the Interface Module to the IMU hardware
-                readingEnabled = true;
-            } else {//Check the Calibration Status and Self-Test bytes in the Read Cache. IMU datasheet
-                // Sec. 3.10, p.47. Also, see p. 70
-                i2cIMU.readI2cCacheFromController();//Read in the most recent data from the device
-                snooze(500);//Give the data time to come into the Interface Module from the IMU hardware
-                try {
-                    i2cReadCacheLock.lock();
-                    if ((i2cReadCache[I2cController.I2C_BUFFER_START_ADDRESS + 1] == (byte)0X0F) &&
-                            (i2cReadCache[I2cController.I2C_BUFFER_START_ADDRESS] >= (byte)0X30)
-                        //(i2cReadCache[I2cController.I2C_BUFFER_START_ADDRESS] == (byte)BNO055_ID)//FOR TESTING ONLY!
-                        //(i2cReadCache[I2cController.I2C_BUFFER_START_ADDRESS] == (byte)0X00)//FOR TESTING ONLY!
-                            ) {
-                        //See IMU datasheet p.67. As an example, 0X30 checks whether at least the gyros are
-                        // calinbrated.
-                        //Also on that page: Self-Test byte value of 0X0F means everything passed self-test.
-                        calibrationDone = true;//Auto calibration finished successfully
-                    }
-                } finally {
-                    i2cReadCacheLock.unlock();
-                }
-                if(calibrationDone) {
-                    Log.i("FtcRobotController", "Autocalibration OK! Cal status byte = "
-                            + String.format("0X%02X", i2cReadCache[I2cController.I2C_BUFFER_START_ADDRESS])
-                            + ". Self Test byte = "
-                            + String.format("0X%02X", i2cReadCache[I2cController.I2C_BUFFER_START_ADDRESS + 1])
-                            + ".");
-                    return true;
-                }
-                i2cIMU.setI2cPortActionFlag();   //Set this flag to do the next read
-                i2cIMU.writeI2cPortFlagOnlyToController();
-                //At this point, the port becomes busy (not ready) doing the next read
-                snooze(250);//Give the data time to go from the Interface Module to the IMU hardware
-            }
-        }
-        Log.i("FtcRobotController", "Autocalibration timed out! Cal status byte = "
-                + String.format("0X%02X", i2cReadCache[I2cController.I2C_BUFFER_START_ADDRESS])
-                + ". Self Test byte = "
-                + String.format("0X%02X", i2cReadCache[I2cController.I2C_BUFFER_START_ADDRESS + 1])
-                + ".");
-        return false;
     }
 
     private boolean autoCalibrationOK(int timeOutSeconds){
@@ -504,7 +433,7 @@ public class AdafruitIMU implements HardwareDevice, I2cController.I2cPortReadyCa
                 return false;//Signals the "stuck busy" condition
             }
             if (!readingEnabled) {//Start a stream of reads of the calibration status byte
-                i2cIMU.enableI2cReadMode(baseI2Caddress, BNO055_CALIB_STAT_ADDR, 2);
+                i2cIMU.enableI2cReadMode(new I2cAddr(baseI2Caddress), BNO055_CALIB_STAT_ADDR, 2);
                 //i2cIMU.enableI2cReadMode(baseI2Caddress, BNO055_CHIP_ID_ADDR, 1); //FOR TESTING ONLY!
                 //i2cIMU.enableI2cReadMode(baseI2Caddress, BNO055_PAGE_ID_ADDR, 1); //FOR TESTING ONLY!
                 i2cIMU.setI2cPortActionFlag();//Set this flag to do the next read
@@ -562,7 +491,7 @@ public class AdafruitIMU implements HardwareDevice, I2cController.I2cPortReadyCa
   */
         i2cIMU.registerForI2cPortReadyCallback(this);
         offsetsInitialized = false;
-        i2cIMU.enableI2cReadMode(baseI2Caddress, registerStartAddress, numberOfRegisters);
+        i2cIMU.enableI2cReadMode(new I2cAddr(baseI2Caddress), registerStartAddress, numberOfRegisters);
         maxReadInterval = 0.0;
         avgReadInterval = 0.0;
         totalI2Creads = 0L;
@@ -697,11 +626,6 @@ public class AdafruitIMU implements HardwareDevice, I2cController.I2cPortReadyCa
         }
     }
 
-    /*public byte[] getIMUBytes() {
-
-        //return i2cIMU.
-    }*/
-
     /*
      * Use of the following callback assumes that I2C reading has been enabled for a particular I2C
      * register address (as the starting address) and a particular byte count. Registration of this
@@ -736,6 +660,14 @@ public class AdafruitIMU implements HardwareDevice, I2cController.I2cPortReadyCa
     public int getVersion() {
         return BNO055_ID;
     } //Temporarily
+
+    public void resetDeviceConfigurationForOpMode() {
+        System.out.println("fegit");
+    }
+
+    public Manufacturer getManufacturer() {
+        return null;
+    }
 
     public void close() {
     }
