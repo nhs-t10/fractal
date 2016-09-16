@@ -20,7 +20,7 @@ public class TUltra implements Component {
      * @return value read from sensor
      */
     public double distance() {
-        return ultrasonic.getValue();
+        return ultrasonic.getVoltage();
     }
 
     public Boolean test() {
