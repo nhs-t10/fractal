@@ -10,6 +10,7 @@ import org.firstinspires.ftc.teamcode.tissues.TIMU;
 import org.firstinspires.ftc.teamcode.tissues.TMotor;
 import org.firstinspires.ftc.teamcode.tissues.TServo;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import java.util.ArrayList;
 
@@ -17,6 +18,7 @@ import java.util.ArrayList;
  * Created by max on 5/5/16.
  * Tests organs/tissues sequentially and indicates their success
  */
+@TeleOp(name="Linear Tester", group="Testers")
 public class Tester extends LinearOpMode {
     private void testComponent(Component c) {
         try {
