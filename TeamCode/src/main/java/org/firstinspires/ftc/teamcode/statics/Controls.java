@@ -9,5 +9,6 @@ public class Controls {
     public static String GridDrive = "LS1";
     public static String Selector = "LS1";
     public static String HorizontalGimbal = "LB1";
+    public static String JoySecondary = "RS1";
     public static String VerticalGimbal = "RB1";
 }
