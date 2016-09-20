@@ -5,6 +5,6 @@ package org.firstinspires.ftc.teamcode.organs;
  */
 public class MecanumDrivetrain extends TreadDrivetrain {
     public void driveSideways(float power) {
-        driveQuad(power, -power, -power, power);
+        driveQuad(power, power, -power, -power);
     }
 }

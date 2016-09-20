@@ -26,6 +26,7 @@ public class TestSelect implements Controller {
     private void testComponent(Component c) {
         testing = true;
         render();
+        Logger.logLine("poop");
         
         try {
             Boolean success = c.test();

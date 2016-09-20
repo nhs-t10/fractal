@@ -17,7 +17,7 @@ public class TreadDrivetrain extends DriveTrain {
         rightRear = new TMotor(Hardware.MotorRightRear);
         rightFront = new TMotor(Hardware.MotorRightFront);
         rightFront.setDirection(false);
-        rightRear.setDirection(false);
+        leftRear.setDirection(false);
     }
 
     /**

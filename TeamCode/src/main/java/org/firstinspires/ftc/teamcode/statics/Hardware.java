@@ -31,13 +31,14 @@ public class Hardware {
         MotorLeftFront = hardwareMap.dcMotor.get("m3");
         MotorRightFront = hardwareMap.dcMotor.get("m4");
 
-        GimbalHorizontal = hardwareMap.dcMotor.get("m5");
+        //Temporarily commented unused hardware
+        /*GimbalHorizontal = hardwareMap.dcMotor.get("m5");
         GimbalVertical = hardwareMap.dcMotor.get("m6");
 
-        ServoTop = hardwareMap.servo.get("s1");
+        ServoTop = hardwareMap.servo.get("s1");*/
 
         IMU = "g1";
-        Color = "c1";
-        Ultra = hardwareMap.analogInput.get("u1");
+        /*Color = "c1";
+        Ultra = hardwareMap.analogInput.get("u1");*/
     }
 }

@@ -20,7 +20,7 @@ public class TestSelector extends T10Opmode {
     public void run() {
         ArrayList<Component> tests = new ArrayList<Component>();
         tests.add(new QuadDrivetrain());
-        TestSelect testSelect = new TestSelect(tests);
+        testSelect = new TestSelect(tests);
     }
     public void tick() {
         testSelect.tick();
