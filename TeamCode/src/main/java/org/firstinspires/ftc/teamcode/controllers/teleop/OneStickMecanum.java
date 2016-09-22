@@ -2,8 +2,7 @@ package org.firstinspires.ftc.teamcode.controllers.teleop;
 
 import org.firstinspires.ftc.teamcode.controllers.Controller;
 import org.firstinspires.ftc.teamcode.neurons.HumanDriving;
-import org.firstinspires.ftc.teamcode.organs.DriveTrain;
-import org.firstinspires.ftc.teamcode.organs.MecanumDrivetrain;
+import org.firstinspires.ftc.teamcode.organs.drivetrains.MecanumDrivetrain;
 import org.firstinspires.ftc.teamcode.statics.ControlParser;
 import org.firstinspires.ftc.teamcode.statics.Controls;
 import java.util.ArrayList;
@@ -20,6 +19,7 @@ public class OneStickMecanum implements Controller {
 
     public boolean tick() {
         ArrayList<Float> joyValues = ControlParser.range(Controls.JoyDrive);
+        joyValues.set(0, -joyValues.get(0));
         ArrayList<Float> powers = HumanDriving.joyToPowers(joyValues);
 
         ArrayList<Float> joy2Values = ControlParser.range(Controls.JoySecondary);

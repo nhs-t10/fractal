@@ -5,8 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.GoToWall;
 import org.firstinspires.ftc.teamcode.opmodes.T10Autonomous;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
-import org.firstinspires.ftc.teamcode.organs.QuadDrivetrain;
-import org.firstinspires.ftc.teamcode.organs.TreadDrivetrain;
+import org.firstinspires.ftc.teamcode.organs.drivetrains.TreadDrivetrain;
 
 /**
  * Created by Admin on 4/19/2016.
