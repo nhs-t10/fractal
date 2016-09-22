@@ -1,7 +1,9 @@
 package org.firstinspires.ftc.teamcode.tissues;
 
+import org.firstinspires.ftc.robotcore.external.navigation.Acceleration;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
+import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 import org.firstinspires.ftc.teamcode.debug.Component;
 import org.firstinspires.ftc.teamcode.debug.Logger;
@@ -21,12 +23,12 @@ public class TIMU implements Component {
     private BNO055IMU imu;
 
     private Orientation angles;
+    private Acceleration acceleration;
 
     public TIMU(String map) {
         BNO055IMU.Parameters params = new BNO055IMU.Parameters();
         params.angleUnit = BNO055IMU.AngleUnit.DEGREES;
         params.accelUnit = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
-
         imu = Hardware.getHardwareMap().get(BNO055IMU.class, map);
         imu.initialize(params);
     }
@@ -58,6 +60,11 @@ public class TIMU implements Component {
         return 180 + angles.thirdAngle;
     }
 
+    public double getAcceleration(){
+        updateValues();
+        return acceleration.xAccel;
+    }
+
     public String getName(){
         return "Adafruit-IMU-BNO055";
     }
@@ -70,5 +77,6 @@ public class TIMU implements Component {
     private void updateValues() {
         //Z = yaw, Y = roll, X = pitch
         angles = imu.getAngularOrientation().toAxesReference(AxesReference.INTRINSIC).toAxesOrder(AxesOrder.ZYX);
+        acceleration = imu.getAcceleration().toUnit(DistanceUnit.METER);
+            }
     }
-}
