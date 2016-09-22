@@ -2,13 +2,9 @@ package org.firstinspires.ftc.teamcode.opmodes;
 
 import org.firstinspires.ftc.teamcode.debug.Component;
 import org.firstinspires.ftc.teamcode.debug.Logger;
-import org.firstinspires.ftc.teamcode.organs.Instruments;
-import org.firstinspires.ftc.teamcode.organs.QuadDrivetrain;
-import org.firstinspires.ftc.teamcode.organs.TreadDrivetrain;
+import org.firstinspires.ftc.teamcode.organs.drivetrains.QuadDrivetrain;
 import org.firstinspires.ftc.teamcode.statics.Hardware;
-import org.firstinspires.ftc.teamcode.tissues.TIMU;
-import org.firstinspires.ftc.teamcode.tissues.TMotor;
-import org.firstinspires.ftc.teamcode.tissues.TServo;
+
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 

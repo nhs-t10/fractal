@@ -1,8 +1,7 @@
-package org.firstinspires.ftc.teamcode.organs;
+package org.firstinspires.ftc.teamcode.organs.drivetrains;
 
 import org.firstinspires.ftc.teamcode.statics.Hardware;
 import org.firstinspires.ftc.teamcode.tissues.TMotor;
-import com.qualcomm.robotcore.util.Range;
 
 /**
  * Created by max on 4/17/16.

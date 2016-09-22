@@ -2,7 +2,7 @@ package org.firstinspires.ftc.teamcode.controllers.autonomous;
 
 import org.firstinspires.ftc.teamcode.controllers.Controller;
 import org.firstinspires.ftc.teamcode.neurons.Distance;
-import org.firstinspires.ftc.teamcode.organs.DriveTrain;
+import org.firstinspires.ftc.teamcode.organs.drivetrains.DriveTrain;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
 
 /**

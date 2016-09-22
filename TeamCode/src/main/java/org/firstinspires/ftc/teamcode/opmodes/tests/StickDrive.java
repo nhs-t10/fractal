@@ -4,8 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.controllers.teleop.OneStickDrive;
 import org.firstinspires.ftc.teamcode.opmodes.T10Opmode;
-import org.firstinspires.ftc.teamcode.organs.QuadDrivetrain;
-import org.firstinspires.ftc.teamcode.organs.TreadDrivetrain;
+import org.firstinspires.ftc.teamcode.organs.drivetrains.TreadDrivetrain;
 
 /**
  * Created by Admin on 4/19/2016.

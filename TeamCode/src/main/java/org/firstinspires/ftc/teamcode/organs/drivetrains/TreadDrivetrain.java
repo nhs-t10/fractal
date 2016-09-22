@@ -1,6 +1,4 @@
-package org.firstinspires.ftc.teamcode.organs;
-
-import com.qualcomm.robotcore.util.Range;
+package org.firstinspires.ftc.teamcode.organs.drivetrains;
 
 import org.firstinspires.ftc.teamcode.statics.Hardware;
 import org.firstinspires.ftc.teamcode.tissues.TMotor;
@@ -17,7 +15,7 @@ public class TreadDrivetrain extends DriveTrain {
         rightRear = new TMotor(Hardware.MotorRightRear);
         rightFront = new TMotor(Hardware.MotorRightFront);
         rightFront.setDirection(false);
-        leftRear.setDirection(false);
+        rightRear.setDirection(false);
     }
 
     /**

@@ -5,14 +5,10 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.controllers.Controller;
 import org.firstinspires.ftc.teamcode.controllers.teleop.AccStickDrive;
 import org.firstinspires.ftc.teamcode.controllers.teleop.GimbalBumpers;
-import org.firstinspires.ftc.teamcode.controllers.teleop.GridDrive;
-import org.firstinspires.ftc.teamcode.controllers.teleop.OneStickDrive;
 import org.firstinspires.ftc.teamcode.controllers.tests.ButtonTest;
-import org.firstinspires.ftc.teamcode.debug.Component;
 import org.firstinspires.ftc.teamcode.organs.Gimbal;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
-import org.firstinspires.ftc.teamcode.organs.QuadDrivetrain;
-import org.firstinspires.ftc.teamcode.organs.TreadDrivetrain;
+import org.firstinspires.ftc.teamcode.organs.drivetrains.TreadDrivetrain;
 
 import java.util.ArrayList;
 

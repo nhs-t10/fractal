@@ -10,8 +10,7 @@ import com.qualcomm.robotcore.hardware.Servo;
  * Created by robotics on 4/14/16.
  */
 public class Hardware {
-    public static DcMotor MotorLeftRear, MotorRightRear, MotorLeftFront, MotorRightFront,
-        GimbalHorizontal, GimbalVertical;
+    public static DcMotor MotorLeftRear, MotorRightRear, MotorLeftFront, MotorRightFront, ModuleMotor1, ModuleMotor2;
 
     public static Servo ServoTop;
 
@@ -32,8 +31,8 @@ public class Hardware {
         MotorRightFront = hardwareMap.dcMotor.get("m4");
 
         //Temporarily commented unused hardware
-        /*GimbalHorizontal = hardwareMap.dcMotor.get("m5");
-        GimbalVertical = hardwareMap.dcMotor.get("m6");
+        ModuleMotor1 = hardwareMap.dcMotor.get("m5");
+        /*GimbalVertical = hardwareMap.dcMotor.get("m6");
 
         ServoTop = hardwareMap.servo.get("s1");*/
 
