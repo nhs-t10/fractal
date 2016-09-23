@@ -29,6 +29,7 @@ public class TIMU implements Component {
         BNO055IMU.Parameters params = new BNO055IMU.Parameters();
         params.angleUnit = BNO055IMU.AngleUnit.DEGREES;
         params.accelUnit = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
+        params.calibrationDataFile = "AdafruitIMUCalibration.json";
         imu = Hardware.getHardwareMap().get(BNO055IMU.class, map);
         imu.initialize(params);
     }
@@ -77,6 +78,6 @@ public class TIMU implements Component {
     private void updateValues() {
         //Z = yaw, Y = roll, X = pitch
         angles = imu.getAngularOrientation().toAxesReference(AxesReference.INTRINSIC).toAxesOrder(AxesOrder.ZYX);
-        acceleration = imu.getAcceleration().toUnit(DistanceUnit.METER);
-            }
+        //acceleration = imu.getAcceleration().toUnit(DistanceUnit.METER);
     }
+}

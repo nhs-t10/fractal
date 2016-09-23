@@ -5,7 +5,7 @@ package org.firstinspires.ftc.teamcode.organs.drivetrains;
  */
 public class MecanumDrivetrain extends TreadDrivetrain {
     //Mecanum
-    private static final float MECANUM_OFFSET = 0.07f;
+    private static final float MECANUM_OFFSET = 0.1f;
 
     public void driveSideways(float power) {
         driveQuad(power*(1-MECANUM_OFFSET), -power, -power, power*(1-MECANUM_OFFSET));
