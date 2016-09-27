@@ -5,6 +5,7 @@ import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.organs.drivetrains.QuadDrivetrain;
 import org.firstinspires.ftc.teamcode.statics.Hardware;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
@@ -15,6 +16,7 @@ import java.util.ArrayList;
  * Tests organs/tissues sequentially and indicates their success
  */
 @TeleOp(name="Linear Tester", group="Testers")
+@Disabled
 public class Tester extends LinearOpMode {
     private void testComponent(Component c) {
         try {

@@ -12,10 +12,10 @@ public class FlickerControl implements Controller {
 
     @Override
     public boolean tick() {
-        boolean pressed = ControlParser.button("A");
+        boolean pressed = ControlParser.button("A1");
 
         if(pressed) {
-            flicker.move(1.0f);
+            flicker.move(-1.0f);
         } else {
             flicker.move(0.0f);
         }
