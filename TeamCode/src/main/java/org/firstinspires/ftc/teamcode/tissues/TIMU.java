@@ -61,7 +61,7 @@ public class TIMU implements Component {
         return 180 + angles.thirdAngle;
     }
 
-    public double getAcceleration(){
+    public double getXAccel(){
         updateValues();
         return acceleration.xAccel;
     }
@@ -78,6 +78,6 @@ public class TIMU implements Component {
     private void updateValues() {
         //Z = yaw, Y = roll, X = pitch
         angles = imu.getAngularOrientation().toAxesReference(AxesReference.INTRINSIC).toAxesOrder(AxesOrder.ZYX);
-        //acceleration = imu.getAcceleration().toUnit(DistanceUnit.METER);
+        acceleration = imu.getAcceleration();
     }
 }

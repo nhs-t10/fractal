@@ -29,5 +29,6 @@ public class MecaIMUTest extends T10Opmode {
         osm.tick();
         fc.tick();
         Logger.logLine("P:" + imu.getPitch() + " R:" + imu.getRoll() + " Y:" + imu.getYaw());
+        Logger.logLine("accelX:" + imu.getXAccel());
     }
 }
