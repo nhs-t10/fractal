@@ -31,10 +31,11 @@ public class Hardware {
         MotorRightFront = hardwareMap.dcMotor.get("m4");
 
         //Temporarily commented unused hardware
-        ModuleMotor1 = hardwareMap.dcMotor.get("m5");
+        //ModuleMotor1 = hardwareMap.dcMotor.get("m5");
         /*GimbalVertical = hardwareMap.dcMotor.get("m6");
 
-        ServoTop = hardwareMap.servo.get("s1");*/
+        ServoTop = himport org.firstinspires.ftc.teamcode.controllers.teleop.OneStickMecanum;
+import org.firstinspires.ftc.teamcode.debug.Logger;ardwareMap.servo.get("s1");*/
 
         IMU = "g1";
         /*Color = "c1";*/
