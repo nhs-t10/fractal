@@ -37,7 +37,7 @@ public class Hardware {
         ServoTop = hardwareMap.servo.get("s1");*/
 
         IMU = "g1";
-        /*Color = "c1";
-        Ultra = hardwareMap.analogInput.get("u1");*/
+        /*Color = "c1";*/
+        Ultra = hardwareMap.analogInput.get("u1");
     }
 }

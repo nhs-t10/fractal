@@ -4,6 +4,7 @@ import org.firstinspires.ftc.teamcode.controllers.teleop.TestSelect;
 import org.firstinspires.ftc.teamcode.debug.Component;
 import org.firstinspires.ftc.teamcode.organs.drivetrains.QuadDrivetrain;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
  * Tests organs/tissues sequentially and indicates their success
  */
 @TeleOp(name="Test Selector", group="Testers")
+@Disabled
 public class TestSelector extends T10Opmode {
     private TestSelect testSelect;
     public void run() {
