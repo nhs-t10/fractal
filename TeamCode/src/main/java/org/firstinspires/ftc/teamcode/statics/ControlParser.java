@@ -72,7 +72,7 @@ public class ControlParser {
             result = gamepad.left_stick_button;
         }
         else {
-            Logger.logLine("No valid control specified (" + control + ")");
+            Logger.logLine("No valid control specified (" + control + ")", 1);
             result = false;
         }
 
@@ -100,10 +100,15 @@ public class ControlParser {
             results.add(gamepad.left_stick_y);
         }
         else {
-            Logger.logLine("No valid control specified (" + control + ")");
+            Logger.logLine("No valid control specified (" + control + ")", 1);
         }
 
         return results;
+    }
+    private static boolean parseGamepad(String gnum){
+        int gamepad = (gnum.equals("2") ? 2 : 1);
+        if(!gnum.equals("2") && !gnum.equals("1")) Logger.logLine("Warning: No controller # specified in query. Defaulting to 1.", 1);
+        return gamepad;
     }
 
     public static ArrayList<Float> range(String controlString) { //"LS1"
@@ -112,7 +117,7 @@ public class ControlParser {
         String gnum = query.get(query.size() - 1); //"1"
         query.remove(query.size() - 1); //["L", "S"]
 
-        int gamepad = (gnum.equals("1") ? 1 : 2);
+        int gamepad = parseGamepad(gnum);
         Boolean shiftCheck = (query.get(0).equals("^"));
         if(shiftCheck) query.remove(0); //["L", "S"]
 
@@ -131,7 +136,7 @@ public class ControlParser {
         String gnum = query.get(query.size() - 1); //"1"
         query.remove(query.size() - 1); //["^", "A"]
 
-        int gamepad = (gnum.equals("1") ? 1 : 2);
+        int gamepad = parseGamepad(gnum);
         boolean shiftCheck = (query.get(0).equals("^"));
         Logger.logLine("Shifts " + query.get(0) + " " + query.toString());
         if(shiftCheck) query.remove(0); //["A"]
