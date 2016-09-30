@@ -1,6 +1,8 @@
 package org.firstinspires.ftc.teamcode.tissues;
 
 import org.firstinspires.ftc.teamcode.debug.Component;
+import org.firstinspires.ftc.teamcode.statics.Hardware;
+
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
 
@@ -10,8 +12,8 @@ import com.qualcomm.robotcore.util.Range;
 public class TServo implements Component {
     private Servo servo;
     public String getName(){return "Servo";}
-    public TServo(Servo s) {
-        servo = s;
+    public TServo(String s) {
+        servo = Hardware.getHardwareMap().servo.get(s);
     }
 
     /**
