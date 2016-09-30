@@ -10,13 +10,11 @@ import com.qualcomm.robotcore.hardware.Servo;
  * Created by robotics on 4/14/16.
  */
 public class Hardware {
-    public static DcMotor MotorLeftRear, MotorRightRear, MotorLeftFront, MotorRightFront, ModuleMotor1, ModuleMotor2;
+    public static String MotorLeftRear, MotorRightRear, MotorLeftFront, MotorRightFront, ModuleMotor1, ModuleMotor2;
 
     public static Servo ServoTop;
 
-    public static String IMU, Color;
-
-    public static AnalogInput Ultra;
+    public static String IMU, Color, Ultra;
 
     private static HardwareMap hardwareMap;
 
@@ -25,10 +23,10 @@ public class Hardware {
     public static void init(HardwareMap h) {
         hardwareMap = h;
 
-        MotorLeftRear = hardwareMap.dcMotor.get("m1");
-        MotorRightRear = hardwareMap.dcMotor.get("m2");
-        MotorLeftFront = hardwareMap.dcMotor.get("m3");
-        MotorRightFront = hardwareMap.dcMotor.get("m4");
+        MotorLeftRear = "m1";
+        MotorRightRear = "m2";
+        MotorLeftFront = "m3";
+        MotorRightFront = "m4";
 
         //Temporarily commented unused hardware
         //ModuleMotor1 = hardwareMap.dcMotor.get("m5");
@@ -39,6 +37,6 @@ import org.firstinspires.ftc.teamcode.debug.Logger;ardwareMap.servo.get("s1");*/
 
         IMU = "g1";
         /*Color = "c1";*/
-        Ultra = hardwareMap.analogInput.get("u1");
+        Ultra = "u1";
     }
 }

@@ -1,6 +1,8 @@
 package org.firstinspires.ftc.teamcode.tissues;
 import org.firstinspires.ftc.teamcode.debug.Component;
 import org.firstinspires.ftc.teamcode.lib.Sleep;
+import org.firstinspires.ftc.teamcode.statics.Hardware;
+
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.Range;
 
@@ -10,8 +12,8 @@ import com.qualcomm.robotcore.util.Range;
 public class TMotor implements Component {
     private DcMotor motor;
     public String getName(){return  "Motor";}
-    public TMotor(DcMotor m) {
-        motor = m;
+    public TMotor(String m) {
+        motor = Hardware.getHardwareMap().dcMotor.get(m);
     }
 
     /**
