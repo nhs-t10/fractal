@@ -12,6 +12,8 @@ import com.qualcomm.robotcore.hardware.AnalogInput;
 public class TUltra implements Component {
     //Vcc = voltage input
     //(Vcc/1024) = V/cm
+    private float inputVoltage = 1.0f;
+
     private AnalogInput ultrasonic;
     public String getName(){return "Ultrasonic";}
 
@@ -23,8 +25,12 @@ public class TUltra implements Component {
      * Gets the value being returned by the ultrasonic.
      * @return value read from sensor
      */
+    public double voltage() {
+        return ultrasonic.getVersion();
+    }
+
     public double distance() {
-        return ultrasonic.getVoltage();
+        return voltage()/inputVoltage;
     }
 
     public Boolean test() {
