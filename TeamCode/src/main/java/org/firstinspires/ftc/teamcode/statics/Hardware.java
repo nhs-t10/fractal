@@ -31,11 +31,11 @@ public class Hardware {
         //Temporarily commented unused hardware
         //ModuleMotor1 = "m5";
         /*GimbalVertical = "m6";
+*/
+        ServoTop = "s1";
 
-        ServoTop = hardwareMap.servo.get("s1");*/
-
-        IMU = "g1";
+       // IMU = "g1";
         /*Color = "c1";*/
-        Ultra = "u1";
+       // Ultra = "u1";
     }
 }
