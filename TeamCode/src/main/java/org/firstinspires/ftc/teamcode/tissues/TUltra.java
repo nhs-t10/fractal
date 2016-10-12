@@ -26,7 +26,7 @@ public class TUltra implements Component {
      * @return value read from sensor
      */
     public double voltage() {
-        return ultrasonic.getVersion();
+        return ultrasonic.getVoltage();
     }
 
     public double distance() {

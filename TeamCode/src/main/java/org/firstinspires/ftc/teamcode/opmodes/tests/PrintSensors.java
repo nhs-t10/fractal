@@ -24,7 +24,7 @@ public class PrintSensors extends T10Opmode {
 
     @Override
     public void tick() {
-        Logger.logLine("P:" + imu.getPitch() + " R:" + imu.getRoll() + " Y:" + imu.getYaw());
-        Logger.logLine("Ultra: " + ultra.distance());
+        imu.test();
+        ultra.test();
     }
 }
