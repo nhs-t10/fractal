@@ -2,7 +2,9 @@ package org.firstinspires.ftc.teamcode.opmodes;
 
 import org.firstinspires.ftc.teamcode.debug.Component;
 import org.firstinspires.ftc.teamcode.debug.Logger;
-import org.firstinspires.ftc.teamcode.organs.drivetrains.QuadDrivetrain;
+import org.firstinspires.ftc.teamcode.organs.Flicker;
+import org.firstinspires.ftc.teamcode.organs.Spinner;
+import org.firstinspires.ftc.teamcode.organs.drivetrains.MecanumDrivetrain;
 import org.firstinspires.ftc.teamcode.statics.Hardware;
 
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
@@ -16,7 +18,6 @@ import java.util.ArrayList;
  * Tests organs/tissues sequentially and indicates their success
  */
 @TeleOp(name="Linear Tester", group="Testers")
-@Disabled
 public class Tester extends LinearOpMode {
     private void testComponent(Component c) {
         try {
@@ -34,7 +35,9 @@ public class Tester extends LinearOpMode {
         waitForStart();
 
         ArrayList<Component> tests = new ArrayList<Component>();
-        tests.add(new QuadDrivetrain());
+        tests.add(new MecanumDrivetrain());
+        tests.add(new Spinner());
+        tests.add(new Flicker());
 
         for(int i=0; i<tests.size(); i++) {
             testComponent(tests.get(i));

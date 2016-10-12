@@ -4,10 +4,13 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.controllers.Controller;
 import org.firstinspires.ftc.teamcode.controllers.teleop.AccStickDrive;
+import org.firstinspires.ftc.teamcode.controllers.teleop.Collection;
 import org.firstinspires.ftc.teamcode.controllers.teleop.GimbalBumpers;
 import org.firstinspires.ftc.teamcode.controllers.tests.ButtonTest;
+import org.firstinspires.ftc.teamcode.organs.Flicker;
 import org.firstinspires.ftc.teamcode.organs.Gimbal;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
+import org.firstinspires.ftc.teamcode.organs.Spinner;
 import org.firstinspires.ftc.teamcode.organs.drivetrains.TreadDrivetrain;
 
 import java.util.ArrayList;
@@ -26,12 +29,13 @@ public class ControllerTester extends T10Opmode {
         TreadDrivetrain tdt = new TreadDrivetrain();
         Instruments instruments = new Instruments();
         instruments.start();
-        Gimbal gimbal = new Gimbal();
+        Spinner spinner = new Spinner();
+        Flicker flicker = new Flicker();
 
         //add controllers here
         tests.add(new AccStickDrive(tdt));
-        tests.add(new GimbalBumpers(gimbal));
         tests.add(new ButtonTest("^A1"));
+        tests.add(new Collection(flicker, spinner));
     }
 
     public void tick() {

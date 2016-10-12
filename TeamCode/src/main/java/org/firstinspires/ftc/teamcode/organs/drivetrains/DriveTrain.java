@@ -13,6 +13,9 @@ public abstract class DriveTrain implements Component {
     public void goForward(float pwr) {
         drive(pwr, pwr);
     }
+    public void goBackward(float pwr) {
+        drive(-pwr, -pwr);
+    }
 
     /**
      * Turns robot based on power value between -1.0 and 1.0. Negative turns left, positive right.

@@ -10,7 +10,7 @@ import com.qualcomm.robotcore.hardware.Servo;
  * Created by robotics on 4/14/16.
  */
 public class Hardware {
-    public static String MotorLeftRear, MotorRightRear, MotorLeftFront, MotorRightFront, ModuleMotor1, ModuleMotor2;
+    public static String MotorLeftRear, MotorRightRear, MotorLeftFront, MotorRightFront, Spinner, Flicker;
 
     public static String ServoTop;
 
@@ -28,8 +28,9 @@ public class Hardware {
         MotorLeftFront = "m3";
         MotorRightFront = "m4";
 
-        //Temporarily commented unused hardware
-        //ModuleMotor1 = "m5";
+        Spinner = "m5";
+        Flicker = "m6";
+
         /*GimbalVertical = "m6";
 */
         ServoTop = "s1";
