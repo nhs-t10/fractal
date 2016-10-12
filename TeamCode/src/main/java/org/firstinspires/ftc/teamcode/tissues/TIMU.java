@@ -70,7 +70,7 @@ public class TIMU implements Component {
         return "Adafruit-IMU-BNO055";
     }
 
-    public Boolean test() {
+    public boolean test() {
         Logger.logLine(this.getName() + " yaw:" + this.getYaw() + " pitch:" + getPitch() + " roll:" + getRoll());
         return true;
     }

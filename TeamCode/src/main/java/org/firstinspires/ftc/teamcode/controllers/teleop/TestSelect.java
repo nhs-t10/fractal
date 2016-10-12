@@ -29,7 +29,7 @@ public class TestSelect implements Controller {
         Logger.logLine("poop");
         
         try {
-            Boolean success = c.test();
+            boolean success = c.test();
             testing = false;
         }
         catch(Error error) {

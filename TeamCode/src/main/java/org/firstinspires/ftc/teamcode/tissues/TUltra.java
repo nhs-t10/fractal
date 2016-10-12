@@ -33,7 +33,7 @@ public class TUltra implements Component {
         return voltage()/inputVoltage;
     }
 
-    public Boolean test() {
+    public boolean test() {
         Logger.logLine("distance: " + this.distance());
         return true;
     }

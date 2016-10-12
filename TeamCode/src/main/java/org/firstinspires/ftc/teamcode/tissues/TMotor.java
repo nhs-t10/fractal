@@ -20,7 +20,7 @@ public class TMotor implements Component {
      * Sets the direction of the motor
      * @param dir true = forward; false = backward
      */
-    public void setDirection(Boolean dir) {
+    public void setDirection(boolean dir) {
         motor.setDirection((dir ? DcMotor.Direction.FORWARD : DcMotor.Direction.REVERSE));
     }
 
@@ -41,7 +41,7 @@ public class TMotor implements Component {
         motor.setPower(0);
     }
 
-    public Boolean test() {
+    public boolean test() {
         this.move(0.5f);
         Sleep.secs(2);
         this.stop();

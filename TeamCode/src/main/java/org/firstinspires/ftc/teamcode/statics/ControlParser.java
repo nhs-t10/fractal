@@ -28,7 +28,7 @@ public class ControlParser {
         gamepad2 = g2;
         shift = s;
     }
-    private static Boolean getButtonResult(int gamepadid, String control) {
+    private static boolean getButtonResult(int gamepadid, String control) {
         boolean result = false;
 
         Gamepad gamepad;
@@ -118,7 +118,7 @@ public class ControlParser {
         query.remove(query.size() - 1); //["L", "S"]
 
         int gamepad = parseGamepad(gnum);
-        Boolean shiftCheck = (query.get(0).equals("^"));
+        boolean shiftCheck = (query.get(0).equals("^"));
         if(shiftCheck) query.remove(0); //["L", "S"]
 
         String control = "";
@@ -131,7 +131,7 @@ public class ControlParser {
         return results;
     }
 
-    public static Boolean button(String controlString) { //"^A1"
+    public static boolean button(String controlString) { //"^A1"
         List<String> query = new ArrayList<String>(Arrays.asList(controlString.split(""))); //["^", "A", "1"]
         String gnum = query.get(query.size() - 1); //"1"
         query.remove(query.size() - 1); //["^", "A"]

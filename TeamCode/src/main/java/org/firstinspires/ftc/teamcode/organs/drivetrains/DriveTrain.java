@@ -28,7 +28,7 @@ public abstract class DriveTrain implements Component {
     public void stop() {
         drive(0.0f, 0.0f);
     }
-    public Boolean test() {
+    public boolean test() {
         this.goForward(0.5f);
         Sleep.secs(2);
         this.stop();

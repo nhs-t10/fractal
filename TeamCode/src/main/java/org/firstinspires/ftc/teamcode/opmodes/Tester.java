@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class Tester extends LinearOpMode {
     private void testComponent(Component c) {
         try {
-            Boolean success = c.test();
+            boolean success = c.test();
             Logger.logLine((success ? "[✓] " : "[×] ") + c.getName());
         }
         catch(Error error) {

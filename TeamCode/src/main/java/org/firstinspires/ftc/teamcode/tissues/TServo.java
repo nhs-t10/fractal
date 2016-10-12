@@ -20,7 +20,7 @@ public class TServo implements Component {
      * Sets the direction of the servo
      * @param dir true = forward; false = backward
      */
-    public void setDirection(Boolean dir) {
+    public void setDirection(boolean dir) {
         servo.setDirection((dir ? Servo.Direction.FORWARD : Servo.Direction.REVERSE));
     }
 
@@ -33,7 +33,7 @@ public class TServo implements Component {
         servo.setPosition(pos);
     }
 
-    public Boolean test() {
+    public boolean test() {
         this.moveTo(0.1);
         this.moveTo(0.5);
         return true;

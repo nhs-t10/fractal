@@ -15,7 +15,7 @@ public class MecanumDrivetrain extends TreadDrivetrain {
         driveQuad(power*(1-MECANUM_OFFSET), -power, -power, power*(1-MECANUM_OFFSET));
     }
     @Override
-    public Boolean test() {
+    public boolean test() {
         this.goForward(0.5f);
         Sleep.secs(2);
         this.goBackward(0.5f);

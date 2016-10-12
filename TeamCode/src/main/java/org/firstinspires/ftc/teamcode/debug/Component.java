@@ -11,5 +11,5 @@ public interface Component {
      * Provides a basic test for the component
      * @return false until the test is complete.
      */
-    public abstract Boolean test();
+    public abstract boolean test();
 }

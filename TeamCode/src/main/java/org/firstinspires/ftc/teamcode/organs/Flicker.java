@@ -26,7 +26,7 @@ public class Flicker implements Component {
     }
 
     @Override
-    public Boolean test() {
+    public boolean test() {
         toggle();
         Sleep.secs(5);
         toggle();

@@ -67,7 +67,7 @@ public class Logger {
         renderLines();
     }
 
-    public static Boolean test() {
+    public static boolean test() {
         logLine("hello");
         Sleep.secs(1);
         logLine("my");

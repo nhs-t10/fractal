@@ -89,7 +89,7 @@ public class TColor implements Component {
         offsetAlpha = colorsensor.clearColor();
     }
 
-    public Boolean test() {
+    public boolean test() {
         Logger.logLine("r:" + this.red() + " g:" + this.green() + " b:" + this.blue());
         return true;
     }

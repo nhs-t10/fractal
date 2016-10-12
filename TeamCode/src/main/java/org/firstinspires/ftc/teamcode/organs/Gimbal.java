@@ -27,7 +27,7 @@ public class Gimbal implements Component {
     public void stopVertical() {
         MVertical.stop();
     }
-    public Boolean test() {
+    public boolean test() {
         moveHorizontal(0.2f);
         Sleep.secs(2);
         stopHorizontal();
