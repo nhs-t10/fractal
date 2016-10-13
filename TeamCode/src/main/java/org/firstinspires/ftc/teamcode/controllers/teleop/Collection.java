@@ -16,9 +16,25 @@ public class Collection implements Controller {
         flicker = f;
         spinner = s;
     }
+
+    boolean flickDebounce = false;
+    boolean spinDebounce = false;
+
     public boolean tick() {
-        if (ControlParser.button(Controls.Flicker)) flicker.toggle();
-        if (ControlParser.button(Controls.Spinner)) spinner.toggle();
+        if(!flickDebounce && ControlParser.button((Controls.Flicker))) {
+            flickDebounce = true;
+            flicker.toggle();
+        }
+        else if (!ControlParser.button(Controls.Flicker)) {
+            flickDebounce = false;
+        }
+        if(!spinDebounce && ControlParser.button((Controls.Spinner))) {
+            spinDebounce = true;
+            spinner.toggle();
+        }
+        else if (!ControlParser.button(Controls.Spinner)) {
+            spinDebounce = false;
+        }
         return false;
     }
 }
