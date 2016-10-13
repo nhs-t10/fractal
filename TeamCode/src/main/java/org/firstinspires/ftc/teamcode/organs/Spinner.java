@@ -16,7 +16,7 @@ public class Spinner implements Component {
     }
 
     public void toggle() {
-        spinner.move((on ? 0 : 2f));
+        spinner.move((on ? 0 : -2.0f));
         on = !on;
     }
 
@@ -30,6 +30,6 @@ public class Spinner implements Component {
         toggle();
         Sleep.secs(5);
         toggle();
-        return null;
+        return false;
     }
 }

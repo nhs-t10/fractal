@@ -64,6 +64,6 @@ public class TCamera implements Component {
 
     @Override
     public boolean test() {
-        return null;
+        return false;
     }
 }

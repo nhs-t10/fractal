@@ -6,6 +6,8 @@ import org.firstinspires.ftc.teamcode.controllers.Controller;
 import org.firstinspires.ftc.teamcode.controllers.teleop.AccStickDrive;
 import org.firstinspires.ftc.teamcode.controllers.teleop.Collection;
 import org.firstinspires.ftc.teamcode.controllers.teleop.GimbalBumpers;
+import org.firstinspires.ftc.teamcode.controllers.teleop.OneStickDrive;
+import org.firstinspires.ftc.teamcode.controllers.teleop.OneStickMecanum;
 import org.firstinspires.ftc.teamcode.controllers.tests.ButtonTest;
 import org.firstinspires.ftc.teamcode.organs.Flicker;
 import org.firstinspires.ftc.teamcode.organs.Gimbal;
@@ -26,15 +28,17 @@ public class ControllerTester extends T10Opmode {
 
     public void run()  {
         //add organs here
-        TreadDrivetrain tdt = new TreadDrivetrain();
-        Instruments instruments = new Instruments();
-        instruments.start();
+        //this shit threw 1000000 errors. Not dealing with.
+        //Instruments instruments = new Instruments();
+        //instruments.start();
         Spinner spinner = new Spinner();
         Flicker flicker = new Flicker();
 
         //add controllers here
-        tests.add(new AccStickDrive(tdt));
-        tests.add(new ButtonTest("^A1"));
+        //very very buggy :(
+        //tests.add(new AccStickDrive(tdt));
+        tests.add(new OneStickMecanum());
+        tests.add(new ButtonTest("A1"));
         tests.add(new Collection(flicker, spinner));
     }
 

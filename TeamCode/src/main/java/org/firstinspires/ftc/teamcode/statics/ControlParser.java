@@ -105,7 +105,7 @@ public class ControlParser {
 
         return results;
     }
-    private static boolean parseGamepad(String gnum){
+    private static int parseGamepad(String gnum){
         int gamepad = (gnum.equals("2") ? 2 : 1);
         if(!gnum.equals("2") && !gnum.equals("1")) Logger.logLine("Warning: No controller # specified in query. Defaulting to 1.", 1);
         return gamepad;

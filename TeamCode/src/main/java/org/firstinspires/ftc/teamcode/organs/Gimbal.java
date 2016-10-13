@@ -12,8 +12,8 @@ public class Gimbal implements Component {
     public String getName() {return "Jonathan's 2 axis Gimbal";}
     public TMotor MHorizontal, MVertical;
     public Gimbal() {
-        MHorizontal = new TMotor(Hardware.ModuleMotor1);
-        MVertical = new TMotor(Hardware.ModuleMotor2);
+        MHorizontal = new TMotor(Hardware.Spinner);
+        MVertical = new TMotor(Hardware.Flicker);
     }
     public void moveHorizontal(float speed) {
         MHorizontal.move(speed);

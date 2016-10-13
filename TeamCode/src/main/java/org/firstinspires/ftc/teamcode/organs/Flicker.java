@@ -30,6 +30,6 @@ public class Flicker implements Component {
         toggle();
         Sleep.secs(5);
         toggle();
-        return null;
+        return false;
     }
 }
