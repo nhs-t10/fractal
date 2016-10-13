@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.controllers.teleop;
 
 import org.firstinspires.ftc.teamcode.controllers.Controller;
 import org.firstinspires.ftc.teamcode.neurons.HumanDriving;
+import org.firstinspires.ftc.teamcode.organs.drivetrains.DriveTrain;
 import org.firstinspires.ftc.teamcode.organs.drivetrains.MecanumDrivetrain;
 import org.firstinspires.ftc.teamcode.statics.ControlParser;
 import org.firstinspires.ftc.teamcode.statics.Controls;
@@ -15,6 +16,10 @@ public class OneStickMecanum implements Controller {
 
     public OneStickMecanum() {
         drivetrain = new MecanumDrivetrain();
+    }
+
+    public OneStickMecanum(MecanumDrivetrain dt) {
+        drivetrain = dt;
     }
 
     public boolean tick() {
