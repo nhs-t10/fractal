@@ -16,13 +16,13 @@ import java.util.ArrayList;
 /**
  * Created by max on 10/19/16.
  */
-@TeleOp(name="Chassis 1", group="Chassis")
+@TeleOp(name="Chassis 2", group="Chassis")
 public class c2 extends T10Opmode {
     private MecanumDrivetrain drivetrain;
 
     private ArrayList<Controller> controllers = new ArrayList<Controller>();
     public void run() {
-        Logger.logLine("Chassis 1 initialized.");
+        Logger.logLine("Chassis 2 initialized.");
         drivetrain = new MecanumDrivetrain();
 
         controllers.add(new OneStickMecanum(drivetrain));
