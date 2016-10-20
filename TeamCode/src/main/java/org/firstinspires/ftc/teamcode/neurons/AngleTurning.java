@@ -27,6 +27,6 @@ public class AngleTurning extends PID {
         //357, 0
         double a = (destination - currentAngle);
         double b = 180 - Math.abs(a);
-        return (destination - Math.abs((initialAngle - currentAngle)));
+        return ((Math.abs(a) > Math.abs(b) ? b : a));
     }
 }
