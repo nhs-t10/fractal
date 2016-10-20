@@ -31,15 +31,15 @@ public class ControllerTester extends T10Opmode {
         //this shit threw 1000000 errors. Not dealing with.
         //Instruments instruments = new Instruments();
         //instruments.start();
-        Spinner spinner = new Spinner();
-        Flicker flicker = new Flicker();
+//        Spinner spinner = new Spinner();
+//        Flicker flicker = new Flicker();
 
         //add controllers here
         //very very buggy :(
         //tests.add(new AccStickDrive(tdt));
         tests.add(new OneStickMecanum());
         tests.add(new ButtonTest("^A1"));
-        tests.add(new Collection(flicker, spinner));
+//        tests.add(new Collection(flicker, spinner));
     }
 
     public void tick() {
