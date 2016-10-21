@@ -18,8 +18,8 @@ import java.util.ArrayList;
 /**
  * Created by max on 10/19/16.
  */
-@TeleOp(name="Chassis 1", group="Chassis")
-public class c1 extends T10Opmode {
+@TeleOp(name="Clyde", group="Chassis")
+public class clyde extends T10Opmode {
     private MecanumDrivetrain drivetrain;
     private Flicker flicker;
     private Spinner spinner;

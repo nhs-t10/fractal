@@ -16,8 +16,8 @@ import java.util.ArrayList;
 /**
  * Created by max on 10/19/16.
  */
-@TeleOp(name="Chassis 2", group="Chassis")
-public class c2 extends T10Opmode {
+@TeleOp(name="Bonnie", group="Chassis")
+public class bonnie extends T10Opmode {
     private MecanumDrivetrain drivetrain;
 
     private ArrayList<Controller> controllers = new ArrayList<Controller>();
