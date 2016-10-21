@@ -8,6 +8,8 @@ public class Controls {
     public static String JoyDrive = "LS1";
     public static String Flicker = "X1";
     public static String Spinner = "Y1";
+    public static String LeftPush = "LB1";
+    public static String RightPush = "RB1";
     @Deprecated
     public static String GridDrive = "LS1";
     public static String Selector = "LS1";

@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode.opmodes;
 import org.firstinspires.ftc.teamcode.debug.Component;
 import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.organs.Flicker;
+import org.firstinspires.ftc.teamcode.organs.Pusher;
 import org.firstinspires.ftc.teamcode.organs.Spinner;
 import org.firstinspires.ftc.teamcode.organs.drivetrains.MecanumDrivetrain;
 import org.firstinspires.ftc.teamcode.statics.Hardware;
@@ -38,6 +39,7 @@ public class Tester extends LinearOpMode {
         tests.add(new MecanumDrivetrain());
         tests.add(new Spinner());
         tests.add(new Flicker());
+        tests.add(new Pusher());
 
         for(int i=0; i<tests.size(); i++) {
             testComponent(tests.get(i));
