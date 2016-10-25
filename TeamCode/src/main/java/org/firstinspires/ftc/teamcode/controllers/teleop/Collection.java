@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.controllers.teleop;
 
 import org.firstinspires.ftc.teamcode.controllers.Controller;
+import org.firstinspires.ftc.teamcode.neurons.DebouncingButton;
 import org.firstinspires.ftc.teamcode.organs.Flicker;
 import org.firstinspires.ftc.teamcode.organs.Spinner;
 import org.firstinspires.ftc.teamcode.statics.ControlParser;
@@ -12,28 +13,19 @@ import org.firstinspires.ftc.teamcode.statics.Controls;
 public class Collection implements Controller {
     private Flicker flicker;
     private Spinner spinner;
+    private DebouncingButton flickerBtn = new DebouncingButton(Controls.Flicker);
+    private DebouncingButton spinnerBtn = new DebouncingButton(Controls.Spinner);
     public Collection(Flicker f, Spinner s) {
         flicker = f;
         spinner = s;
     }
 
-    boolean flickDebounce = false;
-    boolean spinDebounce = false;
-
     public boolean tick() {
-        if(!flickDebounce && ControlParser.button((Controls.Flicker))) {
-            flickDebounce = true;
+        if(flickerBtn.getToggle()) {
             flicker.toggle();
         }
-        else if (!ControlParser.button(Controls.Flicker)) {
-            flickDebounce = false;
-        }
-        if(!spinDebounce && ControlParser.button((Controls.Spinner))) {
-            spinDebounce = true;
+        if(spinnerBtn.getToggle()) {
             spinner.toggle();
-        }
-        else if (!ControlParser.button(Controls.Spinner)) {
-            spinDebounce = false;
         }
         return false;
     }
