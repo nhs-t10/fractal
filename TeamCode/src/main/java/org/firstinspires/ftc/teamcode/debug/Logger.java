@@ -26,6 +26,7 @@ public class Logger {
         for(int i=0; i<lines.size(); i++) {
             telemetry.addData(Integer.toString(i), lines.get(i));
         }
+        telemetry.update();
     }
 
     public static void logLine(int contents) { logLine("" + contents, 1); }
@@ -40,9 +41,10 @@ public class Logger {
 
     public static void logLine(String contents, int priority) {
         if(priority <= mode) {
-            lines.remove(0);
+            /*lines.remove(0);
             lines.add(contents);
-            renderLines();
+            renderLines();*/
+            telemetry.addLine(contents);
         }
     }
 
