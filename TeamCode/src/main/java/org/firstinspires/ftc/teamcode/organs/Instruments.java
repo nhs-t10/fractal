@@ -40,7 +40,7 @@ public class Instruments extends Thread {
 
     public Instruments() {
         //colorsensor = new TColor(Hardware.Color);
-        ultrasensor = new TUltra(Hardware.Ultra);
+//        ultrasensor = new TUltra(Hardware.Ultra);
         imusensor = new TIMU(Hardware.IMU);
 
         gatherData = false;
@@ -82,7 +82,7 @@ public class Instruments extends Thread {
         color.GREEN = colorsensor.red();
         color.ALPHA = colorsensor.alpha();*/
 
-        distance = ultrasensor.distance();
+//        distance = ultrasensor.distance();
         yaw = imusensor.getYaw();
     }
 }

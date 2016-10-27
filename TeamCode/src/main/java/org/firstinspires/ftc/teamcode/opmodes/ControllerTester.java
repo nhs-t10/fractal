@@ -9,6 +9,7 @@ import org.firstinspires.ftc.teamcode.controllers.teleop.GimbalBumpers;
 import org.firstinspires.ftc.teamcode.controllers.teleop.OneStickDrive;
 import org.firstinspires.ftc.teamcode.controllers.teleop.OneStickMecanum;
 import org.firstinspires.ftc.teamcode.controllers.tests.ButtonTest;
+import org.firstinspires.ftc.teamcode.controllers.tests.NeuronTest;
 import org.firstinspires.ftc.teamcode.organs.Flicker;
 import org.firstinspires.ftc.teamcode.organs.Gimbal;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
@@ -33,12 +34,11 @@ public class ControllerTester extends T10Opmode {
         //instruments.start();
 //        Spinner spinner = new Spinner();
 //        Flicker flicker = new Flicker();
-
-        //add controllers here
-        //very very buggy :(
-        //tests.add(new AccStickDrive(tdt));
+        Instruments instruments = new Instruments();
+        instruments.start();
         tests.add(new OneStickMecanum());
-        tests.add(new ButtonTest("^A1"));
+        tests.add(new NeuronTest(instruments));
+//        tests.add(new ButtonTest("^A1"));
 //        tests.add(new Collection(flicker, spinner));
     }
 
