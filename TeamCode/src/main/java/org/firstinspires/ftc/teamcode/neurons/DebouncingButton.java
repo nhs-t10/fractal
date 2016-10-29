@@ -18,11 +18,11 @@ public class DebouncingButton {
         boolean status = ControlParser.button(ctrl);
         if (!debounce && status) {
             debounce = true;
+            return true;
         }
         else if (!status) {
             debounce = false;
         }
-        Logger.logLine((debounce ? "true" : "false"));
-        return debounce;
+        return false;
     }
 }
