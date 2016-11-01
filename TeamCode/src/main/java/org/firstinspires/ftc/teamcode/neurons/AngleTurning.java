@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.teamcode.neurons;
 
+import org.firstinspires.ftc.teamcode.debug.Logger;
+
 import java.util.ArrayList;
 
 /**
@@ -16,6 +18,9 @@ public class AngleTurning extends PID {
     public ArrayList<Float> getPowers(double currentAngle) {
         ArrayList<Float> powers = new ArrayList<Float>();
         float power = convertPower(getPower(getError(currentAngle)));
+        Logger.logLine("Angle: " + currentAngle);
+        Logger.logLine("Error: "+ getError(currentAngle));
+        Logger.logLine("Power: " + power);
         powers.add(power);
         powers.add(-power);
         return powers;
@@ -26,7 +31,18 @@ public class AngleTurning extends PID {
     public double getError(double currentAngle) { //-179
         //357, 0
         double a = (destination - currentAngle);
-        double b = 180 - Math.abs(a);
-        return ((Math.abs(a) > Math.abs(b) ? b : a));
+        double b = (360 - Math.abs(a));
+        if (a > 0) {
+            if (Math.abs(a) > Math.abs(b)) {
+                return -b;
+            }
+            return a;
+        }
+        else {
+            if (Math.abs(a) > Math.abs(b)) {
+                return b;
+            }
+            return a;
+        }
     }
 }

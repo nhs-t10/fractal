@@ -16,7 +16,7 @@ public class Flicker implements Component {
     }
 
     public void toggle() {
-        flicker.move((on ? 0 : 2f));
+        flicker.move((on ? 0 : 1f));
         on = !on;
     }
 

@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.teamcode.neurons;
 
+import org.firstinspires.ftc.robotcore.external.Telemetry;
+import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.statics.ControlParser;
 
 /**
@@ -14,12 +16,13 @@ public class DebouncingButton {
     }
     public boolean getToggle() {
         boolean status = ControlParser.button(ctrl);
-        if(!debounce && status) {
+        if (!debounce && status) {
             debounce = true;
+            return true;
         }
-        else if(!status) {
+        else if (!status) {
             debounce = false;
         }
-        return debounce;
+        return false;
     }
 }
