@@ -36,7 +36,7 @@ public class Hardware {
 */
         ServoTop = "s1";
 
-       // IMU = "g1";
+        IMU = "imu";
         /*Color = "c1";*/
        // Ultra = "u1";
     }
