@@ -6,6 +6,8 @@ import org.firstinspires.ftc.teamcode.statics.ControlParser;
 
 /**
  * Created by nhs on 10/25/16.
+ * To use: in constructor, give a ControlParser.button string.
+ * Call getToggle(), you will get a `true` value exactly once for every time the button is pressed.
  */
 
 public class DebouncingButton {
