@@ -2,6 +2,8 @@ package org.firstinspires.ftc.teamcode.neurons;
 
 /**
  * Created by nhs on 10/20/16.
+ *
+ * Calculates a power value based on error value. Automatically computes via proportion and derivative constants.
  */
 
 public abstract class PID {

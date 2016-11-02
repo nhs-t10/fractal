@@ -14,6 +14,8 @@ public class AngleTurning extends PID {
     public AngleTurning (double dest, double initial) {
         destination = dest;
         initialAngle = initial;
+        Kp = 0.5;
+        Kd = 0.1;
     }
     public ArrayList<Float> getPowers(double currentAngle) {
         ArrayList<Float> powers = new ArrayList<Float>();
