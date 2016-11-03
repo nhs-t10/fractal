@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.organs;
 
 import org.firstinspires.ftc.teamcode.debug.Component;
+import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.lib.Sleep;
 import org.firstinspires.ftc.teamcode.statics.Hardware;
 import org.firstinspires.ftc.teamcode.tissues.TEncoderMotor;
@@ -18,12 +19,14 @@ public class Flicker implements Component {
 
     @Deprecated
     public void toggle() {
-        flicker.move((on ? 0 : 1f));
+        flicker.speed((on ? 0 : 1f));
         on = !on;
     }
 
     public void flick() {
+        Logger.logLine("Flicking");
         flicker.rotate360(1);
+        Logger.logLine("Flicked");
     }
 
     @Override
