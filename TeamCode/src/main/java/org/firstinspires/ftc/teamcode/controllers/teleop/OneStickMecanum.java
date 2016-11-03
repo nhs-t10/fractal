@@ -25,23 +25,14 @@ public class OneStickMecanum implements Controller {
     }
 
     public boolean tick() {
-        ArrayList<Float> leftJoy = ControlParser.range(Controls.JoyDrive); //left joystick (roll and pitch)
-        ArrayList<Float> rightJoy = ControlParser.range(Controls.JoySecondary); //right joystick (yaw)
-        rightJoy.set(0, -rightJoy.get(0)); //make yaw negative
+        ArrayList<Float> joyValues = ControlParser.range(Controls.JoyDrive);
+        joyValues.set(0, -joyValues.get(0));
+        ArrayList<Float> powers = HumanDriving.joyToPowers(joyValues);
 
-        // Remap vLeft and hRight joystick into a "virtual" single joystick
-        ArrayList<Float> vals = new ArrayList<Float>();
-        vals.add(rightJoy.get(0));
-        vals.add(leftJoy.get(1));
-        ArrayList<Float> powers = HumanDriving.joyToPowers(vals);
+        ArrayList<Float> joy2Values = ControlParser.range(Controls.JoySecondary);
+        ArrayList<Float> sidePowers = HumanDriving.joyToPowers(joy2Values);
 
-        // Do the same for hLeft joystick
-        ArrayList<Float> vals2 = new ArrayList<Float>();
-        vals2.add(leftJoy.get(0));
-        vals2.add(0f);
-        ArrayList<Float> sidePowers = HumanDriving.joyToPowers(vals2);
-
-        if (Math.abs(leftJoy.get(0)) > 0.1) {
+        if (Math.abs(sidePowers.get(0)) > 0.1) {
             drivetrain.driveSideways(sidePowers.get(0));
         } else {
             drivetrain.drive(powers.get(0), powers.get(1));
