@@ -32,12 +32,11 @@ public class Hardware {
         Spinner = "m5";
         Flicker = "m6";
 
-        /*GimbalVertical = "m6";
-*/
+        //GimbalVertical = "m6";
         ServoTop = "s1";
 
         IMU = "imu";
-        /*Color = "c1";*/
-       // Ultra = "u1";
+        //Color = "c1";
+        // Ultra = "u1";
     }
 }
