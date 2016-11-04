@@ -16,7 +16,6 @@ import java.util.ArrayList;
 public class Collection implements Controller {
     private Flicker flicker;
     private Spinner spinner;
-    private boolean flickerBtn;
     private DebouncingButton spinnerBtn = new DebouncingButton(Controls.Spinner);
     public Collection(Flicker f, Spinner s) {
         flicker = f;
@@ -24,9 +23,8 @@ public class Collection implements Controller {
     }
 
     public boolean tick() {
-        flickerBtn = ControlParser.button(Controls.Flicker);
 
-        if(flickerBtn) {
+        if(ControlParser.button(Controls.Flicker)) {
             flicker.flick();
         }
 
