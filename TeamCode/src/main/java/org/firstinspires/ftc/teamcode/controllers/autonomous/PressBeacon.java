@@ -9,6 +9,8 @@ import org.firstinspires.ftc.teamcode.tissues.TCamera;
 
 /**
  * Created by max on 11/3/16.
+ *
+ * Drives up to the beacon and presses it.
  */
 public class PressBeacon implements Controller {
     private DriveTrain driveTrain;
@@ -28,7 +30,7 @@ public class PressBeacon implements Controller {
             return true;
         }
 
-        if (beacon.pressLeft()) pusher.pushLeft();
+        if (beacon.shouldPressLeft()) pusher.pushLeft();
         else pusher.pushRight();
 
         driveTrain.goForward(1f);

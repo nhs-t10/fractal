@@ -16,9 +16,9 @@ public class BeaconCheck {
         analysis = b;
     }
 
-    public boolean pressLeft() {
+    public boolean shouldPressLeft() {
         return ((team == Team.BLUE && analysis.getStateLeft() == Beacon.BeaconColor.BLUE) ||
-        team == Team.RED && analysis.getStateLeft() == Beacon.BeaconColor.RED);
+                (team == Team.RED && analysis.getStateLeft() == Beacon.BeaconColor.RED));
     }
 
     public boolean isPressed() {
