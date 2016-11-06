@@ -1,5 +1,7 @@
 <p align="center"><img src="markdown/fractal.png" align="center"/></p>
 
+[![CircleCI](https://circleci.com/gh/nhs-t10/fractal.svg?style=svg)](https://circleci.com/gh/nhs-t10/fractal)
+
 T-10's modular codebase
 
 ##Structure & Reference
