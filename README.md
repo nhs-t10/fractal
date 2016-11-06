@@ -1,6 +1,6 @@
 <p align="center"><img src="markdown/fractal.png" align="center"/></p>
 
-[![CircleCI](https://circleci.com/gh/nhs-t10/fractal.svg?style=svg)](https://circleci.com/gh/nhs-t10/fractal)
+[![CircleCI](https://circleci.com/gh/nhs-t10/fractal.svg?style=svg)](https://circleci.com/gh/nhs-t10/fractal) [![Build Status](https://travis-ci.org/nhs-t10/fractal.svg?branch=master)](https://travis-ci.org/nhs-t10/fractal)
 
 T-10's modular codebase
 
