@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode.opmodes;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.controllers.Controller;
+import org.firstinspires.ftc.teamcode.controllers.autonomous.Turn90;
 import org.firstinspires.ftc.teamcode.controllers.teleop.AccStickDrive;
 import org.firstinspires.ftc.teamcode.controllers.teleop.Collection;
 import org.firstinspires.ftc.teamcode.controllers.teleop.GimbalBumpers;
@@ -14,6 +15,7 @@ import org.firstinspires.ftc.teamcode.organs.Flicker;
 import org.firstinspires.ftc.teamcode.organs.Gimbal;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
 import org.firstinspires.ftc.teamcode.organs.Spinner;
+import org.firstinspires.ftc.teamcode.organs.drivetrains.MecanumDrivetrain;
 import org.firstinspires.ftc.teamcode.organs.drivetrains.TreadDrivetrain;
 
 import java.util.ArrayList;
@@ -36,8 +38,10 @@ public class ControllerTester extends T10Opmode {
 //        Flicker flicker = new Flicker();
         Instruments instruments = new Instruments();
         instruments.start();
-        tests.add(new OneStickMecanum());
-        tests.add(new NeuronTest(instruments));
+        MecanumDrivetrain m = new MecanumDrivetrain();
+        tests.add(new Turn90(instruments, m));
+       // tests.add(new OneStickMecanum());
+       // tests.add(new NeuronTest(instruments));
 //        tests.add(new ButtonTest("^A1"));
 //        tests.add(new Collection(flicker, spinner));
     }

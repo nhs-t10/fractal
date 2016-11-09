@@ -10,17 +10,15 @@ import java.util.ArrayList;
 
 public class AngleTurning extends PID {
     private double destination; //178
-    private double initialAngle; // -178
-    public AngleTurning (double dest, double initial) {
+    public AngleTurning (double dest) {
         destination = dest;
-        initialAngle = initial;
-        Kp = 0.5;
-        Kd = 0.1;
+        Kp = 1.2;
+        Kd = 0.0;
     }
     public ArrayList<Float> getPowers(double currentAngle) {
         ArrayList<Float> powers = new ArrayList<Float>();
         float power = convertPower(getPower(getError(currentAngle)));
-        Logger.logLine("Angle: " + currentAngle);
+        Logger.logLine("Angle: " + currentAngle + 180);
         Logger.logLine("Error: "+ getError(currentAngle));
         Logger.logLine("Power: " + power);
         powers.add(power);
