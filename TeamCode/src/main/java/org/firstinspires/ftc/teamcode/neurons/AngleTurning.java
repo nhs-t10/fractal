@@ -12,7 +12,7 @@ public class AngleTurning extends PID {
     private double destination; //178
     public AngleTurning (double dest) {
         destination = dest;
-        Kp = 1.2;
+        Kp = 0.9;
         Kd = 0.0;
     }
     public ArrayList<Float> getPowers(double currentAngle) {
