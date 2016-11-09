@@ -13,7 +13,7 @@ public class NeuronTest implements Controller {
     private AngleTurning angleTurning;
     public NeuronTest(Instruments i) {
         instruments = i;
-        angleTurning = new AngleTurning(360);
+        angleTurning = new AngleTurning(270);
     }
     public boolean tick() {
         angleTurning.getPowers(instruments.yaw);

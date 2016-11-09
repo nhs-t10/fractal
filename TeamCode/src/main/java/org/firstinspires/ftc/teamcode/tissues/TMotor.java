@@ -4,14 +4,15 @@ import org.firstinspires.ftc.teamcode.lib.Sleep;
 import org.firstinspires.ftc.teamcode.statics.Hardware;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorController;
 import com.qualcomm.robotcore.util.Range;
 
 /**
  * Created by robotics on 4/12/16.
  */
 public class TMotor implements Component {
-    private DcMotor motor;
-    public String getName(){return  "Motor";}
+    protected DcMotor motor;
+
     public TMotor(String m) {
         motor = Hardware.getHardwareMap().dcMotor.get(m);
     }
@@ -39,6 +40,10 @@ public class TMotor implements Component {
      */
     public void stop() {
         motor.setPower(0);
+    }
+
+    public String getName(){
+        return  motor.getDeviceName();
     }
 
     public boolean test() {
