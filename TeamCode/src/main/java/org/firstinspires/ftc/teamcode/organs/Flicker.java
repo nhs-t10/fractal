@@ -11,21 +11,21 @@ import org.firstinspires.ftc.teamcode.tissues.TMotor;
  * Created by robotics on 9/22/16.
  */
 public class Flicker implements Component {
-    private TEncoderMotor flicker;
+    //private TEncoderMotor flicker;
+    private TMotor flicker;
     private boolean on = false;
     public Flicker() {
-        flicker = new TEncoderMotor(Hardware.Flicker);
+        flicker = new TMotor(Hardware.Flicker);
     }
 
-    @Deprecated
     public void toggle() {
-        flicker.speed((on ? 0 : 1f));
+        flicker.move(on ? 0 : 1f);
         on = !on;
     }
 
     public void flick() {
         Logger.logLine("Flicking");
-        flicker.rotate360(1);
+        //flicker.rotate360(1);
         Logger.logLine("Flicked");
     }
 
