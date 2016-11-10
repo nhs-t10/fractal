@@ -27,8 +27,9 @@ import org.opencv.core.Size;
 /**
  * Core OpMode class containing most OpenCV functionality
  */
-abstract class VisionOpModeCore extends OpMode implements CameraBridgeViewBase.CvCameraViewListener2 {
+abstract class VisionOpModeCore implements CameraBridgeViewBase.CvCameraViewListener2 {
     private static final int initialMaxSize = 1200;
+    private HardwareMap hardwareMap;
     public static JavaCameraView openCVCamera;
     private static boolean initialized = false;
     private static boolean openCVInitialized = false;
@@ -47,7 +48,7 @@ abstract class VisionOpModeCore extends OpMode implements CameraBridgeViewBase.C
 
     private void error(String message) {
         Log.e("FTCVision", message);
-        telemetry.addData("Vision Status", message);
+//        telemetry.addData("Vision Status", message);
     }
 
     /**
@@ -232,8 +233,6 @@ abstract class VisionOpModeCore extends OpMode implements CameraBridgeViewBase.C
 
         initialized = false;
         openCVCamera = null;
-
-        super.stop();
     }
 
     @Override
@@ -254,7 +253,7 @@ abstract class VisionOpModeCore extends OpMode implements CameraBridgeViewBase.C
             return inputFrame.rgba();
         }
 
-        telemetry.addData("Vision Status", "Ready!");
+//        telemetry.addData("Vision Status", "Ready!");
 
         fps.update();
         return frame(inputFrame.rgba(), inputFrame.gray());
