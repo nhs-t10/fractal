@@ -28,6 +28,6 @@ dependencies {
     compile files('libs/android-support-v4.jar')
     compile(name: 'RobotCore-release', ext: 'aar')
     compile project(':opencv-java')
-    //compile 'org.jetbrains:annotations:13.0'
+//    compile 'org.jetbrains:annotations:13.0'
 }
 
