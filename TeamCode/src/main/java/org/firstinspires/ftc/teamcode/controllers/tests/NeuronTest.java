@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.controllers.tests;
 
 import org.firstinspires.ftc.teamcode.controllers.Controller;
+import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.neurons.AngleTurning;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
 
@@ -14,9 +15,11 @@ public class NeuronTest implements Controller {
     public NeuronTest(Instruments i) {
         instruments = i;
         angleTurning = new AngleTurning(200, 20);
+
     }
     public boolean tick() {
-        angleTurning.getPowers(instruments.yaw);
+//        angleTurning.getPowers(instruments.yaw);
+        Logger.logLine("value1: " + instruments.reflectedvalueone + " value2: " + instruments.reflectedvaluetwo);
         return false;
     }
 }
