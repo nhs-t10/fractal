@@ -9,7 +9,7 @@ public class MecanumDrivetrain extends TreadDrivetrain {
     //Mecanum
     @Override
     public String getName() {return "Mecanum Drive Train";}
-    private static final float MECANUM_OFFSET = 0.1f;
+    private static final float MECANUM_OFFSET = 0.00f;
 
     public void driveSideways(float power) {
         driveQuad(power*(1-MECANUM_OFFSET), -power, -power, power*(1-MECANUM_OFFSET));

@@ -12,6 +12,7 @@ public abstract class PID {
     public double Ki = 0.5;
     private double i = 0.0;
     public double prevError = 1;
+    public double i = 0;
     public double getPower (double error) {
         double p = Kp * error;
         double d = Kd * (error - prevError);

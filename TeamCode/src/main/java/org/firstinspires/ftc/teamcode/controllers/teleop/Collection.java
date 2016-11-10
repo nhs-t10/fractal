@@ -16,16 +16,16 @@ import java.util.ArrayList;
 public class Collection implements Controller {
     private Flicker flicker;
     private Spinner spinner;
+    private DebouncingButton flickerBtn = new DebouncingButton(Controls.Flicker);
     private DebouncingButton spinnerBtn = new DebouncingButton(Controls.Spinner);
     public Collection(Flicker f, Spinner s) {
         flicker = f;
         spinner = s;
     }
-
+    
     public boolean tick() {
-
-        if(ControlParser.button(Controls.Flicker)) {
-            flicker.flick();
+        if(flickerBtn.getToggle()) {
+            flicker.toggle();
         }
 
         if(spinnerBtn.getToggle()) {

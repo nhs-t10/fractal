@@ -11,7 +11,7 @@ import org.firstinspires.ftc.teamcode.lib.Sleep;
  * Created by robotics on 11/3/16.
  */
 public class TEncoderMotor extends TMotor {
-    private static final int ANDIMARK_360 = 1220;
+    private static final int GEARED_ANDIMARK_360 = 1220*2;
 
     public TEncoderMotor(String m) {
         super(m);
@@ -46,7 +46,7 @@ public class TEncoderMotor extends TMotor {
     * *Successful means function returned true
     */
     public boolean rotate360(int rotations) {
-        return setPosition(motor.getTargetPosition() + ANDIMARK_360 * rotations);
+        return setPosition(motor.getTargetPosition() + GEARED_ANDIMARK_360 * rotations);
     }
 
     public void speed(double power) {
