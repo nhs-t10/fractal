@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.lasarobotics.vision.android.Cameras;
 import org.lasarobotics.vision.android.Sensors;
@@ -114,13 +114,11 @@ abstract class VisionOpModeCore implements CameraBridgeViewBase.CvCameraViewList
         return new Size(width, height);
     }
 
-    @Override
     public void init() {
         //Initialize camera view
         BaseLoaderCallback openCVLoaderCallback = null;
         try {
             openCVLoaderCallback = new BaseLoaderCallback(hardwareMap.appContext) {
-                @Override
                 public void onManagerConnected(int status) {
                     switch (status) {
                         case LoaderCallbackInterface.SUCCESS: {
@@ -173,7 +171,7 @@ abstract class VisionOpModeCore implements CameraBridgeViewBase.CvCameraViewList
         }
 
         activity.runOnUiThread(new Runnable() {
-            @Override
+
             public void run() {
                 LinearLayout layout = new LinearLayout(activity);
                 layout.setOrientation(LinearLayout.VERTICAL);
@@ -216,12 +214,11 @@ abstract class VisionOpModeCore implements CameraBridgeViewBase.CvCameraViewList
         }
     }
 
-    @Override
     public void loop() {
 
     }
 
-    @Override
+
     public void stop() {
         if (openCVCamera != null) {
             openCVCamera.disableView();
@@ -235,19 +232,19 @@ abstract class VisionOpModeCore implements CameraBridgeViewBase.CvCameraViewList
         openCVCamera = null;
     }
 
-    @Override
+
     public void onCameraViewStarted(int width, int height) {
         this.width = width;
         this.height = height;
         Log.d("CAMERA", "STARTED");
     }
 
-    @Override
+
     public void onCameraViewStopped() {
         Log.d("CAMERA", "STOPPED");
     }
 
-    @Override
+
     public Mat onCameraFrame(CameraBridgeViewBase.CvCameraViewFrame inputFrame) {
         if (!initialized) {
             return inputFrame.rgba();

@@ -32,7 +32,7 @@ public abstract class LinearVisionOpMode extends VisionOpMode {
 
     }
 
-    @Override
+//    @Override
     public final Mat frame(Mat rgba, Mat gray) {
         if (!opModeStarted) return rgba;
         this.rgba = super.frame(rgba, gray);
@@ -61,8 +61,6 @@ public abstract class LinearVisionOpMode extends VisionOpMode {
 
     public final void waitForVisionStart() throws InterruptedException {
         //Give some status info
-        telemetry.addData("Vision Status", "Initializing...\r\n" +
-                "Please wait, do not stop the OpMode.");
 
         while (!this.isInitialized()) {
             synchronized (this) {
@@ -99,7 +97,7 @@ public abstract class LinearVisionOpMode extends VisionOpMode {
         return this.opModeStarted;
     }
 
-    @Override
+//    @Override
     public final void init() {
         super.init();
         hasNewFrame = false;
@@ -110,12 +108,11 @@ public abstract class LinearVisionOpMode extends VisionOpMode {
         this.thread.start();
     }
 
-    @Override
+
     public final void init_loop() {
         this.notifyOrThrowError();
     }
 
-    @Override
     public final void start() {
         this.opModeStarted = true;
         synchronized (this) {
@@ -123,13 +120,13 @@ public abstract class LinearVisionOpMode extends VisionOpMode {
         }
     }
 
-    @Override
+//    @Override
     public final void loop() {
         super.loop();
         this.notifyOrThrowError();
     }
 
-    @Override
+//    @Override
     public final void stop() {
         super.stop();
         this.opModeStarted = false;

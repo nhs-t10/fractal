@@ -55,11 +55,6 @@ public class ManualVisionSample extends ManualVisionOpMode {
     @Override
     public void loop() {
         super.loop();
-
-        telemetry.addData("Vision FPS", fps.getFPSString());
-        telemetry.addData("Vision Color", colorAnalysis.getColorString());
-        telemetry.addData("Analysis Confidence", colorAnalysis.getConfidenceString());
-        telemetry.addData("Vision Size", "Width: " + width + " Height: " + height);
     }
 
     @Override

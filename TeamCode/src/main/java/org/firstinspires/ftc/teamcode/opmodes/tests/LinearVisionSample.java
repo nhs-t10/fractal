@@ -109,14 +109,6 @@ public class LinearVisionSample extends LinearVisionOpMode {
         //This loop will exit once the opmode is closed
         while (opModeIsActive()) {
             //Log a few things
-            telemetry.addData("Beacon Color", beacon.getAnalysis().getColorString());
-            telemetry.addData("Beacon Center", beacon.getAnalysis().getLocationString());
-            telemetry.addData("Beacon Confidence", beacon.getAnalysis().getConfidenceString());
-            telemetry.addData("Beacon Buttons", beacon.getAnalysis().getButtonString());
-            telemetry.addData("Screen Rotation", rotation.getScreenOrientationActual());
-            telemetry.addData("Frame Rate", fps.getFPSString() + " FPS");
-            telemetry.addData("Frame Size", "Width: " + width + " Height: " + height);
-            telemetry.addData("Frame Counter", frameCount);
 
             //You can access the most recent frame data and modify it here using getFrameRgba() or getFrameGray()
             //Vision will run asynchronously (parallel) to any user code so your programs won't hang
