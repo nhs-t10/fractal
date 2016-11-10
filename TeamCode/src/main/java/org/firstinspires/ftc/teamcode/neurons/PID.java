@@ -9,11 +9,15 @@ package org.firstinspires.ftc.teamcode.neurons;
 public abstract class PID {
     public double Kp = 1;
     public double Kd = 0.5;
+    public double Ki = 0.5;
     public double prevError = 1;
     public double getPower (double error) {
         double p = Kp * error;
         double d = Kd * (error - prevError);
+        double i = Ki * (i + error);
         prevError = error;
-        return p + d;
+        return p + d + i;
     }
 }
+
+

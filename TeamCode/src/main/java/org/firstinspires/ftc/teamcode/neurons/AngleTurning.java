@@ -14,6 +14,8 @@ public class AngleTurning extends PID {
         destination = dest;
         Kp = 2.0;
         Kd = 0.0;
+        Ki = 0.0;
+
     }
     public ArrayList<Float> getPowers(double currentAngle) {
         ArrayList<Float> powers = new ArrayList<Float>();
@@ -26,7 +28,10 @@ public class AngleTurning extends PID {
         return powers;
     }
     public float convertPower (double p) {
-        return (float) p / 180f;
+        if (p > .08) {
+            return (float) p / 180f;
+        }
+        return 0;
     }
     public double getError(double currentAngle) { //-179
         //357, 0
