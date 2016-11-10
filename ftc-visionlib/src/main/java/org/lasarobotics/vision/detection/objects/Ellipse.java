@@ -18,7 +18,7 @@ public class Ellipse extends Detectable implements Comparable<Ellipse> {
     private RotatedRect rect;
 
     /**
-     * Instantiate a null ellipse
+     * Instantiate a null ellipse`
      */
     public Ellipse() {
         this.rect = new RotatedRect();
@@ -33,7 +33,7 @@ public class Ellipse extends Detectable implements Comparable<Ellipse> {
         this.rect = rect;
     }
 
-    /**
+    /**w
      * Get the OpenCV rectangle which circumscribes the ellipse
      *
      * @return OpenCV rectange
