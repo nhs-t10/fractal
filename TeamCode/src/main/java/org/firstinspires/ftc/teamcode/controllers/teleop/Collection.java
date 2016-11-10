@@ -22,15 +22,10 @@ public class Collection implements Controller {
         flicker = f;
         spinner = s;
     }
-
-    boolean flickDebounce = false;
-
+    
     public boolean tick() {
-        if(!flickDebounce && ControlParser.button((Controls.Flicker))) {
-            flickDebounce = true;
+        if(flickerBtn.getToggle()) {
             flicker.toggle();
-        }else if (!ControlParser.button(Controls.Flicker)) {
-            flickDebounce = false;
         }
 
         if(spinnerBtn.getToggle()) {
