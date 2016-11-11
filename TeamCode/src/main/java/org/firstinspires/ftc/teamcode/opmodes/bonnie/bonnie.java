@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.opmodes.chassis;
+package org.firstinspires.ftc.teamcode.opmodes.bonnie;
 
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
@@ -16,7 +16,7 @@ import java.util.ArrayList;
 /**
  * Created by max on 10/19/16.
  */
-@TeleOp(name="Bonnie", group="Chassis")
+@TeleOp(name="BonnieOp", group="Bonnie")
 public class bonnie extends T10Opmode {
     private MecanumDrivetrain drivetrain;
 

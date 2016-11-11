@@ -1,7 +1,8 @@
-package org.firstinspires.ftc.teamcode.opmodes;
+package org.firstinspires.ftc.teamcode.opmodes.tests;
 
 import org.firstinspires.ftc.teamcode.controllers.teleop.TestSelect;
 import org.firstinspires.ftc.teamcode.debug.Component;
+import org.firstinspires.ftc.teamcode.opmodes.T10Opmode;
 import org.firstinspires.ftc.teamcode.organs.drivetrains.QuadDrivetrain;
 
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
