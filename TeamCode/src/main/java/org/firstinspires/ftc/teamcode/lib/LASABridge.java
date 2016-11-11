@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.lib;
 
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
+import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.statics.Hardware;
 import org.lasarobotics.vision.android.Cameras;
 import org.lasarobotics.vision.ftc.resq.Beacon;
@@ -22,16 +23,19 @@ public class LASABridge extends VisionOpMode {
     }
     @Override
     public void init() {
+        super.init();
+        Logger.logLine("Inited");
         this.setCamera(Cameras.PRIMARY); // set front camera
         this.setFrameSize(new Size(900, 900)); //size of camera view
 
         enableExtension(Extensions.BEACON);         //Beacon detection
         enableExtension(Extensions.ROTATION);       //Automatic screen rotation correction (pretty necessary for beacon)
         enableExtension(Extensions.CAMERA_CONTROL); //Manual camera control
-
+        Logger.logLine("Extensions enabled");
         beacon.setAnalysisMethod(Beacon.AnalysisMethod.FAST);
         beacon.setColorToleranceRed(0);
         beacon.setColorToleranceBlue(0);
+        Logger.logLine("Set tolerances");
 
         /**
          * Set analysis boundary
@@ -49,10 +53,11 @@ public class LASABridge extends VisionOpMode {
 
         cameraControl.setColorTemperature(CameraControlExtension.ColorTemperature.AUTO);
         cameraControl.setAutoExposureCompensation();
+        Logger.logLine("Finished init");
 
     }
     public Beacon.BeaconAnalysis getAnalysis() {
-        super.loop(); //TODO: make sure this doesn't bog performance. if it does, make a separate update() method
+        super.loop();
         return beacon.getAnalysis();
     }
     public void setTolerances(double red, double blue) {

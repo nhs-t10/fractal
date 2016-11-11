@@ -21,14 +21,6 @@ public class TCamera implements Component {
     public Beacon.BeaconAnalysis getAnalysis() {
         return bridge.getAnalysis();
     }
-    /**
-     * Find beacon state colors
-     * @return {Left Color, Right Color}
-     */
-    public Beacon.BeaconColor[] getBeaconState() {
-        Beacon.BeaconAnalysis analysis = bridge.getAnalysis();
-        return new Beacon.BeaconColor[] {analysis.getStateLeft(), analysis.getStateRight()};
-    }
     public String getName() {
         return "LASA Camera";
     }

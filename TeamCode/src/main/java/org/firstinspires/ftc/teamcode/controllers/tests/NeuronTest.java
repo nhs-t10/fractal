@@ -19,7 +19,7 @@ public class NeuronTest implements Controller {
         camera = c;
     }
     public boolean tick() {
-        angleTurning.getPowers(instruments.yaw);
+//        angleTurning.getPowers(instruments.yaw);
         Logger.logLine(camera.getString());
         return false;
     }
