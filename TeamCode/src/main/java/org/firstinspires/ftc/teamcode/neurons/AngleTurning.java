@@ -15,7 +15,6 @@ public class AngleTurning extends PID {
         Kp = 2.0;
         Kd = 0.0;
         Ki = 0.3;
-
     }
     public ArrayList<Float> getPowers(double currentAngle) {
         ArrayList<Float> powers = new ArrayList<Float>();

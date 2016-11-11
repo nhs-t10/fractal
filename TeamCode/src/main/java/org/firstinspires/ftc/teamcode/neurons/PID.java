@@ -10,15 +10,14 @@ public abstract class PID {
     public double Kp = 1;
     public double Kd = 0.5;
     public double Ki = 0.5;
-    private double i = 0.0;
     public double prevError = 1;
-    public double i = 0;
+    public double integral = 0.0;
     public double getPower (double error) {
         double p = Kp * error;
         double d = Kd * (error - prevError);
-        i = Ki * (i + error);
+        integral = Ki * (integral + error);
         prevError = error;
-        return p + d + i;
+        return p + d + integral;
     }
 }
 
