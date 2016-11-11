@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.tissues;
 
 import org.firstinspires.ftc.teamcode.debug.Component;
+import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.lib.LASABridge;
 import org.firstinspires.ftc.teamcode.statics.Hardware;
 import org.lasarobotics.vision.ftc.resq.Beacon;
@@ -12,6 +13,7 @@ import org.opencv.core.Point;
 public class TCamera implements Component {
     private LASABridge bridge;
     public TCamera() {
+        Logger.logLine("Camera is initializing...");
         bridge = new LASABridge(Hardware.getHardwareMap());
         bridge.setTolerances(0, 0);
     }
@@ -25,6 +27,7 @@ public class TCamera implements Component {
         return "LASA Camera";
     }
     public boolean test() {
+        Logger.logLine(getString());
         return true;
     }
 }

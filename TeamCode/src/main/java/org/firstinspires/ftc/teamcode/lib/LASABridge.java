@@ -24,7 +24,7 @@ public class LASABridge extends VisionOpMode {
     @Override
     public void init() {
         super.init();
-        Logger.logLine("Inited");
+        Logger.logLine("Initialized Vision Library");
         this.setCamera(Cameras.PRIMARY); // set front camera
         this.setFrameSize(new Size(900, 900)); //size of camera view
 
