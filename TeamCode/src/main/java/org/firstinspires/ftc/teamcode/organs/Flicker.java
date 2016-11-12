@@ -19,22 +19,28 @@ public class Flicker implements Component {
     }
 
     public void toggle() {
-        flicker.move(on ? 0 : 1f);
+        if (on) stop();
+        else engage();
         on = !on;
     }
+    public void stop() {
+        flicker.stop();
+    }
+    public void engage() {
+        flicker.move(1f);
+    }
 
+    @Deprecated
     public void flick() {
         Logger.logLine("Flicking");
         //flicker.rotate360(1);
         Logger.logLine("Flicked");
     }
 
-    @Override
     public String getName() {
         return "Ball Flicker";
     }
 
-    @Override
     public boolean test() {
         toggle();
         Sleep.secs(5);

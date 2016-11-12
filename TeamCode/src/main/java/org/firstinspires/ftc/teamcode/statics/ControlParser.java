@@ -126,7 +126,7 @@ public class ControlParser {
             control += query.get(i);
         }
 
-        results.addAll(getRangeResult(gamepad, control)); //[true, true]
+        results.addAll(getRangeResult(gamepad, control)); //[0.5, 0.5]
 
         return results;
     }

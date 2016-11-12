@@ -16,7 +16,6 @@ import java.util.ArrayList;
 public class Collection implements Controller {
     private Flicker flicker;
     private Spinner spinner;
-    private DebouncingButton flickerBtn = new DebouncingButton(Controls.Flicker);
     private DebouncingButton spinnerBtn = new DebouncingButton(Controls.Spinner);
     public Collection(Flicker f, Spinner s) {
         flicker = f;
@@ -24,9 +23,8 @@ public class Collection implements Controller {
     }
     
     public boolean tick() {
-        if(flickerBtn.getToggle()) {
-            flicker.toggle();
-        }
+        if(ControlParser.range(Controls.Flicker).get(0) > 0.6) flicker.engage();
+        else flicker.stop();
 
         if(spinnerBtn.getToggle()) {
             spinner.toggle();
