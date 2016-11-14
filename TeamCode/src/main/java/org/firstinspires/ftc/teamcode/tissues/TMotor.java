@@ -42,6 +42,10 @@ public class TMotor implements Component {
         motor.setPower(0);
     }
 
+    public void turnForMillis(int seconds) {
+
+    }
+
     public String getName(){
         return  motor.getDeviceName();
     }

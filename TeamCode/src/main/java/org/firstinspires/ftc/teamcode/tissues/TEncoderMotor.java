@@ -17,7 +17,7 @@ public class TEncoderMotor extends TMotor {
         super(m);
         reset();
         this.speed(1.0f);
-        motor.setTargetPosition(0);
+        //motor.setTargetPosition(0);
     }
 
     public void reset() {
@@ -46,7 +46,7 @@ public class TEncoderMotor extends TMotor {
     * *Successful means function returned true
     */
     public boolean rotate360(int rotations) {
-        return setPosition(motor.getTargetPosition() + GEARED_ANDIMARK_360 * rotations);
+        return setPosition(motor.getCurrentPosition() + GEARED_ANDIMARK_360 * rotations);
     }
 
     public void speed(double power) {
