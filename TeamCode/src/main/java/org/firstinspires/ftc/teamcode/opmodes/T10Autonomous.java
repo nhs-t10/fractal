@@ -20,7 +20,6 @@ public abstract class T10Autonomous extends OpMode {
     private int index = 0;
 
     public final void init() {
-        Logger.logLine("Initializing...");
         initStatics();
         registration();
     }
