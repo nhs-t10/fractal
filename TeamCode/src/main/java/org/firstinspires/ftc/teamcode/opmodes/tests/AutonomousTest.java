@@ -17,11 +17,16 @@ import org.firstinspires.ftc.teamcode.tissues.TCamera;
  */
 @Autonomous(name="Autonomous Test", group="Autonomous Tests")
 public class AutonomousTest extends T10Autonomous {
+    private TCamera cam;
     public void registration()  {
         MecanumDrivetrain md = new MecanumDrivetrain();
         Pusher p = new Pusher();
-        TCamera cam = new TCamera();
+        cam = new TCamera();
         PressBeacon pb = new PressBeacon(Team.BLUE, md, p, cam);
         registerController(pb);
+    }
+    @Override
+    public void stop() {
+        cam.stop();
     }
 }

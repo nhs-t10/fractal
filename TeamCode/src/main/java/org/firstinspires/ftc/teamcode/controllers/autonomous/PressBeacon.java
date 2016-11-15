@@ -27,7 +27,6 @@ public class PressBeacon implements Controller {
     public boolean tick() {
         beacon.update(camera.getAnalysis());
         Logger.logLine(camera.getString());
-        Logger.logLine("AAAA: " + camera.getAnalysis().getConfidence());
         if (beacon.isPressed()) {
             driveTrain.stop();
             return true;
@@ -36,7 +35,7 @@ public class PressBeacon implements Controller {
         if (beacon.shouldPressLeft()) pusher.pushLeft();
         else pusher.pushRight();
 
-        driveTrain.goBackward(0.3f);
+        driveTrain.goBackward(0.2f);
         return false;
     }
 }

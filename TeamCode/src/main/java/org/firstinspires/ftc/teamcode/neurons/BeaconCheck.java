@@ -22,6 +22,6 @@ public class BeaconCheck {
     }
 
     public boolean isPressed() {
-        return analysis.getStateLeft() == analysis.getStateRight() && analysis.getConfidence() > 0.5;
+        return analysis.getStateLeft() == analysis.getStateRight() || analysis.getConfidence() < 1;
     }
 }
