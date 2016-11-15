@@ -8,26 +8,22 @@ import org.firstinspires.ftc.teamcode.organs.drivetrains.DriveTrain;
 import java.util.ArrayList;
 
 /**
- * Created by jacob_000 on 11/8/2016.
+ * Created by jacob_000 on 11/15/2016.
  */
 
-public class Turn90 implements Controller {
+public class TurnXDegrees implements Controller {
     private DriveTrain driveTrain;
     private Instruments instruments;
     private AngleTurning angleTurning;
-    public Turn90 (Instruments i, DriveTrain d) {
+    public TurnXDegrees (Instruments i, DriveTrain d) {
         instruments = i;
         driveTrain = d;
-        angleTurning = new AngleTurning(310);
+        angleTurning = new AngleTurning(i.yaw + 70);
     }
     public boolean tick (){
         ArrayList<Float> values = angleTurning.getPowers(instruments.yaw);
-        if (values.get(0) == 0.0 && values.get(1) == 0.0) {
-            driveTrain.stop();
-            return true;
-        };
+        if (values.get(0) == 0) return true;
         driveTrain.drive(values.get(0), values.get(1));
         return false;
     }
-
 }

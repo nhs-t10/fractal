@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.teamcode.neurons;
 
+import org.firstinspires.ftc.teamcode.debug.Logger;
+
 /**
  * Created by nhs on 10/20/16.
  *
@@ -13,6 +15,12 @@ public abstract class PID {
     public double prevError = 1;
     public double integral = 0.0;
     public double getPower (double error) {
+       if ( (.3 > error) && (.1 > (prevError - error))) {
+           Logger.logLine("derivative" + (prevError - error));
+           integral = Ki * (integral + error);
+           prevError = error;
+           return 0;
+       }
         double p = Kp * error;
         double d = Kd * (error - prevError);
         integral = Ki * (integral + error);
