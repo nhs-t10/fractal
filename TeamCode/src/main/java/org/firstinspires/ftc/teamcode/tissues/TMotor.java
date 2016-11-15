@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.tissues;
 import org.firstinspires.ftc.teamcode.debug.Component;
 import org.firstinspires.ftc.teamcode.lib.Sleep;
+import org.firstinspires.ftc.teamcode.neurons.Time;
 import org.firstinspires.ftc.teamcode.statics.Hardware;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -12,9 +13,11 @@ import com.qualcomm.robotcore.util.Range;
  */
 public class TMotor implements Component {
     protected DcMotor motor;
+    private Time.Stopwatch stopwatch;
 
     public TMotor(String m) {
         motor = Hardware.getHardwareMap().dcMotor.get(m);
+        stopwatch = new Time.Stopwatch();
     }
 
     /**
@@ -35,6 +38,21 @@ public class TMotor implements Component {
         motor.setPower(power);
     }
 
+    public boolean moveFor(double power, int millis) {
+        if(!stopwatch.isRecording()) {
+            stopwatch.start();
+        }
+
+        if(stopwatch.timeElapsed() > millis) { 
+            this.stop();
+            stopwatch.stop();
+            return true;
+        } else {
+            move(power);
+            return false;
+        }
+    }
+
     /**
      * Sets the TMotor's power to 0.
      */
@@ -42,7 +60,7 @@ public class TMotor implements Component {
         motor.setPower(0);
     }
 
-    public void turnForMillis(int seconds) {
+    public void turnForMillis(int millis) {
 
     }
 

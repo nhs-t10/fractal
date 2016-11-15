@@ -2,10 +2,11 @@ package org.firstinspires.ftc.teamcode.opmodes.clyde;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
-import org.firstinspires.ftc.teamcode.controllers.tests.StallForever;
+import org.firstinspires.ftc.teamcode.controllers.Controller;
+import org.firstinspires.ftc.teamcode.controllers.autonomous.FlickOnce;
+import org.firstinspires.ftc.teamcode.controllers.tests.Stall;
 import org.firstinspires.ftc.teamcode.opmodes.T10Autonomous;
-import org.firstinspires.ftc.teamcode.statics.Hardware;
-import org.firstinspires.ftc.teamcode.tissues.TEncoderMotor;
+import org.firstinspires.ftc.teamcode.organs.Spinner;
 
 /**
  * Created by robotics on 11/14/16.
@@ -15,14 +16,18 @@ import org.firstinspires.ftc.teamcode.tissues.TEncoderMotor;
 
 @Autonomous(name="Just Flick", group="Autonomous")
 public class JustFlickAuto extends T10Autonomous {
-    TEncoderMotor fl;
-
     @Override
     public void registration() {
-        fl = new TEncoderMotor(Hardware.Flicker);
-        fl.setDirection(false);
-        //fl.setPosition(0);
-        fl.rotate360(1);
-        registerController(new StallForever());
+        registerController(new FlickOnce());
+        registerController(new Stall(3000));
+        registerController(new Controller() {
+            @Override
+            public boolean tick() {
+                new Spinner().toggle();
+                return true;
+            }
+        });
+        registerController(new Stall(3000));
+        registerController(new FlickOnce());
     }
 }
