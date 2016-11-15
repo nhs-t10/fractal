@@ -15,7 +15,7 @@ import org.firstinspires.ftc.teamcode.tissues.TCamera;
 /**
  * Created by Admin on 4/19/2016.
  */
-@Autonomous(name="Drive To Wall", group="Autonomous Tests")
+@Autonomous(name="Autonomous Test", group="Autonomous Tests")
 public class AutonomousTest extends T10Autonomous {
     public void registration()  {
         MecanumDrivetrain md = new MecanumDrivetrain();

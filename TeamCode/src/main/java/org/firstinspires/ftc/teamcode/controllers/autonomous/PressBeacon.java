@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.controllers.autonomous;
 
 import org.firstinspires.ftc.teamcode.controllers.Controller;
 import org.firstinspires.ftc.teamcode.controllers.Team;
+import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.neurons.BeaconCheck;
 import org.firstinspires.ftc.teamcode.organs.Pusher;
 import org.firstinspires.ftc.teamcode.organs.drivetrains.DriveTrain;
@@ -25,6 +26,8 @@ public class PressBeacon implements Controller {
     }
     public boolean tick() {
         beacon.update(camera.getAnalysis());
+        Logger.logLine(camera.getString());
+        Logger.logLine("AAAA: " + camera.getAnalysis().getConfidence());
         if (beacon.isPressed()) {
             driveTrain.stop();
             return true;
@@ -33,7 +36,7 @@ public class PressBeacon implements Controller {
         if (beacon.shouldPressLeft()) pusher.pushLeft();
         else pusher.pushRight();
 
-        driveTrain.goForward(1f);
+        driveTrain.goBackward(0.3f);
         return false;
     }
 }

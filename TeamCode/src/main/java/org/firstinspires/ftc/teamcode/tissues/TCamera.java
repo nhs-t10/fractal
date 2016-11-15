@@ -30,4 +30,7 @@ public class TCamera implements Component {
         Logger.logLine(getString());
         return true;
     }
+    public void stop() {
+        bridge.stop();
+    }
 }

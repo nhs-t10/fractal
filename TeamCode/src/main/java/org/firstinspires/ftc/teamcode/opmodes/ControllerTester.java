@@ -27,11 +27,11 @@ import java.util.ArrayList;
 @TeleOp(name="Controller Tester", group="Testers")
 public class ControllerTester extends T10Opmode {
     private ArrayList<Controller> tests = new ArrayList<Controller>();
-
+    private TCamera camera;
     public void run()  {
         Instruments instruments = new Instruments();
         instruments.start();
-        TCamera camera = new TCamera();
+        camera = new TCamera();
         tests.add(new OneStickMecanum());
         tests.add(new NeuronTest(instruments, camera));
     }
@@ -40,5 +40,9 @@ public class ControllerTester extends T10Opmode {
         for(int i=0; i<tests.size(); i++) {
             tests.get(i).tick();
         }
+    }
+    @Override
+    public void stop() {
+        camera.stop();
     }
 }
