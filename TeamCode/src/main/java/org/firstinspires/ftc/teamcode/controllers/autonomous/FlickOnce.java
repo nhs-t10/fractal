@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.controllers.autonomous;
 
 import org.firstinspires.ftc.teamcode.controllers.Controller;
 import org.firstinspires.ftc.teamcode.statics.Hardware;
+import org.firstinspires.ftc.teamcode.tissues.TEncoderMotor;
 import org.firstinspires.ftc.teamcode.tissues.TMotor;
 
 /**
@@ -9,13 +10,15 @@ import org.firstinspires.ftc.teamcode.tissues.TMotor;
  */
 public class FlickOnce implements Controller {
     TMotor fl;
+    TEncoderMotor efl;
 
     public FlickOnce() {
         fl = new TMotor(Hardware.Flicker);
+        efl = new TEncoderMotor(Hardware.Flicker);
     }
 
     @Override
     public boolean tick() {
-        return fl.moveFor(1.0f, 1000);
+        return efl.rotate360(1);
     }
 }
