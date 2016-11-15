@@ -16,7 +16,6 @@ import org.opencv.core.Size;
  * Created by max on 11/3/16.
  */
 public class LASABridge extends VisionOpMode {
-    HardwareMap hardwareMap;
     public LASABridge(HardwareMap h) {
         hardwareMap = h;
         init();
