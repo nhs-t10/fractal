@@ -24,7 +24,7 @@ public class AutonomousTest extends T10Autonomous {
         Instruments instruments = new Instruments();
         instruments.start();
 //        cam = new TCamera();
-        DriveToLine dtl = new DriveToLine(instruments, md);
+        DriveToLine dtl = new DriveToLine(instruments, md, Team.RED);
         registerController(dtl);
     }
     @Override
