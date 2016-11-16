@@ -22,8 +22,8 @@ public class AngleTurning extends PID {
         Logger.logLine("Angle: " + currentAngle + 180);
         Logger.logLine("Error: "+ getError(currentAngle));
         Logger.logLine("Power: " + power);
-        powers.add(0.5f + power);
-        powers.add(0.5f - power);
+        powers.add(-0.5f + power);
+        powers.add(-0.5f - power);
         return powers;
     }
     public ArrayList<Float> getPivotPowers(double currentAngle) {

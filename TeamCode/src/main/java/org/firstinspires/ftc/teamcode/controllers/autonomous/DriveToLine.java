@@ -18,7 +18,7 @@ public class DriveToLine implements Controller {
     private LineDetection ld;
     public DriveToLine(Instruments i, DriveTrain d) {
         instruments = i;
-        driveTrain = driveTrain;
+        driveTrain = d;
         at = new AngleTurning(-120);
         ld = new LineDetection();
     }
