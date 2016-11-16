@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode.opmodes.tests;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
 import org.firstinspires.ftc.teamcode.controllers.Team;
+import org.firstinspires.ftc.teamcode.controllers.autonomous.DriveToLine;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.PressBeacon;
 import org.firstinspires.ftc.teamcode.opmodes.T10Autonomous;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
@@ -20,7 +21,11 @@ public class AutonomousTest extends T10Autonomous {
     public void registration()  {
         MecanumDrivetrain md = new MecanumDrivetrain();
         Pusher p = new Pusher();
+        Instruments instruments = new Instruments();
+        instruments.start();
         cam = new TCamera();
+        DriveToLine dtl = new DriveToLine(instruments, md);
+        registerController(dtl);
         PressBeacon pb = new PressBeacon(Team.BLUE, md, p, cam);
         registerController(pb);
     }
