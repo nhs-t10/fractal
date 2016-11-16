@@ -25,7 +25,7 @@ public class NeuronTest implements Controller {
         instruments = i;
     }
     public boolean tick() {
-//        li.getPivotPowers(instruments.light1, instruments.light2);
+        Logger.logLine(camera.getString());
         ld.isAtLine(instruments.light1, instruments.light2);
         return false;
     }
