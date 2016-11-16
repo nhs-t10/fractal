@@ -23,6 +23,7 @@ public abstract class BeaconAuto extends T10Autonomous {
         Instruments instruments = new Instruments();
         instruments.start();
         Pusher pusher = new Pusher();
+//        registerController(new );
         registerController(new PressBeacon(team, driveTrain, pusher, camera));
     }
     public abstract void setTeam();
