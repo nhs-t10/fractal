@@ -19,6 +19,7 @@ public class LineAlignment extends PID {
         float power = convertPower(getPower(getError(leftLight, rightLight)));
         powers.add(power);
         powers.add(-power);
+        return powers;
     }
     public float convertPower(double p) {
         return (float) p / 5f;
