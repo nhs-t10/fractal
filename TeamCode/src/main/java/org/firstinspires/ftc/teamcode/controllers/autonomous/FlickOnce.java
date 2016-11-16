@@ -11,14 +11,26 @@ import org.firstinspires.ftc.teamcode.tissues.TMotor;
 public class FlickOnce implements Controller {
     TMotor fl;
     TEncoderMotor efl;
+    private boolean useEnc = false;
 
     public FlickOnce() {
-        fl = new TMotor(Hardware.Flicker);
-        efl = new TEncoderMotor(Hardware.Flicker);
+        this(false);
+    }
+
+    public FlickOnce(boolean encoder) {
+        if(encoder) {
+            useEnc = true;
+            efl = new TEncoderMotor(Hardware.Flicker);
+        } else {
+            fl = new TMotor(Hardware.Flicker);
+        }
     }
 
     @Override
     public boolean tick() {
-        return fl.moveFor(1.0f, 850);
+        if(useEnc) {
+            return efl.rotate360(1);
+        }
+        return fl.moveFor(1.0f, 925);
     }
 }

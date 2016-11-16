@@ -16,14 +16,14 @@ public class TEncoderMotor extends TMotor {
     public TEncoderMotor(String m) {
         super(m);
         reset();
-        this.velocity(1.0f);
+        this.speed(1.0f);
         //trust me, this is necessary
         motor.setTargetPosition(motor.getCurrentPosition());
     }
 
     public void reset() {
-        motor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        //motor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        motor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
     }
 
     /**
@@ -32,10 +32,10 @@ public class TEncoderMotor extends TMotor {
      */
     public boolean setPosition(int position) {
         if(motor.getMode() == DcMotor.RunMode.STOP_AND_RESET_ENCODER) {
-            motor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         }
 
-        if(!motor.isBusy()) {
+        if(motor.getTargetPosition() <= motor.getCurrentPosition()) {
             motor.setTargetPosition(position);
             return true;
         }
@@ -47,16 +47,16 @@ public class TEncoderMotor extends TMotor {
     * *Successful means function returned true
     */
     public boolean rotate360(int rotations) {
-        return setPosition(motor.getTargetPosition() + GEARED_ANDIMARK_360 * rotations);
+        return setPosition(motor.getCurrentPosition() + GEARED_ANDIMARK_360 * rotations);
     }
 
-    public void velocity(double power) {
+    public void speed(double power) {
         super.move(power);
     }
 
     @Override
     @Deprecated
     public void move(double power) {
-        velocity(power);
+        speed(power);
     }
 }
