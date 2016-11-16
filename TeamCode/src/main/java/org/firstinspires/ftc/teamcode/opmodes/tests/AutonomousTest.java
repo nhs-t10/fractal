@@ -14,7 +14,7 @@ import org.firstinspires.ftc.teamcode.tissues.TCamera;
 
 /**
  * Created by Admin on 4/19/2016.
- */ll
+ */
 
 @Autonomous(name="Autonomous Test", group="Autonomous Tests")
 public class AutonomousTest extends T10Autonomous {

@@ -11,14 +11,14 @@ import java.util.ArrayList;
  * Created by jacob_000 on 11/8/2016.
  */
 
-public class Turn90 implements Controller {
+public class TurnX implements Controller {
     private DriveTrain driveTrain;
     private Instruments instruments;
     private AngleTurning angleTurning;
-    public Turn90 (Instruments i, DriveTrain d) {
+    public TurnX(Instruments i, DriveTrain d, double deg) {
         instruments = i;
         driveTrain = d;
-        angleTurning = new AngleTurning(-50);
+        angleTurning = new AngleTurning(deg);
     }
     public boolean tick (){
         ArrayList<Float> values = angleTurning.getPivotPowers(instruments.yaw);
