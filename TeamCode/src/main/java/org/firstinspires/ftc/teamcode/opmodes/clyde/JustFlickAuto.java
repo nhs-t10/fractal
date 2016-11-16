@@ -19,7 +19,6 @@ public class JustFlickAuto extends T10Autonomous {
     @Override
     public void registration() {
         registerController(new FlickOnce());
-        registerController(new Stall(3000));
         registerController(new Controller() {
             @Override
             public boolean tick() {

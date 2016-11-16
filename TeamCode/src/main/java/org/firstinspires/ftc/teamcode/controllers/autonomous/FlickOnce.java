@@ -19,6 +19,6 @@ public class FlickOnce implements Controller {
 
     @Override
     public boolean tick() {
-        return efl.rotate360(1);
+        return fl.moveFor(1.0f, 850);
     }
 }
