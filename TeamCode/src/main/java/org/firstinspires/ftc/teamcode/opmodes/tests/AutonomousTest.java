@@ -20,17 +20,15 @@ public class AutonomousTest extends T10Autonomous {
     private TCamera cam;
     public void registration()  {
         MecanumDrivetrain md = new MecanumDrivetrain();
-        Pusher p = new Pusher();
+//        Pusher p = new Pusher();
         Instruments instruments = new Instruments();
         instruments.start();
-        cam = new TCamera();
+//        cam = new TCamera();
         DriveToLine dtl = new DriveToLine(instruments, md);
         registerController(dtl);
-        PressBeacon pb = new PressBeacon(Team.BLUE, md, p, cam);
-        registerController(pb);
     }
     @Override
     public void stop() {
-        cam.stop();
+//        cam.stop();
     }
 }
