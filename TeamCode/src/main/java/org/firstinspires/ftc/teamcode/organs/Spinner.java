@@ -15,8 +15,8 @@ public class Spinner implements Component {
         spinner = new TMotor(Hardware.Spinner);
     }
 
-    public void toggle() {
-        spinner.move((on ? 0 : -2.0f));
+    public void toggle(int dir) {
+        spinner.move((on ? 0 : dir * 2.0f));
         on = !on;
     }
 
@@ -27,9 +27,13 @@ public class Spinner implements Component {
 
     @Override
     public boolean test() {
-        toggle();
-        Sleep.secs(5);
-        toggle();
+        toggle(1);
+        Sleep.secs(3);
+        toggle(1);
+        Sleep.secs(3);
+        toggle(-1);
+        Sleep.secs(3);
+        toggle(-1);
         return false;
     }
 }

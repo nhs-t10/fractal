@@ -16,7 +16,8 @@ import java.util.ArrayList;
 public class Collection implements Controller {
     private Flicker flicker;
     private Spinner spinner;
-    private DebouncingButton spinnerBtn = new DebouncingButton(Controls.Spinner);
+    private DebouncingButton spinnerInBtn = new DebouncingButton(Controls.SpinnerIn);
+    private DebouncingButton spinnerOutBtn = new DebouncingButton(Controls.SpinnerOut);
     public Collection(Flicker f, Spinner s) {
         flicker = f;
         spinner = s;
@@ -26,8 +27,11 @@ public class Collection implements Controller {
         if(ControlParser.range(Controls.Flicker).get(0) > 0.6) flicker.engage();
         else flicker.stop();
 
-        if(spinnerBtn.getToggle()) {
-            spinner.toggle();
+        if(spinnerInBtn.getToggle()) {
+            spinner.toggle(1);
+        }
+        else if(spinnerOutBtn.getToggle()) {
+            spinner.toggle(-1);
         }
         return false;
     }
