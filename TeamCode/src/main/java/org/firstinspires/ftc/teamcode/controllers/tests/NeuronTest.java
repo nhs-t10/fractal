@@ -15,12 +15,12 @@ public class NeuronTest implements Controller {
     private TCamera camera;
     private AngleTurning angleTurning;
     public NeuronTest(Instruments i, TCamera c) {
+        camera = new TCamera();
         instruments = i;
-        camera = c;
     }
     public boolean tick() {
 //        angleTurning.getPowers(instruments.yaw);
-        Logger.logLine(camera.getString());
+        Logger.logLine("value1: " + instruments.reflectedvalueone + " value2: " + instruments.reflectedvaluetwo);
         return false;
     }
 }
