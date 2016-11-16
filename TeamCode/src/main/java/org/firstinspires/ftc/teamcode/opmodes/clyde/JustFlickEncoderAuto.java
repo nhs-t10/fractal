@@ -12,11 +12,13 @@ import org.firstinspires.ftc.teamcode.organs.Spinner;
  * Created by robotics on 11/14/16.
  */
 
-@Autonomous(name="Just Flick", group="Autonomous")
-public class JustFlickAuto extends T10Autonomous {
+/*This is a debug opmode for the time being so it wont follow all fractal conventions*/
+
+@Autonomous(name="Just Flick Encoder", group="Autonomous")
+public class JustFlickEncoderAuto extends T10Autonomous {
     @Override
     public void registration() {
-        registerController(new FlickOnce());
+        registerController(new FlickOnce(true));
         registerController(new Controller() {
             @Override
             public boolean tick() {
@@ -25,6 +27,6 @@ public class JustFlickAuto extends T10Autonomous {
             }
         });
         registerController(new Stall(3000));
-        registerController(new FlickOnce());
+        registerController(new FlickOnce(true));
     }
 }
