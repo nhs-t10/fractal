@@ -14,7 +14,7 @@ public class Hardware {
 
     public static String ServoTop, ServoPusher;
 
-    public static String IMU, Color, Ultra;
+    public static String IMU, Color, Ultra, Lightone, Lighttwo;
 
     private static HardwareMap hardwareMap;
 
@@ -36,7 +36,7 @@ public class Hardware {
         ServoTop = "s1";
 
         IMU = "imu";
-        //Color = "c1";
-        // Ultra = "u1";
+        Lightone = "l1";
+        Lighttwo = "l2";
     }
 }

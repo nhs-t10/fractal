@@ -12,7 +12,7 @@ public class AngleTurning extends PID {
     private double destination; //178
     public AngleTurning (double dest) {
         destination = dest;
-        Kp = 2.0;
+        Kp = 3.0;
         Kd = 0.5;
         Ki = 0.3;
     }
@@ -22,11 +22,11 @@ public class AngleTurning extends PID {
         Logger.logLine("Angle: " + currentAngle + 180);
         Logger.logLine("Error: "+ getError(currentAngle));
         Logger.logLine("Power: " + power);
-        powers.add(0.5f + power);
-        powers.add(0.5f - power);
+        powers.add(-0.5f - power);
+        powers.add(-0.5f + power);
         return powers;
     }
-    public ArrayList<Float> getPowers(double currentAngle) {
+    public ArrayList<Float> getPivotPowers(double currentAngle) {
         ArrayList<Float> powers = new ArrayList<Float>();
         float power = convertPower(getPower(getError(currentAngle)));
         Logger.logLine("Angle: " + currentAngle + 180);

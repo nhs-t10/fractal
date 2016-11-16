@@ -18,10 +18,10 @@ public class Turn90 implements Controller {
     public Turn90 (Instruments i, DriveTrain d) {
         instruments = i;
         driveTrain = d;
-        angleTurning = new AngleTurning(310);
+        angleTurning = new AngleTurning(-50);
     }
     public boolean tick (){
-        ArrayList<Float> values = angleTurning.getPowers(instruments.yaw);
+        ArrayList<Float> values = angleTurning.getPivotPowers(instruments.yaw);
         if (values.get(0) == 0.0 && values.get(1) == 0.0) {
             driveTrain.stop();
             return true;
