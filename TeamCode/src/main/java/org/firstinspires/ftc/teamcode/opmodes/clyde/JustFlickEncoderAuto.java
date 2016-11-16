@@ -22,7 +22,7 @@ public class JustFlickEncoderAuto extends T10Autonomous {
         registerController(new Controller() {
             @Override
             public boolean tick() {
-                new Spinner().toggle();
+                new Spinner().toggle(1);
                 return true;
             }
         });
