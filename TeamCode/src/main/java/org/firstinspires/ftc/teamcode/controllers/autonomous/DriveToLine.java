@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.controllers.autonomous;
 
 import org.firstinspires.ftc.teamcode.controllers.Controller;
+import org.firstinspires.ftc.teamcode.controllers.Team;
 import org.firstinspires.ftc.teamcode.neurons.AngleTurning;
 import org.firstinspires.ftc.teamcode.neurons.LineDetection;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
@@ -16,10 +17,10 @@ public class DriveToLine implements Controller {
     private DriveTrain driveTrain;
     private AngleTurning at;
     private LineDetection ld;
-    public DriveToLine(Instruments i, DriveTrain d) {
+    public DriveToLine(Instruments i, DriveTrain d, Team t) {
         instruments = i;
         driveTrain = d;
-        at = new AngleTurning(-120);
+        at = new AngleTurning((t == Team.RED ? -1 : 1) * 120);
         ld = new LineDetection();
     }
     public boolean tick() {

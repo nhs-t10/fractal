@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.opmodes.clyde;
 
 import org.firstinspires.ftc.teamcode.controllers.Team;
+import org.firstinspires.ftc.teamcode.controllers.autonomous.DriveToLine;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.PressBeacon;
 import org.firstinspires.ftc.teamcode.opmodes.T10Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
@@ -23,6 +24,7 @@ public abstract class BeaconAuto extends T10Autonomous {
         Instruments instruments = new Instruments();
         instruments.start();
         Pusher pusher = new Pusher();
+        registerController(new DriveToLine(instruments, driveTrain, team));
         registerController(new PressBeacon(team, driveTrain, pusher, camera));
     }
     public abstract void setTeam();
