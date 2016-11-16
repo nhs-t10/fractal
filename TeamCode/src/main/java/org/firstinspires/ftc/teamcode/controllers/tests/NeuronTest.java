@@ -19,7 +19,7 @@ public class NeuronTest implements Controller {
     private LineAlignment li;
     private LineDetection ld;
     public NeuronTest(Instruments i, TCamera c) {
-        camera = new TCamera();
+        camera = c;
         li = new LineAlignment();
         ld = new LineDetection();
         instruments = i;

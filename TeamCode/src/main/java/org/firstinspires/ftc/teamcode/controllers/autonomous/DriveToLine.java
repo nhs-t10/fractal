@@ -28,7 +28,7 @@ public class DriveToLine implements Controller {
             return true;
         }
         ArrayList<Float> powers = at.getDrivePowers(instruments.yaw);
-        driveTrain.drive(-1 * powers.get(0), -1 * powers.get(1));
+        driveTrain.drive(powers.get(0), powers.get(1));
         return false;
     }
 }
