@@ -12,18 +12,20 @@ import org.firstinspires.ftc.teamcode.tissues.TCamera;
 /**
  * Created by nhs on 11/15/16.
  */
-@Autonomous(name="Red Beacon Auto", group="Autonomous")
-public class BeaconAuto extends T10Autonomous {
+public abstract class BeaconAuto extends T10Autonomous {
     private TCamera camera;
+    public Team team;
     @Override
     public void registration() {
+        setTeam();
         camera = new TCamera();
         MecanumDrivetrain driveTrain = new MecanumDrivetrain();
         Instruments instruments = new Instruments();
         instruments.start();
         Pusher pusher = new Pusher();
-        registerController(new PressBeacon(Team.RED, driveTrain, pusher, camera));
+        registerController(new PressBeacon(team, driveTrain, pusher, camera));
     }
+    public abstract void setTeam();
     @Override
     public void stop() {
         camera.stop();

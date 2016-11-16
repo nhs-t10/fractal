@@ -21,7 +21,7 @@ public class Turn90 implements Controller {
         angleTurning = new AngleTurning(-50);
     }
     public boolean tick (){
-        ArrayList<Float> values = angleTurning.getPowers(instruments.yaw);
+        ArrayList<Float> values = angleTurning.getPivotPowers(instruments.yaw);
         if (values.get(0) == 0.0 && values.get(1) == 0.0) {
             driveTrain.stop();
             return true;

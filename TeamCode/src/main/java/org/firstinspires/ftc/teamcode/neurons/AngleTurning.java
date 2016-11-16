@@ -26,7 +26,7 @@ public class AngleTurning extends PID {
         powers.add(0.5f - power);
         return powers;
     }
-    public ArrayList<Float> getPowers(double currentAngle) {
+    public ArrayList<Float> getPivotPowers(double currentAngle) {
         ArrayList<Float> powers = new ArrayList<Float>();
         float power = convertPower(getPower(getError(currentAngle)));
         Logger.logLine("Angle: " + currentAngle + 180);

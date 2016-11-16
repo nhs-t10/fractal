@@ -35,8 +35,8 @@ public class Instruments extends Thread {
 
     public double distance = -1;
     public double yaw = -1;
-    public double reflectedvalueone = -1;
-    public double reflectedvaluetwo = -1;
+    public double light1 = -1;
+    public double light2 = -1;
     //thread variables
     private boolean gatherData;
     private long tickInterval;
@@ -87,8 +87,8 @@ public class Instruments extends Thread {
         color.ALPHA = colorsensor.alpha();*/
 
 //        distance = ultrasensor.distance();
-        reflectedvalueone = lightsensor1.reflectedValue();
-        reflectedvaluetwo = lightsensor2.reflectedValue();
+        light1 = lightsensor1.reflectedValue();
+        light2 = lightsensor2.reflectedValue();
         yaw = imusensor.getYaw();
     }
 }

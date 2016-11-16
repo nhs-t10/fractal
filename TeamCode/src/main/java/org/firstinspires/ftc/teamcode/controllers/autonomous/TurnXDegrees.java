@@ -15,13 +15,13 @@ public class TurnXDegrees implements Controller {
     private DriveTrain driveTrain;
     private Instruments instruments;
     private AngleTurning angleTurning;
-    public TurnXDegrees (Instruments i, DriveTrain d) {
+    public TurnXDegrees (Instruments i, DriveTrain d, int addend) {
         instruments = i;
         driveTrain = d;
-        angleTurning = new AngleTurning(i.yaw + 70);
+        angleTurning = new AngleTurning(i.yaw + addend);
     }
     public boolean tick (){
-        ArrayList<Float> values = angleTurning.getPowers(instruments.yaw);
+        ArrayList<Float> values = angleTurning.getPivotPowers(instruments.yaw);
         if (values.get(0) == 0) return true;
         driveTrain.drive(values.get(0), values.get(1));
         return false;

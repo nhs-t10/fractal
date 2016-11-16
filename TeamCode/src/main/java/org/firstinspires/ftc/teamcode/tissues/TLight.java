@@ -12,7 +12,7 @@ import org.firstinspires.ftc.teamcode.statics.Hardware;
 public class TLight implements Component {
     private float inputVoltage=1.0f;
     private AnalogInput lightsensor;
-    public String getName(){return "Ultrasonic";}
+    public String getName(){return "Light Sensor";}
     public TLight(String l) {
         lightsensor = Hardware.getHardwareMap().analogInput.get(l);
     }

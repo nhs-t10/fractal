@@ -10,6 +10,10 @@ import org.opencv.core.Point;
 /**
  * Created by max on 11/3/16.
  */
+/*
+CRITICAL:
+You MUST call .stop() at the end of an opmode. Otherwise, the app WILL CRASH.
+* */
 public class TCamera implements Component {
     private LASABridge bridge;
     public TCamera() {
