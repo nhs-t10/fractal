@@ -1,13 +1,17 @@
 package org.firstinspires.ftc.teamcode.opmodes.clyde;
 
+import org.firstinspires.ftc.teamcode.controllers.Controller;
 import org.firstinspires.ftc.teamcode.controllers.Team;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.DriveToLine;
+import org.firstinspires.ftc.teamcode.controllers.autonomous.FlickOnce;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.PressBeacon;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.TurnX;
+import org.firstinspires.ftc.teamcode.controllers.tests.Stall;
 import org.firstinspires.ftc.teamcode.opmodes.T10Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
 import org.firstinspires.ftc.teamcode.organs.Pusher;
+import org.firstinspires.ftc.teamcode.organs.Spinner;
 import org.firstinspires.ftc.teamcode.organs.drivetrains.MecanumDrivetrain;
 import org.firstinspires.ftc.teamcode.tissues.TCamera;
 
@@ -33,5 +37,25 @@ public abstract class BeaconAuto extends T10Autonomous {
     @Override
     public void stop() {
         camera.stop();
+    }
+
+    public void registerFlick(int pause) {
+        registerController(new FlickOnce());
+        registerController(new Controller() {
+            @Override
+            public boolean tick() {
+                new Spinner().toggle(1);
+                return true;
+            }
+        });
+        registerController(new Stall(pause));
+        registerController(new FlickOnce());
+        registerController(new Controller() {
+            @Override
+            public boolean tick() {
+                new Spinner().toggle(0);
+                return true;
+            }
+        });
     }
 }
