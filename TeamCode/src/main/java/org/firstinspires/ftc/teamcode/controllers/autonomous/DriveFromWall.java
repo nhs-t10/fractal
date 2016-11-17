@@ -12,16 +12,17 @@ public class DriveFromWall implements Controller {
     MecanumDrivetrain driveTrain;
     Instruments instruments;
     double limit = 0;
-    public DriveFromWall(Instruments i, MecanumDrivetrain dt, double limit) {
+    public DriveFromWall(Instruments i, MecanumDrivetrain dt, double l) {
         instruments = i;
         driveTrain = dt;
+        limit = l;
     }
     public boolean tick() {
         if (instruments.distance >= limit) {
             driveTrain.stop();
             return true;
         }
-        driveTrain.driveSideways(-0.5f);
+        driveTrain.driveSideways(0.5f);
         return false;
     }
 }
