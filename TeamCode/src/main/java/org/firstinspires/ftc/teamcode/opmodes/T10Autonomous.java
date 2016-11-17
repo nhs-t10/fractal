@@ -21,7 +21,7 @@ public abstract class T10Autonomous extends OpMode {
 
     public final void init() {
         initStatics();
-        Logger.logLine("Initializing... AAAAAAAA");
+        Logger.logLine("Initializing... CCC");
         registration();
     }
 

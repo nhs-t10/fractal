@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.controllers.autonomous;
 
 import org.firstinspires.ftc.teamcode.controllers.Controller;
+import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
 import org.firstinspires.ftc.teamcode.organs.drivetrains.DriveTrain;
 import org.firstinspires.ftc.teamcode.organs.drivetrains.MecanumDrivetrain;
@@ -18,6 +19,7 @@ public class DriveFromWall implements Controller {
         limit = l;
     }
     public boolean tick() {
+        Logger.logLine("d:" + instruments.distance);
         if (instruments.distance >= limit) {
             driveTrain.stop();
             return true;
