@@ -16,7 +16,7 @@ public class Spinner implements Component {
     }
 
     public void toggle(int dir) {
-        spinner.move((on ? 0 : dir * 2.0f));
+        spinner.move((on ? 0 : dir * -1.0f));
         on = !on;
     }
 
