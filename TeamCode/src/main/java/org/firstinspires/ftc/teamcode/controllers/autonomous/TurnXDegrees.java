@@ -18,7 +18,16 @@ public class TurnXDegrees implements Controller {
     public TurnXDegrees (Instruments i, DriveTrain d, int addend) {
         instruments = i;
         driveTrain = d;
-        angleTurning = new AngleTurning(i.yaw + addend);
+        angleTurning = new AngleTurning(Modulo(i.yaw + addend));
+    }
+    public double Modulo (double angle){
+        if (180 < angle){
+            return 360 - angle;
+        }
+        else if (-180 > angle){
+            return 360 + angle;
+        }
+        return angle;
     }
     public boolean tick (){
         ArrayList<Float> values = angleTurning.getPivotPowers(instruments.yaw);

@@ -21,9 +21,18 @@ public class Turn90 implements Controller{
         instruments = i;
         driveTrain = d;
     }
+    public double Converter (double angle){
+        if (180 < angle){
+            return 360 - angle;
+        }
+        else if (-180 > angle){
+            return 360 + angle;
+        }
+        return angle;
+    }
     public boolean tick (){
         if (ControlParser.button(Controls.Turn90Right)) {
-            angleTurning = new AngleTurning(90);
+            angleTurning = new AngleTurning(Converter(90));
             while (Math.abs(angleTurning.getError(instruments.yaw)) > .3) {
                 ArrayList<Float> values = angleTurning.getPivotPowers(instruments.yaw);
                 driveTrain.drive(values.get(0), values.get(1));
