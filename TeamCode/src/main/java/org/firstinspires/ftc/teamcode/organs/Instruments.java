@@ -86,7 +86,7 @@ public class Instruments extends Thread {
         color.GREEN = colorsensor.red();
         color.ALPHA = colorsensor.alpha();*/
 
-        distance = ultrasensor.distance();
+        distance = ultrasensor.voltage();
         light1 = lightsensor1.reflectedValue();
         light2 = lightsensor2.reflectedValue();
         yaw = imusensor.getYaw();
