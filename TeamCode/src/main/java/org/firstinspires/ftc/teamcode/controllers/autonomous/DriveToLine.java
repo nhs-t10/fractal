@@ -20,7 +20,7 @@ public class DriveToLine implements Controller {
     public DriveToLine(Instruments i, DriveTrain d, Team t) {
         instruments = i;
         driveTrain = d;
-        at = new AngleTurning((t == Team.RED ? -1 : 1) * 125);
+        at = new AngleTurning(t == Team.RED ? 30 : 35);
         ld = new LineDetection();
     }
     public boolean tick() {
