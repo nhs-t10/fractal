@@ -20,7 +20,7 @@ public class DriveFromWall implements Controller {
     }
     public boolean tick() {
         Logger.logLine("d:" + instruments.distance);
-        if (instruments.distance >= limit) {
+        if (instruments.distance >= limit && !(instruments.distance <= 0.2)) {
             driveTrain.stop();
             return true;
         }

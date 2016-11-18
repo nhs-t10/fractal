@@ -6,6 +6,7 @@ import org.firstinspires.ftc.teamcode.controllers.autonomous.DriveFromWall;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.DriveToLine;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.FlickOnce;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.PressBeacon;
+import org.firstinspires.ftc.teamcode.controllers.autonomous.TimeFromWall;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.TurnX;
 import org.firstinspires.ftc.teamcode.controllers.tests.Stall;
 import org.firstinspires.ftc.teamcode.opmodes.T10Autonomous;
@@ -30,7 +31,8 @@ public abstract class BeaconAuto extends T10Autonomous {
         Instruments instruments = new Instruments();
         instruments.start();
         Pusher pusher = new Pusher();
-        registerController(new DriveFromWall(instruments, driveTrain, 0.14));
+//        registerController(new DriveFromWall(instruments, driveTrain, 0.095));
+        registerController(new TimeFromWall(driveTrain, 750));
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? -156 : 175)));
         registerController(new FlickOnce());
         registerController(new Controller() {
@@ -43,7 +45,7 @@ public abstract class BeaconAuto extends T10Autonomous {
         registerController(new Stall(3000));
         registerController(new FlickOnce());
         registerController(new DriveToLine(instruments, driveTrain, team));
-        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 180 : 90)));
+        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 180 : 0)));
         registerController(new PressBeacon(team, driveTrain, pusher, camera));
     }
     public abstract void setTeam();
