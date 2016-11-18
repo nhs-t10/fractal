@@ -16,7 +16,7 @@ public abstract class PID {
     public double integral = 0.0;
     public double getPower (double error) {
        if ( (.5 > Math.abs(error)) && (.2 > Math.abs((prevError - error)))) {
-           Logger.logLine("derivative" + (prevError - error));
+           Logger.logLine("derivative " + (prevError - error));
            integral = Ki * (integral + error);
            prevError = error;
            return 0;
@@ -24,6 +24,7 @@ public abstract class PID {
         double p = Kp * error;
         double d = Kd * (error - prevError);
         integral = Ki * (integral + error);
+        Logger.logLine("integral " +  integral);
         prevError = error;
         return p + d + integral;
     }
