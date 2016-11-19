@@ -9,17 +9,17 @@ import java.util.ArrayList;
  */
 
 public class AngleTurning extends PID {
-    private double destination; //178
+    private double destination; //178h
     private boolean setKi = false;
     public AngleTurning (double dest) {
         destination = dest;
         Kp = 3.0;
-        Kd = 0.5;
-        Ki = 0.3;
+        Kd = 0.0;
+        Ki = 0.0;
     }
     public ArrayList<Float> getDrivePowers(double currentAngle) {
         if (!setKi) {
-            Ki = (Math.abs(currentAngle - destination) >= 25 ? 0.8 : 0.3);
+            Ki = (Math.abs(Math.abs(currentAngle) - Math.abs(destination)) >= 25 ? 0.1 : 0.1);
             setKi = true;
         }
         ArrayList<Float> powers = new ArrayList<Float>();
@@ -32,6 +32,10 @@ public class AngleTurning extends PID {
         return powers;
     }
     public ArrayList<Float> getPivotPowers(double currentAngle) {
+        if (!setKi) {
+            Ki = (Math.abs(Math.abs(currentAngle) - Math.abs(destination)) >= 25 ? 0.1 : 0.1);
+            setKi = true;
+        }
         ArrayList<Float> powers = new ArrayList<Float>();
         float power = convertPower(getPower(getError(currentAngle)));
         Logger.logLine("Angle: " + currentAngle + 180);

@@ -33,7 +33,7 @@ public abstract class BeaconAuto extends T10Autonomous {
         Pusher pusher = new Pusher();
 //        registerController(new DriveFromWall(instruments, driveTrain, 0.095));
         registerController(new TimeFromWall(driveTrain, 500));
-        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? -156 : 175)));
+        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? -156 : 175), 0));
         registerController(new FlickOnce());
         registerController(new Controller() {
             @Override
@@ -45,7 +45,7 @@ public abstract class BeaconAuto extends T10Autonomous {
         registerController(new Stall(3000));
         registerController(new FlickOnce());
         registerController(new DriveToLine(instruments, driveTrain, team));
-        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 180 : 0)));
+        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 180 : 0), 0));
         registerController(new PressBeacon(team, driveTrain, pusher, camera));
     }
     public abstract void setTeam();

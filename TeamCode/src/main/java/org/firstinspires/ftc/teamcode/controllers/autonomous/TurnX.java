@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.controllers.autonomous;
 
 import org.firstinspires.ftc.teamcode.controllers.Controller;
+import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.neurons.AngleTurning;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
 import org.firstinspires.ftc.teamcode.organs.drivetrains.DriveTrain;
@@ -15,7 +16,8 @@ public class TurnX implements Controller {
     private DriveTrain driveTrain;
     private Instruments instruments;
     private AngleTurning angleTurning;
-    public TurnX(Instruments i, DriveTrain d, double deg) {
+    public int test;
+    public TurnX(Instruments i, DriveTrain d, double deg, int test) {
         instruments = i;
         driveTrain = d;
         angleTurning = new AngleTurning(deg);
@@ -26,6 +28,7 @@ public class TurnX implements Controller {
             driveTrain.stop();
             return true;
         };
+        Logger.logLine("Test Number: " + test);
         driveTrain.drive(values.get(0), values.get(1));
         return false;
     }

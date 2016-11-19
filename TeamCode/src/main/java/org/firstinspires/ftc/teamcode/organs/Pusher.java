@@ -17,7 +17,7 @@ public class Pusher implements Component {
         servo.moveTo(0.5);
     }
     public void pushLeft() {
-        servo.moveTo(0.2);
+        servo.moveTo(0);
     }
     public void pushRight() {
         servo.moveTo(0.8);
