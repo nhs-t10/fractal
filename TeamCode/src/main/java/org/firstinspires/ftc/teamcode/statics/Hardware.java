@@ -10,14 +10,11 @@ import com.qualcomm.robotcore.hardware.Servo;
  * Created by robotics on 4/14/16.
  */
 public class Hardware {
-    public static DcMotor MotorLeftRear, MotorRightRear, MotorLeftFront, MotorRightFront,
-        GimbalHorizontal, GimbalVertical;
+    public static String MotorLeftRear, MotorRightRear, MotorLeftFront, MotorRightFront, Spinner, Flicker;
 
-    public static Servo ServoTop;
+    public static String ServoTop, ServoPusher;
 
-    public static String IMU, Color;
-
-    public static AnalogInput Ultra;
+    public static String IMU, Color, Ultra, Lightone, Lighttwo;
 
     private static HardwareMap hardwareMap;
 
@@ -26,18 +23,21 @@ public class Hardware {
     public static void init(HardwareMap h) {
         hardwareMap = h;
 
-        MotorLeftRear = hardwareMap.dcMotor.get("m1");
-        MotorRightRear = hardwareMap.dcMotor.get("m2");
-        MotorLeftFront = hardwareMap.dcMotor.get("m3");
-        MotorRightFront = hardwareMap.dcMotor.get("m4");
+        MotorLeftRear = "m1";
+        MotorRightRear = "m2";
+        MotorLeftFront = "m3";
+        MotorRightFront = "m4";
+        ServoPusher = "pusher";
 
-        GimbalHorizontal = hardwareMap.dcMotor.get("m5");
-        GimbalVertical = hardwareMap.dcMotor.get("m6");
+        Spinner = "m5";
+        Flicker = "m6";
 
-        ServoTop = hardwareMap.servo.get("s1");
+        //GimbalVertical = "m6";
+        ServoTop = "s1";
 
-        IMU = "g1";
-        Color = "c1";
-        Ultra = hardwareMap.analogInput.get("u1");
+        IMU = "imu";
+        Ultra = "u1";
+        Lightone = "l1";
+        Lighttwo = "l2";
     }
 }

@@ -1,6 +1,8 @@
 package org.firstinspires.ftc.teamcode.tissues;
 
 import org.firstinspires.ftc.teamcode.debug.Component;
+import org.firstinspires.ftc.teamcode.statics.Hardware;
+
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
 
@@ -10,15 +12,15 @@ import com.qualcomm.robotcore.util.Range;
 public class TServo implements Component {
     private Servo servo;
     public String getName(){return "Servo";}
-    public TServo(Servo s) {
-        servo = s;
+    public TServo(String s) {
+        servo = Hardware.getHardwareMap().servo.get(s);
     }
 
     /**
      * Sets the direction of the servo
      * @param dir true = forward; false = backward
      */
-    public void setDirection(Boolean dir) {
+    public void setDirection(boolean dir) {
         servo.setDirection((dir ? Servo.Direction.FORWARD : Servo.Direction.REVERSE));
     }
 
@@ -31,7 +33,7 @@ public class TServo implements Component {
         servo.setPosition(pos);
     }
 
-    public Boolean test() {
+    public boolean test() {
         this.moveTo(0.1);
         this.moveTo(0.5);
         return true;

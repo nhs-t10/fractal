@@ -1,24 +1,30 @@
 package org.firstinspires.ftc.teamcode.tissues;
 import org.firstinspires.ftc.teamcode.debug.Component;
 import org.firstinspires.ftc.teamcode.lib.Sleep;
+import org.firstinspires.ftc.teamcode.neurons.Time;
+import org.firstinspires.ftc.teamcode.statics.Hardware;
+
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorController;
 import com.qualcomm.robotcore.util.Range;
 
 /**
  * Created by robotics on 4/12/16.
  */
 public class TMotor implements Component {
-    private DcMotor motor;
-    public String getName(){return  "Motor";}
-    public TMotor(DcMotor m) {
-        motor = m;
+    protected DcMotor motor;
+    private Time.Stopwatch stopwatch;
+
+    public TMotor(String m) {
+        motor = Hardware.getHardwareMap().dcMotor.get(m);
+        stopwatch = new Time.Stopwatch();
     }
 
     /**
      * Sets the direction of the motor
      * @param dir true = forward; false = backward
      */
-    public void setDirection(Boolean dir) {
+    public void setDirection(boolean dir) {
         motor.setDirection((dir ? DcMotor.Direction.FORWARD : DcMotor.Direction.REVERSE));
     }
 
@@ -32,6 +38,21 @@ public class TMotor implements Component {
         motor.setPower(power);
     }
 
+    public boolean moveFor(double power, int millis) {
+        if(!stopwatch.isRecording()) {
+            stopwatch.start();
+        }
+
+        if(stopwatch.timeElapsed() > millis) { 
+            this.stop();
+            stopwatch.stop();
+            return true;
+        } else {
+            move(power);
+            return false;
+        }
+    }
+
     /**
      * Sets the TMotor's power to 0.
      */
@@ -39,7 +60,15 @@ public class TMotor implements Component {
         motor.setPower(0);
     }
 
-    public Boolean test() {
+    public void turnForMillis(int millis) {
+
+    }
+
+    public String getName(){
+        return  motor.getDeviceName();
+    }
+
+    public boolean test() {
         this.move(0.5f);
         Sleep.secs(2);
         this.stop();

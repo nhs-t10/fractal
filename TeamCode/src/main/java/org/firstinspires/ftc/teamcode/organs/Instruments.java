@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode.organs;
 import org.firstinspires.ftc.teamcode.statics.Hardware;
 import org.firstinspires.ftc.teamcode.tissues.TColor;
 import org.firstinspires.ftc.teamcode.tissues.TIMU;
+import org.firstinspires.ftc.teamcode.tissues.TLight;
 import org.firstinspires.ftc.teamcode.tissues.TUltra;
 
 /**
@@ -18,7 +19,8 @@ public class Instruments extends Thread {
     private TColor colorsensor;
     private TUltra ultrasensor;
     private TIMU imusensor;
-
+    private TLight lightsensor1;
+    private TLight lightsensor2;
     //data
     //please note that all data has an initial value of -1 to prevent the possibility of a client
     //getting sensor values before the thread has read any.
@@ -33,7 +35,8 @@ public class Instruments extends Thread {
 
     public double distance = -1;
     public double yaw = -1;
-
+    public double light1 = -1;
+    public double light2 = -1;
     //thread variables
     private boolean gatherData;
     private long tickInterval;
@@ -41,8 +44,9 @@ public class Instruments extends Thread {
     public Instruments() {
         //colorsensor = new TColor(Hardware.Color);
         ultrasensor = new TUltra(Hardware.Ultra);
+        lightsensor1 = new TLight(Hardware.Lightone);
+        lightsensor2 = new TLight(Hardware.Lighttwo);
         imusensor = new TIMU(Hardware.IMU);
-
         gatherData = false;
         tickInterval = 30 * NANOS_PER_MILLI;
     }
@@ -82,7 +86,9 @@ public class Instruments extends Thread {
         color.GREEN = colorsensor.red();
         color.ALPHA = colorsensor.alpha();*/
 
-        distance = ultrasensor.distance();
+        distance = ultrasensor.voltage();
+        light1 = lightsensor1.reflectedValue();
+        light2 = lightsensor2.reflectedValue();
         yaw = imusensor.getYaw();
     }
 }

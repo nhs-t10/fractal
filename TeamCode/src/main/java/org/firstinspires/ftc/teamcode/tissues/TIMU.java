@@ -1,32 +1,37 @@
 package org.firstinspires.ftc.teamcode.tissues;
 
+import org.firstinspires.ftc.robotcore.external.navigation.Acceleration;
+import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
+import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
+import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
+import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 import org.firstinspires.ftc.teamcode.debug.Component;
 import org.firstinspires.ftc.teamcode.debug.Logger;
-import org.firstinspires.ftc.teamcode.lib.AdafruitIMU;
 import org.firstinspires.ftc.teamcode.statics.Hardware;
-import com.qualcomm.robotcore.exception.RobotCoreException;
+import com.qualcomm.hardware.adafruit.BNO055IMU;
 
 /**
  * Created by max on 4/17/16.
  */
+
+/**
+ * If for any reasons the IMU is giving incorrect data, see
+ * https://github.com/ftctechnh/ftc_app/blob/master/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorAdafruitIMUCalibration.java
+ * (READ THE DOCUMENTATION AT THE TOP OF THE FILE!)
+ */
 public class TIMU implements Component {
-    private AdafruitIMU imu;
-    public String getName(){return "IMU";}
-    volatile double[] rollAngle = new double[2], pitchAngle = new double[2], yawAngle = new double[2];
+    private BNO055IMU imu;
+
+    private Orientation angles;
+    private Acceleration acceleration;
 
     public TIMU(String map) {
-        try {
-            imu = new AdafruitIMU(
-                    Hardware.getHardwareMap(),
-                    map,
-                    (byte)(AdafruitIMU.BNO055_ADDRESS_A * 2),
-                    (byte)AdafruitIMU.OPERATION_MODE_IMU
-            );
-            imu.startIMU();
-            Logger.logLine("IMU Initialized");
-        } catch(RobotCoreException rce) {
-            Logger.logLine(rce.toString(), 1);
-        }
+        BNO055IMU.Parameters params = new BNO055IMU.Parameters();
+        params.angleUnit = BNO055IMU.AngleUnit.DEGREES;
+        params.accelUnit = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
+        params.calibrationDataFile = "AdafruitIMUCalibration.json";
+        imu = Hardware.getHardwareMap().get(BNO055IMU.class, map);
+        imu.initialize(params);
     }
 
     /**
@@ -34,8 +39,8 @@ public class TIMU implements Component {
      * @return yaw value read by the IMU
      */
     public double getYaw() {
-        imu.getIMUGyroAngles(rollAngle, pitchAngle, yawAngle);
-        return 180 + yawAngle[0];
+        updateValues();
+        return 180 + angles.firstAngle;
     }
 
     /**
@@ -43,8 +48,8 @@ public class TIMU implements Component {
      * @return roll value read by the IMU
      */
     public double getRoll() {
-        imu.getIMUGyroAngles(rollAngle, pitchAngle, yawAngle);
-        return 180 + rollAngle[0];
+        updateValues();
+        return 180 + angles.secondAngle;
     }
 
     /**
@@ -52,12 +57,27 @@ public class TIMU implements Component {
      * @return pitch value read by the IMU
      */
     public double getPitch() {
-        imu.getIMUGyroAngles(rollAngle, pitchAngle, yawAngle);
-        return 180 + pitchAngle[0];
+        updateValues();
+        return 180 + angles.thirdAngle;
     }
 
-    public Boolean test() {
-        Logger.logLine(imu.getDeviceName() + " yaw:" + this.getYaw() + " pitch:" + getPitch() + " roll:" + getRoll());
+    public double getXAccel(){
+        updateValues();
+        return acceleration.xAccel;
+    }
+
+    public String getName(){
+        return "Adafruit-IMU-BNO055";
+    }
+
+    public boolean test() {
+        Logger.logLine(this.getName() + " yaw:" + this.getYaw() + " pitch:" + getPitch() + " roll:" + getRoll());
         return true;
+    }
+
+    private void updateValues() {
+        //Z = yaw, Y = roll, X = pitch
+        angles = imu.getAngularOrientation().toAxesReference(AxesReference.INTRINSIC).toAxesOrder(AxesOrder.ZYX);
+        acceleration = imu.getAcceleration();
     }
 }

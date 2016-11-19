@@ -1,0 +1,3 @@
+dependencies:
+  pre:
+    - echo y | android update sdk --no-ui --all --filter tools,platform-tools,build-tools-21.1.2,android-21

@@ -14,6 +14,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 public abstract class T10Opmode extends OpMode {
     public final void init() {
         initStatics();
+        Logger.logLine("Initializing...");
         run();
     }
 
