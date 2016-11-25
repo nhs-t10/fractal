@@ -23,7 +23,7 @@ public abstract class PID {
        }
         double p = Kp * error;
         double d = Kd * (error - prevError);
-        integral = Ki * (integral + error);
+        integral = integral + (Ki * error);
         Logger.logLine("integral " +  integral);
         prevError = error;
         return p + d + integral;
