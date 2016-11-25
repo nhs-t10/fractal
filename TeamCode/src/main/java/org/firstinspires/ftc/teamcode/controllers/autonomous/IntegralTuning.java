@@ -41,11 +41,11 @@ public class IntegralTuning implements Controller {
             else sign = false;
             oscCount++;
         }
-        if (sw.timeElapsed() > 1000 && oscCount > 5){
+        if (sw.timeElapsed() > 10000 && oscCount > 5){
             KI = KI - 0.1;
             return true;
         }
-        if (values.get(0) == 0 || sw.timeElapsed() > 1100){
+        if (values.get(0) == 0 || sw.timeElapsed() > 11000){
             KI = KI + 0.1;
             deg = deg + 45;
             angleTurning = new AngleTurning(deg);
