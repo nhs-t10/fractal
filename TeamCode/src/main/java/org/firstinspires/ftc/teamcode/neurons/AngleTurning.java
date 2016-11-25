@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public class AngleTurning extends PID {
     private double destination; //178h
     private boolean setKi = false;
+    private double prevPower = 0;
     public AngleTurning (double dest) {
         destination = dest;
         Kp = 3.0;
@@ -41,6 +42,24 @@ public class AngleTurning extends PID {
         Logger.logLine("Angle: " + currentAngle + 180);
         Logger.logLine("Error: "+ getError(currentAngle));
         Logger.logLine("Power: " + power);
+        powers.add(power);
+        powers.add(-power);
+        return powers;
+    }
+    public ArrayList<Float> getTuningPivotPowers(double currentAngle, double porportional, double integral, double derivative) {
+        Kp = porportional;
+        Ki = integral;
+        Kd = derivative;
+        Logger.logLine("Kp: " + Kp);
+        Logger.logLine("Ki: " + Ki);
+        Logger.logLine("Kd: " + Kd);
+        ArrayList<Float> powers = new ArrayList<Float>();
+        float power = convertPower(getPower(getError(currentAngle)));
+        Logger.logLine("Angle: " + currentAngle + 180);
+        Logger.logLine("Error: "+ getError(currentAngle));
+        Logger.logLine("Power: " + power);
+        if (power - prevPower > .05) {power = 0;}
+        prevPower = power;
         powers.add(power);
         powers.add(-power);
         return powers;
