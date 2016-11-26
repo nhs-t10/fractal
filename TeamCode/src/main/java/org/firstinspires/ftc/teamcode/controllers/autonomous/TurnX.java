@@ -27,7 +27,7 @@ public class TurnX implements Controller {
         if (values.get(0) == 0.0 && values.get(1) == 0.0) {
             driveTrain.stop();
             return true;
-        };
+        }
         Logger.logLine("Test Number: " + test);
         driveTrain.drive(values.get(0), values.get(1));
         return false;

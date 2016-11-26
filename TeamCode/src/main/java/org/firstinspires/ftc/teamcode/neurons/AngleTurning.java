@@ -59,7 +59,6 @@ public class AngleTurning extends PID {
         Logger.logLine("Error: "+ getError(currentAngle));
         Logger.logLine("Power: " + power);
         if (power - prevPower > .05 && Ki == 0) {power = 0;}
-        if
         prevPower = power;
         powers.add(power);
         powers.add(-power);
