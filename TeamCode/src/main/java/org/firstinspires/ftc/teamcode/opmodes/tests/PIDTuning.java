@@ -2,8 +2,10 @@ package org.firstinspires.ftc.teamcode.opmodes.tests;
 
 import org.firstinspires.ftc.teamcode.controllers.autonomous.IntegralTuning;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.PorpotionalTuning;
+import org.firstinspires.ftc.teamcode.controllers.autonomous.ZieglerNichols;
 import org.firstinspires.ftc.teamcode.opmodes.T10Autonomous;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
+import org.firstinspires.ftc.teamcode.organs.drivetrains.DriveTrain;
 import org.firstinspires.ftc.teamcode.organs.drivetrains.MecanumDrivetrain;
 import org.firstinspires.ftc.teamcode.tissues.TCamera;
 
@@ -20,6 +22,8 @@ public class PIDTuning extends T10Autonomous{
         IntegralTuning it = new IntegralTuning(instruments, md, pt);
         instruments.start();
         registerController(pt);
+        registerController(new ZieglerNichols(instruments, md, pt));
         registerController(it);
+
     }
 }

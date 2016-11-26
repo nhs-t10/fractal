@@ -21,6 +21,7 @@ public class ZieglerNichols implements Controller{
         private Time.Stopwatch sw;
         private int trial = 1;
         private boolean startedCount = false;
+        private boolean success = false;
         public ZieglerNichols(Instruments i, DriveTrain d, PorpotionalTuning pt) {
             instruments = i;
             driveTrain = d;
@@ -29,34 +30,36 @@ public class ZieglerNichols implements Controller{
             sw = new Time.Stopwatch();
         }
         public boolean tick () {
-            ArrayList<Float> values = angleTurning.getTuningPivotPowers(instruments.yaw, porpotionalTuning.KP*0.6, 1.2*porpotionalTuning.KP/porpotionalTuning.period, 3*porpotionalTuning.KP*porpotionalTuning.period/40);
-            if(!startedCount) {
-                sw.start();
-                startedCount = true;
+            if (success){
+                Logger.logLine("Kp: " + porpotionalTuning.KP*0.6);
+                Logger.logLine("Ki: " +  1.2*porpotionalTuning.KP/porpotionalTuning.period);
+                Logger.logLine("Kd: " + 3*porpotionalTuning.KP*porpotionalTuning.period/40);
             }
-            if (sw.timeElapsed() > 3000){
-                if (values.get(0) == 0){
-                    if (trial == 1){
-                        sw = new Time.Stopwatch();
-                        angleTurning = new AngleTurning(instruments.yaw + 180);
-                        startedCount = false;
-                    }
-                    if (trial == 2){
-                        sw = new Time.Stopwatch();
-                        angleTurning = new AngleTurning(instruments.yaw + 10);
-                        startedCount = false;
-                    }
-                    else {
-
-                        Logger.logLine("Kp: " + porpotionalTuning.KP*0.6);
-                        Logger.logLine("Ki: " +  1.2*porpotionalTuning.KP/porpotionalTuning.period);
-                        Logger.logLine("Kd: " + 3*porpotionalTuning.KP*porpotionalTuning.period/40);
-
-                    }
+            else {
+                ArrayList<Float> values = angleTurning.getTuningPivotPowers(instruments.yaw, porpotionalTuning.KP * 0.6, 1.2 * porpotionalTuning.KP / porpotionalTuning.period, 3 * porpotionalTuning.KP * porpotionalTuning.period / 40);
+                if (!startedCount) {
+                    sw.start();
+                    startedCount = true;
                 }
-                return true;
+                if (sw.timeElapsed() > 3000) {
+                    if (values.get(0) == 0) {
+                        if (trial == 1) {
+                            sw = new Time.Stopwatch();
+                            angleTurning = new AngleTurning(instruments.yaw + 180);
+                            startedCount = false;
+                        }
+                        if (trial == 2) {
+                            sw = new Time.Stopwatch();
+                            angleTurning = new AngleTurning(instruments.yaw + 10);
+                            startedCount = false;
+                        } else {
+                            success = true;
+                        }
+                    }
+                    return true;
+                }
+                driveTrain.drive(values.get(0), values.get(1));
             }
-            driveTrain.drive(values.get(0), values.get(1));
             return false;
         }
 
