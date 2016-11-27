@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public class LineAlignment extends PID {
     public LineAlignment () {
-        Kp = 0.5;
+        Kp = 3f;
         Kd = 0.2;
         Ki = 0.3;
     }
