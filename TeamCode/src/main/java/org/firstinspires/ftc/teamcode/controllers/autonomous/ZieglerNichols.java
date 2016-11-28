@@ -44,6 +44,7 @@ public class ZieglerNichols implements Controller{
                 if (sw.timeElapsed() > 3000) {
                     if (values.get(0) == 0) {
                         if (trial == 1) {
+                            sw.stop();
                             sw = new Time.Stopwatch();
                             angleTurning = new AngleTurning(instruments.yaw + 180);
                             startedCount = false;
@@ -52,16 +53,13 @@ public class ZieglerNichols implements Controller{
                             sw = new Time.Stopwatch();
                             angleTurning = new AngleTurning(instruments.yaw + 10);
                             startedCount = false;
-                        } else {
-                            success = true;
-                        }
+                        } else {success = true;}
+                        return false;
                     }
-                    return true;
+                    else return true;
                 }
                 driveTrain.drive(values.get(0), values.get(1));
             }
             return false;
         }
-
-
     }

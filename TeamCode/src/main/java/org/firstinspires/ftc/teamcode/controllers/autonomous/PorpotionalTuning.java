@@ -1,7 +1,6 @@
 package org.firstinspires.ftc.teamcode.controllers.autonomous;
 
 import org.firstinspires.ftc.teamcode.controllers.Controller;
-import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.neurons.AngleTurning;
 import org.firstinspires.ftc.teamcode.neurons.Time;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
@@ -22,14 +21,13 @@ public class PorpotionalTuning implements Controller {
     private AngleTurning angleTurning;
     private boolean sign;
     private int oscCount = -1;
-    private double deg = instruments.yaw + 45;
     private Time.Stopwatch sw;
     private boolean trigger = false;
     private boolean startedCount = false;
     public PorpotionalTuning(Instruments i, DriveTrain d) {
         instruments = i;
         driveTrain = d;
-        angleTurning = new AngleTurning(deg);
+        angleTurning = new AngleTurning(instruments.yaw + 45);
         sw = new Time.Stopwatch();
     }
     public boolean tick (){
@@ -42,29 +40,14 @@ public class PorpotionalTuning implements Controller {
             sign = (values.get(0) > 0);
             oscCount++;
         }
-        if (values.get(0) > 0 && !sign) {
+        if ((values.get(0) > 0) == !sign) {
             oscCount ++;
-            sign = true;
+            sign = !sign;
             if (trigger){
-                if(!startedCount){
+                if(oscCount == 1){
                     sw.start();
-                    startedCount = true;
                 }
-                else {
-                    period = sw.timeElapsed();
-                    return true;
-                }
-            }
-        }
-        else if (values.get(0) < 0 && sign) {
-            oscCount ++;
-            sign = false;
-            if (trigger){
-                if(!startedCount){
-                    sw.start();
-                    startedCount = true;
-                }
-                else {
+                else if (oscCount == 3){
                     period = sw.timeElapsed();
                     return true;
                 }
@@ -73,14 +56,14 @@ public class PorpotionalTuning implements Controller {
         if (values.get(0) == 0){
             KP = KP + 0.1;
             oscCount = -1;
-            deg = deg + 45;
-            angleTurning = new AngleTurning(deg);
+            angleTurning = new AngleTurning(instruments.yaw + 45);
+            sw.stop();
             sw = new Time.Stopwatch();
         }
         else if (sw.timeElapsed() > 6 && oscCount > 2){
             oscCount = -1;
-            deg = deg + 45;
-            angleTurning = new AngleTurning(deg);
+            angleTurning = new AngleTurning(instruments.yaw + 45);
+            sw.stop();
             sw = new Time.Stopwatch();
             trigger = true;
         }

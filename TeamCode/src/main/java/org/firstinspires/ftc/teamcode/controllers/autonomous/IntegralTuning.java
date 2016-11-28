@@ -20,13 +20,12 @@ public class IntegralTuning implements Controller {
     private PorpotionalTuning porpotionalTuning;
     private Time.Stopwatch sw;
     private boolean startedCount = false;
-    private double deg = instruments.yaw + 45;
     private int oscCount = -1;
     private boolean sign;
     public IntegralTuning(Instruments i, DriveTrain d, PorpotionalTuning pt) {
         instruments = i;
         driveTrain = d;
-        angleTurning = new AngleTurning(0);
+        angleTurning = new AngleTurning(instruments.yaw + 45);
         porpotionalTuning = pt;
         sw = new Time.Stopwatch();
     }
@@ -37,18 +36,18 @@ public class IntegralTuning implements Controller {
         }
         ArrayList<Float> values = angleTurning.getTuningPivotPowers(instruments.yaw, porpotionalTuning.KP/2, KI, 0);
         if (oscCount == -1){
-            if (values.get(0) > 0){sign = true;}
-            else sign = false;
+            sign = (values.get(0) > 0);
             oscCount++;
         }
-        if (sw.timeElapsed() > 10000 && oscCount > 5){
+        if (oscCount > 2){
             KI = KI - 0.1;
             return true;
         }
-        if (values.get(0) == 0 || sw.timeElapsed() > 11000){
+        else if (values.get(0) == 0 || sw.timeElapsed() > 10000){
             KI = KI + 0.1;
-            deg = deg + 45;
-            angleTurning = new AngleTurning(deg);
+            angleTurning = new AngleTurning(instruments.yaw + 45);
+            sw.stop();
+            sw = new Time.Stopwatch();
         }
         driveTrain.drive(values.get(0), values.get(1));
         return false;

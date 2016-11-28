@@ -23,7 +23,8 @@ public class DerivativeTuning implements Controller{
     private int oscCount = -1;
     private Time.Stopwatch sw;
     private boolean startedCount = false;
-    public double KD = 0.1;
+    private boolean readyToCall = false;
+    private double KD = 0.1;
     public DerivativeTuning(Instruments i, DriveTrain d, PorpotionalTuning pt, IntegralTuning it) {
         instruments = i;
         driveTrain = d;
@@ -33,31 +34,33 @@ public class DerivativeTuning implements Controller{
         sw = new Time.Stopwatch();
     }
     public boolean tick (){
+        if (readyToCall){
+            Logger.logLine("Kp: " + porpotionalTuning.KP/2);
+            Logger.logLine("Ki: " + integralTuning.KI);
+            Logger.logLine("Kd: " + KD);
+            return false;
+        }
         if(!startedCount) {
             sw.start();
             startedCount = true;
         }
         ArrayList<Float> values = angleTurning.getTuningPivotPowers(instruments.yaw, porpotionalTuning.KP/2, integralTuning.KI, KD);
         if (oscCount == -1){
-            if (values.get(0) > 0){sign = true;}
-            else sign = false;
+            sign = (values.get(0) > 0);
             oscCount++;
         }
-        if (values.get(0) > 0 && !sign) {
+        if ((values.get(0) > 0) == !sign) {
             oscCount ++;
-            sign = true;
-
-        }
-        else if (values.get(0) < 0 && sign) {
-            oscCount ++;
-            sign = false;
+            sign = !sign;
         }
         if (sw.timeElapsed() > 5000){
-            if (oscCount > 3){
+            if (oscCount > 2){
                 KD = KD - 0.2;
-                return true;
+                readyToCall = true;
             }
             startedCount = false;
+            sw.stop();
+            sw = new Time.Stopwatch();
             angleTurning = new AngleTurning(instruments.yaw + 45);
             KD = KD + 0.1;
         }
