@@ -36,12 +36,15 @@ public class ZieglerNichols implements Controller{
                 Logger.logLine("Kd: " + 3*porpotionalTuning.KP*porpotionalTuning.period/40);
             }
             else {
+                Logger.logLine("ZN");
+                Logger.logLine("period: " + porpotionalTuning.period);
                 ArrayList<Float> values = angleTurning.getTuningPivotPowers(instruments.yaw, porpotionalTuning.KP * 0.6, 1.2 * porpotionalTuning.KP / porpotionalTuning.period, 3 * porpotionalTuning.KP * porpotionalTuning.period / 40);
+                Logger.logLine("power: " + values.get(0));
                 if (!startedCount) {
                     sw.start();
                     startedCount = true;
                 }
-                if (sw.timeElapsed() > 3000) {
+                if (sw.timeElapsed() > 4000) {
                     if (values.get(0) == 0) {
                         if (trial == 1) {
                             sw.reset();

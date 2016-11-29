@@ -28,17 +28,12 @@ public class AutonomousTest extends T10Autonomous {
         instruments.start();
 //        cam = new TCamera();
         registerController(new TurnX(instruments, md, 45, 1));
-        Logger.logLine("done 1");
-        registerController(new TurnX(instruments, md, 90, 2));
-        Logger.logLine("done 2");
-        registerController(new TurnX(instruments, md, -60, 3));
-        Logger.logLine("done 3");
-        registerController(new TurnX(instruments, md, -65, 4));
-        Logger.logLine("done 4");
-        registerController(new TurnX(instruments, md, -170, 5));
-        Logger.logLine("done 5");
-        registerController(new TurnX(instruments, md, 189, 6));
-        Logger.logLine("done 6");
+        registerController(new TurnX(instruments, md, 50, 2));
+        registerController(new TurnX(instruments, md, 130, 3));
+        registerController(new TurnX(instruments, md, 45, 4));
+        registerController(new TurnX(instruments, md, 0, 5));
+        registerController(new TurnX(instruments, md, 180, 6));
+
     }
     @Override
     public void stop() {

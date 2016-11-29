@@ -10,13 +10,13 @@ import java.util.ArrayList;
 
 public class AngleTurning extends PID {
     private double destination; //178h
-    private boolean setKi = false;
+    private boolean setKi = true;
     private double prevPower = 0;
     public AngleTurning (double dest) {
         destination = dest;
-        Kp = 3.0;
-        Kd = 0.0;
-        Ki = 0.0;
+        Kp = 2.75;
+        Kd = 0.3;
+        Ki = 0.1;
     }
     public ArrayList<Float> getDrivePowers(double currentAngle) {
         if (!setKi) {
@@ -58,7 +58,6 @@ public class AngleTurning extends PID {
         Logger.logLine("Angle: " + currentAngle + 180);
         Logger.logLine("Error: "+ getError(currentAngle));
         Logger.logLine("Power: " + power);
-        if (power - prevPower > .05 && Ki == 0) {power = 0;}
         prevPower = power;
         powers.add(power);
         powers.add(-power);

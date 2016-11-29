@@ -27,7 +27,7 @@ public class IntegralTuning implements Controller {
     public IntegralTuning(Instruments i, DriveTrain d, PorpotionalTuning pt) {
         instruments = i;
         driveTrain = d;
-        angleTurning = new AngleTurning(instruments.yaw + 45);
+        angleTurning = new AngleTurning(instruments.yaw + 90);
         porpotionalTuning = pt;
         sw = new Time.Stopwatch();
     }
@@ -41,18 +41,18 @@ public class IntegralTuning implements Controller {
             sign = (values.get(0) > 0);
             oscCount++;
         }
-        if (oscCount > 2){
+        if (oscCount > 5){
             findStable = true;
             endTask = true;
             values.set(0, 0f);
         }
-        else if (values.get(0) == 0 || sw.timeElapsed() > 10000){
-            if (endTask){return true;}
+        else if (sw.timeElapsed() > 4000){
+            if (values.get(0) == 0){return true;}
             else if (findStable){
                 KI = KI - 0.1;
             }
             else KI = KI + 0.1;
-            angleTurning = new AngleTurning(instruments.yaw + 45);
+            angleTurning = new AngleTurning(instruments.yaw + 90);
             sw.reset();
             findStable = false;
         }

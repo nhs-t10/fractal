@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.teamcode.opmodes.tests;
 
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+
 import org.firstinspires.ftc.teamcode.controllers.autonomous.DerivativeTuning;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.IntegralTuning;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.PorpotionalTuning;
@@ -12,9 +14,10 @@ import org.firstinspires.ftc.teamcode.tissues.TCamera;
 /**
  * Created by jacob_000 on 11/24/2016.
  */
-
+@Autonomous(name="PID Tuning", group="Autonomous")
 public class PIDTuning extends T10Autonomous{
     private TCamera camera;
+    @Override
     public void registration() {
         MecanumDrivetrain md = new MecanumDrivetrain();
         Instruments instruments = new Instruments();
@@ -23,7 +26,7 @@ public class PIDTuning extends T10Autonomous{
         DerivativeTuning dt = new DerivativeTuning(instruments, md, pt, it);
         instruments.start();
         registerController(pt);
-        registerController(new ZieglerNichols(instruments, md, pt));
+//        registerController(new ZieglerNichols(instruments, md, pt));
         registerController(it);
         registerController(dt);
 

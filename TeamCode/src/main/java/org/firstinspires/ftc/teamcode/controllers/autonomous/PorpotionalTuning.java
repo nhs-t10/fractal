@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.controllers.autonomous;
 
 import org.firstinspires.ftc.teamcode.controllers.Controller;
+import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.neurons.AngleTurning;
 import org.firstinspires.ftc.teamcode.neurons.Time;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
@@ -14,7 +15,7 @@ import java.util.ArrayList;
  */
 
 public class PorpotionalTuning implements Controller {
-    public double KP = 0.1;
+    public double KP = 4;
     public double period;
     private DriveTrain driveTrain;
     private Instruments instruments;
@@ -47,23 +48,26 @@ public class PorpotionalTuning implements Controller {
                 if(oscCount == 1){
                     sw.start();
                 }
-                else if (oscCount == 3){
-                    period = sw.timeElapsed()/1000;
+                else if (oscCount >= 3){
+                    period = sw.timeElapsed() / 1000;
+                    Logger.logLine("period: " + period);
                     return true;
                 }
             }
         }
-        if (values.get(0) == 0){
-            KP = KP + 0.1;
+        Logger.logLine("Oscilation: " + oscCount);
+        Logger.logLine("trigger" + trigger);
+        if (oscCount > 5){
             oscCount = -1;
-            angleTurning = new AngleTurning(instruments.yaw + 45);
-            sw.reset();
-        }
-        else if (sw.timeElapsed() > 6000 && oscCount > 2){
-            oscCount = -1;
-            angleTurning = new AngleTurning(instruments.yaw + 45);
+            angleTurning = new AngleTurning(instruments.yaw + 90);
             sw.reset();
             trigger = true;
+        }
+        else if (values.get(0) == 0 || sw.timeElapsed() > 7000){
+            KP = KP + 0.1;
+            oscCount = -1;
+            angleTurning = new AngleTurning(instruments.yaw + 90);
+            sw.reset();
         }
         driveTrain.drive(values.get(0), values.get(1));
         return false;

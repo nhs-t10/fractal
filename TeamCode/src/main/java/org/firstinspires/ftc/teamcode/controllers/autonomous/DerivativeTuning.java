@@ -60,7 +60,7 @@ public class DerivativeTuning implements Controller{
             }
             startedCount = false;
             sw.reset();
-            angleTurning = new AngleTurning(instruments.yaw + 45);
+            angleTurning = new AngleTurning(instruments.yaw + 90);
             KD += 0.1;
         }
         driveTrain.drive(values.get(0), values.get(1));
