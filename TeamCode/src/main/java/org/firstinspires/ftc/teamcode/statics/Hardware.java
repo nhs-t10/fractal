@@ -36,6 +36,7 @@ public class Hardware {
         ServoTop = "s1";
 
         IMU = "imu";
+        Ultra = "u1";
         Lightone = "l1";
         Lighttwo = "l2";
     }

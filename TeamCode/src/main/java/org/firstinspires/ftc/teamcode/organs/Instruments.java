@@ -43,7 +43,7 @@ public class Instruments extends Thread {
 
     public Instruments() {
         //colorsensor = new TColor(Hardware.Color);
-        //ultrasensor = new TUltra(Hardware.Ultra);\
+        ultrasensor = new TUltra(Hardware.Ultra);
         lightsensor1 = new TLight(Hardware.Lightone);
         lightsensor2 = new TLight(Hardware.Lighttwo);
         imusensor = new TIMU(Hardware.IMU);
@@ -86,7 +86,7 @@ public class Instruments extends Thread {
         color.GREEN = colorsensor.red();
         color.ALPHA = colorsensor.alpha();*/
 
-//        distance = ultrasensor.distance();
+        distance = ultrasensor.voltage();
         light1 = lightsensor1.reflectedValue();
         light2 = lightsensor2.reflectedValue();
         yaw = imusensor.getYaw();

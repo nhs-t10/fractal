@@ -27,6 +27,8 @@ public class NeuronTest implements Controller {
     public boolean tick() {
         Logger.logLine(camera.getString());
         ld.isAtLine(instruments.light1, instruments.light2);
+        Logger.logLine("yaw: " + instruments.yaw);
+        Logger.logLine("distance: " + instruments.distance);
         return false;
     }
 }
