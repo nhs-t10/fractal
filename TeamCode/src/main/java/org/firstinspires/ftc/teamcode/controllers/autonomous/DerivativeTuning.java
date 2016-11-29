@@ -59,10 +59,9 @@ public class DerivativeTuning implements Controller{
                 readyToCall = true;
             }
             startedCount = false;
-            sw.stop();
-            sw = new Time.Stopwatch();
+            sw.reset();
             angleTurning = new AngleTurning(instruments.yaw + 45);
-            KD = KD + 0.1;
+            KD += 0.1;
         }
         driveTrain.drive(values.get(0), values.get(1));
         return false;

@@ -44,16 +44,14 @@ public class ZieglerNichols implements Controller{
                 if (sw.timeElapsed() > 3000) {
                     if (values.get(0) == 0) {
                         if (trial == 1) {
-                            sw.stop();
-                            sw = new Time.Stopwatch();
+                            sw.reset();
                             angleTurning = new AngleTurning(instruments.yaw + 180);
-                            startedCount = false;
                         }
                         if (trial == 2) {
-                            sw = new Time.Stopwatch();
+                            sw.reset();
                             angleTurning = new AngleTurning(instruments.yaw + 10);
-                            startedCount = false;
                         } else {success = true;}
+                        trial++;
                         return false;
                     }
                     else return true;

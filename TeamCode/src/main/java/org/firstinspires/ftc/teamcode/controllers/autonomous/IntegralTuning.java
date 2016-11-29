@@ -22,6 +22,8 @@ public class IntegralTuning implements Controller {
     private boolean startedCount = false;
     private int oscCount = -1;
     private boolean sign;
+    private boolean findStable = false;
+    private boolean endTask = false;
     public IntegralTuning(Instruments i, DriveTrain d, PorpotionalTuning pt) {
         instruments = i;
         driveTrain = d;
@@ -40,14 +42,19 @@ public class IntegralTuning implements Controller {
             oscCount++;
         }
         if (oscCount > 2){
-            KI = KI - 0.1;
-            return true;
+            findStable = true;
+            endTask = true;
+            values.set(0, 0f);
         }
         else if (values.get(0) == 0 || sw.timeElapsed() > 10000){
-            KI = KI + 0.1;
+            if (endTask){return true;}
+            else if (findStable){
+                KI = KI - 0.1;
+            }
+            else KI = KI + 0.1;
             angleTurning = new AngleTurning(instruments.yaw + 45);
-            sw.stop();
-            sw = new Time.Stopwatch();
+            sw.reset();
+            findStable = false;
         }
         driveTrain.drive(values.get(0), values.get(1));
         return false;

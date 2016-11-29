@@ -48,7 +48,7 @@ public class PorpotionalTuning implements Controller {
                     sw.start();
                 }
                 else if (oscCount == 3){
-                    period = sw.timeElapsed();
+                    period = sw.timeElapsed()/1000;
                     return true;
                 }
             }
@@ -57,19 +57,16 @@ public class PorpotionalTuning implements Controller {
             KP = KP + 0.1;
             oscCount = -1;
             angleTurning = new AngleTurning(instruments.yaw + 45);
-            sw.stop();
-            sw = new Time.Stopwatch();
+            sw.reset();
         }
-        else if (sw.timeElapsed() > 6 && oscCount > 2){
+        else if (sw.timeElapsed() > 6000 && oscCount > 2){
             oscCount = -1;
             angleTurning = new AngleTurning(instruments.yaw + 45);
-            sw.stop();
-            sw = new Time.Stopwatch();
+            sw.reset();
             trigger = true;
         }
         driveTrain.drive(values.get(0), values.get(1));
         return false;
-
     }
 
 }
