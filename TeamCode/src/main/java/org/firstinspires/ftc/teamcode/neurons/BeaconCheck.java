@@ -18,10 +18,10 @@ public class BeaconCheck {
 
     public boolean shouldPressLeft() {
         return ((team == Team.BLUE && analysis.getStateLeft() == Beacon.BeaconColor.BLUE) ||
-                (team == Team.RED && analysis.getStateLeft() == Beacon.BeaconColor.RED)) && analysis.getConfidence() > 50.0;
+                (team == Team.RED && analysis.getStateLeft() == Beacon.BeaconColor.RED)) && analysis.getConfidence() > 0.5;
     }
 
     public boolean isPressed() {
-        return analysis.getStateLeft() == analysis.getStateRight() || analysis.getConfidence() < 1;
+        return analysis.getStateLeft() == analysis.getStateRight() || analysis.getConfidence() < 0.5;
     }
 }

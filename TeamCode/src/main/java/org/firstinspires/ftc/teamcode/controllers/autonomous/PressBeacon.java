@@ -45,6 +45,7 @@ public class PressBeacon implements Controller {
         else pusher.pushRight();
 
         driveTrain.goBackward(0.5f);
+        Logger.logLine((beacon.shouldPressLeft() ? "LEFT" : "RIGHT"));
         return false;
     }
 }
