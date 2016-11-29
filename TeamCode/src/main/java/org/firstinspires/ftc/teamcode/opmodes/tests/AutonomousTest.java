@@ -6,6 +6,7 @@ import org.firstinspires.ftc.teamcode.controllers.Team;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.DriveToLine;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.PressBeacon;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.TurnX;
+import org.firstinspires.ftc.teamcode.controllers.autonomous.TurnXDegrees;
 import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.opmodes.T10Autonomous;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
@@ -27,8 +28,8 @@ public class AutonomousTest extends T10Autonomous {
         Instruments instruments = new Instruments();
         instruments.start();
         cam = new TCamera();
-        registerController(new PressBeacon(Team.RED, md, p, cam));
-//        registerController(new TurnX(instruments, md, 45, 1));
+//        registerController(new PressBeacon(Team.RED, md, p, cam));
+        registerController(new TurnX(instruments, md, 0));
 //        Logger.logLine("done 1");
 //        registerController(new TurnX(instruments, md, 90, 2));
 //        Logger.logLine("done 2");

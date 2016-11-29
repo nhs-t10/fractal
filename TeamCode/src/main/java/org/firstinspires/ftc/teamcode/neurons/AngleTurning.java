@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class AngleTurning extends PID {
     private double destination; //178h
-    private boolean setKi = false;
+    private boolean setKi = true;
     public AngleTurning (double dest) {
         destination = dest;
         Kp = 3.0;
