@@ -21,6 +21,7 @@ public class IntegralTuning implements Controller {
     private Time.Stopwatch sw;
     private boolean startedCount = false;
     private int oscCount = -1;
+    private int trial = 1;
     private boolean sign;
     private boolean findStable = false;
     private boolean endTask = false;
@@ -43,13 +44,32 @@ public class IntegralTuning implements Controller {
         }
         if (oscCount > 5){
             findStable = true;
-            endTask = true;
-            values.set(0, 0f);
         }
         else if (sw.timeElapsed() > 4000){
-            if (values.get(0) == 0){return true;}
+            if (values.get(0) == 0){
+                if (trial == 1) {
+                    sw.reset();
+                    angleTurning = new AngleTurning(instruments.yaw + 180);
+                }
+                else if (trial == 2) {
+                    sw.reset();
+                    angleTurning = new AngleTurning(instruments.yaw + 10);
+                }
+                else if (trial == 3) {
+                    sw.reset();
+                    angleTurning = new AngleTurning(instruments.yaw + 45);
+                }
+                else {
+                    return true;
+                }
+                trial++;
+                return false;
+            }
+            else if (trial > 1){
+                trial = 1;
+            }
             else if (findStable){
-                KI = KI - 0.1;
+                KI = KI - 0.05;
             }
             else KI = KI + 0.1;
             angleTurning = new AngleTurning(instruments.yaw + 90);

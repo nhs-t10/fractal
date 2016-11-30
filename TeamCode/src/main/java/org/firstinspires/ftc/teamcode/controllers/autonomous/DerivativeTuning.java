@@ -23,7 +23,7 @@ public class DerivativeTuning implements Controller{
     private int oscCount = -1;
     private Time.Stopwatch sw;
     private boolean startedCount = false;
-    private boolean readyToCall = false;
+    private boolean readyToCall = true;
     private double KD = 0.1;
     public DerivativeTuning(Instruments i, DriveTrain d, PorpotionalTuning pt, IntegralTuning it) {
         instruments = i;
