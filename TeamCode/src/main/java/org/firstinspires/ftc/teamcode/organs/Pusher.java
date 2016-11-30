@@ -20,7 +20,7 @@ public class Pusher implements Component {
         servo.moveTo(0);
     }
     public void pushRight() {
-        servo.moveTo(0.8);
+        servo.moveTo(1.3);
     }
     public boolean test() {
         pushLeft();
