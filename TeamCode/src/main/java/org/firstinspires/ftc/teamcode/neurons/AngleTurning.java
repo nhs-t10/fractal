@@ -14,9 +14,10 @@ public class AngleTurning extends PID {
     private double prevPower = 0;
     public AngleTurning (double dest) {
         destination = dest;
-        Kp = 2.75;
-        Kd = 0.3;
-        Ki = 0.1;
+        Kp = 2.0;
+        Ki = 0.9;
+        Kd = 0.0;
+
     }
     public ArrayList<Float> getDrivePowers(double currentAngle) {
         if (!setKi) {
