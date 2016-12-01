@@ -28,11 +28,11 @@ public class AutonomousTest extends T10Autonomous {
         instruments.start();
 //        cam = new TCamera();
         registerController(new TurnX(instruments, md, 45, 1));
-        registerController(new TurnX(instruments, md, 50, 2));
-        registerController(new TurnX(instruments, md, 130, 3));
-        registerController(new TurnX(instruments, md, 45, 4));
-        registerController(new TurnX(instruments, md, 0, 5));
-        registerController(new TurnX(instruments, md, 180, 6));
+//        registerController(new TurnX(instruments, md, 50, 2));
+//        registerController(new TurnX(instruments, md, 130, 3));
+//        registerController(new TurnX(instruments, md, 45, 4));
+//        registerController(new TurnX(instruments, md, 0, 5));
+//        registerController(new TurnX(instruments, md, 180, 6));
 
     }
     @Override

@@ -28,7 +28,7 @@ public class PorpotionalTuning implements Controller {
     public PorpotionalTuning(Instruments i, DriveTrain d) {
         instruments = i;
         driveTrain = d;
-        angleTurning = new AngleTurning(instruments.yaw + 45);
+        angleTurning = new AngleTurning(instruments.yaw);
         sw = new Time.Stopwatch();
     }
     public boolean tick (){
