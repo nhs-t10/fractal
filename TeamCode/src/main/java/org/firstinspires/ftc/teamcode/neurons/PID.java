@@ -11,13 +11,12 @@ import org.firstinspires.ftc.teamcode.debug.Logger;
 public abstract class PID {
     public double Kp = 1;
     public double Kd = 0.5;
-    public double Ki = 0.5;
+    public double Ki = 0.0;
     public double prevError = 1;
-    public double integral = 0.0;
+    private double integral = 0.0;
     public double getPower (double error) {
        if ( (.5 > Math.abs(error)) && (.2 > Math.abs((prevError - error)))) {
            Logger.logLine("derivative " + (prevError - error));
-           integral = Ki * (integral + error);
            prevError = error;
            return 0;
        }

@@ -17,7 +17,7 @@ public class TurnX implements Controller {
     private Instruments instruments;
     private AngleTurning angleTurning;
     public int test;
-    public TurnX(Instruments i, DriveTrain d, double deg, int test) {
+    public TurnX(Instruments i, DriveTrain d, double deg) {
         instruments = i;
         driveTrain = d;
         angleTurning = new AngleTurning(deg);
