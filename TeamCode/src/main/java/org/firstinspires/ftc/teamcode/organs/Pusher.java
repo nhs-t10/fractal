@@ -10,18 +10,31 @@ import org.firstinspires.ftc.teamcode.tissues.TServo;
  */
 
 public class Pusher implements Component {
-    public String getName() { return "Button Pusher"; }
+    private float leftPos;
+    private float rightPos;
+
     private TServo servo;
     public Pusher() {
+       this(0.0f, 1.3f);
+    }
+
+    public Pusher(float left, float right) {
+        leftPos = left;
+        rightPos = right;
+
         servo = new TServo(Hardware.ServoPusher);
         servo.moveTo(0.5);
     }
+
     public void pushLeft() {
-        servo.moveTo(0);
+        servo.moveTo(leftPos);
     }
     public void pushRight() {
-        servo.moveTo(1.3);
+        servo.moveTo(rightPos);
     }
+
+    public String getName() { return "Button Pusher"; }
+
     public boolean test() {
         pushLeft();
         Sleep.secs(1);

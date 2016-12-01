@@ -38,11 +38,11 @@ public class bonnie extends T10Opmode {
         spinner = new Spinner();
         liftSpinner = new Spinner(Hardware.LiftSpinner);
         liftSpinner.direction = 1;
-        //pusher = new Pusher();
+        pusher = new Pusher();
 
         controllers.add(new OneStickMecanum(drivetrain));
         controllers.add(new Collection(flicker, stopper, new ArrayList<Spinner>(Arrays.asList(spinner, liftSpinner))));
-        //controllers.add(new ButtonPusher(pusher));
+        controllers.add(new ButtonPusher(pusher));
     }
     public void tick() {
         for(int i=0; i<controllers.size(); i++) {
