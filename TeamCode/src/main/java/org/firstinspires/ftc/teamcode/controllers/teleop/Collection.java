@@ -24,6 +24,7 @@ public class Collection implements Controller {
     private DebouncingButton stopperBtn = new DebouncingButton(Controls.Stopper);
     private DebouncingButton spinnerInBtn = new DebouncingButton(Controls.SpinnerIn);
     private DebouncingButton spinnerOutBtn = new DebouncingButton(Controls.SpinnerOut);
+    private DebouncingButton liftBtn = new DebouncingButton("DU1");
 
     @Deprecated
     public Collection(Flicker f, Spinner sp) {
@@ -48,10 +49,6 @@ public class Collection implements Controller {
             stopper.toggle();
         }
 
-        if(ControlParser.button("DU1")) {
-            spinner.get(1).toggle(1);
-        }
-
         if(spinnerInBtn.getToggle()) {
             for (Spinner s: spinner) {
                 s.toggle(1);
@@ -61,6 +58,11 @@ public class Collection implements Controller {
                 s.toggle(-1);
             }
         }
+
+        if(liftBtn.getToggle() && !spinner.get(1).isOn()) {
+            spinner.get(1).toggle(1);
+        }
+
         return false;
     }
 }

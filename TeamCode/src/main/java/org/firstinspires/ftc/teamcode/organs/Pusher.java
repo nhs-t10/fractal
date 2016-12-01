@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.teamcode.organs;
 
+import com.qualcomm.robotcore.hardware.Servo;
+
 import org.firstinspires.ftc.teamcode.debug.Component;
 import org.firstinspires.ftc.teamcode.lib.Sleep;
 import org.firstinspires.ftc.teamcode.statics.Hardware;
@@ -10,15 +12,15 @@ import org.firstinspires.ftc.teamcode.tissues.TServo;
  */
 
 public class Pusher implements Component {
-    private float leftPos;
-    private float rightPos;
+    private double leftPos;
+    private double rightPos;
 
     private TServo servo;
     public Pusher() {
-       this(0.0f, 1.3f);
+       this(Servo.MAX_POSITION, Servo.MIN_POSITION);
     }
 
-    public Pusher(float left, float right) {
+    public Pusher(double left, double right) {
         leftPos = left;
         rightPos = right;
 
