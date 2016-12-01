@@ -11,12 +11,18 @@ import org.firstinspires.ftc.teamcode.tissues.TMotor;
 public class Spinner implements Component {
     private TMotor spinner;
     private boolean on = false;
+    public int direction = -1;
+
     public Spinner() {
-        spinner = new TMotor(Hardware.Spinner);
+        this(Hardware.Spinner);
+    }
+
+    public Spinner(String name) {
+        spinner = new TMotor(name);
     }
 
     public void toggle(int dir) {
-        spinner.move((on ? 0 : dir * -1.0f));
+        spinner.move((on ? 0 : direction * dir));
         on = !on;
     }
 

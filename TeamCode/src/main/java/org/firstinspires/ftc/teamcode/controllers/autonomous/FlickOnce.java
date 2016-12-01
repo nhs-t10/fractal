@@ -31,6 +31,6 @@ public class FlickOnce implements Controller {
         if(useEnc) {
             return efl.rotate360(1);
         }
-        return fl.moveFor(1.0f, 925);
+        return fl.moveFor(1.0f, 220);
     }
 }

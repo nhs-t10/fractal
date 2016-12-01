@@ -27,7 +27,7 @@ public class Flicker implements Component {
         flicker.stop();
     }
     public void engage() {
-        flicker.move(1f);
+        flicker.move(-1.0f);
     }
 
     @Deprecated

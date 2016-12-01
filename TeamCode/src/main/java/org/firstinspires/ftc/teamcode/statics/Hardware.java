@@ -10,9 +10,9 @@ import com.qualcomm.robotcore.hardware.Servo;
  * Created by robotics on 4/14/16.
  */
 public class Hardware {
-    public static String MotorLeftRear, MotorRightRear, MotorLeftFront, MotorRightFront, Spinner, Flicker;
+    public static String MotorLeftRear, MotorRightRear, MotorLeftFront, MotorRightFront, Spinner, Flicker, LiftSpinner;
 
-    public static String ServoTop, ServoPusher;
+    public static String ServoStop, ServoPusher;
 
     public static String IMU, Color, Ultra, Lightone, Lighttwo;
 
@@ -31,9 +31,10 @@ public class Hardware {
 
         Spinner = "m5";
         Flicker = "m6";
+        LiftSpinner = "m7";
 
         //GimbalVertical = "m6";
-        ServoTop = "s1";
+        ServoStop = "s1";
 
         IMU = "imu";
         Ultra = "u1";
