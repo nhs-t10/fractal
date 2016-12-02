@@ -28,7 +28,6 @@ public class TurnX implements Controller {
             driveTrain.stop();
             return true;
         }
-        Logger.logLine("Test Number: " + test);
         driveTrain.drive(values.get(0), values.get(1));
         return false;
     }

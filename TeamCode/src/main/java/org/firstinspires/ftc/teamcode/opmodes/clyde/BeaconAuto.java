@@ -38,7 +38,7 @@ public abstract class BeaconAuto extends T10Autonomous {
         registerController(new Controller() {
             @Override
             public boolean tick() {
-                new Spinner().toggle(1);
+                new Spinner().toggle(-1);
                 return true;
             }
         });

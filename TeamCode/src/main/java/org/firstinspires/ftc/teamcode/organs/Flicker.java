@@ -20,14 +20,14 @@ public class Flicker implements Component {
 
     public void toggle() {
         if (on) stop();
-        else engage();
+        else engage(-1);
         on = !on;
     }
     public void stop() {
         flicker.stop();
     }
-    public void engage() {
-        flicker.move(-1.0f);
+    public void engage(int dir) {
+        flicker.move(dir * 1.0f);
     }
 
     @Deprecated

@@ -9,9 +9,9 @@ import java.util.ArrayList;
  */
 public class LineAlignment extends PID {
     public LineAlignment () {
-        Kp = 3f;
-        Kd = 0.2;
-        Ki = 0.3;
+        Kp = 100f;
+        Kd = 0.0;
+        Ki = 0.7;
     }
     public ArrayList<Float> getDrivePowers(double leftLight, double rightLight) {
         ArrayList<Float> powers = new ArrayList<Float>();
@@ -26,6 +26,6 @@ public class LineAlignment extends PID {
         return (float) p / 5f;
     }
     public double getError(double l, double r) {
-        return l - r;
+        return (l - r);
     }
 }

@@ -14,30 +14,49 @@ import java.util.Arrays;
 /**
  * Created by robotics on 5/31/16.
  */
-public class Collection implements Controller {
+public class BonnieCollection implements Controller {
     private Flicker flicker;
-    private Spinner spinner;
+    private Stopper stopper;
+    private ArrayList<Spinner> spinner;
     private DebouncingButton stopperBtn = new DebouncingButton(Controls.Stopper);
     private DebouncingButton spinnerInBtn = new DebouncingButton(Controls.SpinnerIn);
     private DebouncingButton spinnerOutBtn = new DebouncingButton(Controls.SpinnerOut);
 
-    public Collection(Flicker f, Spinner sp) {
+    @Deprecated
+    public BonnieCollection(Flicker f, Spinner sp) {
+        this(f, new Stopper(), new ArrayList<Spinner>(Arrays.asList(sp)));
+    }
+
+    public BonnieCollection(Flicker f, Stopper st, Spinner sp) {
+        this(f, st, new ArrayList<Spinner>(Arrays.asList(sp)));
+    }
+
+    public BonnieCollection(Flicker f, Stopper st, ArrayList<Spinner> sp) {
         flicker = f;
+        stopper = st;
         spinner = sp;
     }
     
     public boolean tick() {
-        if(ControlParser.range(Controls.Flicker).get(0) > 0.6) flicker.engage(1);
+        if(ControlParser.range(Controls.Flicker).get(0) > 0.6) flicker.engage(-1);
         else flicker.stop();
 
+        if(stopperBtn.getToggle()) {
+            stopper.toggle();
+        }
+
         if(ControlParser.button("DU1")) {
-            spinner.toggle(1);
+            spinner.get(1).toggle(1);
         }
 
         if(spinnerInBtn.getToggle()) {
-                spinner.toggle(1);
+            for (Spinner s: spinner) {
+                s.toggle(1);
+            }
         } else if(spinnerOutBtn.getToggle()) {
-                spinner.toggle(-1);
+            for (Spinner s: spinner) {
+                s.toggle(-1);
+            }
         }
         return false;
     }

@@ -3,7 +3,7 @@ package org.firstinspires.ftc.teamcode.opmodes.bonnie;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.controllers.Controller;
 import org.firstinspires.ftc.teamcode.controllers.teleop.ButtonPusher;
-import org.firstinspires.ftc.teamcode.controllers.teleop.Collection;
+import org.firstinspires.ftc.teamcode.controllers.teleop.BonnieCollection;
 import org.firstinspires.ftc.teamcode.controllers.teleop.OneStickMecanum;
 import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.opmodes.T10Opmode;
@@ -38,11 +38,11 @@ public class bonnie extends T10Opmode {
         spinner = new Spinner();
         liftSpinner = new Spinner(Hardware.LiftSpinner);
         liftSpinner.direction = 1;
-        //pusher = new Pusher();
+        pusher = new Pusher();
 
         controllers.add(new OneStickMecanum(drivetrain));
-        controllers.add(new Collection(flicker, stopper, new ArrayList<Spinner>(Arrays.asList(spinner, liftSpinner))));
-        //controllers.add(new ButtonPusher(pusher));
+        controllers.add(new BonnieCollection(flicker, stopper, new ArrayList<Spinner>(Arrays.asList(spinner, liftSpinner))));
+        controllers.add(new ButtonPusher(pusher));
     }
     public void tick() {
         for(int i=0; i<controllers.size(); i++) {
