@@ -39,8 +39,8 @@ public class AngleTurning extends PID {
             setKi = true;
         }
         ArrayList<Float> powers = new ArrayList<Float>();
-//        float power = convertPower(getPower(getError(currentAngle)));
-        float power = .07f;
+        float power = convertPower(getPower(getError(currentAngle)));
+        if (power < .07 && power != 0) power = .07f;
         Logger.logLine("Angle: " + currentAngle + 180);
         Logger.logLine("Error: "+ getError(currentAngle));
         Logger.logLine("Power: " + power);
