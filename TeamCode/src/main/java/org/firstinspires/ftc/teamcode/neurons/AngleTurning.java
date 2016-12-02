@@ -11,11 +11,14 @@ import java.util.ArrayList;
 public class AngleTurning extends PID {
     private double destination; //178h
     private boolean setKi = true;
+    private double prevPower = 0;
+
     public AngleTurning (double dest) {
         destination = dest;
-        Kp = 3.0;
+        Kp = 2.5;
+        Ki = 0.7;
         Kd = 0.0;
-        Ki = 0.0;
+
     }
     public ArrayList<Float> getDrivePowers(double currentAngle) {
         if (!setKi) {
@@ -38,9 +41,28 @@ public class AngleTurning extends PID {
         }
         ArrayList<Float> powers = new ArrayList<Float>();
         float power = convertPower(getPower(getError(currentAngle)));
+        Logger.logLine("OriginalPower: " + power);
+        if (Math.abs(power) < .07 && power != 0) {power = Math.signum(power) * .07f;}
         Logger.logLine("Angle: " + currentAngle + 180);
         Logger.logLine("Error: "+ getError(currentAngle));
         Logger.logLine("Power: " + power);
+        powers.add(power);
+        powers.add(-power);
+        return powers;
+    }
+    public ArrayList<Float> getTuningPivotPowers(double currentAngle, double porportional, double integral, double derivative) {
+        Kp = porportional;
+        Ki = integral;
+        Kd = derivative;
+        Logger.logLine("Kp: " + Kp);
+        Logger.logLine("Ki: " + Ki);
+        Logger.logLine("Kd: " + Kd);
+        ArrayList<Float> powers = new ArrayList<Float>();
+        float power = convertPower(getPower(getError(currentAngle)));
+        Logger.logLine("Angle: " + currentAngle + 180);
+        Logger.logLine("Error: "+ getError(currentAngle));
+        Logger.logLine("Power: " + power);
+        prevPower = power;
         powers.add(power);
         powers.add(-power);
         return powers;
