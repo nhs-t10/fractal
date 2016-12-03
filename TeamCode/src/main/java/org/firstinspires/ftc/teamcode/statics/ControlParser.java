@@ -115,8 +115,8 @@ public class ControlParser {
         return results;
     }
     private static int parseGamepad(String gnum){
-        int gamepad = (gnum.equals("2") ? 2 : 1);
-        if(!gnum.equals("2") && !gnum.equals("1")) Logger.logLine("Warning: No controller # specified in query. Defaulting to 1.", 1);
+        int gamepad = (gnum.equals("2") ? 2 : gnum.equals("*") ? 0 : 1);
+        if(!gnum.equals("2") && !gnum.equals("1") && !gnum.equals("*")) Logger.logLine("Warning: No controller # specified in query. Defaulting to 1.", 1);
         return gamepad;
     }
 
@@ -145,7 +145,6 @@ public class ControlParser {
         String gnum = query.get(query.size() - 1); //"1"
         query.remove(query.size() - 1); //["^", "A"]
 
-        int gamepad = parseGamepad(gnum);
         boolean shiftCheck = (query.get(0).equals("^"));
 //        Logger.logLine("Shifts " + query.get(0) + " " + query.toString());
         if(shiftCheck) query.remove(0); //["A"]
@@ -155,9 +154,20 @@ public class ControlParser {
             control += query.get(i);
         }
 
+        int gamepad = parseGamepad(gnum);
+
+        boolean res = false;
+        if (gamepad == 0) res = getButtonResult(1, control) || getButtonResult(2, control); // if copilot wildcard operator (*)
+        else res = getButtonResult(gamepad, control);
+
+        boolean shiftRes = false;
+        if (gamepad == 0) shiftRes = getButtonResult(1, shift) || getButtonResult(2, shift); // if copilot wildcard operator (*)
+        else shiftRes = getButtonResult(gamepad, shift);
+
+        //wildcard may be succeptible to bugs, as gamepad1 could hold down shift while gamepad 2 holds down A and it qualifies.
         boolean results = (shiftCheck
-        ? getButtonResult(gamepad, shift) && getButtonResult(gamepad, control)
-        : !getButtonResult(gamepad, shift) && getButtonResult(gamepad, control));
+        ? shiftRes && res
+        : !shiftRes && res);
 
         return results;
     }
