@@ -27,4 +27,7 @@ public class DebouncingButton {
         }
         return false;
     }
+    public String getCtrl() {
+        return ctrl;
+    }
 }

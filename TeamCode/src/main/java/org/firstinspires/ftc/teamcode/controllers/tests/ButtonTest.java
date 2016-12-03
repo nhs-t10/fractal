@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.controllers.tests;
 
 import org.firstinspires.ftc.teamcode.controllers.Controller;
 import org.firstinspires.ftc.teamcode.debug.Logger;
+import org.firstinspires.ftc.teamcode.neurons.DebouncingButton;
 import org.firstinspires.ftc.teamcode.statics.ControlParser;
 
 /**
@@ -10,13 +11,13 @@ import org.firstinspires.ftc.teamcode.statics.ControlParser;
  * Use for testing simple mappings!
  */
 public class ButtonTest implements Controller {
-    private String control;
+    private DebouncingButton db;
     public ButtonTest(String ctrl) {
-        control = ctrl;
+        db = new DebouncingButton(ctrl);
     }
     public boolean tick() {
-        if(ControlParser.button(control)) {
-                Logger.logLine("Button " + control + " pressed!");
+        if(db.getToggle()) {
+                Logger.logLine("Button " + db.getCtrl() + " pressed!");
         }
         return false;
     }
