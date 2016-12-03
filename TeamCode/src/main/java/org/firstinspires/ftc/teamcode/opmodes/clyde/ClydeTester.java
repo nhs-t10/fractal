@@ -35,8 +35,8 @@ public class ClydeTester extends LinearOpMode {
         waitForStart();
 
         testComponent(new MecanumDrivetrain());
-        testComponent(new Spinner());
-        testComponent(new Flicker());
+        testComponent(new Spinner(1));
+        testComponent(new Flicker(false, 1));
         testComponent(new Pusher());
     }
 }

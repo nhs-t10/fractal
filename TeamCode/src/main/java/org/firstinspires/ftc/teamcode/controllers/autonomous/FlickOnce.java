@@ -1,6 +1,8 @@
 package org.firstinspires.ftc.teamcode.controllers.autonomous;
 
 import org.firstinspires.ftc.teamcode.controllers.Controller;
+import org.firstinspires.ftc.teamcode.controllers.tests.Stall;
+import org.firstinspires.ftc.teamcode.organs.Flicker;
 import org.firstinspires.ftc.teamcode.statics.Hardware;
 import org.firstinspires.ftc.teamcode.tissues.TEncoderMotor;
 import org.firstinspires.ftc.teamcode.tissues.TMotor;
@@ -9,28 +11,31 @@ import org.firstinspires.ftc.teamcode.tissues.TMotor;
  * Created by robotics on 11/15/16.
  */
 public class FlickOnce implements Controller {
-    TMotor fl;
-    TEncoderMotor efl;
+    private Flicker flicker;
     private boolean useEnc = false;
+    private Stall wait = new Stall(220);
 
-    public FlickOnce() {
-        this(false);
+    public FlickOnce(Flicker fl) {
+        this(fl, fl.usesEncoder());
     }
 
-    public FlickOnce(boolean encoder) {
-        if(encoder) {
-            useEnc = true;
-            efl = new TEncoderMotor(Hardware.Flicker);
-        } else {
-            fl = new TMotor(Hardware.Flicker);
-        }
+    public FlickOnce(Flicker fl, boolean encoder) {
+        useEnc = encoder;
+        flicker = fl;
     }
 
     @Override
     public boolean tick() {
         if(useEnc) {
-            return efl.rotate360(1);
+            return flicker.flick360();
         }
-        return fl.moveFor(1.0f, 220);
+        else {
+            if(wait.tick()) {
+                flicker.stop();
+                return true;
+            }
+            flicker.engage();
+            return false;
+        }
     }
 }

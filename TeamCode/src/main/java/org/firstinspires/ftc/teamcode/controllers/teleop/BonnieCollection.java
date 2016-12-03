@@ -38,7 +38,7 @@ public class BonnieCollection implements Controller {
     }
     
     public boolean tick() {
-        if(ControlParser.range(Controls.Flicker).get(0) > 0.6) flicker.engage(-1);
+        if(ControlParser.range(Controls.Flicker).get(0) > 0.6) flicker.engage();
         else flicker.stop();
 
         if(stopperBtn.getToggle()) {

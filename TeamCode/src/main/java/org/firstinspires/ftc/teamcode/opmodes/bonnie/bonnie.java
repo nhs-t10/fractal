@@ -38,10 +38,10 @@ public class bonnie extends T10Opmode {
     public void run() {
         Logger.logLine("Chassis 1 initialized.");
         drivetrain = new MecanumDrivetrain();
-        flicker = new Flicker();
+        flicker = new Flicker(false, -1);
         stopper = new Stopper();
-        spinner = new Spinner();
-        liftSpinner = new Spinner(Hardware.LiftSpinner);
+        spinner = new Spinner(-1);
+        liftSpinner = new Spinner(Hardware.LiftSpinner, -1);
         liftSpinner.direction = 1;
         pusher = new Pusher();
         controllers.add(new OneStickMecanum(drivetrain));

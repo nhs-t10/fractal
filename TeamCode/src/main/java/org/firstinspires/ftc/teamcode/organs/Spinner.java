@@ -13,12 +13,13 @@ public class Spinner implements Component {
     private boolean on = false;
     public int direction = -1;
 
-    public Spinner() {
-        this(Hardware.Spinner);
+    public Spinner(int d) {
+        this(Hardware.Spinner, d);
     }
 
-    public Spinner(String name) {
+    public Spinner(String name, int d) {
         spinner = new TMotor(name);
+        direction = d;
     }
 
     public void toggle(int dir) {

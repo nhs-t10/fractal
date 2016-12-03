@@ -30,8 +30,8 @@ public class clyde extends T10Opmode {
     public void run() {
         Logger.logLine("Chassis 1 initialized.");
         drivetrain = new MecanumDrivetrain();
-        flicker = new Flicker();
-        spinner = new Spinner();
+        flicker = new Flicker(false, 1);
+        spinner = new Spinner(1);
         pusher = new Pusher();
 
         controllers.add(new OneStickMecanum(drivetrain));

@@ -37,8 +37,8 @@ public class Tester extends LinearOpMode {
 
         ArrayList<Component> tests = new ArrayList<Component>();
         tests.add(new MecanumDrivetrain());
-        tests.add(new Spinner());
-        tests.add(new Flicker());
+        tests.add(new Spinner(1));
+        tests.add(new Flicker(false, 1));
         tests.add(new Pusher());
 
         for(int i=0; i<tests.size(); i++) {

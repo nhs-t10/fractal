@@ -6,6 +6,7 @@ import org.firstinspires.ftc.teamcode.controllers.Controller;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.FlickOnce;
 import org.firstinspires.ftc.teamcode.controllers.tests.Stall;
 import org.firstinspires.ftc.teamcode.opmodes.T10Autonomous;
+import org.firstinspires.ftc.teamcode.organs.Flicker;
 import org.firstinspires.ftc.teamcode.organs.Spinner;
 
 /**
@@ -18,15 +19,16 @@ import org.firstinspires.ftc.teamcode.organs.Spinner;
 public class JustFlickEncoderAuto extends T10Autonomous {
     @Override
     public void registration() {
-        registerController(new FlickOnce(true));
+        Flicker flicker = new Flicker(true, 1);
+        registerController(new FlickOnce(flicker));
         registerController(new Controller() {
             @Override
             public boolean tick() {
-                new Spinner().toggle(1);
+                new Spinner(1).toggle(1);
                 return true;
             }
         });
         registerController(new Stall(3000));
-        registerController(new FlickOnce(true));
+        registerController(new FlickOnce(flicker));
     }
 }

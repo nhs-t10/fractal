@@ -11,6 +11,8 @@ import org.firstinspires.ftc.teamcode.controllers.autonomous.TurnX;
 import org.firstinspires.ftc.teamcode.controllers.tests.Stall;
 import org.firstinspires.ftc.teamcode.opmodes.T10Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+
+import org.firstinspires.ftc.teamcode.organs.Flicker;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
 import org.firstinspires.ftc.teamcode.organs.Pusher;
 import org.firstinspires.ftc.teamcode.organs.Spinner;
@@ -31,19 +33,21 @@ public abstract class BeaconAuto extends T10Autonomous {
         Instruments instruments = new Instruments();
         instruments.start();
         Pusher pusher = new Pusher();
+        Flicker flicker = new Flicker(false, 1);
+        final Spinner spinner = new Spinner(1);
 //        registerController(new DriveFromWall(instruments, driveTrain, 0.095));
         registerController(new TimeFromWall(driveTrain, 500));
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? -156 : 175)));
-        registerController(new FlickOnce());
+        registerController(new FlickOnce(flicker));
         registerController(new Controller() {
             @Override
             public boolean tick() {
-                new Spinner().toggle(-1);
+                spinner.toggle(-1);
                 return true;
             }
         });
         registerController(new Stall(3000));
-        registerController(new FlickOnce());
+        registerController(new FlickOnce(flicker));
         registerController(new DriveToLine(instruments, driveTrain, team));
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 180 : 0)));
         registerController(new PressBeacon(team, driveTrain, pusher, camera));
@@ -54,23 +58,23 @@ public abstract class BeaconAuto extends T10Autonomous {
         camera.stop();
     }
 
-    public void registerFlick(int pause) {
-        registerController(new FlickOnce());
-        registerController(new Controller() {
-            @Override
-            public boolean tick() {
-                new Spinner().toggle(1);
-                return true;
-            }
-        });
-        registerController(new Stall(pause));
-        registerController(new FlickOnce());
-        registerController(new Controller() {
-            @Override
-            public boolean tick() {
-                new Spinner().toggle(0);
-                return true;
-            }
-        });
-    }
+//    public void registerFlick(int pause) {
+//        registerController(new FlickOnce());
+//        registerController(new Controller() {
+//            @Override
+//            public boolean tick() {
+//                new Spinner().toggle(1);
+//                return true;
+//            }
+//        });
+//        registerController(new Stall(pause));
+//        registerController(new FlickOnce());
+//        registerController(new Controller() {
+//            @Override
+//            public boolean tick() {
+//                new Spinner().toggle(0);
+//                return true;
+//            }
+//        });
+//    }
 }

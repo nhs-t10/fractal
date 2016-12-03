@@ -9,25 +9,43 @@ import org.firstinspires.ftc.teamcode.tissues.TMotor;
 
 /**
  * Created by robotics on 9/22/16.
+ *
+ * Handles both encoder and non-encoder activities.
  */
 public class Flicker implements Component {
-    //private TEncoderMotor flicker;
+    private TEncoderMotor EFlicker;
     private TMotor flicker;
     private boolean on = false;
-    public Flicker() {
-        flicker = new TMotor(Hardware.Flicker);
+    private int dir;
+    private boolean usesEncoder = false;
+    public Flicker(boolean encoder, int d) {
+        if(encoder) flicker = new TMotor(Hardware.Flicker);
+        else EFlicker = new TEncoderMotor(Hardware.Flicker);
+        usesEncoder = encoder;
+        dir = d;
+    }
+
+    public boolean usesEncoder() {
+        return usesEncoder;
     }
 
     public void toggle() {
         if (on) stop();
-        else engage(-1);
+        else engage();
         on = !on;
     }
     public void stop() {
         flicker.stop();
     }
-    public void engage(int dir) {
+    public void engage() {
         flicker.move(dir * 1.0f);
+    }
+    public boolean flick360() {
+        if(EFlicker != null) {
+            return EFlicker.rotate360(1);
+        }
+        Logger.logLine("ERROR: calling an encoder method on a non-encoder flicker.");
+        return false;
     }
 
     @Deprecated
