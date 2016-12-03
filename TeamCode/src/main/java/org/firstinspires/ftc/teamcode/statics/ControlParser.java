@@ -71,6 +71,15 @@ public class ControlParser {
         else if(control.equals("LSB")) {
             result = gamepad.left_stick_button;
         }
+        else if(control.equals("ST")) {
+            result = gamepad.start;
+        }
+        else if(control.equals("GD")) {
+            result = gamepad.guide;
+        }
+        else if(control.equals("BK")) {
+            result = gamepad.back;
+        }
         else {
             Logger.logLine("No valid control specified (" + control + ")", 1);
             result = false;
