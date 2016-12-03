@@ -26,6 +26,10 @@ public class Spinner implements Component {
         on = !on;
     }
 
+    public boolean isOn() {
+        return on;
+    }
+
     @Override
     public String getName() {
         return "Ball Collector (Spinner)";

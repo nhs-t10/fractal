@@ -20,6 +20,7 @@ public class Collection implements Controller {
     private DebouncingButton stopperBtn = new DebouncingButton(Controls.Stopper);
     private DebouncingButton spinnerInBtn = new DebouncingButton(Controls.SpinnerIn);
     private DebouncingButton spinnerOutBtn = new DebouncingButton(Controls.SpinnerOut);
+    private DebouncingButton liftBtn = new DebouncingButton("DU1");
 
     public Collection(Flicker f, Spinner sp) {
         flicker = f;
@@ -30,15 +31,13 @@ public class Collection implements Controller {
         if(ControlParser.range(Controls.Flicker).get(0) > 0.6) flicker.engage(1);
         else flicker.stop();
 
-        if(ControlParser.button("DU1")) {
-            spinner.toggle(1);
-        }
-
         if(spinnerInBtn.getToggle()) {
                 spinner.toggle(1);
         } else if(spinnerOutBtn.getToggle()) {
                 spinner.toggle(-1);
         }
+
+
         return false;
     }
 }
