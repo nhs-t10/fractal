@@ -28,11 +28,11 @@ public class Stopper implements Component {
     }
 
     public void open() {
-        stopper.moveTo(0.5);
+        stopper.moveTo(1.0);
     }
 
     public void close() {
-        stopper.moveTo(0.0);
+        stopper.moveTo(0.2);
     }
 
     @Override
