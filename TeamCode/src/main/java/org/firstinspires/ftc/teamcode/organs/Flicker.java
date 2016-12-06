@@ -19,7 +19,7 @@ public class Flicker implements Component {
     private int dir;
     private boolean usesEncoder = false;
     public Flicker(boolean encoder, int d) {
-        if(encoder) flicker = new TMotor(Hardware.Flicker);
+        if(!encoder) flicker = new TMotor(Hardware.Flicker);
         else EFlicker = new TEncoderMotor(Hardware.Flicker);
         usesEncoder = encoder;
         dir = d;

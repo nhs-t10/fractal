@@ -18,21 +18,22 @@ public class ChangeableVariable implements Controller {
     private double inc;
 
     private boolean verbose;
-
+    private String annotation;
     public static class Options {
         public String setCtrl = "A1";
         public String upCtrl = "Y1";
         public String downCtrl = "X1";
-        public boolean verbose = false;
+        public boolean verbose = true;
     }
 
-    public ChangeableVariable(double var, double inc) {
-        this(var, inc, new Options());
+    public ChangeableVariable(String ann, double var, double inc) {
+        this(ann, var, inc, new Options());
     }
 
-    public ChangeableVariable(double var, double inc, Options opt) {
+    public ChangeableVariable(String ann, double var, double inc, Options opt) {
         data = var;
-
+        this.inc = inc;
+        annotation = ann;
         set = new DebouncingButton(opt.setCtrl);
         changeUp = new DebouncingButton(opt.upCtrl);
         changeDown = new DebouncingButton(opt.downCtrl);
@@ -56,7 +57,7 @@ public class ChangeableVariable implements Controller {
         }
 
         if(verbose) {
-            Logger.logLine(data);
+            Logger.logLine(annotation + ": "+ data);
         }
 
         return false;

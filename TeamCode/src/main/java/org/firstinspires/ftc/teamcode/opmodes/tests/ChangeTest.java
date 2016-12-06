@@ -13,7 +13,7 @@ public class ChangeTest extends T10Opmode {
     public void run() {
         ChangeableVariable.Options opt = new ChangeableVariable.Options();
         opt.verbose = true;
-        var = new ChangeableVariable(1.0, 1.0, opt);
+        var = new ChangeableVariable("Stuff", 1.0, 1.0, opt);
     }
 
     @Override

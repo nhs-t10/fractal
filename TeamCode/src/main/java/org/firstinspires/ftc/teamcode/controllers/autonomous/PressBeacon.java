@@ -36,7 +36,7 @@ public class PressBeacon implements Controller {
         camera = c;
         sw = new Time.Stopwatch();
         beacon = new BeaconCheck(t);
-        lineAlignment = new LineAlignment();
+        lineAlignment = new LineAlignment(100f);
     }
     public boolean tick() {
         if(!startedCount) {
