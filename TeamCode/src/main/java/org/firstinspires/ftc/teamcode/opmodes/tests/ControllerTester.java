@@ -5,6 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.controllers.Controller;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.LineFollow;
 import org.firstinspires.ftc.teamcode.controllers.teleop.DriveRight;
+import org.firstinspires.ftc.teamcode.controllers.teleop.GridDrive;
 import org.firstinspires.ftc.teamcode.neurons.LineAlignment;
 import org.firstinspires.ftc.teamcode.opmodes.T10Opmode;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
@@ -25,7 +26,7 @@ public class ControllerTester extends T10Opmode {
         MecanumDrivetrain m = new MecanumDrivetrain();
         Instruments instruments = new Instruments();
         instruments.start();
-        tests.add(new LineFollow(instruments, m, new LineAlignment(100f)));
+        tests.add(new GridDrive(m, instruments));
     }
 
     public void tick() {
