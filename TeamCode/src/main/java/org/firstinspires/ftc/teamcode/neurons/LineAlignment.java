@@ -35,6 +35,9 @@ public class LineAlignment extends PID {
         return (float) p / 5f;
     }
     public double getError(double l, double r) {
-        return (l - r);
+        if (l > r) {
+            return (r - l + 0.09);
+        }
+        else return (r - l - 0.09);
     }
 }

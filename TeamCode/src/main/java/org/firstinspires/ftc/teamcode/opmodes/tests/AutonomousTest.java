@@ -32,7 +32,7 @@ public class AutonomousTest extends T10Linear {
         Pusher p = new Pusher();
         Instruments instruments = new Instruments();
         instruments.start();
-        ChangeableVariable cv = new ChangeableVariable("Kp", 100f, 10f);
+        ChangeableVariable cv = new ChangeableVariable("Kp", 10f, 1f);
         registerController(cv);
         registerController(new LineFollow(instruments, md, new LineAlignment(cv.getVariable())));
 //        cam = new TCamera();
