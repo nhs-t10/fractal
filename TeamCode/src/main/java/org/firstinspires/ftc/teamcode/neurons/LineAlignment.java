@@ -9,17 +9,17 @@ import java.util.ArrayList;
  */
 public class LineAlignment extends PID {
     public LineAlignment () {
-        Kp = 100f;
+        Kp = 10f;
         Kd = 0.0;
         Ki = 0.7;
     }
     public ArrayList<Float> getDrivePowers(double leftLight, double rightLight) {
         ArrayList<Float> powers = new ArrayList<Float>();
         Logger.logLine("Left light: " + leftLight+ " Right light: " + rightLight);
-        float power = convertPower(getPower(getError(leftLight, rightLight)));
-        Logger.logLine("Error: " + getError(leftLight, rightLight) + " Power: " + getPower(getError(leftLight, rightLight)));
-        powers.add(-0.3f + power);
-        powers.add(-0.3f - power);
+        float power = convertPower(getPower(getError(leftLight, rightLight), true));
+        Logger.logLine("Error: " + getError(leftLight, rightLight) + " Power: " + getPower(getError(leftLight, rightLight), true));
+        powers.add(-0.5f + power);
+        powers.add(-0.5f - power);
         return powers;
     }
     public float convertPower(double p) {

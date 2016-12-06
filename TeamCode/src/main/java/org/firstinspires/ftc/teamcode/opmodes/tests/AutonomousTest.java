@@ -28,7 +28,7 @@ public class AutonomousTest extends T10Autonomous {
         Instruments instruments = new Instruments();
         instruments.start();
         cam = new TCamera();
-        registerController(new PressBeacon(Team.RED, md, p, cam));
+        registerController(new PressBeacon(Team.RED, instruments, md, p, cam));
 //        registerController(new TurnX(instruments, md, 0));
 //        Logger.logLine("done 1");
 //        registerController(new TurnX(instruments, md, 90, 2));

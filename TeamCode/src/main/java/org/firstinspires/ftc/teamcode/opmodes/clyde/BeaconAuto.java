@@ -50,7 +50,7 @@ public abstract class BeaconAuto extends T10Autonomous {
         registerController(new FlickOnce(flicker));
         registerController(new DriveToLine(instruments, driveTrain, team));
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 180 : 0)));
-        registerController(new PressBeacon(team, driveTrain, pusher, camera));
+        registerController(new PressBeacon(team,instruments, driveTrain, pusher, camera));
     }
     public abstract void setTeam();
     @Override

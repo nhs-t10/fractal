@@ -18,17 +18,17 @@ public abstract class PID {
     private boolean startedCount = false;
     private boolean sign = true;
 
-    public double getPower (double error) {
+    public double getPower (double error, boolean lightSensor) {
         if(!startedCount) {
             sw = new Time.Stopwatch();
             sw.start();
             startedCount = true;
         }
-       if ( (.5 > Math.abs(error)) && (.2 > Math.abs((prevError - error)))) {
+        if ( (.5 > Math.abs(error)) && (.2 > Math.abs((prevError - error))) && !lightSensor) {
            Logger.logLine("derivative " + (prevError - error));
            prevError = error;
            return 0;
-       }
+        }
 
         double p = Kp * error;
         double d = Kd * (error - prevError);
