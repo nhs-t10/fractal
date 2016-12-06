@@ -20,7 +20,7 @@ public class ChangeableVariable implements Controller {
     private boolean verbose;
 
     public static class Options {
-        public String setCtrl = "X1";
+        public String setCtrl = "A1";
         public String upCtrl = "Y1";
         public String downCtrl = "X1";
         public boolean verbose = false;

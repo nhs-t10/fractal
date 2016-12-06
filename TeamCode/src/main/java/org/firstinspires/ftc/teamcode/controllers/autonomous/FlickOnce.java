@@ -13,7 +13,7 @@ import org.firstinspires.ftc.teamcode.tissues.TMotor;
 public class FlickOnce implements Controller {
     private Flicker flicker;
     private boolean useEnc = false;
-    private Stall wait = new Stall(220);
+    private Stall wait = new Stall(925);
 
     public FlickOnce(Flicker fl) {
         this(fl, fl.usesEncoder());

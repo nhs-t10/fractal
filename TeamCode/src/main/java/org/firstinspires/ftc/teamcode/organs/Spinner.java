@@ -11,7 +11,7 @@ import org.firstinspires.ftc.teamcode.tissues.TMotor;
 public class Spinner implements Component {
     private TMotor spinner;
     private boolean on = false;
-    public int direction = -1;
+    private int direction = -1;
 
     public Spinner(int d) {
         this(Hardware.Spinner, d);
