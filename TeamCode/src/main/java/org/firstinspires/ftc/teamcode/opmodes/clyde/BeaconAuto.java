@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.opmodes.clyde;
 
 import org.firstinspires.ftc.teamcode.controllers.Controller;
 import org.firstinspires.ftc.teamcode.controllers.Team;
+import org.firstinspires.ftc.teamcode.controllers.autonomous.DriftToLine;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.DriveFromWall;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.DriveToLine;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.FlickOnce;
@@ -42,13 +43,15 @@ public abstract class BeaconAuto extends T10Autonomous {
         registerController(new Controller() {
             @Override
             public boolean tick() {
-                spinner.toggle(-1);
+                spinner.toggle(1);
                 return true;
             }
         });
         registerController(new Stall(3000));
         registerController(new FlickOnce(flicker));
         registerController(new DriveToLine(instruments, driveTrain, team));
+        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 180 : 0)));
+        registerController(new DriftToLine(instruments, driveTrain, team));
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 180 : 0)));
         registerController(new PressBeacon(team,instruments, driveTrain, pusher, camera));
     }

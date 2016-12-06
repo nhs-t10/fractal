@@ -20,7 +20,11 @@ public class AngleTurning extends PID {
         Kd = 0.0;
 
     }
-    public ArrayList<Float> getDrivePowers(double currentAngle) {
+    @Deprecated
+    public ArrayList<Float> getDrivePowers(double currentAngle){
+        return getDrivePowers(currentAngle, -0.5f);
+    }
+    public ArrayList<Float> getDrivePowers(double currentAngle, float speed) {
         if (!setKi) {
             Ki = (Math.abs(Math.abs(currentAngle) - Math.abs(destination)) >= 25 ? 0.1 : 0.1);
             setKi = true;
@@ -30,8 +34,8 @@ public class AngleTurning extends PID {
         Logger.logLine("Angle: " + currentAngle + 180);
         Logger.logLine("Error: "+ getError(currentAngle));
         Logger.logLine("Power: " + power);
-        powers.add(-0.5f + power);
-        powers.add(-0.5f - power);
+        powers.add(speed + power);
+        powers.add(speed - power);
         return powers;
     }
     public ArrayList<Float> getPivotPowers(double currentAngle) {
