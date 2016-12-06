@@ -12,7 +12,7 @@ public class Controls {
     public static final String Flicker = "LT1";
     public static final String Stopper = "DD1";
     public static final String SpinnerIn = "Y1";
-    public static final String SpinnerOut = "X1";
+    public static final String SpinnerOut = "^Y1";
     public static final String LeftPush = "LB1";
     public static final String RightPush = "RB1";
     public static final String DriveRight = "A1"; // Can be overridden
