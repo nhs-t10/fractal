@@ -5,6 +5,7 @@ import org.firstinspires.ftc.teamcode.controllers.Controller;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.FlickOnce;
 import org.firstinspires.ftc.teamcode.controllers.tests.Stall;
 import org.firstinspires.ftc.teamcode.organs.Flicker;
+import org.firstinspires.ftc.teamcode.organs.Stopper;
 import org.firstinspires.ftc.teamcode.statics.ControlParser;
 
 import java.util.ArrayList;
@@ -20,6 +21,15 @@ public class BallMacro implements Controller {
     public BallMacro(Flicker flicker) {
         subcontroller = new ArrayList<Controller>();
         subcontroller.add(new FlickOnce(flicker));
+        //because im lazy
+        subcontroller.add(new Controller() {
+            @Override
+            public boolean tick() {
+                new Stopper().toggle();
+                return true;
+            }
+        });
+
         subcontroller.add(new Stall(3000));
         subcontroller.add(new FlickOnce(flicker));
     }
