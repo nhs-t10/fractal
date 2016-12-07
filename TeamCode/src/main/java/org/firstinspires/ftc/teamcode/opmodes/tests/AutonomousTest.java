@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode.opmodes.tests;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
+import org.firstinspires.ftc.teamcode.controllers.Controller;
 import org.firstinspires.ftc.teamcode.controllers.Team;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.DriveToLine;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.LineFollow;
@@ -28,12 +29,10 @@ import org.firstinspires.ftc.teamcode.tissues.TCamera;
 public class AutonomousTest extends T10Linear {
     private TCamera cam;
     public void registration()  {
-        MecanumDrivetrain md = new MecanumDrivetrain();
+        final MecanumDrivetrain md = new MecanumDrivetrain();
         Pusher p = new Pusher();
         Instruments instruments = new Instruments();
         instruments.start();
-        ChangeableVariable cv = new ChangeableVariable("Kp", 10f, 1f);
-        registerController(cv);
 //        registerController(new LineFollow(instruments, md, new LineAlignment(cv.getVariable())));
 //        cam = new TCamera();
 //        registerController(new PressBeacon(Team.RED, instruments, md, p, cam));
