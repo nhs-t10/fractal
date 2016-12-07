@@ -1,5 +1,8 @@
 package org.firstinspires.ftc.teamcode.controllers;
 
+import org.firstinspires.ftc.teamcode.neurons.DebouncingButton;
+import org.firstinspires.ftc.teamcode.statics.Controls;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
@@ -9,11 +12,24 @@ import java.util.ArrayList;
  */
 public class Sequencer implements Controller {
     private Controller[] queue = {};
+    private DebouncingButton cancel;
+    private boolean terminatable;
     private int index = 0;
     public Sequencer(Controller[] ctrls) {
+        this(ctrls, false);
+    }
+    public Sequencer(Controller[] ctrls, boolean term) {
         queue = ctrls;
+        terminatable = term;
+        cancel = new DebouncingButton(Controls.Terminate);
     }
     public boolean tick() {
+        if (terminatable) {
+            if (cancel.getToggle()) {
+                index = 0;
+                return true;
+            }
+        }
         boolean ticked = queue[index].tick();
         if(ticked) {
             if (index == queue.length - 1) {

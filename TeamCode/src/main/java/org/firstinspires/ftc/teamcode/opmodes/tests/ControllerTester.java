@@ -44,8 +44,8 @@ public class ControllerTester extends T10Opmode {
                 new DriftToLine(instruments, m, -0.8f),
                 new AlignToNearest(m, instruments)
         };
-        tests.add(new Sequencer(autoPressRight));
-        tests.add(new Sequencer(autoPressLeft));
+        tests.add(new Sequencer(autoPressRight, true));
+        tests.add(new Sequencer(autoPressLeft, true));
         tests.add(new OneStickMecanum(m));
     }
 

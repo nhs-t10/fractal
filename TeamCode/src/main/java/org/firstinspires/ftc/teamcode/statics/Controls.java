@@ -4,9 +4,10 @@ package org.firstinspires.ftc.teamcode.statics;
  * Created by max on 4/17/16.
  */
 public class Controls {
+    public static final String Shift = "B";
+    public static final String Terminate = "BK1";
     public static final String AutoPressRight = "DR1";
     public static final String AutoPressLeft = "DL1";
-    public static final String Shift = "B";
     public static final String JoyDrive = "LS1";
     public static final String JoySecondary = "RS1";
     public static final String Flicker = "LT1";
