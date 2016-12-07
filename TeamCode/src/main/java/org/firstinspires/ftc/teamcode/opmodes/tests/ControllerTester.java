@@ -35,13 +35,13 @@ public class ControllerTester extends T10Opmode {
         Controller[] autoPressRight = {
                 new OnButtonPress(Controls.AutoPressRight),
                 new AlignToNearest(m, instruments),
-                new DriftToLine(instruments, m, 0.8f),
+                new DriftToLine(instruments, m, 1f),
                 new AlignToNearest(m, instruments)
         };
         Controller[] autoPressLeft = {
                 new OnButtonPress(Controls.AutoPressLeft),
                 new AlignToNearest(m, instruments),
-                new DriftToLine(instruments, m, -0.8f),
+                new DriftToLine(instruments, m, -1f),
                 new AlignToNearest(m, instruments)
         };
         tests.add(new Sequencer(autoPressRight, true));
