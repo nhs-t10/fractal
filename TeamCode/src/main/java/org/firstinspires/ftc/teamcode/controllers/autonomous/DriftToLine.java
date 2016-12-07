@@ -18,10 +18,14 @@ public class DriftToLine implements Controller {
     private MecanumDrivetrain driveTrain;
     private LineDetection ld;
     private Team team;
+    private float speed;
     public DriftToLine(Instruments i, MecanumDrivetrain d, Team t) {
+        this(i, d, (t == Team.RED ? 0.8f : -0.8f));
+    }
+    public DriftToLine(Instruments i, MecanumDrivetrain d, float s) {
         instruments = i;
         driveTrain = d;
-        team = t;
+        speed = s;
         ld = new LineDetection();
     }
     public boolean tick() {
@@ -29,7 +33,7 @@ public class DriftToLine implements Controller {
             driveTrain.stop();
             return true;
         }
-        driveTrain.driveSideways((team == Team.RED ? 0.5f : -0.5f));
+        driveTrain.driveSideways(speed);
         return false;
     }
 }

@@ -3,13 +3,19 @@ package org.firstinspires.ftc.teamcode.opmodes.tests;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.controllers.Controller;
+import org.firstinspires.ftc.teamcode.controllers.Sequencer;
+import org.firstinspires.ftc.teamcode.controllers.autonomous.DriftToLine;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.LineFollow;
+import org.firstinspires.ftc.teamcode.controllers.teleop.AlignToNearest;
 import org.firstinspires.ftc.teamcode.controllers.teleop.DriveRight;
 import org.firstinspires.ftc.teamcode.controllers.teleop.GridDrive;
+import org.firstinspires.ftc.teamcode.controllers.teleop.OnButtonPress;
+import org.firstinspires.ftc.teamcode.controllers.teleop.OneStickMecanum;
 import org.firstinspires.ftc.teamcode.neurons.LineAlignment;
 import org.firstinspires.ftc.teamcode.opmodes.T10Opmode;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
 import org.firstinspires.ftc.teamcode.organs.drivetrains.MecanumDrivetrain;
+import org.firstinspires.ftc.teamcode.statics.Controls;
 
 import java.util.ArrayList;
 
@@ -26,7 +32,21 @@ public class ControllerTester extends T10Opmode {
         MecanumDrivetrain m = new MecanumDrivetrain();
         Instruments instruments = new Instruments();
         instruments.start();
-        tests.add(new GridDrive(m, instruments));
+        Controller[] autoPressRight = {
+                new OnButtonPress(Controls.AutoPressRight),
+                new AlignToNearest(m, instruments),
+                new DriftToLine(instruments, m, 0.8f),
+                new AlignToNearest(m, instruments)
+        };
+        Controller[] autoPressLeft = {
+                new OnButtonPress(Controls.AutoPressLeft),
+                new AlignToNearest(m, instruments),
+                new DriftToLine(instruments, m, -0.8f),
+                new AlignToNearest(m, instruments)
+        };
+        tests.add(new Sequencer(autoPressRight));
+        tests.add(new Sequencer(autoPressLeft));
+        tests.add(new OneStickMecanum(m));
     }
 
     public void tick() {

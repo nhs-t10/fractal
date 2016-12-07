@@ -58,6 +58,7 @@ public abstract class BonnieAuto extends T10Autonomous {
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 180 : 0)));
         registerController(new PressBeacon(team,instruments, driveTrain, pusher, camera));
         //Go for 2nd beacon
+        registerController(new DriveFromWall(instruments, driveTrain, 0.1));
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 180 : 0)));
         registerController(new DriftToLine(instruments, driveTrain, team));
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 180 : 0)));
