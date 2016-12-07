@@ -36,6 +36,7 @@ public class Sequencer implements Controller {
                 index = 0;
                 return true;
             }
+            index++;
             return false;
         }
         return false;
