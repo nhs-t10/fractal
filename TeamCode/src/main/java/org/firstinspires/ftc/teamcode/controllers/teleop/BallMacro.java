@@ -20,7 +20,6 @@ public class BallMacro implements Controller {
 
     public BallMacro(Flicker flicker) {
         subcontroller = new ArrayList<Controller>();
-        subcontroller.add(new FlickOnce(flicker));
         //because im lazy
         subcontroller.add(new Controller() {
             @Override
@@ -32,6 +31,13 @@ public class BallMacro implements Controller {
 
         subcontroller.add(new Stall(3000));
         subcontroller.add(new FlickOnce(flicker));
+        subcontroller.add(new Controller() {
+            @Override
+            public boolean tick() {
+                new Stopper().toggle();
+                return true;
+            }
+        });
     }
 
     @Override

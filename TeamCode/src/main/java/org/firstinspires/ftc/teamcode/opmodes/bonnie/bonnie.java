@@ -46,6 +46,7 @@ public class bonnie extends T10Opmode {
         controllers.add(new OneStickMecanum(drivetrain));
         controllers.add(new BonnieCollection(flicker, stopper, new ArrayList<Spinner>(Arrays.asList(spinner, liftSpinner))));
         controllers.add(new ButtonPusher(pusher));
+        controllers.add(new BallMacro(flicker));
     }
     public void tick() {
         for(int i=0; i<controllers.size(); i++) {

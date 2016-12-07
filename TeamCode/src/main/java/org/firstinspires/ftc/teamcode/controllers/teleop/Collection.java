@@ -37,7 +37,6 @@ public class Collection implements Controller {
                 spinner.toggle(-1);
         }
 
-
         return false;
     }
 }

@@ -35,6 +35,10 @@ public class Stopper implements Component {
         stopper.moveTo(0.2);
     }
 
+    public void push() {
+        stopper.moveTo(0.0);
+    }
+
     @Override
     public String getName() {
         return "Stopper";
