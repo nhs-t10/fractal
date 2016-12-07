@@ -36,7 +36,7 @@ public abstract class BeaconAuto extends T10Autonomous {
         Pusher pusher = new Pusher();
         Flicker flicker = new Flicker(false, 1);
         final Spinner spinner = new Spinner(1);
-//        registerController(new DriveFromWall(instruments, driveTrain, 0.095));
+//        registerController(new DriveFromWall(instruments, driveTrain, 0.29));
         registerController(new TimeFromWall(driveTrain, 500));
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? -156 : 175)));
         registerController(new FlickOnce(flicker));

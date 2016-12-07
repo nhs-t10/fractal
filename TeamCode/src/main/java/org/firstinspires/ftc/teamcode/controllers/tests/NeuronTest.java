@@ -20,16 +20,11 @@ public class NeuronTest implements Controller {
     private LineDetection ld;
     public NeuronTest(Instruments i, TCamera c) {
         camera = c;
-        li = new LineAlignment(100f);
-        ld = new LineDetection();
         instruments = i;
     }
     public boolean tick() {
-//        Logger.logLine(camera.getString());
-        ld.isAtLine(instruments.light1, instruments.light2);
-        li.getDrivePowers(instruments.light1, instruments.light2);
-//        Logger.logLine("yaw: " + instruments.yaw);
-//        Logger.logLine("distance: " + instruments.distance);
+        Logger.logLine("distance: " + instruments.distance);
+        Logger.logLine("yaw: " + instruments.yaw);
         return false;
     }
 }

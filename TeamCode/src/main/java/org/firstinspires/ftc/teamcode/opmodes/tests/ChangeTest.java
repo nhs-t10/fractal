@@ -16,12 +16,12 @@ public class ChangeTest extends T10Opmode {
     @Override
     public void run() {
         md = new MecanumDrivetrain();
-        var = new ChangeableVariable("Speed", 0, 0.05);
+        var = new ChangeableVariable("Speed", 0.06, 0.01);
     }
 
     @Override
     public void tick() {
         var.tick();
-        md.goForward((float) var.getVariable());
+        md.drive((float) var.getVariable(),-(float) var.getVariable());
     }
 }
