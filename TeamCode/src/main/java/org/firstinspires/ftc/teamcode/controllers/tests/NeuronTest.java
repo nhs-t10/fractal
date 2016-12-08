@@ -16,8 +16,8 @@ public class NeuronTest implements Controller {
     private Instruments instruments;
     private TCamera camera;
     private AngleTurning angleTurning;
-    private LineAlignment li;
-    private LineDetection ld;
+    private LineAlignment li = new LineAlignment(10f);
+    private LineDetection ld = new LineDetection();
     public NeuronTest(Instruments i, TCamera c) {
         camera = c;
         instruments = i;
