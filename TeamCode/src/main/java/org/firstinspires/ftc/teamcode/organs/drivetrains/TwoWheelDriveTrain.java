@@ -14,7 +14,7 @@ public class TwoWheelDriveTrain extends DriveTrain {
         rightWheel = new TMotor(Hardware.MotorRightFront);
     }
 
-    public void drive(float left, float right) {
+    public void doDrive(float left, float right) {
         leftWheel.move(left);
         rightWheel.move(right);
     }

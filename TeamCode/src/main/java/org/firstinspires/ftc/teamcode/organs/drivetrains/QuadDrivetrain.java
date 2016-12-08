@@ -30,7 +30,7 @@ public class QuadDrivetrain extends DriveTrain {
         rightFront.move(rF);
     }
 
-    public void drive(float left, float right) {
+    public void doDrive(float left, float right) {
         this.driveQuad(left, left, right, right);
     }
 }

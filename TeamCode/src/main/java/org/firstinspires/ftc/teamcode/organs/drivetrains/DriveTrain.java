@@ -2,13 +2,19 @@ package org.firstinspires.ftc.teamcode.organs.drivetrains;
 
 import org.firstinspires.ftc.teamcode.debug.Component;
 import org.firstinspires.ftc.teamcode.lib.Sleep;
+import org.firstinspires.ftc.teamcode.statics.DriveSpeed;
 
 /**
  * Created by Admin on 4/17/2016.
  */
 public abstract class DriveTrain implements Component {
     public String getName(){return "Drive Train";}
-    public abstract void drive(float left, float right);
+    public abstract void doDrive(float left, float right);
+    public void drive(float left, float right) {
+        DriveSpeed.leftTrain = left;
+        DriveSpeed.rightTrain = right;
+        doDrive(left, right);
+    }
 
     public void goForward(float pwr) {
         drive(pwr, pwr);
