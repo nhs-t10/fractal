@@ -79,6 +79,12 @@ public class ControlParser {
         else if(control.equals("BK")) {
             result = gamepad.back;
         }
+        else if(control.equals("LT")) {
+            result = (gamepad.left_trigger > 0.6);
+        }
+        else if(control.equals("RT")) {
+            result = (gamepad.right_trigger > 0.6);
+        }
         else {
             Logger.logLine("No valid control specified (" + control + ")", 1);
             result = false;

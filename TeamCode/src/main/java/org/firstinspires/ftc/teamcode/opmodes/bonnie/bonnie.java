@@ -65,8 +65,13 @@ public class bonnie extends T10Opmode {
                 new DriftToLine(instruments, drivetrain, -1f),
                 new AlignToNearest(drivetrain, instruments)
         };
+        Controller[] autoAlignNearest = {
+                new OnButtonPress(Controls.AutoAlign),
+                new AlignToNearest(drivetrain, instruments)
+        };
         controllers.add(new Sequencer(autoPressRight, true));
         controllers.add(new Sequencer(autoPressLeft, true));
+        controllers.add(new Sequencer(autoAlignNearest, true));
         controllers.add(new OneStickMecanum(drivetrain));
         controllers.add(new BonnieCollection(flicker, stopper, new ArrayList<Spinner>(Arrays.asList(spinner, liftSpinner))));
         controllers.add(new ButtonPusher(pusher));
