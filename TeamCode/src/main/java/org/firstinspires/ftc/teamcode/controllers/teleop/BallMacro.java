@@ -43,7 +43,7 @@ public class BallMacro implements Controller {
 
     @Override
     public boolean tick() {
-        if(ControlParser.button("DL1")) {
+        if(ControlParser.button("^DL1")) { //will, stop using used buttons.
             start = true;
         }
 

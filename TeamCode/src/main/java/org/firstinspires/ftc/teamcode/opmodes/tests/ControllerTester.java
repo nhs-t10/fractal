@@ -6,6 +6,7 @@ import org.firstinspires.ftc.teamcode.controllers.Controller;
 import org.firstinspires.ftc.teamcode.controllers.Sequencer;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.DriftToLine;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.LineFollow;
+import org.firstinspires.ftc.teamcode.controllers.autonomous.TurnX;
 import org.firstinspires.ftc.teamcode.controllers.teleop.AlignToNearest;
 import org.firstinspires.ftc.teamcode.controllers.teleop.DriveRight;
 import org.firstinspires.ftc.teamcode.controllers.teleop.GridDrive;
@@ -32,21 +33,7 @@ public class ControllerTester extends T10Opmode {
         MecanumDrivetrain m = new MecanumDrivetrain();
         Instruments instruments = new Instruments();
         instruments.start();
-        Controller[] autoPressRight = {
-                new OnButtonPress(Controls.AutoPressRight),
-                new AlignToNearest(m, instruments),
-                new DriftToLine(instruments, m, 1f),
-                new AlignToNearest(m, instruments)
-        };
-        Controller[] autoPressLeft = {
-                new OnButtonPress(Controls.AutoPressLeft),
-                new AlignToNearest(m, instruments),
-                new DriftToLine(instruments, m, -1f),
-                new AlignToNearest(m, instruments)
-        };
-        tests.add(new Sequencer(autoPressRight, true));
-        tests.add(new Sequencer(autoPressLeft, true));
-        tests.add(new OneStickMecanum(m));
+
     }
 
     public void tick() {

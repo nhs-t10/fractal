@@ -42,6 +42,7 @@ public abstract class PID {
         Logger.logLine("pastError: " + pastError);
         Logger.logLine("integral " +  i);
         prevError = error;
+
         return p + d + i;
     }
 }
