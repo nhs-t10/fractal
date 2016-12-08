@@ -6,12 +6,15 @@ import com.qualcomm.robotcore.hardware.Servo;
 import org.firstinspires.ftc.teamcode.controllers.Controller;
 import org.firstinspires.ftc.teamcode.controllers.Sequencer;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.DriftToLine;
+import org.firstinspires.ftc.teamcode.controllers.autonomous.FlickOnce;
+import org.firstinspires.ftc.teamcode.controllers.autonomous.TouchFlick;
 import org.firstinspires.ftc.teamcode.controllers.teleop.AlignToNearest;
 import org.firstinspires.ftc.teamcode.controllers.teleop.BallMacro;
 import org.firstinspires.ftc.teamcode.controllers.teleop.ButtonPusher;
 import org.firstinspires.ftc.teamcode.controllers.teleop.BonnieCollection;
 import org.firstinspires.ftc.teamcode.controllers.teleop.OnButtonPress;
 import org.firstinspires.ftc.teamcode.controllers.teleop.OneStickMecanum;
+import org.firstinspires.ftc.teamcode.controllers.tests.Stall;
 import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.opmodes.T10Opmode;
 import org.firstinspires.ftc.teamcode.organs.Flicker;
@@ -38,8 +41,6 @@ public class bonnie extends T10Opmode {
     private Spinner liftSpinner;
     private Pusher pusher;
     private Instruments instruments;
-    //TEST
-    private BallMacro macro1;
 
     private ArrayList<Controller> controllers = new ArrayList<Controller>();
     public void run() {
@@ -69,13 +70,32 @@ public class bonnie extends T10Opmode {
                 new OnButtonPress(Controls.AutoAlign),
                 new AlignToNearest(drivetrain, instruments)
         };
+        Controller[] autoBallScore = {
+                new OnButtonPress("^DD1"),
+                new Controller() {
+                    @Override
+                    public boolean tick() {
+                        new Stopper().toggle();
+                        return true;
+                    }
+                },
+                new Stall(2000),
+                new Controller() {
+                    @Override
+                    public boolean tick() {
+                        new Stopper().toggle();
+                        return true;
+                    }
+                },
+                new TouchFlick(flicker, 400)
+        };
         controllers.add(new Sequencer(autoPressRight, true));
         controllers.add(new Sequencer(autoPressLeft, true));
         controllers.add(new Sequencer(autoAlignNearest, true));
+        controllers.add(new Sequencer(autoBallScore, true));
         controllers.add(new OneStickMecanum(drivetrain));
         controllers.add(new BonnieCollection(flicker, stopper, new ArrayList<Spinner>(Arrays.asList(spinner, liftSpinner))));
         controllers.add(new ButtonPusher(pusher));
-        controllers.add(new BallMacro(flicker));
     }
     public void tick() {
         for(int i=0; i<controllers.size(); i++) {

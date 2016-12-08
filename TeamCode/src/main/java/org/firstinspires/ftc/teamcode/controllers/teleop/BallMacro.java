@@ -13,6 +13,7 @@ import java.util.ArrayList;
 /**
  * Created by robotics on 12/1/16.
  */
+@Deprecated
 public class BallMacro implements Controller {
     private ArrayList<Controller> subcontroller;
     private int index = 0;

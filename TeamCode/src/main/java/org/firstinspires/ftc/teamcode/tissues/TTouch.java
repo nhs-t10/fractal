@@ -16,11 +16,7 @@ public class TTouch implements Component {
     }
 
     public boolean isPressed() {
-        return touch.isPressed();
-    }
-
-    public double value() {
-        return touch.getValue();
+        return !touch.isPressed();
     }
 
     @Override
