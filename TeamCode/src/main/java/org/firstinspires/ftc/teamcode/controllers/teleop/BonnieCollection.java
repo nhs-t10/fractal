@@ -21,6 +21,7 @@ public class BonnieCollection implements Controller {
     private DebouncingButton stopperBtn = new DebouncingButton(Controls.Stopper);
     private DebouncingButton spinnerInBtn = new DebouncingButton(Controls.SpinnerIn);
     private DebouncingButton spinnerOutBtn = new DebouncingButton(Controls.SpinnerOut);
+    private DebouncingButton liftBtn = new DebouncingButton("DU1");
 
     @Deprecated
     public BonnieCollection(Flicker f, Spinner sp) {
@@ -45,7 +46,7 @@ public class BonnieCollection implements Controller {
             stopper.toggle();
         }
 
-        if(ControlParser.button("DU1")) {
+        if(liftBtn.getToggle()) {
             spinner.get(1).toggle(1);
         }
 
