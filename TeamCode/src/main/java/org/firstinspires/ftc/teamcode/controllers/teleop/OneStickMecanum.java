@@ -36,7 +36,7 @@ public class OneStickMecanum implements Controller {
         if (Math.abs(sidePowers.get(0)) > 0.1) {
             drivetrain.driveSideways(sidePowers.get(0));
         } else {
-            if(DriveSpeed.leftTrain != 0 && DriveSpeed.rightTrain != 0) drivetrain.drive(powers.get(0), powers.get(1));
+            if(!DriveSpeed.macroBusy) drivetrain.drive(powers.get(0), powers.get(1));
         }
 
         return false;

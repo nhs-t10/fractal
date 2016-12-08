@@ -25,6 +25,7 @@ public class NeuronTest implements Controller {
     public boolean tick() {
         Logger.logLine("distance: " + instruments.distance);
         Logger.logLine("yaw: " + instruments.yaw);
+        Logger.logLine(camera.getString());
         return false;
     }
 }

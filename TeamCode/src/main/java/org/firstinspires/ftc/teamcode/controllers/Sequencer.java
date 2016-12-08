@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.controllers;
 
 import org.firstinspires.ftc.teamcode.neurons.DebouncingButton;
 import org.firstinspires.ftc.teamcode.statics.Controls;
+import org.firstinspires.ftc.teamcode.statics.DriveSpeed;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -27,6 +28,7 @@ public class Sequencer implements Controller {
         if (terminatable) {
             if (cancel.getToggle()) {
                 index = 0;
+                DriveSpeed.macroBusy = false;
                 return true;
             }
         }
@@ -34,8 +36,10 @@ public class Sequencer implements Controller {
         if(ticked) {
             if (index == queue.length - 1) {
                 index = 0;
+                DriveSpeed.macroBusy = false;
                 return true;
             }
+            DriveSpeed.macroBusy = true;
             index++;
             return false;
         }

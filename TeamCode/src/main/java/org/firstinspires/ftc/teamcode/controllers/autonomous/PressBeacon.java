@@ -37,7 +37,7 @@ public class PressBeacon implements Controller {
         camera = c;
         sw = new Time.Stopwatch();
         beacon = new BeaconCheck(t);
-        angleTurning = new AngleTurning((t == Team.RED ? 180 : 0));
+        angleTurning = new AngleTurning((t == Team.RED ? 90 : 0));
     }
     public boolean tick() {
         if(!startedCount) {

@@ -11,8 +11,6 @@ public abstract class DriveTrain implements Component {
     public String getName(){return "Drive Train";}
     public abstract void doDrive(float left, float right);
     public void drive(float left, float right) {
-        DriveSpeed.leftTrain = left;
-        DriveSpeed.rightTrain = right;
         doDrive(left, right);
     }
 

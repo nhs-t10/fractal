@@ -15,6 +15,7 @@ import org.firstinspires.ftc.teamcode.organs.Flicker;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
 import org.firstinspires.ftc.teamcode.organs.Pusher;
 import org.firstinspires.ftc.teamcode.organs.Spinner;
+import org.firstinspires.ftc.teamcode.organs.Stopper;
 import org.firstinspires.ftc.teamcode.organs.drivetrains.MecanumDrivetrain;
 import org.firstinspires.ftc.teamcode.statics.Hardware;
 import org.firstinspires.ftc.teamcode.tissues.TCamera;
@@ -29,39 +30,61 @@ public abstract class BonnieAuto extends T10Autonomous {
     public void registration() {
         setTeam();
         camera = new TCamera();
-        MecanumDrivetrain driveTrain = new MecanumDrivetrain();
+        final MecanumDrivetrain driveTrain = new MecanumDrivetrain();
         Instruments instruments = new Instruments();
         instruments.start();
         Pusher pusher = new Pusher();
         Flicker flicker = new Flicker(false, -1);
+        final Stopper stopper = new Stopper();
         final Spinner spinner = new Spinner(-1);
         final Spinner liftSpinner = new Spinner(Hardware.LiftSpinner, 1);
         //Advance from the wall and flick
         registerController(new DriveFromWall(instruments, driveTrain, 0.29));
-        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? -120 : 175)));
+        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : 175)));
+        registerController(new Controller() {
+            @Override
+             public boolean tick() {
+                stopper.open();
+                return true;
+            }
+        });
         registerController(new FlickOnce(flicker));
         registerController(new Controller() {
             @Override
             public boolean tick() {
-                spinner.toggle(1);
                 liftSpinner.toggle(1);
                 return true;
             }
         });
         registerController(new Stall(3000));
-        registerController(new FlickOnce(flicker));
+//        registerController(new FlickOnce(flicker));
         //Drive to the line
         registerController(new DriveToLine(instruments, driveTrain, team));
         //Go for 1st beacon
-        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 180 : 0)));
+        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : 0)));
         registerController(new DriftToLine(instruments, driveTrain, team));
-        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 180 : 0)));
+        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : 0)));
         registerController(new PressBeacon(team,instruments, driveTrain, pusher, camera));
         //Go for 2nd beacon
         registerController(new DriveFromWall(instruments, driveTrain, 0.1));
-        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 180 : 0)));
+        registerController(new Controller() {
+            @Override
+            public boolean tick() {
+                driveTrain.driveSideways((team == Team.RED ? 0.5f : -0.5f));
+                return true;
+            }
+        });
+        registerController(new Stall(2000));
+        registerController(new Controller() {
+            @Override
+            public boolean tick() {
+                driveTrain.stop();
+                return true;
+            }
+        });
+        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : 90)));
         registerController(new DriftToLine(instruments, driveTrain, team));
-        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 180 : 0)));
+        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : 90)));
         registerController(new PressBeacon(team,instruments, driveTrain, pusher, camera));
     }
     public abstract void setTeam();
