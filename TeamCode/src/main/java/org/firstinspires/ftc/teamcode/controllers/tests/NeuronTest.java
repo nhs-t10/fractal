@@ -8,6 +8,8 @@ import org.firstinspires.ftc.teamcode.neurons.LineDetection;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
 import org.firstinspires.ftc.teamcode.tissues.TCamera;
 
+import javax.security.auth.login.LoginException;
+
 /**
  * Created by nhs on 10/27/16.
  */
@@ -25,6 +27,8 @@ public class NeuronTest implements Controller {
     public boolean tick() {
         Logger.logLine("distance: " + instruments.distance);
         Logger.logLine("yaw: " + instruments.yaw);
+        Logger.logLine("Light 1: " + instruments.light1);
+        Logger.logLine("Light 2:" + instruments.light2);
         Logger.logLine(camera.getString());
         ld.isAtLine(instruments.light1, instruments.light2);
         return false;
