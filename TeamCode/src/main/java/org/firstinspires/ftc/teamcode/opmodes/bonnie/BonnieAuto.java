@@ -9,6 +9,7 @@ import org.firstinspires.ftc.teamcode.controllers.autonomous.FlickOnce;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.PressBeacon;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.TimeFromWall;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.TurnX;
+import org.firstinspires.ftc.teamcode.controllers.teleop.AlignToNearest;
 import org.firstinspires.ftc.teamcode.controllers.tests.Stall;
 import org.firstinspires.ftc.teamcode.opmodes.T10Autonomous;
 import org.firstinspires.ftc.teamcode.organs.Flicker;
@@ -86,6 +87,8 @@ public abstract class BonnieAuto extends T10Autonomous {
         registerController(new DriftToLine(instruments, driveTrain, team));
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : 90)));
         registerController(new PressBeacon(team,instruments, driveTrain, pusher, camera));
+        //LAST STEP: Align perfectly to a wall. Necessary for driver controlled period so we have a calibrated IMU!!
+        registerController(new AlignToNearest(driveTrain, instruments));
     }
     public abstract void setTeam();
     @Override

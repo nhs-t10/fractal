@@ -8,16 +8,19 @@ public class Controls {
     public static final String Terminate = "BK1";
     public static final String AutoPressRight = "DR1";
     public static final String AutoPressLeft = "DL1";
+    public static final String AutoAlign = "X1";
     public static final String JoyDrive = "LS1";
     public static final String JoySecondary = "RS1";
     public static final String Flicker = "LT1";
     public static final String Stopper = "DD1";
     public static final String SpinnerIn = "Y1";
     public static final String SpinnerOut = "^Y1";
+    public static final String BallLift = "DU1";
     public static final String LeftPush = "LB1";
     public static final String RightPush = "RB1";
-    public static final String DriveRight = "A1"; // Can be overridden
     public static final String Selector = "LS1";
+    @Deprecated
+    public static final String DriveRight = "A1";
     @Deprecated
     public static final String Turn90Right = "DR1";
     @Deprecated

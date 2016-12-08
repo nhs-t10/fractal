@@ -21,7 +21,7 @@ public class BonnieCollection implements Controller {
     private DebouncingButton stopperBtn = new DebouncingButton(Controls.Stopper);
     private DebouncingButton spinnerInBtn = new DebouncingButton(Controls.SpinnerIn);
     private DebouncingButton spinnerOutBtn = new DebouncingButton(Controls.SpinnerOut);
-    private DebouncingButton liftBtn = new DebouncingButton("DU1");
+    private DebouncingButton liftBtn = new DebouncingButton(Controls.BallLift);
 
     @Deprecated
     public BonnieCollection(Flicker f, Spinner sp) {
