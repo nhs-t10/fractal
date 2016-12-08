@@ -26,6 +26,7 @@ public class NeuronTest implements Controller {
         Logger.logLine("distance: " + instruments.distance);
         Logger.logLine("yaw: " + instruments.yaw);
         Logger.logLine(camera.getString());
+        ld.isAtLine(instruments.light1, instruments.light2);
         return false;
     }
 }
