@@ -39,9 +39,9 @@ public abstract class BonnieAuto extends T10Autonomous {
         final Stopper stopper = new Stopper();
         final Spinner spinner = new Spinner(-1);
         final Spinner liftSpinner = new Spinner(Hardware.LiftSpinner, 1);
-        //Advance from the wall and flick
+        //Adv ance from the wall and flick
         registerController(new DriveFromWall(instruments, driveTrain, 0.29));
-        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : 175)));
+        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : 90)));
         registerController(new Controller() {
             @Override
              public boolean tick() {
@@ -62,9 +62,9 @@ public abstract class BonnieAuto extends T10Autonomous {
         //Drive to the line
         registerController(new DriveToLine(instruments, driveTrain, team));
         //Go for 1st beacon
-        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : 0)));
+        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
         registerController(new DriftToLine(instruments, driveTrain, team));
-        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : 0)));
+        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
         registerController(new PressBeacon(team,instruments, driveTrain, pusher, camera));
         //Go for 2nd beacon
         registerController(new DriveFromWall(instruments, driveTrain, 0.1));
@@ -83,9 +83,9 @@ public abstract class BonnieAuto extends T10Autonomous {
                 return true;
             }
         });
-        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : 90)));
+        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
         registerController(new DriftToLine(instruments, driveTrain, team));
-        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : 90)));
+        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
         registerController(new PressBeacon(team,instruments, driveTrain, pusher, camera));
         //LAST STEP: Align perfectly to a wall. Necessary for driver controlled period so we have a calibrated IMU!!
         registerController(new AlignToNearest(driveTrain, instruments));
