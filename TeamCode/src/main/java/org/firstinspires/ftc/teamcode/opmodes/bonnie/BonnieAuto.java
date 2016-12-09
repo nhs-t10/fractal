@@ -82,7 +82,7 @@ public abstract class BonnieAuto extends T10Autonomous {
                 return true;
             }
         });
-        registerController(new Stall(2000));
+        registerController(new Stall(500));
         registerController(new Controller() {
             @Override
             public boolean tick() {
