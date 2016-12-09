@@ -33,20 +33,22 @@ public class AutonomousTest extends T10Linear {
         Pusher p = new Pusher();
         Instruments instruments = new Instruments();
         instruments.start();
+        cam = new TCamera();
+        registerController(new PressBeacon(Team.RED, instruments, md, p, cam));
 //        registerController(new LineFollow(instruments, md, new LineAlignment(cv.getVariable())));
 //        cam = new TCamera();
 //        registerController(new PressBeacon(Team.RED, instruments, md, p, cam));
-        registerController(new TurnX(instruments, md, 0));
+//        registerController(new TurnX(instruments, md, 0));
 //        Logger.logLine("done 1");
-        registerController(new TurnX(instruments, md, 90));
+//        registerController(new TurnX(instruments, md, 90));
 //        Logger.logLine("done 2");
-        registerController(new TurnX(instruments, md, -60));
+//        registerController(new TurnX(instruments, md, -60));
 //        Logger.logLine("done 3");
-        registerController(new TurnX(instruments, md, -65));
+//        registerController(new TurnX(instruments, md, -65));
 //        Logger.logLine("done 4");
-        registerController(new TurnX(instruments, md, -170));
+//        registerController(new TurnX(instruments, md, -170));
 //        Logger.logLine("done 5");
-        registerController(new TurnX(instruments, md, 189));
+//        registerController(new TurnX(instruments, md, 189));
 //        Logger.logLine("done 6");
 
     }

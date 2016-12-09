@@ -74,7 +74,7 @@ public abstract class BonnieAuto extends T10Autonomous {
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
         registerController(new PressBeacon(team,instruments, driveTrain, pusher, camera));
         //Go for 2nd beacon
-        registerController(new DriveFromWall(instruments, driveTrain, 0.1));
+//         registerController(new DriveFromWall(instruments, driveTrain, 0.1));
         registerController(new Controller() {
             @Override
             public boolean tick() {
@@ -90,6 +90,7 @@ public abstract class BonnieAuto extends T10Autonomous {
                 return true;
             }
         });
+        registerController(new DriveToLine(instruments, driveTrain, 0));
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
         registerController(new DriftToLine(instruments, driveTrain, team));
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));

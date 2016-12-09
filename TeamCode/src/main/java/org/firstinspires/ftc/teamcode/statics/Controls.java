@@ -16,12 +16,14 @@ public class Controls {
     public static final String JoySecondary = "RS1";
     public static final String LeftPush = "LB1";
     public static final String RightPush = "RB1";
+
     // SCORING
-    public static final String Flicker = "LT*";
-    public static final String Stopper = "RT2";
-    public static final String SpinnerIn = "LB2";
-    public static final String BallLift = "RB2";
-    public static final String SpinnerOut = "X2";
+    public static final String Flicker = "LT1";
+    public static final String SpinnerIn = "Y1";
+    public static final String SpinnerOut = "^Y1";
+    public static final String Stopper = "^RT1";
+    public static final String StopperMacro = "RT1";
+    public static final String BallLift = "X1";
     // OLD
     @Deprecated
     public static final String DriveRight = "A1";

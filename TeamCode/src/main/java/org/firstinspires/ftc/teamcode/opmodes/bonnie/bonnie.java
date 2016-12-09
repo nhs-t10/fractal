@@ -36,7 +36,6 @@ import java.util.Arrays;
 public class bonnie extends T10Opmode {
     private MecanumDrivetrain drivetrain;
     private Flicker flicker;
-    private Stopper stopper;
     private Spinner spinner;
     private Spinner liftSpinner;
     private Pusher pusher;
@@ -47,7 +46,7 @@ public class bonnie extends T10Opmode {
         Logger.logLine("Chassis 1 initialized.");
         drivetrain = new MecanumDrivetrain();
         flicker = new Flicker(false, -1);
-        stopper = new Stopper();
+        final Stopper stopper = new Stopper();
         spinner = new Spinner(-1);
         instruments = new Instruments();
         instruments.start();
@@ -70,6 +69,24 @@ public class bonnie extends T10Opmode {
                 new OnButtonPress(Controls.AutoAlign),
                 new AlignToNearest(drivetrain, instruments)
         };
+        Controller[] stopperFlip = {
+                new OnButtonPress(Controls.StopperMacro),
+                new Controller() {
+                    @Override
+                    public boolean tick() {
+                        stopper.open();
+                        return true;
+                    }
+                },
+                new Stall(500),
+                new Controller() {
+                    @Override
+                    public boolean tick() {
+                        stopper.close();
+                        return true;
+                    }
+                }
+        };
         Controller[] autoBallScore = {
                 new OnButtonPress("^DD1"),
                 new Controller() {
@@ -91,6 +108,7 @@ public class bonnie extends T10Opmode {
         };
         controllers.add(new Sequencer(autoPressRight, true));
         controllers.add(new Sequencer(autoPressLeft, true));
+        controllers.add(new Sequencer(stopperFlip, true));
         controllers.add(new Sequencer(autoAlignNearest, true));
         controllers.add(new Sequencer(autoBallScore, true));
         controllers.add(new OneStickMecanum(drivetrain));

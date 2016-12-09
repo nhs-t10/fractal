@@ -17,11 +17,14 @@ public class DriveToLine implements Controller {
     private DriveTrain driveTrain;
     private AngleTurning at;
     private LineDetection ld;
-    public DriveToLine(Instruments i, DriveTrain d, Team t) {
+    public DriveToLine(Instruments i, DriveTrain d, double angle) {
         instruments = i;
         driveTrain = d;
-        at = new AngleTurning(t == Team.RED ? 60 : -55);
+        at = new AngleTurning(angle);
         ld = new LineDetection();
+    }
+    public DriveToLine(Instruments i, DriveTrain d, Team t) {
+        this(i, d, t == Team.RED ? 60 : -55);
     }
     public boolean tick() {
         if (ld.isAtLine(instruments.light1, instruments.light2)) {
