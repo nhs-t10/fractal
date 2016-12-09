@@ -33,7 +33,9 @@ public class DriftToLine implements Controller {
             driveTrain.stop();
             return true;
         }
-        driveTrain.driveSideways(speed);
+        // "too close" fallback
+        if (instruments.distance <= 0.08) driveTrain.goForward(0.5f);
+        else driveTrain.driveSideways(speed);
         return false;
     }
 }
