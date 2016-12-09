@@ -48,7 +48,7 @@ public class PressBeacon implements Controller {
         Logger.logLine("L2: " + instruments.light2);
         beacon.update(camera.getAnalysis());
         Logger.logLine(camera.getString());
-        if (beacon.isPressed() && sw.timeElapsed() >= 500) {
+        if (beacon.isPressed() && sw.timeElapsed() >= 300) {
             Logger.logLine("Done pressing.");
             driveTrain.stop();
             return true;
