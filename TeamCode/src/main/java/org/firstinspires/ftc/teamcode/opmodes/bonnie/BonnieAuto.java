@@ -42,13 +42,6 @@ public abstract class BonnieAuto extends T10Autonomous {
         //Adv ance from the wall and flick
         registerController(new DriveFromWall(instruments, driveTrain, (team == Team.RED ? 0.29 : 0.28)));
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : 90)));
-        registerController(new Controller() {
-            @Override
-             public boolean tick() {
-                stopper.open();
-                return true;
-            }
-        });
         registerController(new FlickOnce(flicker));
         registerController(new Controller() {
             @Override
@@ -57,8 +50,22 @@ public abstract class BonnieAuto extends T10Autonomous {
                 return true;
             }
         });
+        registerController(new Controller() {
+            @Override
+            public boolean tick() {
+                stopper.open();
+                return true;
+            }
+        });
         registerController(new Stall(3000));
         registerController(new FlickOnce(flicker));
+        registerController(new Controller() {
+            @Override
+            public boolean tick() {
+                liftSpinner.toggle(1);
+                return true;
+            }
+        });
         //Drive to the line
         registerController(new DriveToLine(instruments, driveTrain, team));
         //Go for 1st beacon
@@ -95,24 +102,4 @@ public abstract class BonnieAuto extends T10Autonomous {
     public void stop() {
         camera.stop();
     }
-
-//    public void registerFlick(int pause) {
-//        registerController(new FlickOnce());
-//        registerController(new Controller() {
-//            @Override
-//            public boolean tick() {
-//                new Spinner().toggle(1);
-//                return true;
-//            }
-//        });
-//        registerController(new Stall(pause));
-//        registerController(new FlickOnce());
-//        registerController(new Controller() {
-//            @Override
-//            public boolean tick() {
-//                new Spinner().toggle(0);
-//                return true;
-//            }
-//        });
-//    }
 }
