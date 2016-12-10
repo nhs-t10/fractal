@@ -40,6 +40,8 @@ public class TouchFlick implements Controller {
             sw.start();
         } else if(initialHit && sw.timeElapsed() > delay) {
             flicker.stop();
+            sw.stop();
+            initialHit = false;
             return true;
         }
 

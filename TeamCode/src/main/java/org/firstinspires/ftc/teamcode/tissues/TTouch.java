@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode.tissues;
 import com.qualcomm.robotcore.hardware.TouchSensor;
 
 import org.firstinspires.ftc.teamcode.debug.Component;
+import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.statics.Hardware;
 
 /**
@@ -16,7 +17,7 @@ public class TTouch implements Component {
     }
 
     public boolean isPressed() {
-        return touch.isPressed();
+        return !touch.isPressed();
     }
 
     @Override
@@ -26,6 +27,7 @@ public class TTouch implements Component {
 
     @Override
     public boolean test() {
+        Logger.logLine(getName() + ": " + isPressed());
         return false;
     }
 }

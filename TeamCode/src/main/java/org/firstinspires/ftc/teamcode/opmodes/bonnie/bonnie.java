@@ -93,7 +93,7 @@ public class bonnie extends T10Opmode {
                         return true;
                     }
                 },
-                new Stall(2000),
+                new Stall(1000),
                 new Controller() {
                     @Override
                     public boolean tick() {
@@ -101,7 +101,7 @@ public class bonnie extends T10Opmode {
                         return true;
                     }
                 },
-                new TouchFlick(flicker, 400)
+                new TouchFlick(flicker, 1000)
         };
         controllers.add(new Sequencer(autoPressRight, true));
         controllers.add(new Sequencer(autoPressLeft, true));
