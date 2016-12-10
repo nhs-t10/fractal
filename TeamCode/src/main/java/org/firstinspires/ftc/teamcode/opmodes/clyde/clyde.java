@@ -19,7 +19,7 @@ import java.util.ArrayList;
 /**
  * Created by max on 10/19/16.
  */
-@TeleOp(name="ClydeOp", group="Clyde")
+//@TeleOp(name="ClydeOp", group="Clyde")
 public class clyde extends T10Opmode {
     private MecanumDrivetrain drivetrain;
     private Flicker flicker;

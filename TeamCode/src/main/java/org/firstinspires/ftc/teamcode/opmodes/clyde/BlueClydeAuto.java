@@ -7,7 +7,7 @@ import org.firstinspires.ftc.teamcode.controllers.Team;
 /**
  * Created by max on 11/15/16.
  */
-@Autonomous(name="Blue Clyde", group="Autonomous")
+//@Autonomous(name="Blue Clyde", group="Autonomous")
 public class BlueClydeAuto extends ClydeAuto {
     @Override
     public void setTeam() {
