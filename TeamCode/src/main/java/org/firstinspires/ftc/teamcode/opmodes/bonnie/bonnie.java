@@ -1,15 +1,12 @@
 package org.firstinspires.ftc.teamcode.opmodes.bonnie;
 
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.teamcode.controllers.Controller;
 import org.firstinspires.ftc.teamcode.controllers.Sequencer;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.DriftToLine;
-import org.firstinspires.ftc.teamcode.controllers.autonomous.FlickOnce;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.TouchFlick;
 import org.firstinspires.ftc.teamcode.controllers.teleop.AlignToNearest;
-import org.firstinspires.ftc.teamcode.controllers.teleop.BallMacro;
 import org.firstinspires.ftc.teamcode.controllers.teleop.ButtonPusher;
 import org.firstinspires.ftc.teamcode.controllers.teleop.BonnieCollection;
 import org.firstinspires.ftc.teamcode.controllers.teleop.OnButtonPress;
@@ -92,7 +89,7 @@ public class bonnie extends T10Opmode {
                 new Controller() {
                     @Override
                     public boolean tick() {
-                        new Stopper().toggle();
+                        stopper.open();
                         return true;
                     }
                 },
@@ -100,7 +97,7 @@ public class bonnie extends T10Opmode {
                 new Controller() {
                     @Override
                     public boolean tick() {
-                        new Stopper().toggle();
+                        stopper.close();
                         return true;
                     }
                 },
