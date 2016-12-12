@@ -40,7 +40,6 @@ public abstract class BonnieAuto extends T10Autonomous {
         final Spinner spinner = new Spinner(-1);
         final Spinner liftSpinner = new Spinner(Hardware.LiftSpinner, 1);
         //Adv ance from the wall and flick
-        registerController(new DriveFromWall(instruments, driveTrain, (team == Team.RED ? 0.29 : 0.28)));
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : 90)));
         registerController(new FlickOnce(flicker));
         registerController(new Controller() {
