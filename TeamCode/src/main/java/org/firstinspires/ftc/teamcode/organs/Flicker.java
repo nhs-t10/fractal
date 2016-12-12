@@ -48,6 +48,16 @@ public class Flicker implements Component {
         return false;
     }
 
+    private boolean lockedstate = false;
+
+    public void lock(boolean status) {
+        lockedstate = status;
+    }
+
+    public boolean inUse() {
+        return lockedstate;
+    }
+
     @Deprecated
     public void flick() {
         Logger.logLine("Flicking");

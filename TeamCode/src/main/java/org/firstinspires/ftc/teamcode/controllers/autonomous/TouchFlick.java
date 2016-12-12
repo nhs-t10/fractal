@@ -31,6 +31,7 @@ public class TouchFlick implements Controller {
     public boolean tick() {
         if(touch.isPressed()) {
             flicker.engage();
+            flicker.lock(true);
             initialHit = true;
             return false;
         }
@@ -40,6 +41,7 @@ public class TouchFlick implements Controller {
             sw.start();
         } else if(initialHit && sw.timeElapsed() > delay) {
             flicker.stop();
+            flicker.lock(false);
             sw.stop();
             initialHit = false;
             return true;
