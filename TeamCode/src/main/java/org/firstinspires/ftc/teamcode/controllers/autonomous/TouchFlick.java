@@ -19,7 +19,7 @@ public class TouchFlick implements Controller {
     private int delay;
 
     public TouchFlick(Flicker fl) {
-        this(fl, 0);
+        this(fl, -1);
     }
 
     public TouchFlick(Flicker fl, int d) {

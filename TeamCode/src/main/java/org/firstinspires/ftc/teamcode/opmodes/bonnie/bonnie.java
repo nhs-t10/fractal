@@ -101,7 +101,7 @@ public class bonnie extends T10Opmode {
                         return true;
                     }
                 },
-                new TouchFlick(flicker, 1000)
+                new TouchFlick(flicker, 2000)
         };
         controllers.add(new Sequencer(autoPressRight, true));
         controllers.add(new Sequencer(autoPressLeft, true));
