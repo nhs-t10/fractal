@@ -1,5 +1,8 @@
 package org.firstinspires.ftc.teamcode.controllers;
 
+import android.util.Log;
+
+import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.neurons.DebouncingButton;
 import org.firstinspires.ftc.teamcode.statics.Controls;
 import org.firstinspires.ftc.teamcode.statics.DriveSpeed;
@@ -27,6 +30,7 @@ public class Sequencer implements Controller {
     public boolean tick() {
         if (terminatable) {
             if (cancel.getToggle()) {
+                Logger.logLine("Macro cancelled");
                 index = 0;
                 DriveSpeed.macroBusy = false;
                 return true;
@@ -35,10 +39,12 @@ public class Sequencer implements Controller {
         boolean ticked = queue[index].tick();
         if(ticked) {
             if (index == queue.length - 1) {
+                Logger.logLine("Macro done");
                 index = 0;
                 DriveSpeed.macroBusy = false;
                 return true;
             }
+            if (index == 1) Logger.logLine("Macro initiated");
             DriveSpeed.macroBusy = true;
             index++;
             return false;

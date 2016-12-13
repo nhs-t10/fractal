@@ -29,6 +29,8 @@ public class TouchFlick implements Controller {
 
     @Override
     public boolean tick() {
+
+
         if(touch.isPressed()) {
             flicker.engage();
             flicker.lock(true);
