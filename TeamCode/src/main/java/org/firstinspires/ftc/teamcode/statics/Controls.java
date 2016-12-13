@@ -6,7 +6,7 @@ package org.firstinspires.ftc.teamcode.statics;
 public class Controls {
     // SYSTEM
     public static final String Shift = "B";
-    public static final String Terminate = "BK1";
+    public static final String Terminate = "A1";
     public static final String Selector = "LS1";
     // DRIVING
     public static final String AutoPressRight = "DR1";
@@ -23,6 +23,7 @@ public class Controls {
     public static final String SpinnerOut = "^Y1";
     public static final String Stopper = "^RT1";
     public static final String StopperMacro = "RT1";
+    public static final String BallMacro = "^LT1";
     public static final String BallLift = "X1";
     // OLD
     @Deprecated

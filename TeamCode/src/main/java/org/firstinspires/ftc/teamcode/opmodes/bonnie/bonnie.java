@@ -22,6 +22,7 @@ import org.firstinspires.ftc.teamcode.organs.Stopper;
 import org.firstinspires.ftc.teamcode.organs.drivetrains.MecanumDrivetrain;
 import org.firstinspires.ftc.teamcode.statics.Controls;
 import org.firstinspires.ftc.teamcode.statics.Hardware;
+import org.firstinspires.ftc.teamcode.tissues.TTouch;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -85,15 +86,22 @@ public class bonnie extends T10Opmode {
                 }
         };
         Controller[] autoBallScore = {
-                new OnButtonPress("^DD1"),
+                new OnButtonPress(Controls.BallMacro),
                 new Controller() {
                     @Override
                     public boolean tick() {
-                        stopper.open();
+                        if(!liftSpinner.isOn()) {
+                            liftSpinner.toggle(1);
+                        }
+
+                        //super lazy hack :P
+                        if(!new TTouch(Hardware.Touch).isPressed()) {
+                            stopper.open();
+                        }
                         return true;
                     }
                 },
-                new Stall(1000),
+                new Stall(500),
                 new Controller() {
                     @Override
                     public boolean tick() {
@@ -101,7 +109,8 @@ public class bonnie extends T10Opmode {
                         return true;
                     }
                 },
-                new TouchFlick(flicker, 1000)
+                new Stall(100),
+                new TouchFlick(flicker, 600)
         };
         controllers.add(new Sequencer(autoPressRight, true));
         controllers.add(new Sequencer(autoPressLeft, true));
