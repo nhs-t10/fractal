@@ -58,7 +58,7 @@ public abstract class BonnieAuto extends T10Autonomous {
                 return true;
             }
         });
-        registerController(new Stall(3000));
+        registerController(new Stall(800));
         registerController(new FlickOnce(flicker));
         registerController(new Controller() {
             @Override
@@ -73,24 +73,24 @@ public abstract class BonnieAuto extends T10Autonomous {
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
         registerController(new DriftToLine(instruments, driveTrain, team));
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
-        registerController(new PressBeacon(team,instruments, driveTrain, pusher, camera));
-        registerController(new DriveFromWall(instruments, driveTrain, 0.12));
-//        //Shift backwards, sideways
-//        registerController(new Controller() {
-//            @Override
-//            public boolean tick() {
-//                driveTrain.goForward(0.5f);
-//                return true;
-//            }
-//        });
-//        registerController(new Stall(300));
-//        registerController(new Controller() {
-//            @Override
-//            public boolean tick() {
-//                driveTrain.stop();
-//                return true;
-//            }
-//        });
+        registerController(new PressBeacon(team, instruments, driveTrain, pusher, camera));
+//        registerController(new DriveFromWall(instruments, driveTrain, 0.12));
+        //Shift backwards, sideways
+        registerController(new Controller() {
+            @Override
+            public boolean tick() {
+                driveTrain.goForward(0.5f);
+                return true;
+            }
+        });
+        registerController(new Stall(500));
+        registerController(new Controller() {
+            @Override
+            public boolean tick() {
+                driveTrain.stop();
+                return true;
+            }
+        });
         registerController(new Controller() {
             @Override
             public boolean tick() {
@@ -112,7 +112,7 @@ public abstract class BonnieAuto extends T10Autonomous {
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
         registerController(new DriftToLine(instruments, driveTrain, team));
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
-        registerController(new PressBeacon(team,instruments, driveTrain, pusher, camera));
+        registerController(new PressBeacon(team, instruments, driveTrain, pusher, camera));
         registerController(new DriveFromWall(instruments, driveTrain, 0.05));
         //LAST STEP: Align perfectly to a wall. Necessary for driver controlled period so we have a calibrated IMU!!
         registerController(new AlignToNearest(driveTrain, instruments));
