@@ -23,7 +23,7 @@ public class DriveRight implements Controller {
         angleTurning = new AngleTurning(-90);
     }
     public boolean tick (){
-        ArrayList<Float> values = angleTurning.getDrivePowers(instruments.yaw);
+        ArrayList<Float> values = angleTurning.getDrivePowers(instruments.yaw, 0.3f);
         if (!ControlParser.button(Controls.DriveRight)) {
             driveTrain.stop();
         }

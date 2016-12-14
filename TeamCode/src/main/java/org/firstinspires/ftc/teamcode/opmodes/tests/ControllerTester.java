@@ -30,9 +30,10 @@ public class ControllerTester extends T10Opmode {
     private ArrayList<Controller> tests = new ArrayList<Controller>();
 
     public void run()  {
-        MecanumDrivetrain m = new MecanumDrivetrain();
+        MecanumDrivetrain driveTrain = new MecanumDrivetrain();
         Instruments instruments = new Instruments();
         instruments.start();
+        tests.add(new DriveRight(instruments, driveTrain));
 
     }
 
