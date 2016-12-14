@@ -15,7 +15,7 @@ public class AngleTurning extends PID {
 
     public AngleTurning (double dest) {
         destination = dest;
-        Kp = 2.5;
+        Kp = 2.8;
         Ki = 0.7;
         Kd = 0.0;
 

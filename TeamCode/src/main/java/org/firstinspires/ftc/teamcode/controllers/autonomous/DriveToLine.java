@@ -24,14 +24,14 @@ public class DriveToLine implements Controller {
         ld = new LineDetection();
     }
     public DriveToLine(Instruments i, DriveTrain d, Team t) {
-        this(i, d, t == Team.RED ? 60 : -55);
+        this(i, d, t == Team.RED ? 60 : -65);
     }
     public boolean tick() {
         if (ld.isAtLine(instruments.light1, instruments.light2)) {
             driveTrain.stop();
             return true;
         }
-        ArrayList<Float> powers = at.getDrivePowers(instruments.yaw);
+        ArrayList<Float> powers = at.getDrivePowers(instruments.yaw, -0.3f);
         driveTrain.drive(powers.get(0), powers.get(1));
         return false;
     }

@@ -24,7 +24,7 @@ public abstract class PID {
             sw.start();
             startedCount = true;
         }
-        if ( (.5 > Math.abs(error)) && (.2 > Math.abs((prevError - error))) && !lightSensor) {
+        if ( (.5 > Math.abs(error)) && (.2 > Math.abs((prevError - error)))) {
            Logger.logLine("derivative " + (prevError - error));
            prevError = error;
            return 0;

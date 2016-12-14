@@ -37,7 +37,7 @@ public class DriveFromWall implements Controller {
             driveTrain.stop();
             return true;
         }
-        ArrayList<Float> powers = angleTurning.getDrivePowers(yaw, 0.5f);
+        ArrayList<Float> powers = angleTurning.getDrivePowers(yaw, 0.3f);
         driveTrain.drive(powers.get(0), powers.get(1));
         return false;
     }
