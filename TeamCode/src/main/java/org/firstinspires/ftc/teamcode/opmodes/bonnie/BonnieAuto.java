@@ -8,8 +8,10 @@ import org.firstinspires.ftc.teamcode.controllers.autonomous.DriveToLine;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.FlickOnce;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.PressBeacon;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.TimeFromWall;
+import org.firstinspires.ftc.teamcode.controllers.autonomous.TouchFlick;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.TurnX;
 import org.firstinspires.ftc.teamcode.controllers.teleop.AlignToNearest;
+import org.firstinspires.ftc.teamcode.controllers.teleop.OnButtonPress;
 import org.firstinspires.ftc.teamcode.controllers.tests.Stall;
 import org.firstinspires.ftc.teamcode.opmodes.T10Autonomous;
 import org.firstinspires.ftc.teamcode.organs.Flicker;
@@ -18,8 +20,10 @@ import org.firstinspires.ftc.teamcode.organs.Pusher;
 import org.firstinspires.ftc.teamcode.organs.Spinner;
 import org.firstinspires.ftc.teamcode.organs.Stopper;
 import org.firstinspires.ftc.teamcode.organs.drivetrains.MecanumDrivetrain;
+import org.firstinspires.ftc.teamcode.statics.Controls;
 import org.firstinspires.ftc.teamcode.statics.Hardware;
 import org.firstinspires.ftc.teamcode.tissues.TCamera;
+import org.firstinspires.ftc.teamcode.tissues.TTouch;
 
 /**
  * Created by nhs on 11/15/16.
@@ -42,33 +46,59 @@ public abstract class BonnieAuto extends T10Autonomous {
         //Adv ance from the wall and flick
         registerController(new DriveFromWall(instruments, driveTrain, (team == Team.RED ? 0.24 : 0.24)));
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : 90)));
-        registerController(new AlignToNearest(driveTrain, instruments));
-        registerController(new FlickOnce(flicker));
+
+         registerController(new Controller() {
+                    @Override
+                    public boolean tick() {
+                        if(!liftSpinner.isOn()) {
+                            liftSpinner.toggle(1);
+                        }
+
+                        //super lazy hack :P
+                        if(!new TTouch(Hardware.Touch).isPressed()) {
+                            stopper.open();
+                        }
+                        return true;
+                    }
+                });
+                registerController(new Stall(500));
+                registerController(new Controller() {
+                    @Override
+                    public boolean tick() {
+                        stopper.close();
+                        return true;
+                    }
+                });
+                registerController(new Stall(100));
+                registerController(new TouchFlick(flicker, 600));
         registerController(new Controller() {
             @Override
             public boolean tick() {
-                liftSpinner.toggle(1);
+                if(liftSpinner.isOn()) {
+                    liftSpinner.toggle(1);
+                }
+
+                //super lazy hack :P
+                if(!new TTouch(Hardware.Touch).isPressed()) {
+                    stopper.open();
+                }
                 return true;
             }
         });
+
+        registerController(new Stall(500));
         registerController(new Controller() {
             @Override
             public boolean tick() {
-                stopper.open();
+                stopper.close();
                 return true;
             }
         });
-        registerController(new Stall(800));
-        registerController(new FlickOnce(flicker));
-        registerController(new Controller() {
-            @Override
-            public boolean tick() {
-                liftSpinner.toggle(1);
-                return true;
-            }
-        });
+        registerController(new Stall(100));
+        registerController(new TouchFlick(flicker, 600));
         //Drive to the line
-        registerController(new DriveToLine(instruments, driveTrain, team));
+        registerController(new TurnX(instruments, driveTrain, team == Team.RED ? 65 : -65));
+        registerController(new DriveToLine(instruments, driveTrain, team == Team.RED ? 65 : -65));
         //Go for 1st beacon
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
         registerController(new DriftToLine(instruments, driveTrain, team));
@@ -83,7 +113,7 @@ public abstract class BonnieAuto extends T10Autonomous {
                 return true;
             }
         });
-        registerController(new Stall(500));
+        registerController(new Stall(400));
         registerController(new Controller() {
             @Override
             public boolean tick() {
@@ -91,23 +121,24 @@ public abstract class BonnieAuto extends T10Autonomous {
                 return true;
             }
         });
-        registerController(new Controller() {
-            @Override
-            public boolean tick() {
-                driveTrain.driveSideways((team == Team.RED ? 0.5f : -0.5f));
-                return true;
-            }
-        });
-        registerController(new Stall(500));
-        registerController(new Controller() {
-            @Override
-            public boolean tick() {
-                driveTrain.stop();
-                return true;
-            }
-        });
+//        registerController(new Controller() {
+//            @Override
+//            public boolean tick() {
+//                driveTrain.driveSideways((team == Team.RED ? 0.5f : -0.5f));
+//                return true;
+//            }
+//        });
+//        registerController(new Stall(500));
+//        registerController(new Controller() {
+//            @Override
+//            public boolean tick() {
+//                driveTrain.stop();
+//                return true;
+//            }
+//        });
         //Go for 2nd beacon
         registerController(new AlignToNearest(driveTrain, instruments));
+        registerController(new TurnX(instruments, driveTrain, 0));
         registerController(new DriveToLine(instruments, driveTrain, 0));
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
         registerController(new DriftToLine(instruments, driveTrain, team));

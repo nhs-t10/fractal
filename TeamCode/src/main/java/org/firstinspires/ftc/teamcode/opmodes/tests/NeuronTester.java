@@ -2,7 +2,9 @@ package org.firstinspires.ftc.teamcode.opmodes.tests;
 
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
+import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.controllers.tests.NeuronTest;
+import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.opmodes.T10Opmode;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
 import org.firstinspires.ftc.teamcode.tissues.TCamera;
@@ -16,14 +18,16 @@ import org.firstinspires.ftc.teamcode.tissues.TCamera;
 public class NeuronTester extends T10Opmode {
     public NeuronTest neuronTest;
     public TCamera camera;
+    public Instruments instruments;
     public void run() {
-        Instruments i = new Instruments();
-        i.start();
+        instruments = new Instruments();
+        instruments.start();
         TCamera camera = new TCamera();
-        neuronTest = new NeuronTest(i, camera);
+        neuronTest = new NeuronTest(instruments, camera);
     }
     public void tick() {
         neuronTest.tick();
+        Logger.logLine("IRDIstance:" + instruments.IRdistance);
     }
     @Override
     public void stop() {

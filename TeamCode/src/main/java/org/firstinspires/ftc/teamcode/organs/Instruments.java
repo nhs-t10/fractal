@@ -21,6 +21,7 @@ public class Instruments extends Thread {
     private TIMU imusensor;
     private TLight lightsensor1;
     private TLight lightsensor2;
+    private TUltra irdistance;
     //data
     //please note that all data has an initial value of -1 to prevent the possibility of a client
     //getting sensor values before the thread has read any.
@@ -34,6 +35,7 @@ public class Instruments extends Thread {
     public final Color color = new Color();
 
     public double distance = -1;
+    public double IRdistance = -1;
     public double yaw = -1;
     public double light1 = -1;
     public double light2 = -1;
@@ -44,6 +46,8 @@ public class Instruments extends Thread {
     public Instruments() {
         //colorsensor = new TColor(Hardware.Color);
         ultrasensor = new TUltra(Hardware.Ultra);
+        irdistance = new TUltra(Hardware.IRDistance);
+
         lightsensor1 = new TLight(Hardware.Lightone);
         lightsensor2 = new TLight(Hardware.Lighttwo);
         imusensor = new TIMU(Hardware.IMU);
@@ -87,6 +91,7 @@ public class Instruments extends Thread {
         color.ALPHA = colorsensor.alpha();*/
 
         distance = ultrasensor.voltage();
+        IRdistance = irdistance.voltage();
         light1 = lightsensor1.reflectedValue();
         light2 = lightsensor2.reflectedValue();
         yaw = imusensor.getYaw();
