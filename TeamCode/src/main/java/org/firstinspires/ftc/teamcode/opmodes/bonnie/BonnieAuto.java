@@ -13,6 +13,7 @@ import org.firstinspires.ftc.teamcode.controllers.autonomous.TurnX;
 import org.firstinspires.ftc.teamcode.controllers.teleop.AlignToNearest;
 import org.firstinspires.ftc.teamcode.controllers.teleop.OnButtonPress;
 import org.firstinspires.ftc.teamcode.controllers.tests.Stall;
+import org.firstinspires.ftc.teamcode.neurons.Time;
 import org.firstinspires.ftc.teamcode.opmodes.T10Autonomous;
 import org.firstinspires.ftc.teamcode.organs.Flicker;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
@@ -31,6 +32,7 @@ import org.firstinspires.ftc.teamcode.tissues.TTouch;
 public abstract class BonnieAuto extends T10Autonomous {
     private TCamera camera;
     public Team team;
+    private Time.Stopwatch sw;
     @Override
     public void registration() {
         setTeam();
@@ -52,10 +54,11 @@ public abstract class BonnieAuto extends T10Autonomous {
                     public boolean tick() {
                         if(!liftSpinner.isOn()) {
                             liftSpinner.toggle(1);
+                            sw = new Time.Stopwatch();
                         }
 
                         //super lazy hack :P
-                        if(!new TTouch(Hardware.Touch).isPressed()) {
+                        if(!new TTouch(Hardware.Touch).isPressed() || sw.timeElapsed() > 3000) {
                             stopper.open();
                         }
                         return true;
