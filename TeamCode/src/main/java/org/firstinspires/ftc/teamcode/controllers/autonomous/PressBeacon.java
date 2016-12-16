@@ -57,10 +57,10 @@ public class PressBeacon implements Controller {
         ArrayList<Float> powers = angleTurning.getDrivePowers(instruments.yaw, -0.2f);
         driveTrain.drive(powers.get(0), powers.get(1));
 
-        if (instruments.IRdistance >= 0.75) {
-            if (beacon.shouldPressLeft()) pusher.pushLeft();
-            else if (beacon.shouldPressRight()) pusher.pushRight();
-        }
+
+        if (beacon.shouldPressLeft()) pusher.pushLeft();
+        else if (beacon.shouldPressRight()) pusher.pushRight();
+        
 
         Logger.logLine((beacon.shouldPressLeft() ? "LEFT" : "RIGHT"));
         return false;
