@@ -12,7 +12,7 @@ public class AngleTurning extends PID {
     private double destination; //178h
     private boolean setKi = true;
     private double prevPower = 0;
-
+    private final float minPower = 0.13f;
     public AngleTurning (double dest) {
         destination = dest;
         Kp = 2.8;
@@ -46,7 +46,7 @@ public class AngleTurning extends PID {
         ArrayList<Float> powers = new ArrayList<Float>();
         float power = convertPower(getPower(getError(currentAngle), false));
         Logger.logLine("OriginalPower: " + power);
-        if (Math.abs(power) < .1f && power != 0) {power = Math.signum(power) * .1f;}
+        if (Math.abs(power) < minPower && power != 0) {power = Math.signum(power) * minPower;}
         Logger.logLine("Angle: " + currentAngle);
         Logger.logLine("Error: "+ getError(currentAngle));
         Logger.logLine("Power: " + power);

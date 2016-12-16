@@ -45,19 +45,16 @@ public class PressBeacon implements Controller {
             sw.start();
             startedCount = true;
         }
-        Logger.logLine("L1: " + instruments.light1);
-        Logger.logLine("L2: " + instruments.light2);
         beacon.update(camera.getAnalysis());
         Logger.logLine(camera.getString());
-        if (instruments.distance <= 0.11 && !isCloseEnough){
+        if (instruments.IRdistance >= 3.0 && !isCloseEnough){
             isCloseEnough = true;
         }
         if (beacon.isPressed() && sw.timeElapsed() >= 200 && isCloseEnough) {
-            Logger.logLine("Done pressing.");
             driveTrain.stop();
             return true;
         }
-        ArrayList<Float> powers = angleTurning.getDrivePowers(instruments.yaw, -0.1f);
+        ArrayList<Float> powers = angleTurning.getDrivePowers(instruments.yaw, -0.2f);
         driveTrain.drive(powers.get(0), powers.get(1));
 
 
@@ -66,7 +63,6 @@ public class PressBeacon implements Controller {
 
 
         Logger.logLine((beacon.shouldPressLeft() ? "LEFT" : "RIGHT"));
-        Logger.logLine("Distance: " + instruments.distance);
         return false;
     }
 }
