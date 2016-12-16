@@ -18,12 +18,12 @@ public class Controls {
     public static final String RightPush = "RB1";
 
     // SCORING
-    public static final String Flicker = "^LT1";
+    public static final String Flicker = "LT1";
     public static final String SpinnerIn = "Y1";
     public static final String SpinnerOut = "^Y1";
     public static final String Stopper = "^RT1";
     public static final String StopperMacro = "RT1";
-    public static final String BallMacro = "LT1";
+    public static final String BallMacro = "^LT1";
     public static final String BallLift = "X1";
     // OLD
     @Deprecated
