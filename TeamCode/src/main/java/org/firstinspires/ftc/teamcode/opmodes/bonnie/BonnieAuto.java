@@ -70,7 +70,7 @@ public abstract class BonnieAuto extends T10Autonomous {
                     }
                 });
                 registerController(new Stall(100));
-                registerController(new TouchFlick(flicker, 600));
+                registerController(new TouchFlick(flicker, 600, 3000));
         registerController(new Controller() {
             @Override
             public boolean tick() {

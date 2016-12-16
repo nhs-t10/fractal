@@ -37,16 +37,6 @@ public class TouchFlick implements Controller {
 
     @Override
     public boolean tick() {
-        //kill macro if takes to long
-        //off by default
-        if(!timeoutTimer.isRecording()) {
-            timeoutTimer.start();
-        } else if(timeout >= 0 && timeoutTimer.timeElapsed() > timeout) {
-            Logger.logLine("Macro ran out of time!");
-            deinit();
-            return true;
-        }
-
         if(touch.isPressed()) {
             flicker.engage();
             flicker.lock(true);
@@ -58,6 +48,16 @@ public class TouchFlick implements Controller {
         if(initialHit && !sw.isRecording()) {
             sw.start();
         } else if(initialHit && sw.timeElapsed() > delay) {
+            deinit();
+            return true;
+        }
+
+        //kill macro if takes to long
+        //off by default
+        if(!timeoutTimer.isRecording()) {
+            timeoutTimer.start();
+        } else if(timeout >= 0 && !initialHit && timeoutTimer.timeElapsed() > timeout) {
+            Logger.logLine("Macro ran out of time!");
             deinit();
             return true;
         }
