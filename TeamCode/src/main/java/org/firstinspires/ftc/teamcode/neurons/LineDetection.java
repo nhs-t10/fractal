@@ -9,6 +9,6 @@ public class LineDetection {
     public LineDetection() {}
     public boolean isAtLine(double leftLight, double rightLight) {
         Logger.logLine("left: " + leftLight + " right: " + rightLight + " " + (leftLight >= 0.1 && rightLight >= 0.1 ? "true" : "false"));
-        return (leftLight >= .1 || rightLight >= .1);
+        return (leftLight >= 0.1 || rightLight >= 0.1);
     }
 }

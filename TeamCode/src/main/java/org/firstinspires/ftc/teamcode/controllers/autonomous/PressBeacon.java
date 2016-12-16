@@ -28,6 +28,7 @@ public class PressBeacon implements Controller {
     private BeaconCheck beacon;
     private AngleTurning angleTurning;
     private Time.Stopwatch sw;
+    private Time.Stopwatch sr;
     private boolean startedCount = false;
     private boolean isCloseEnough = false;
     private LineAlignment lineAlignment;
@@ -37,6 +38,7 @@ public class PressBeacon implements Controller {
         pusher = p;
         camera = c;
         sw = new Time.Stopwatch();
+        sr = new Time.Stopwatch();
         beacon = new BeaconCheck(t);
         angleTurning = new AngleTurning((t == Team.RED ? 90 : -90));
     }
@@ -58,9 +60,21 @@ public class PressBeacon implements Controller {
         driveTrain.drive(powers.get(0), powers.get(1));
 
 
-        if (beacon.shouldPressLeft()) pusher.pushLeft();
-        else if (beacon.shouldPressRight()) pusher.pushRight();
-        
+        if (beacon.shouldPressLeft()) {
+            pusher.pushLeft();
+            sr.start();
+            if (instruments.IRdistance >= 2.8 && sr.timeElapsed() <= 7000){
+                return false;
+            }
+        }
+        else if (beacon.shouldPressRight()) {
+            pusher.pushRight();
+            sr.start();
+            if (instruments.IRdistance >= 1.8 && sr.timeElapsed() <= 7000){
+                return false;
+            }
+        }
+
 
         Logger.logLine((beacon.shouldPressLeft() ? "LEFT" : "RIGHT"));
         return false;
