@@ -34,10 +34,9 @@ public class NeuronTest implements Controller {
         Logger.logLine("distance: " + instruments.distance);
         Logger.logLine("yaw: " + instruments.yaw);
         Logger.logLine("IR Distance: " + instruments.IRdistance);
-
         bc.update(camera.getAnalysis());
-        Logger.logLine("Light 1: " + instruments.light1);
-        Logger.logLine("Light 2:" + instruments.light2);
+//        Logger.logLine("Light 1: " + instruments.light1);
+//        Logger.logLine("Light 2:" + instruments.light2);
         Logger.logLine(camera.getString());
         if(!pressed) pressed = bc.isPressed();
         Logger.logLine("pressed: " + pressed);

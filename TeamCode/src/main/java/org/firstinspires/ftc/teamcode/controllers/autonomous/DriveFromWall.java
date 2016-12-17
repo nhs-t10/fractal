@@ -33,7 +33,7 @@ public class DriveFromWall implements Controller {
             angleTurning = new AngleTurning(yaw);
             stopwatch.start();
         }
-        if (instruments.distance >= limit && instruments.IRdistance <= 2.5) {
+        if (instruments.distance >= limit && stopwatch.timeElapsed() > 400) {
             driveTrain.stop();
             return true;
         }
