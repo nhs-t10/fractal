@@ -36,7 +36,7 @@ public abstract class BonnieAuto extends T10Autonomous {
         setTeam();
         camera = new TCamera();
         final MecanumDrivetrain driveTrain = new MecanumDrivetrain();
-        Instruments instruments = new Instruments();
+        final Instruments instruments = new Instruments();
         instruments.start();
         Pusher pusher = new Pusher();
         Flicker flicker = new Flicker(false, -1);
@@ -109,15 +109,11 @@ public abstract class BonnieAuto extends T10Autonomous {
         registerController(new Controller() {
             @Override
             public boolean tick() {
+                if (instruments.IRdistance <= 2.5) {
+                    driveTrain.stop();
+                    return true;
+                }
                 driveTrain.goForward(0.5f);
-                return true;
-            }
-        });
-        registerController(new Stall(400));
-        registerController(new Controller() {
-            @Override
-            public boolean tick() {
-                driveTrain.stop();
                 return true;
             }
         });

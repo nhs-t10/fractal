@@ -28,7 +28,9 @@ public class PressBeacon implements Controller {
     private BeaconCheck beacon;
     private AngleTurning angleTurning;
     private Time.Stopwatch sw;
+    private Time.Stopwatch sr;
     private boolean startedCount = false;
+    private boolean servoBusy = false;
     private boolean isCloseEnough = false;
     private LineAlignment lineAlignment;
     public PressBeacon(Team t, Instruments i, DriveTrain d, Pusher p, TCamera c) {
@@ -37,6 +39,7 @@ public class PressBeacon implements Controller {
         pusher = p;
         camera = c;
         sw = new Time.Stopwatch();
+        sr = new Time.Stopwatch();
         beacon = new BeaconCheck(t);
         angleTurning = new AngleTurning((t == Team.RED ? 90 : -90));
     }
@@ -55,13 +58,33 @@ public class PressBeacon implements Controller {
             return true;
         }
 
-        if (beacon.shouldPressLeft()) pusher.pushLeft();
-        else if (beacon.shouldPressRight()) pusher.pushRight();
-
-        Logger.logLine((beacon.shouldPressLeft() ? "LEFT" : "RIGHT"));
+        if (beacon.shouldPressLeft()) {
+            pusher.pushLeft();
+            if (!servoBusy) { //if haven't started moving servo
+                sr.start();
+                servoBusy = true;
+            }
+            if (sr.timeElapsed() <= 500 && instruments.IRdistance >= 2.8) { //if moving servo
+                driveTrain.stop();
+                return false;
+            }
+        }
+        else if (beacon.shouldPressRight()) {
+            if (!servoBusy) {
+                sr.start();
+                servoBusy = true;
+            }
+            pusher.pushRight();
+            if (sr.timeElapsed() <= 500 && instruments.IRdistance >= 2.8) {
+                driveTrain.stop();
+                return false;
+            }
+        }
 
         ArrayList<Float> powers = angleTurning.getDrivePowers(instruments.yaw, -0.2f);
         driveTrain.drive(powers.get(0), powers.get(1));
+
+        Logger.logLine((beacon.shouldPressLeft() ? "LEFT" : "RIGHT"));
         return false;
     }
 }
