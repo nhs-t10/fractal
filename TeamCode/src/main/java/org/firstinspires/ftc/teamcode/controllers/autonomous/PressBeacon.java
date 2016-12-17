@@ -63,14 +63,14 @@ public class PressBeacon implements Controller {
         if (beacon.shouldPressLeft()) {
             pusher.pushLeft();
             sr.start();
-            if (instruments.IRdistance >= 2.8 && sr.timeElapsed() <= 7000){
+            if (instruments.IRdistance >= 2.8 && sr.timeElapsed() <= 1000){
                 return false;
             }
         }
         else if (beacon.shouldPressRight()) {
             pusher.pushRight();
             sr.start();
-            if (instruments.IRdistance >= 1.8 && sr.timeElapsed() <= 7000){
+            if (instruments.IRdistance >= 1.8 && sr.timeElapsed() <= 1000){
                 return false;
             }
         }
