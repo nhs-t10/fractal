@@ -56,9 +56,6 @@ public class PressBeacon implements Controller {
             driveTrain.stop();
             return true;
         }
-        ArrayList<Float> powers = angleTurning.getDrivePowers(instruments.yaw, -0.2f);
-        driveTrain.drive(powers.get(0), powers.get(1));
-
 
         if (beacon.shouldPressLeft()) {
             pusher.pushLeft();
@@ -70,11 +67,13 @@ public class PressBeacon implements Controller {
         else if (beacon.shouldPressRight()) {
             pusher.pushRight();
             sr.start();
-            if (instruments.IRdistance >= 1.8 && sr.timeElapsed() <= 1000){
+            if (instruments.IRdistance >= 2.8 && sr.timeElapsed() <= 1000){
                 return false;
             }
         }
 
+        ArrayList<Float> powers = angleTurning.getDrivePowers(instruments.yaw, -0.2f);
+        driveTrain.drive(powers.get(0), powers.get(1));
 
         Logger.logLine((beacon.shouldPressLeft() ? "LEFT" : "RIGHT"));
         return false;
