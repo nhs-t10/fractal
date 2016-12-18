@@ -70,11 +70,11 @@ public class PressBeacon implements Controller {
             }
         }
         else if (beacon.shouldPressRight()) {
+            pusher.pushRight();
             if (!servoBusy) {
                 sr.start();
                 servoBusy = true;
             }
-            pusher.pushRight();
             if (sr.timeElapsed() <= 500 && instruments.IRdistance >= 2.8) {
                 driveTrain.stop();
                 return false;
