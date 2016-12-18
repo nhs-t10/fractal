@@ -19,7 +19,7 @@ public class TCamera implements Component {
     public TCamera() {
         Logger.logLine("Camera is initializing...");
         bridge = new LASABridge(Hardware.getHardwareMap());
-        bridge.setTolerances(-0.8f, 0.5f);
+        bridge.setTolerances(-0.1f, 0f);
     }
     public String getString() {
         return bridge.getAnalysis().toString();

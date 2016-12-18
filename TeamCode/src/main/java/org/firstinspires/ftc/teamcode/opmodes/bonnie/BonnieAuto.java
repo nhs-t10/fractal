@@ -109,7 +109,7 @@ public abstract class BonnieAuto extends T10Autonomous {
         registerController(new Controller() {
             @Override
             public boolean tick() {
-                if (instruments.IRdistance <= 2.5) {
+                if (instruments.IRdistance <= 1.5) {
                     driveTrain.stop();
                     return true;
                 }
