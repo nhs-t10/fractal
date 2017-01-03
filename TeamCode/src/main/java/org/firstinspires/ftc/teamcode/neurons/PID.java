@@ -9,10 +9,10 @@ import org.firstinspires.ftc.teamcode.debug.Logger;
  */
 
 public abstract class PID {
-    public double Kp = 1;
-    public double Kd = 0.5;
-    public double Ki = 0.0;
-    public double prevError = 1;
+    protected double Kp = 1;
+    protected double Kd = 0.5;
+    protected double Ki = 0.0;
+    protected double prevError = 1;
     private double pastError = 0;
     private Time.Stopwatch sw;
     private boolean startedCount = false;
