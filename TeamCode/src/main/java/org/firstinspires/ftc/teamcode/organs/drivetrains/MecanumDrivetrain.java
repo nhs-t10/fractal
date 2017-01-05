@@ -12,6 +12,7 @@ public class MecanumDrivetrain extends TreadDrivetrain {
     private static final float MECANUM_OFFSET = 0.00f;
 
     public void driveSideways(float power) {
+        power *= -1;
         driveQuad(power*(1-MECANUM_OFFSET), -power, -power, power*(1-MECANUM_OFFSET));
     }
     @Override
