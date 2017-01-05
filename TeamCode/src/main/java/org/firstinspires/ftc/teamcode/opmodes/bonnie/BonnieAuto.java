@@ -104,17 +104,17 @@ public abstract class BonnieAuto extends T10Autonomous {
         registerController(new DriftToLine(instruments, driveTrain, team));
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
         registerController(new PressBeacon(team, instruments, driveTrain, pusher, camera));
-//        registerController(new DriveFromWall(instruments, driveTrain, 0.12));
+ //        registerController(new DriveFromWall(instruments, driveTrain, 0.12));
         //Shift backwards, sideways
         registerController(new Controller() {
             @Override
             public boolean tick() {
-                if (instruments.IRdistance <= 1.5) {
+                if (instruments.IRdistance <= 1.3) {
                     driveTrain.stop();
                     return true;
                 }
                 driveTrain.goForward(0.5f);
-                return true;
+                return false;
             }
         });
 //        registerController(new Controller() {
@@ -140,7 +140,7 @@ public abstract class BonnieAuto extends T10Autonomous {
         registerController(new DriftToLine(instruments, driveTrain, team));
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
         registerController(new PressBeacon(team, instruments, driveTrain, pusher, camera));
-        registerController(new DriveFromWall(instruments, driveTrain, 0.05));
+        registerController(new DriveFromWall(instruments, driveTrain, 0.08));
         //LAST STEP: Align perfectly to a wall. Necessary for driver controlled period so we have a calibrated IMU!!
         registerController(new AlignToNearest(driveTrain, instruments));
     }

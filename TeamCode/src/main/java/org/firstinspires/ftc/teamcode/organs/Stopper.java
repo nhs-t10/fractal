@@ -46,6 +46,8 @@ public class Stopper implements Component {
 
     @Override
     public boolean test() {
+        this.open();
+        this.close();
         return false;
     }
 }

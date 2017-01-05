@@ -56,6 +56,11 @@ public class PressBeacon implements Controller {
         }
         if (beacon.shouldPressLeft()) pusher.pushLeft();
         else if (beacon.shouldPressRight()) pusher.pushRight();
+        else if (instruments.IRdistance >= 2.5 && !beacon.shouldPressRight() && !beacon.shouldPressLeft()) {
+            driveTrain.stop();
+            //wait till we detect
+            return false;
+        }
 
         Logger.logLine((beacon.shouldPressLeft() ? "LEFT" : "RIGHT"));
 

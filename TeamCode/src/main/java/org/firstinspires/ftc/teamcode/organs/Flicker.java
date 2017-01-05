@@ -71,7 +71,7 @@ public class Flicker implements Component {
 
     public boolean test() {
         toggle();
-        Sleep.secs(5);
+        Sleep.secs(3);
         toggle();
         return false;
     }

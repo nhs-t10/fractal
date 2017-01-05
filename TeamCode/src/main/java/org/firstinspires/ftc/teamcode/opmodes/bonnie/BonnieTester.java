@@ -8,6 +8,7 @@ import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.organs.Flicker;
 import org.firstinspires.ftc.teamcode.organs.Pusher;
 import org.firstinspires.ftc.teamcode.organs.Spinner;
+import org.firstinspires.ftc.teamcode.organs.Stopper;
 import org.firstinspires.ftc.teamcode.organs.drivetrains.MecanumDrivetrain;
 import org.firstinspires.ftc.teamcode.statics.Hardware;
 
@@ -35,5 +36,10 @@ public class BonnieTester extends LinearOpMode {
         waitForStart();
 
         testComponent(new MecanumDrivetrain());
+        testComponent(new Stopper());
+        testComponent(new Pusher());
+        testComponent(new Flicker(false, -1));
+        testComponent(new Spinner(-1));
+        testComponent(new Spinner(Hardware.LiftSpinner, 1));
     }
 }
