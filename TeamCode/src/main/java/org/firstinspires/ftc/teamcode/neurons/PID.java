@@ -39,10 +39,9 @@ public abstract class PID {
         pastError = pastError + error * sw.timeElapsed() / 1000;
         sw.reset();
         double i = Ki * pastError;
-        Logger.logLine("pastError: " + pastError);
-        Logger.logLine("integral " +  i);
+        Logger.logLine("prevError: " + prevError);
+        Logger.logLine("derivative: " + d);
         prevError = error;
-
         return p + d + i;
     }
 }
