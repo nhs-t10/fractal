@@ -15,11 +15,13 @@ CRITICAL:
 You MUST call .stop() at the end of an opmode. Otherwise, the app WILL CRASH.
 * */
 public class TCamera implements Component {
-    private LASABridge bridge;
+    public LASABridge bridge;
+    public float redTolerance = -0.1f;
+    public float blueTolerance = 0f;
     public TCamera() {
         Logger.logLine("Camera is initializing...");
         bridge = new LASABridge(Hardware.getHardwareMap());
-        bridge.setTolerances(-0.1f, 0f);
+        bridge.setTolerances(redTolerance, blueTolerance);
     }
     public String getString() {
         return bridge.getAnalysis().toString();

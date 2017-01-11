@@ -24,7 +24,7 @@ public class LASABridge extends VisionOpMode {
     public void init() {
         super.init();
         Logger.logLine("Initialized Vision Library");
-        this.setCamera(Cameras.PRIMARY); // set front camera
+        this.setCamera(Cameras.SECONDARY); // set front camera
         this.setFrameSize(new Size(900, 900)); //size of camera view
 
         enableExtension(Extensions.BEACON);         //Beacon detection
@@ -46,7 +46,7 @@ public class LASABridge extends VisionOpMode {
          **/
         //beacon.setAnalysisBounds(new Rectangle(new Point(width / 2, height / 2), width - 200, 200));
 
-        rotation.setIsUsingSecondaryCamera(false);
+        rotation.setIsUsingSecondaryCamera(true);
         rotation.disableAutoRotate();
         rotation.setActivityOrientationFixed(ScreenOrientation.LANDSCAPE);
 
