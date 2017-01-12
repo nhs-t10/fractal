@@ -17,7 +17,7 @@ public class AngleTurning extends PID {
         destination = dest;
         Kp = 2.8;
         Ki = 0.7;
-        Kd = 0.1;
+        Kd = 0.0;
     }
     @Deprecated
     public ArrayList<Float> getDrivePowers(double currentAngle){

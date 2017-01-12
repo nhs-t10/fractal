@@ -109,7 +109,7 @@ public abstract class BonnieAuto extends T10Autonomous {
         registerController(new Controller() {
             @Override
             public boolean tick() {
-                if (instruments.IRdistance <= 1.1) {
+                if (instruments.IRdistance <= 1) {
                     driveTrain.stop();
                     return true;
                 }
@@ -135,7 +135,7 @@ public abstract class BonnieAuto extends T10Autonomous {
         //Go for 2nd beacon
         registerController(new AlignToNearest(driveTrain, instruments));
         registerController(new TurnX(instruments, driveTrain, 0));
-        registerController(new DriveToLine(instruments, driveTrain, 0));
+        registerController(new DriveToLine(instruments, driveTrain, (team == Team.RED ? 2 : -2)));
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
         registerController(new DriftToLine(instruments, driveTrain, team));
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));

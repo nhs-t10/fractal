@@ -17,7 +17,7 @@ public abstract class PID {
     private Time.Stopwatch sw;
     private boolean startedCount = false;
     private boolean sign = true;
-
+    private boolean count = false;
     public double getPower (double error, boolean lightSensor) {
         if(!startedCount) {
             sw = new Time.Stopwatch();
@@ -25,7 +25,7 @@ public abstract class PID {
             startedCount = true;
         }
         if ( (.5 > Math.abs(error)) && (.2 > Math.abs((prevError - error)))) {
-           Logger.logLine("derivative " + (prevError - error));
+           Logger.logLine("derivative " + (error - prevError));
            prevError = error;
            return 0;
         }
@@ -39,9 +39,13 @@ public abstract class PID {
         pastError = pastError + error * sw.timeElapsed() / 1000;
         sw.reset();
         double i = Ki * pastError;
-        Logger.logLine("prevError: " + prevError);
+        Logger.logLine("prevError: " + (error - prevError) + ", " + error + ", " + prevError + ", count: " + count);
         Logger.logLine("derivative: " + d);
-        prevError = error;
+        Logger.logLine("Time Elapsed: " + sw.timeElapsed());
+        if (count != true) {
+            prevError = error;
+        }
+        count = !count;
         return p + d + i;
     }
 }
