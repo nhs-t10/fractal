@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode.organs;
 import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.teamcode.debug.Component;
+import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.lib.Sleep;
 import org.firstinspires.ftc.teamcode.statics.Hardware;
 import org.firstinspires.ftc.teamcode.tissues.TServo;
@@ -34,7 +35,10 @@ public class Pusher implements Component {
     public void pushRight() {
         servo.moveTo(rightPos);
     }
-    public void moveTo(double pos) {servo.moveTo(pos);}
+    public void moveTo(double pos) {
+        Logger.logLine("Max: " + Servo.MAX_POSITION + " Min: " + Servo.MIN_POSITION);
+        servo.moveTo(pos);
+    }
 
     public String getName() { return "Button Pusher"; }
 
