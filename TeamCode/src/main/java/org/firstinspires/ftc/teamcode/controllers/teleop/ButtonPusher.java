@@ -17,6 +17,7 @@ public class ButtonPusher implements Controller {
     public boolean tick() {
         if(ControlParser.button(Controls.LeftPush)) pusher.moveIn();
         else if(ControlParser.button(Controls.RightPush)) pusher.moveOut();
+        else if(ControlParser.button(Controls.PushBtn)) pusher.pushButton();
         return false;
     }
 }
