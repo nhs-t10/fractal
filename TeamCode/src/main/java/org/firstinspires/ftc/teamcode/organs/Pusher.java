@@ -26,7 +26,7 @@ public class Pusher implements Component {
         rightPos = right;
 
         servo = new TServo(Hardware.ServoPusher);
-        servo.moveTo(0.5);
+        servo.moveTo(0.01);
     }
 
     public void pushLeft() {
