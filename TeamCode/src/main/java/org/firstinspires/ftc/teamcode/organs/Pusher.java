@@ -34,6 +34,7 @@ public class Pusher implements Component {
     public void pushRight() {
         servo.moveTo(rightPos);
     }
+    public void moveTo(double pos) {servo.moveTo(pos);}
 
     public String getName() { return "Button Pusher"; }
 
