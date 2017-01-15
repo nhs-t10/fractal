@@ -15,6 +15,7 @@ import org.firstinspires.ftc.teamcode.tissues.TServo;
 public class Pusher implements Component {
     private double inPos;
     private double outPos;
+    private boolean isExtended = false;
 
     private TServo servo;
     public Pusher() {
@@ -35,7 +36,12 @@ public class Pusher implements Component {
     public void moveOut() {
         servo.moveTo(outPos);
     }
-    public void pushButton() {
+    public void toggle() {
+        if (isExtended) moveIn();
+        else moveOut();
+        isExtended = !isExtended;
+    }
+    public void pushButton() { // NOTE: it may be that for autonomous it's better to wait till the color changes
         moveIn();
         moveOut();
         Sleep.secs(2.5);
