@@ -16,6 +16,7 @@ public class Controls {
     public static final String JoySecondary = "RS1";
     public static final String LeftPush = "LB1";
     public static final String RightPush = "RB1";
+    public static final String PushBtn = "^LB1";
 
     // SCORING
     public static final String Flicker = "^LT1";

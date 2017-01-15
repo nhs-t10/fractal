@@ -13,8 +13,8 @@ import org.firstinspires.ftc.teamcode.tissues.TServo;
  */
 
 public class Pusher implements Component {
-    private double leftPos;
-    private double rightPos;
+    private double inPos;
+    private double outPos;
 
     private TServo servo;
     public Pusher() {
@@ -22,18 +22,22 @@ public class Pusher implements Component {
     }
 
     public Pusher(double left, double right) {
-        leftPos = left;
-        rightPos = right;
+        inPos = left;
+        outPos = right;
 
         servo = new TServo(Hardware.ServoPusher);
-        servo.moveTo(0.15);
+        moveIn();
     }
 
-    public void pushLeft() {
-        servo.moveTo(leftPos);
+    public void moveIn() {
+        servo.moveTo(inPos);
     }
-    public void pushRight() {
-        servo.moveTo(rightPos);
+    public void moveOut() {
+        servo.moveTo(outPos);
+    }
+    public void pushButton() {
+        moveOut();
+        moveIn();
     }
     public void moveTo(double pos) {
         Logger.logLine("Max: " + Servo.MAX_POSITION + " Min: " + Servo.MIN_POSITION);
@@ -43,9 +47,7 @@ public class Pusher implements Component {
     public String getName() { return "Button Pusher"; }
 
     public boolean test() {
-        pushLeft();
-        Sleep.secs(1);
-        pushRight();
+        pushButton();
         return true;
     }
 }
