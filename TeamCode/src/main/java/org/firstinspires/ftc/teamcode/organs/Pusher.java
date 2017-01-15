@@ -18,7 +18,7 @@ public class Pusher implements Component {
 
     private TServo servo;
     public Pusher() {
-       this(Servo.MIN_POSITION, Servo.MAX_POSITION);
+       this(0.01, Servo.MAX_POSITION);
     }
 
     public Pusher(double left, double right) {

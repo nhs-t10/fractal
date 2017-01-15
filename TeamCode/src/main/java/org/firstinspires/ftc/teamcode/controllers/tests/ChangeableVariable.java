@@ -57,7 +57,7 @@ public class ChangeableVariable implements Controller {
         }
 
         if(verbose) {
-            Logger.logLine(annotation + ": "+ data);
+            Logger.logLine(annotation + ": " + data);
         }
 
         return false;
