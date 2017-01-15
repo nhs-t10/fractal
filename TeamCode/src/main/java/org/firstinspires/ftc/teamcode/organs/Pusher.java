@@ -36,7 +36,9 @@ public class Pusher implements Component {
         servo.moveTo(outPos);
     }
     public void pushButton() {
+        moveIn();
         moveOut();
+        Sleep.secs(2.5);
         moveIn();
     }
     public void moveTo(double pos) {
