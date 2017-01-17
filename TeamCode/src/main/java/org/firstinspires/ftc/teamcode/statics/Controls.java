@@ -14,8 +14,7 @@ public class Controls {
     public static final String AutoAlign = "LSB1";
     public static final String JoyDrive = "LS1";
     public static final String JoySecondary = "RS1";
-    public static final String PushBtn = "LB1";
-    public static final String ToggleBtn = "RB1";
+
 
     // SCORING
     public static final String Flicker = "^LT1";
@@ -25,6 +24,10 @@ public class Controls {
     public static final String StopperMacro = "RT1";
     public static final String BallMacro = "LT1";
     public static final String BallLift = "X1";
+    public static final String LeftPushBtn = "LB1";
+    public static final String LeftToggleBtn = "^LB1";
+    public static final String RightPushBtn = "RB1";
+    public static final String RightToggleBtn = "^RB1";
     // OLD
     @Deprecated
     public static final String DriveRight = "A1";

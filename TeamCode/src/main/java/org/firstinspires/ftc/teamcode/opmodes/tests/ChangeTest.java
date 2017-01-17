@@ -23,6 +23,6 @@ public class ChangeTest extends T10Opmode {
     @Override
     public void tick() {
         var.tick();
-        pusher.moveTo(var.getVariable());
+        pusher.moveTo(var.getVariable(), "Right");
     }
 }

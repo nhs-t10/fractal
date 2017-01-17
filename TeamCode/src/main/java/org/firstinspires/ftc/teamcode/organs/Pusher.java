@@ -12,50 +12,79 @@ import org.firstinspires.ftc.teamcode.tissues.TServo;
  * Created by nhs on 10/21/16.
  */
 
+//true is right, false is left
 public class Pusher implements Component {
     private double inPos;
     private double outPos;
-    private boolean isExtended = false;
+    private boolean isExtendedR = false;
+    private boolean isExtendedL = false;
 
-    private TServo servo;
+    private TServo servoR;
+    private TServo servoL;
     public Pusher() {
        this(0.275, 1);
     }
 
-    public Pusher(double left, double right) {
-        inPos = left;
-        outPos = right;
+    public Pusher(double in, double out) {
+        inPos = in;
+        outPos = out;
 
-        servo = new TServo(Hardware.ServoPusher);
-        moveIn();
+        servoR = new TServo(Hardware.ServoPusherRight);
+        moveIn(true);
+        servoL = new TServo(Hardware.ServoPusherLeft);
+        moveIn(false);
     }
 
-    public void moveIn() {
-        servo.moveTo(inPos);
+    public void moveIn(boolean side) {
+        if (side){
+            servoR.moveTo(inPos);
+        }
+        else servoL.moveTo(inPos);
     }
-    public void moveOut() {
-        servo.moveTo(outPos);
+    public void moveOut(boolean side) {
+        if (side){
+            servoR.moveTo(outPos);
+        }
+        else servoL.moveTo(outPos);
     }
-    public void toggle() {
-        if (isExtended) moveIn();
-        else moveOut();
-        isExtended = !isExtended;
+    public void toggle(boolean side) {
+        if (side){
+            Logger.logLine("Right Toggle");
+            if (isExtendedR) moveIn(true);
+            else moveOut(true);
+            isExtendedR = !isExtendedR;
+        }
+        else {
+            Logger.logLine("Left Toggle");
+            if (isExtendedL) moveIn(false);
+            else moveOut(false);
+            isExtendedL = !isExtendedL;
+        }
     }
-    public void pushButton() { // NOTE: it may be that for autonomous it's better to wait till the color changes
-        moveIn();
-        moveOut();
+    public void pushButton(boolean side) { // NOTE: it may be that for autonomous it's better to wait till the color changes
+        moveIn(side);
+        moveOut(side);
         Sleep.secs(2.5);
-        moveIn();
+        moveIn(side);
     }
-    public void moveTo(double pos) {
+    public void moveTo(double pos, String side) {
         Logger.logLine("Max: " + Servo.MAX_POSITION + " Min: " + Servo.MIN_POSITION);
-        servo.moveTo(pos);
+        if (side.equals("Right")){
+            Logger.logLine("Right Push");
+            servoR.moveTo(pos);
+        }
+        else {
+            Logger.logLine("Left Push");
+            servoL.moveTo(pos);
+        }
+
     }
 
     public String getName() { return "Button Pusher"; }
 
     public boolean test() {
-        pushButton();
+        pushButton(true);
+        pushButton(false);
         return true;
     }
 }

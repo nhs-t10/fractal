@@ -12,7 +12,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 public class Hardware {
     public static String MotorLeftRear, MotorRightRear, MotorLeftFront, MotorRightFront, Spinner, Flicker, LiftSpinner;
 
-    public static String ServoStop, ServoPusher;
+    public static String ServoStop, ServoPusherRight, ServoPusherLeft;
 
     public static String IMU, Color, Ultra, Lightone, Lighttwo, Touch, IRDistance;
 
@@ -27,7 +27,8 @@ public class Hardware {
         MotorRightRear = "m2";
         MotorLeftFront = "m3";
         MotorRightFront = "m4";
-        ServoPusher = "pusher";
+        ServoPusherRight = "pusherR";
+        ServoPusherLeft = "pusherL";
 
         Spinner = "m5";
         Flicker = "m6";
