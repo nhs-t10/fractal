@@ -30,42 +30,46 @@ public class Pusher implements Component {
         outPos = out;
 
         servoR = new TServo(Hardware.ServoPusherRight);
-        moveIn(true);
         servoL = new TServo(Hardware.ServoPusherLeft);
-        moveIn(false);
+        servoR.moveTo(inPos);
+        servoL.moveTo(inPos);
     }
 
-    public void moveIn(boolean side) {
-        if (side){
-            servoR.moveTo(inPos);
-        }
-        else servoL.moveTo(inPos);
+//    public void toggle(boolean side) {
+//        if (side){
+//            Logger.logLine("Right Toggle");
+//            if (isExtendedR) moveIn(true);
+//            else moveOut(true);
+//            isExtendedR = !isExtendedR;
+//        }
+//        else {
+//            Logger.logLine("Left Toggle");
+//            if (isExtendedL) moveIn(false);
+//            else moveOut(false);
+//            isExtendedL = !isExtendedL;
+//        }
+//    }
+    public void extendLeft() {
+        servoL.moveTo(outPos);
     }
-    public void moveOut(boolean side) {
-        if (side){
-            servoR.moveTo(outPos);
-        }
-        else servoL.moveTo(outPos);
+    public void extendRight() {
+        servoR.moveTo(outPos);
     }
-    public void toggle(boolean side) {
-        if (side){
-            Logger.logLine("Right Toggle");
-            if (isExtendedR) moveIn(true);
-            else moveOut(true);
-            isExtendedR = !isExtendedR;
-        }
-        else {
-            Logger.logLine("Left Toggle");
-            if (isExtendedL) moveIn(false);
-            else moveOut(false);
-            isExtendedL = !isExtendedL;
-        }
+    public void retractLeft() {
+        servoL.moveTo(inPos);
     }
-    public void pushButton(boolean side) { // NOTE: it may be that for autonomous it's better to wait till the color changes
-        moveIn(side);
-        moveOut(side);
+    public void retractRight() {
+        servoR.moveTo(inPos);
+    }
+    public void pushLeft() {
+        extendLeft();
         Sleep.secs(2.5);
-        moveIn(side);
+        retractLeft();
+    }
+    public void pushRight() {
+        extendRight();
+        Sleep.secs(2.5);
+        retractRight();
     }
     public void moveTo(double pos, String side) {
         Logger.logLine("Max: " + Servo.MAX_POSITION + " Min: " + Servo.MIN_POSITION);
@@ -83,8 +87,8 @@ public class Pusher implements Component {
     public String getName() { return "Button Pusher"; }
 
     public boolean test() {
-        pushButton(true);
-        pushButton(false);
+        pushLeft();
+        pushRight();
         return true;
     }
 }

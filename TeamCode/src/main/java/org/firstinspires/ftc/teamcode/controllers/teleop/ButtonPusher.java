@@ -17,16 +17,12 @@ public class ButtonPusher implements Controller {
     private DebouncingButton toggleR;
     public ButtonPusher (Pusher p) {
         pusher = p;
-        toggleR = new DebouncingButton(Controls.RightToggleBtn);
-        toggleL = new DebouncingButton(Controls.LeftToggleBtn);
+        toggleR = new DebouncingButton(Controls.RightPushBtn);
+        toggleL = new DebouncingButton(Controls.LeftPushBtn);
     }
     public boolean tick() {
-        if(toggleR.getToggle()) {pusher.toggle(true);}
-        else if(toggleL.getToggle()) {pusher.toggle(false);}
-        else if(ControlParser.button(Controls.RightPushBtn)) {
-            Logger.logLine("Righter");
-            pusher.pushButton(true);}
-        else if(ControlParser.button(Controls.LeftPushBtn)) {pusher.pushButton(false);}
+        if(toggleR.getToggle()) {pusher.pushRight();}
+        else if(toggleL.getToggle()) {pusher.pushLeft();}
         return false;
     }
 }

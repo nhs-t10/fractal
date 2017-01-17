@@ -4,11 +4,13 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.controllers.Team;
+import org.firstinspires.ftc.teamcode.controllers.teleop.ButtonPusher;
 import org.firstinspires.ftc.teamcode.controllers.tests.NeuronTest;
 import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.neurons.BeaconCheck;
 import org.firstinspires.ftc.teamcode.opmodes.T10Opmode;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
+import org.firstinspires.ftc.teamcode.organs.Pusher;
 import org.firstinspires.ftc.teamcode.tissues.TCamera;
 import org.lasarobotics.vision.ftc.resq.Beacon;
 
@@ -22,14 +24,17 @@ public class NeuronTester extends T10Opmode {
     public NeuronTest neuronTest;
     public TCamera camera;
     public Instruments instruments;
+    public ButtonPusher bp;
     public void run() {
         instruments = new Instruments();
         instruments.start();
+        bp = new ButtonPusher(new Pusher());
         TCamera camera = new TCamera();
         neuronTest = new NeuronTest(instruments, camera);
     }
     public void tick() {
         neuronTest.tick();
+        bp.tick();
     }
     @Override
     public void stop() {
