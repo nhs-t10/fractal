@@ -13,7 +13,7 @@ public class AlignToNearest implements Controller {
     private Instruments instruments;
     private DriveTrain driveTrain;
     private TurnX turnX;
-    final double[] angles = {-180, -90, 0, 90, 180};
+    private static final double[] angles = {-180, -90, 0, 90, 180};
     public AlignToNearest(DriveTrain d, Instruments i) {
         driveTrain = d;
         instruments = i;
@@ -29,7 +29,7 @@ public class AlignToNearest implements Controller {
         turnX = new TurnX(instruments, driveTrain, findClosest(instruments.yaw));
         return false;
     }
-    private double findClosest(double yaw) {
+    public static double findClosest(double yaw) {
         double distance = Math.abs(angles[0] - yaw);
         int idx = 0;
         for(int c = 1; c < angles.length; c++){

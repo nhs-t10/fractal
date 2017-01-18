@@ -4,6 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.controllers.Controller;
 import org.firstinspires.ftc.teamcode.controllers.Sequencer;
+import org.firstinspires.ftc.teamcode.controllers.autonomous.ApproachBeacon;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.DriftToLine;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.TouchFlick;
 import org.firstinspires.ftc.teamcode.controllers.teleop.AlignToNearest;
@@ -54,14 +55,16 @@ public class bonnie extends T10Opmode {
         Controller[] autoPressRight = {
                 new OnButtonPress(Controls.AutoPressRight),
                 new AlignToNearest(drivetrain, instruments),
-                new DriftToLine(instruments, drivetrain, 1f),
-                new AlignToNearest(drivetrain, instruments)
+                new DriftToLine(instruments, drivetrain, 0.5f),
+                new AlignToNearest(drivetrain, instruments),
+                new ApproachBeacon(drivetrain, instruments, pusher)
         };
         Controller[] autoPressLeft = {
                 new OnButtonPress(Controls.AutoPressLeft),
+                new AlignToNearest(drivetrain, instruments), //1.3, 2.5
+                new DriftToLine(instruments, drivetrain, -0.5f),
                 new AlignToNearest(drivetrain, instruments),
-                new DriftToLine(instruments, drivetrain, -1f),
-                new AlignToNearest(drivetrain, instruments)
+                new ApproachBeacon(drivetrain, instruments, pusher)
         };
         Controller[] autoAlignNearest = {
                 new OnButtonPress(Controls.AutoAlign),
