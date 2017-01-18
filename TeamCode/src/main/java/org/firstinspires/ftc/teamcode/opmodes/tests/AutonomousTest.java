@@ -36,19 +36,19 @@ public class AutonomousTest extends T10Linear {
         Instruments instruments = new Instruments();
         instruments.start();
         cam = new TCamera();
-//        registerController(new PressBeacon(Team.RED, instruments, md, p, cam));
-        registerController(new TurnX(instruments, md, 0));
-        registerController(new Stall(3000));
-        registerController(new TurnX(instruments, md, 90));
-        registerController(new Stall(3000));
-        registerController(new TurnX(instruments, md, -60));
-        registerController(new Stall(3000));
-        registerController(new TurnX(instruments, md, -65));
-        registerController(new Stall(3000));
-        registerController(new TurnX(instruments, md, -170));
-        registerController(new Stall(3000));
-        registerController(new TurnX(instruments, md, 189));
-        registerController(new Stall(3000));
+        registerController(new PressBeacon(Team.RED, instruments, md, p, cam));
+//        registerController(new TurnX(instruments, md, 0));
+//        registerController(new Stall(3000));
+//        registerController(new TurnX(instruments, md, 90));
+//        registerController(new Stall(3000));
+//        registerController(new TurnX(instruments, md, -60));
+//        registerController(new Stall(3000));
+//        registerController(new TurnX(instruments, md, -65));
+//        registerController(new Stall(3000));
+//        registerController(new TurnX(instruments, md, -170));
+//        registerController(new Stall(3000));
+//        registerController(new TurnX(instruments, md, 189));
+//        registerController(new Stall(3000));
 
     }
     @Override

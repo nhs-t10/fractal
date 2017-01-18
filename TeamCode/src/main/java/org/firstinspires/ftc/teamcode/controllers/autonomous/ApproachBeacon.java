@@ -33,7 +33,7 @@ public class ApproachBeacon implements Controller {
             at = new AngleTurning(AlignToNearest.findClosest(instruments.yaw));
             inited = true;
         }
-        ArrayList<Float> powers = at.getDrivePowers(instruments.yaw, -0.5f);
+        ArrayList<Float> powers = at.getDrivePowers(instruments.yaw, -0.1f);
         driveTrain.drive(powers.get(0), powers.get(1));
         return false;
     }
