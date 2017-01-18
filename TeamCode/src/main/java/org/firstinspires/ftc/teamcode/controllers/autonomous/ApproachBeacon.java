@@ -25,7 +25,7 @@ public class ApproachBeacon implements Controller {
         this.pusher = pusher;
     }
     public boolean tick() {
-        if (instruments.IRdistance >= 2.5) {
+        if (instruments.IRdistance >= 2.4) {
             driveTrain.stop();
             return true;
         }
@@ -33,7 +33,7 @@ public class ApproachBeacon implements Controller {
             at = new AngleTurning(AlignToNearest.findClosest(instruments.yaw));
             inited = true;
         }
-        ArrayList<Float> powers = at.getDrivePowers(instruments.yaw, 0.5f);
+        ArrayList<Float> powers = at.getDrivePowers(instruments.yaw, -0.5f);
         driveTrain.drive(powers.get(0), powers.get(1));
         return false;
     }

@@ -27,39 +27,39 @@ public class PressBeacon implements Controller {
     private Pusher pusher;
     private BeaconCheck beacon;
     private AngleTurning angleTurning;
-    private Time.Stopwatch sw;
-    private boolean startedCount = false;
-    private boolean isCloseEnough = false;
-    private LineAlignment lineAlignment;
+    private boolean detectedBeaconStatus = false;
+    private boolean isPressingLeft = false;
+//    private Time.Stopwatch sw;
+//    private boolean startedCount = false;
+//    private LineAlignment lineAlignment;
     public PressBeacon(Team t, Instruments i, DriveTrain d, Pusher p, TCamera c) {
         instruments = i;
         driveTrain = d;
         pusher = p;
         camera = c;
-        sw = new Time.Stopwatch();
+//        sw = new Time.Stopwatch();
         beacon = new BeaconCheck(t);
         angleTurning = new AngleTurning((t == Team.RED ? 90 : -90));
     }
     public boolean tick() {
-        if(!startedCount) {
-            sw.start();
-            startedCount = true;
+//        if(!startedCount) {
+//            sw.start();
+//            startedCount = true;
+//        }
+        if (!detectedBeaconStatus && instruments.IRdistance >= 1.3) {
+            driveTrain.stop();
+            beacon.update(camera.getAnalysis());
+            Logger.logLine(camera.getString());
+            isPressingLeft = beacon.shouldPressLeft();
+            detectedBeaconStatus = true;
+            return false;
+
         }
-        beacon.update(camera.getAnalysis());
-        Logger.logLine(camera.getString());
-        if (instruments.IRdistance >= 3.0 && !isCloseEnough){
-            isCloseEnough = true;
-        }
-        if (beacon.isPressed() && sw.timeElapsed() >= 200 && isCloseEnough) {
+        if (detectedBeaconStatus && instruments.IRdistance >= 2.4) {
+            if (isPressingLeft) pusher.pushLeft();
+            else pusher.pushRight();
             driveTrain.stop();
             return true;
-        }
-//        if (beacon.shouldPressLeft()) pusher.pushLeft();
-//        else if (beacon.shouldPressRight()) pusher.pushRight();
-        else if (instruments.IRdistance >= 2.5 && !beacon.shouldPressRight() && !beacon.shouldPressLeft()) {
-            driveTrain.stop();
-            //wait till we detect
-            return false;
         }
 
         Logger.logLine((beacon.shouldPressLeft() ? "LEFT" : "RIGHT"));
