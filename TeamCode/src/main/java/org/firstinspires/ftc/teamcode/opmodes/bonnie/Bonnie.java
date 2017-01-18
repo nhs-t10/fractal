@@ -32,7 +32,7 @@ import java.util.Arrays;
  * Created by max on 10/19/16.
  */
 @TeleOp(name="BonnieOp", group="Bonnie")
-public class bonnie extends T10Opmode {
+public class Bonnie extends T10Opmode {
     private MecanumDrivetrain drivetrain;
     private Flicker flicker;
     private Spinner spinner;
