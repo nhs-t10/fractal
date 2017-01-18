@@ -50,8 +50,10 @@ public class PressBeacon implements Controller {
             driveTrain.stop();
             beacon.update(camera.getAnalysis());
             Logger.logLine(camera.getString());
-            isPressingLeft = beacon.shouldPressLeft();
-            detectedBeaconStatus = true;
+            if (beacon.shouldPressLeft() || beacon.shouldPressRight()) {
+                isPressingLeft = beacon.shouldPressLeft();
+                detectedBeaconStatus = true;
+            }
             return false;
 
         }
