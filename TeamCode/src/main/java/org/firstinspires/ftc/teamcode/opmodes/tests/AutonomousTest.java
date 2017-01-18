@@ -36,7 +36,7 @@ public class AutonomousTest extends T10Linear {
         Instruments instruments = new Instruments();
         instruments.start();
         cam = new TCamera();
-        registerController(new PressBeacon(Team.RED, instruments, md, p, cam));
+        registerController(new PressBeacon(true, Team.RED, instruments, md, p, cam));
 //        registerController(new TurnX(instruments, md, 0));
 //        registerController(new Stall(3000));
 //        registerController(new TurnX(instruments, md, 90));

@@ -41,6 +41,15 @@ public class PressBeacon implements Controller {
         beacon = new BeaconCheck(t);
         angleTurning = new AngleTurning((t == Team.RED ? 90 : -90));
     }
+    public PressBeacon(boolean testing, Team t, Instruments i, DriveTrain d, Pusher p, TCamera c) {
+        instruments = i;
+        driveTrain = d;
+        pusher = p;
+        camera = c;
+//        sw = new Time.Stopwatch();
+        beacon = new BeaconCheck(t);
+        angleTurning = new AngleTurning(0);
+    }
     public boolean tick() {
 //        if(!startedCount) {
 //            sw.start();
