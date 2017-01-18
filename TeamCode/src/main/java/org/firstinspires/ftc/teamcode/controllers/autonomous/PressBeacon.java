@@ -27,11 +27,14 @@ public class PressBeacon implements Controller {
     private Pusher pusher;
     private BeaconCheck beacon;
     private AngleTurning angleTurning;
+
+    // STATE:
     private boolean detectedBeaconStatus = false;
     private boolean isPressingLeft = false;
-//    private Time.Stopwatch sw;
-//    private boolean startedCount = false;
-//    private LineAlignment lineAlignment;
+    private int frames = 0;
+    private int isLeft = 0;
+
+
     public PressBeacon(Team t, Instruments i, DriveTrain d, Pusher p, TCamera c) {
         instruments = i;
         driveTrain = d;
@@ -48,16 +51,19 @@ public class PressBeacon implements Controller {
         camera = c;
 //        sw = new Time.Stopwatch();
         beacon = new BeaconCheck(t);
-        angleTurning = new AngleTurning(0);
+        angleTurning = new AngleTurning(180);
+    }
+    private void updateRolling() {
+        if (beacon.shouldPressLeft()) isLeft++;
+        if (beacon.shouldPressLeft() || beacon.shouldPressRight()) frames++;
+        Logger.logLine("Rolling left probability: " + (double) isLeft / frames);
     }
     public boolean tick() {
-//        if(!startedCount) {
-//            sw.start();
-//            startedCount = true;
-//        }
         beacon.update(camera.getAnalysis());
         Logger.logLine(camera.getString());
-        if (!detectedBeaconStatus && instruments.IRdistance >= 1.3) {
+        updateRolling();
+
+        if (!detectedBeaconStatus && instruments.IRdistance >= 1.1) {
             driveTrain.stop();
             if (beacon.shouldPressLeft() || beacon.shouldPressRight()) {
                 isPressingLeft = beacon.shouldPressLeft();
@@ -66,14 +72,12 @@ public class PressBeacon implements Controller {
             return false;
 
         }
-        if (detectedBeaconStatus && instruments.IRdistance >= 2.4) {
+        if (detectedBeaconStatus && instruments.IRdistance >= 1.8) {
+            driveTrain.stop();
             if (isPressingLeft) pusher.pushLeft();
             else pusher.pushRight();
-            driveTrain.stop();
             return true;
         }
-
-        Logger.logLine((beacon.shouldPressLeft() ? "LEFT" : "RIGHT"));
 
         ArrayList<Float> powers = angleTurning.getDrivePowers(instruments.yaw, -0.1f);
         driveTrain.drive(powers.get(0), powers.get(1));
