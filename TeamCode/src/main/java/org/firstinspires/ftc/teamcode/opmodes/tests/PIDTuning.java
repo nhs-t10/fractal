@@ -17,7 +17,6 @@ import org.firstinspires.ftc.teamcode.tissues.TCamera;
 @Autonomous(name="PID Tuning", group="Autonomous")
 public class PIDTuning extends T10Autonomous{
     private TCamera camera;
-    @Override
     public void registration() {
         MecanumDrivetrain md = new MecanumDrivetrain();
         Instruments instruments = new Instruments();

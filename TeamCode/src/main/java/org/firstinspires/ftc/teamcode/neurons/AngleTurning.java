@@ -12,11 +12,11 @@ public class AngleTurning extends PID {
     private double destination; //178h
     private boolean setKi = true;
     private double prevPower = 0;
-    private final float minPower = 0.13f;
+    private final float minPower = 0.08f;
     public AngleTurning (double dest) {
         destination = dest;
-        Kp = 2.8;
-        Ki = 0.7;
+        Kp = 2.5;
+        Ki = 0.1;
         Kd = 0.0;
     }
     @Deprecated

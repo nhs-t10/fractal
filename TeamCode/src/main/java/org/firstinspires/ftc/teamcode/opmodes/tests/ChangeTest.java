@@ -5,6 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.controllers.tests.ChangeableVariable;
 import org.firstinspires.ftc.teamcode.opmodes.T10Opmode;
 import org.firstinspires.ftc.teamcode.organs.Pusher;
+import org.firstinspires.ftc.teamcode.organs.drivetrains.DriveTrain;
 import org.firstinspires.ftc.teamcode.organs.drivetrains.MecanumDrivetrain;
 
 /**
@@ -13,16 +14,14 @@ import org.firstinspires.ftc.teamcode.organs.drivetrains.MecanumDrivetrain;
 @TeleOp(name="Changeable Tester")
 public class ChangeTest extends T10Opmode {
     ChangeableVariable var;
-    Pusher pusher;
-    @Override
+    MecanumDrivetrain md;
     public void run() {
-        pusher = new Pusher();
-        var = new ChangeableVariable("ServPos", 0.5, 0.05);
+        md = new MecanumDrivetrain();
+        var = new ChangeableVariable("Speed", 0.05, 0.01);
     }
 
-    @Override
     public void tick() {
         var.tick();
-        pusher.moveTo(var.getVariable(), "Right");
+        md.drive((float) var.getVariable(),-(float) var.getVariable());
     }
 }
