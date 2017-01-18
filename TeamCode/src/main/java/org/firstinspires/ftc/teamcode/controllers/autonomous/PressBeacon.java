@@ -51,14 +51,11 @@ public class PressBeacon implements Controller {
         angleTurning = new AngleTurning(180);
     }
     public boolean tick() {
-//        if(!startedCount) {
-//            sw.start();
-//            startedCount = true;
-//        }
-        beacon.update(camera.getAnalysis());
-        Logger.logLine(camera.getString());
+
         if (!detectedBeaconStatus && instruments.IRdistance >= 1.3) {
             driveTrain.stop();
+            beacon.update(camera.getAnalysis());
+            Logger.logLine(camera.getString());
             if (beacon.shouldPressLeft() || beacon.shouldPressRight()) {
                 isPressingLeft = beacon.shouldPressLeft();
                 detectedBeaconStatus = true;
@@ -72,8 +69,6 @@ public class PressBeacon implements Controller {
             else pusher.pushRight();
             return true;
         }
-
-        Logger.logLine((beacon.shouldPressLeft() ? "LEFT" : "RIGHT"));
 
         ArrayList<Float> powers = angleTurning.getDrivePowers(instruments.yaw, -0.1f);
         driveTrain.drive(powers.get(0), powers.get(1));
