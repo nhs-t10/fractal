@@ -27,11 +27,14 @@ public class PressBeacon implements Controller {
     private Pusher pusher;
     private BeaconCheck beacon;
     private AngleTurning angleTurning;
+
+    // STATE:
     private boolean detectedBeaconStatus = false;
     private boolean isPressingLeft = false;
-//    private Time.Stopwatch sw;
-//    private boolean startedCount = false;
-//    private LineAlignment lineAlignment;
+    private int frames = 0;
+    private int isLeft = 0;
+
+
     public PressBeacon(Team t, Instruments i, DriveTrain d, Pusher p, TCamera c) {
         instruments = i;
         driveTrain = d;
@@ -50,12 +53,18 @@ public class PressBeacon implements Controller {
         beacon = new BeaconCheck(t);
         angleTurning = new AngleTurning(180);
     }
+    private void updateRolling() {
+        if (beacon.shouldPressLeft()) isLeft++;
+        if (beacon.shouldPressLeft() || beacon.shouldPressRight()) frames++;
+        Logger.logLine("Rolling left probability: " + (double) isLeft / frames);
+    }
     public boolean tick() {
+        beacon.update(camera.getAnalysis());
+        Logger.logLine(camera.getString());
+        updateRolling();
 
-        if (!detectedBeaconStatus && instruments.IRdistance >= 1.3) {
+        if (!detectedBeaconStatus && instruments.IRdistance >= 1.1) {
             driveTrain.stop();
-            beacon.update(camera.getAnalysis());
-            Logger.logLine(camera.getString());
             if (beacon.shouldPressLeft() || beacon.shouldPressRight()) {
                 isPressingLeft = beacon.shouldPressLeft();
                 detectedBeaconStatus = true;
