@@ -15,14 +15,17 @@ public class ButtonPusher implements Controller {
     private Pusher pusher;
     private DebouncingButton toggleL;
     private DebouncingButton toggleR;
+    private DebouncingButton toggleBoth;
     public ButtonPusher (Pusher p) {
         pusher = p;
         toggleR = new DebouncingButton(Controls.RightPushBtn);
         toggleL = new DebouncingButton(Controls.LeftPushBtn);
+        toggleBoth = new DebouncingButton(Controls.BothPushBtn) ;
     }
     public boolean tick() {
         if(toggleR.getToggle()) {pusher.pushRight();}
         else if(toggleL.getToggle()) {pusher.pushLeft();}
+        else if(toggleBoth.getToggle()) {pusher.pushBoth();}
         return false;
     }
 }

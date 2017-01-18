@@ -50,15 +50,19 @@ public class Pusher implements Component {
 //        }
 //    }
     public void extendLeft() {
+        isExtendedL = true;
         servoL.moveTo(outPos);
     }
     public void extendRight() {
+        isExtendedR = true;
         servoR.moveTo(outPos);
     }
     public void retractLeft() {
+        isExtendedR = false;
         servoL.moveTo(inPos);
     }
     public void retractRight() {
+        isExtendedR = false;
         servoR.moveTo(inPos);
     }
     public void pushLeft() {
@@ -69,6 +73,13 @@ public class Pusher implements Component {
     public void pushRight() {
         extendRight();
         Sleep.secs(2.5);
+        retractRight();
+    }
+    public void pushBoth() {
+        extendLeft();
+        extendRight();
+        Sleep.secs(2.5);
+        retractLeft();
         retractRight();
     }
     public void moveTo(double pos, String side) {

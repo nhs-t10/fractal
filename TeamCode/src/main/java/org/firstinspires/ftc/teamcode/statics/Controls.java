@@ -26,6 +26,7 @@ public class Controls {
     public static final String BallLift = "X1";
     public static final String LeftPushBtn = "LB1";
     public static final String RightPushBtn = "RB1";
+    public static final String BothPushBtn = "^LB1";
     // OLD
     @Deprecated
     public static final String DriveRight = "A1";

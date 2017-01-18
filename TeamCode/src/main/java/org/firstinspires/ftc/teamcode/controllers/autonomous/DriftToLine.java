@@ -20,7 +20,7 @@ public class DriftToLine implements Controller {
     private Team team;
     private float speed;
     public DriftToLine(Instruments i, MecanumDrivetrain d, Team t) {
-        this(i, d, (t == Team.RED ? 0.8f : -0.8f));
+        this(i, d, (t == Team.RED ? 0.2f : -0.2f));
     }
     public DriftToLine(Instruments i, MecanumDrivetrain d, float s) {
         instruments = i;

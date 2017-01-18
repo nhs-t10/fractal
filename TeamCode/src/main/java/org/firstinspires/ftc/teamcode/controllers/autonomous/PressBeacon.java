@@ -48,7 +48,7 @@ public class PressBeacon implements Controller {
         camera = c;
 //        sw = new Time.Stopwatch();
         beacon = new BeaconCheck(t);
-        angleTurning = new AngleTurning(0);
+        angleTurning = new AngleTurning(180);
     }
     public boolean tick() {
 //        if(!startedCount) {
@@ -66,10 +66,10 @@ public class PressBeacon implements Controller {
             return false;
 
         }
-        if (detectedBeaconStatus && instruments.IRdistance >= 2.4) {
+        if (detectedBeaconStatus && instruments.IRdistance >= 1.8) {
+            driveTrain.stop();
             if (isPressingLeft) pusher.pushLeft();
             else pusher.pushRight();
-            driveTrain.stop();
             return true;
         }
 
