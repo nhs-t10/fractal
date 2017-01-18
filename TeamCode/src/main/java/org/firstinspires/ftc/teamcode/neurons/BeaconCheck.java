@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.neurons;
 
 import org.firstinspires.ftc.teamcode.controllers.Team;
+import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.lasarobotics.vision.ftc.resq.Beacon;
 
 /**
@@ -13,6 +14,7 @@ public class BeaconCheck {
         team = t;
     }
     public void update(Beacon.BeaconAnalysis b) {
+        Logger.logLine("Analysis Received");
         analysis = b;
     }
 

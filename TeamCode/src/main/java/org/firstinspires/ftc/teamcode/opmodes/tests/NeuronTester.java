@@ -29,7 +29,7 @@ public class NeuronTester extends T10Opmode {
         instruments = new Instruments();
         instruments.start();
         bp = new ButtonPusher(new Pusher());
-        TCamera camera = new TCamera();
+        camera = new TCamera();
         neuronTest = new NeuronTest(instruments, camera);
     }
     public void tick() {

@@ -55,10 +55,10 @@ public class PressBeacon implements Controller {
 //            sw.start();
 //            startedCount = true;
 //        }
-        if (!detectedBeaconStatus && instruments.IRdistance >= 1.3) { //TODO: keep measuring until success3
+        beacon.update(camera.getAnalysis());
+        Logger.logLine(camera.getString());
+        if (!detectedBeaconStatus && instruments.IRdistance >= 1.3) {
             driveTrain.stop();
-            beacon.update(camera.getAnalysis());
-            Logger.logLine(camera.getString());
             if (beacon.shouldPressLeft() || beacon.shouldPressRight()) {
                 isPressingLeft = beacon.shouldPressLeft();
                 detectedBeaconStatus = true;
