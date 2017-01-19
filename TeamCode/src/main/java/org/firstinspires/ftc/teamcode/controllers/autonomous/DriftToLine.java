@@ -19,17 +19,26 @@ public class DriftToLine implements Controller {
     private LineDetection ld;
     private Team team;
     private float speed;
-    public DriftToLine(Instruments i, MecanumDrivetrain d, Team t) {
-        this(i, d, (t == Team.RED ? 0.22f : -0.22f));
+    private boolean align;
+    public DriftToLine(Instruments i, MecanumDrivetrain d, Team t, boolean aligning) {
+        this(i, d, (t == Team.RED ? 0.22f : -0.22f), aligning);
     }
     public DriftToLine(Instruments i, MecanumDrivetrain d, float s) {
+        this(i, d, s, false);
+    }
+    public DriftToLine(Instruments i, MecanumDrivetrain d, float s, boolean aligning) {
         instruments = i;
         driveTrain = d;
         speed = s;
         ld = new LineDetection();
+        align = aligning;
     }
     public boolean tick() {
-        if (ld.isAtLine(instruments.light1, instruments.light2)) {
+         if (align && ld.centeredAtLine(instruments.light1, instruments.light2)) {
+            driveTrain.stop();
+            return true;
+        }
+        else if (ld.isAtLine(instruments.light1, instruments.light2)) {
             driveTrain.stop();
             return true;
         }

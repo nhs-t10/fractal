@@ -32,7 +32,7 @@ public abstract class BonnieAuto extends T10Autonomous {
     private TCamera camera;
     public Team team;
     private int blueAngle = -57;
-    private int redAngle = 57;
+    private int redAngle = 55;
     @Override
     public void registration() {
         setTeam();
@@ -99,11 +99,15 @@ public abstract class BonnieAuto extends T10Autonomous {
         registerController(new Stall(100));
         registerController(new TouchFlick(flicker, 600, 1500));
         //Drive to the line
+        if (team == Team.RED) {
+//            registerController(new TurnX(instruments, dri));
+            registerController(new DriveFromWall(instruments, driveTrain, -0.24));
+        }
         registerController(new TurnX(instruments, driveTrain, team == Team.RED ? redAngle : blueAngle));
         registerController(new DriveToLine(instruments, driveTrain, team == Team.RED ? redAngle : blueAngle));
         //Go for 1st beacon
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
-        registerController(new DriftToLine(instruments, driveTrain, (team == Team.RED ? 0.1f : -0.1f)));
+        registerController(new DriftToLine(instruments, driveTrain, (team == Team.RED ? 0.1f : -0.1f), true));
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
         registerController(new PressBeacon(team, instruments, driveTrain, pusher, camera, true));
  //        registerController(new DriveFromWall(instruments, driveTrain, 0.12));
@@ -135,14 +139,14 @@ public abstract class BonnieAuto extends T10Autonomous {
             }
         });
         //Go for 2nd beacon
-        registerController(new DriftToLine(instruments, driveTrain, team));
+        registerController(new DriftToLine(instruments, driveTrain, team, false));
 //        registerController(new AlignToNearest(driveTrain, instruments));
 //        registerController(new TurnX(instruments, driveTrain, 0));
 //        registerController(new DriveToLine(instruments, driveTrain, (team == Team.RED ? 2 : -2)));
 //        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
-//        registerController(new DriftToLine(instruments, driveTrain, team));
+//        registerController(new DriftToLine(instruments, driveTrain, team); 0.22
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
-        registerController(new DriftToLine(instruments, driveTrain, (team == Team.RED ? -0.1f : 0.1f)));
+        registerController(new DriftToLine(instruments, driveTrain, (team == Team.RED ? -0.1f : 0.1f), true));
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
         registerController(new PressBeacon(team, instruments, driveTrain, pusher, camera, true));
         registerController(new DriveFromWall(instruments, driveTrain, 0.08));

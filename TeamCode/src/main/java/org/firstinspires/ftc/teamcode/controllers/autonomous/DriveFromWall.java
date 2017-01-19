@@ -19,12 +19,14 @@ public class DriveFromWall implements Controller {
     private Double yaw;
     private AngleTurning angleTurning;
     private Time.Stopwatch stopwatch;
+    private boolean backwards = false;
     double limit = 0;
     public DriveFromWall(Instruments i, MecanumDrivetrain dt, double l) {
         instruments = i;
         driveTrain = dt;
-        limit = l;
+        limit = Math.abs(l);
         stopwatch = new Time.Stopwatch();
+        backwards = (Math.signum(l) == -1);
     }
     public boolean tick() {
         Logger.logLine("d:" + instruments.distance);
@@ -33,11 +35,11 @@ public class DriveFromWall implements Controller {
             angleTurning = new AngleTurning(yaw);
             stopwatch.start();
         }
-        if (instruments.distance >= limit && stopwatch.timeElapsed() > 400) {
+        if ((!backwards && instruments.distance >= limit) || (backwards && instruments.distance <= limit) && stopwatch.timeElapsed() > 400) {
             driveTrain.stop();
             return true;
         }
-        ArrayList<Float> powers = angleTurning.getDrivePowers(yaw, 0.3f);
+        ArrayList<Float> powers = angleTurning.getDrivePowers(yaw, (backwards ? -0.3f : 0.3f));
         driveTrain.drive(powers.get(0), powers.get(1));
         return false;
     }

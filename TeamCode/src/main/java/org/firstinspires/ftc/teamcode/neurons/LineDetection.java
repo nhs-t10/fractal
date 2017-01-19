@@ -11,4 +11,9 @@ public class LineDetection {
         Logger.logLine("left: " + leftLight + " right: " + rightLight + " " + (leftLight >= 0.1 && rightLight >= 0.1 ? "true" : "false"));
         return (leftLight >= .1 || rightLight >= .1);
     }
+
+    public boolean centeredAtLine(double leftLight, double rightLight) {
+        Logger.logLine("left: " + leftLight + " right: " + rightLight + " " + (leftLight >= 0.1 && rightLight >= 0.1 ? "true" : "false"));
+        return (leftLight >= .1 && rightLight >= .1);
+    }
 }
