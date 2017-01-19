@@ -32,7 +32,7 @@ public class Stopper implements Component {
     }
 
     public void close() {
-        stopper.moveTo(0.0);
+        stopper.moveTo(0.05);
     }
 
     public void push() {
