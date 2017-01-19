@@ -15,7 +15,7 @@ public class AngleTurning extends PID {
     private final float minPower = 0.08f;
     public AngleTurning (double dest) {
         destination = dest;
-        Kp = 2.5;
+        Kp = 2.0;
         Ki = 0.1;
         Kd = 0.0;
     }
