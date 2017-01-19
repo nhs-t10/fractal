@@ -31,42 +31,49 @@ public class PressBeacon implements Controller {
     // STATE:
     private boolean detectedBeaconStatus = false;
     private boolean isPressingLeft = false;
+
+    private boolean rollingMode = false;
     private int frames = 0;
     private int isLeft = 0;
 
-
     public PressBeacon(Team t, Instruments i, DriveTrain d, Pusher p, TCamera c) {
+        this(t, i, d, p, c, false);
+    }
+    //        sw = new Time.Stopwatch();
+    public PressBeacon(Team t, Instruments i, DriveTrain d, Pusher p, TCamera c, boolean rolling) {
         instruments = i;
         driveTrain = d;
         pusher = p;
         camera = c;
-//        sw = new Time.Stopwatch();
+        rollingMode = rolling;
         beacon = new BeaconCheck(t);
         angleTurning = new AngleTurning((t == Team.RED ? 90 : -90));
     }
+
+    @Deprecated
     public PressBeacon(boolean testing, Team t, Instruments i, DriveTrain d, Pusher p, TCamera c) {
         instruments = i;
         driveTrain = d;
         pusher = p;
         camera = c;
-//        sw = new Time.Stopwatch();
         beacon = new BeaconCheck(t);
         angleTurning = new AngleTurning(180);
     }
-    private void updateRolling() {
+    private double updateRolling() {
         if (beacon.shouldPressLeft()) isLeft++;
         if (beacon.shouldPressLeft() || beacon.shouldPressRight()) frames++;
         Logger.logLine("Rolling left probability: " + (double) isLeft / frames);
+        return (double) isLeft/frames;
     }
     public boolean tick() {
         beacon.update(camera.getAnalysis());
         Logger.logLine(camera.getString());
-        updateRolling();
+        double leftProb = updateRolling();
 
         if (!detectedBeaconStatus && instruments.IRdistance >= 1.1) {
             driveTrain.stop();
             if (beacon.shouldPressLeft() || beacon.shouldPressRight()) {
-                isPressingLeft = beacon.shouldPressLeft();
+                isPressingLeft = rollingMode? (leftProb >= 0.5d): beacon.shouldPressLeft();
                 detectedBeaconStatus = true;
             }
             return false;
