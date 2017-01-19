@@ -35,7 +35,7 @@ public class DriveFromWall implements Controller {
             angleTurning = new AngleTurning(yaw);
             stopwatch.start();
         }
-        if ((!backwards && instruments.distance >= limit) || (backwards && instruments.distance <= limit) && stopwatch.timeElapsed() > 400) {
+        if (((!backwards && instruments.distance >= limit) || (backwards && instruments.distance <= limit)) && stopwatch.timeElapsed() > 400) {
             driveTrain.stop();
             return true;
         }

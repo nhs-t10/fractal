@@ -101,6 +101,7 @@ public abstract class BonnieAuto extends T10Autonomous {
         //Drive to the line
         if (team == Team.RED) {
 //            registerController(new TurnX(instruments, dri));
+            registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : 90)));
             registerController(new DriveFromWall(instruments, driveTrain, -0.24));
         }
         registerController(new TurnX(instruments, driveTrain, team == Team.RED ? redAngle : blueAngle));
@@ -146,8 +147,8 @@ public abstract class BonnieAuto extends T10Autonomous {
 //        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
 //        registerController(new DriftToLine(instruments, driveTrain, team); 0.22
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
-        registerController(new DriftToLine(instruments, driveTrain, (team == Team.RED ? -0.1f : 0.1f), true));
-        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
+        registerController(new DriftToLine(instruments, driveTrain, (team == Team.RED ? -0.15f : 0.15f), true));
+//        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
         registerController(new PressBeacon(team, instruments, driveTrain, pusher, camera, true));
         registerController(new DriveFromWall(instruments, driveTrain, 0.08));
         //LAST STEP: Align perfectly to a wall. Necessary for driver controlled period so we have a calibrated IMU!!
