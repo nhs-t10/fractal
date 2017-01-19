@@ -45,7 +45,7 @@ public abstract class BonnieAuto extends T10Autonomous {
         final Stopper stopper = new Stopper();
         final Spinner spinner = new Spinner(-1);
         final Spinner liftSpinner = new Spinner(Hardware.LiftSpinner, 1);
-        //Adv ance from the wall and flick
+        //Advance from the wall and flick
         registerController(new DriveFromWall(instruments, driveTrain, (team == Team.RED ? 0.24 : 0.24)));
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : 90)));
 
