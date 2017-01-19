@@ -5,7 +5,7 @@ package org.firstinspires.ftc.teamcode.neurons;
  */
 
 public class LinearizedDistance {
-    public double linearize(double d) {
+    public static double linearize(double d) {
         if (d == 3) d = 2.99;
         return (double) 6787/(d - 3) - 4;
     }

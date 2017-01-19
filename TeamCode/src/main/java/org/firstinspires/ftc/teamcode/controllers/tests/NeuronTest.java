@@ -7,6 +7,7 @@ import org.firstinspires.ftc.teamcode.neurons.AngleTurning;
 import org.firstinspires.ftc.teamcode.neurons.BeaconCheck;
 import org.firstinspires.ftc.teamcode.neurons.LineAlignment;
 import org.firstinspires.ftc.teamcode.neurons.LineDetection;
+import org.firstinspires.ftc.teamcode.neurons.LinearizedDistance;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
 import org.firstinspires.ftc.teamcode.tissues.TCamera;
 import org.lasarobotics.vision.ftc.resq.Beacon;
@@ -34,7 +35,7 @@ public class NeuronTest implements Controller {
         Logger.logLine("distance: " + instruments.distance);
         Logger.logLine("yaw: " + instruments.yaw);
         Logger.logLine("IR Distance: " + instruments.IRdistance);
-        Logger.logLine("IR Distance Linearized: " + instruments.IRdistance);
+        Logger.logLine("IR Distance Linearized: " + LinearizedDistance.linearize((instruments.IRdistance)));
         bc.update(camera.getAnalysis());
         Logger.logLine("Light 1: " + instruments.light1);
         Logger.logLine("Light 2:" + instruments.light2);
