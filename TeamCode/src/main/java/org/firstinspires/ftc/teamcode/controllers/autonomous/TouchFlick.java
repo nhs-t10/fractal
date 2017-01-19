@@ -15,7 +15,8 @@ public class TouchFlick implements Controller {
     private Flicker flicker;
     private TTouch touch = new TTouch(Hardware.Touch);
     private Time.Stopwatch sw = new Time.Stopwatch();
-    private Time.Stopwatch timeoutTimer = new Time.Stopwatch();
+    private Time.Stopwatch pressTimeout = new Time.Stopwatch();
+    private Time.Stopwatch noBallTimeout = new Time.Stopwatch();
 
     private boolean initialHit = false;
     private int delay;
@@ -41,8 +42,19 @@ public class TouchFlick implements Controller {
             flicker.engage();
             flicker.lock(true);
             initialHit = true;
+
+            if(!pressTimeout.isRecording()) {
+                pressTimeout.start();
+            } else if(pressTimeout.timeElapsed() > 2000) {
+                Logger.logLine("Touch sensor stuck!");
+                deinit();
+                return true;
+            }
+
             return false;
         }
+
+        pressTimeout.stop();
 
         //when touch sensor unpressed, keep going for delay, then stop
         if(initialHit && !sw.isRecording()) {
@@ -54,9 +66,9 @@ public class TouchFlick implements Controller {
 
         //kill macro if takes to long
         //off by default
-        if(!timeoutTimer.isRecording()) {
-            timeoutTimer.start();
-        } else if(timeout >= 0 && !initialHit && timeoutTimer.timeElapsed() > timeout) {
+        if(!noBallTimeout.isRecording()) {
+            noBallTimeout.start();
+        } else if(timeout >= 0 && !initialHit && noBallTimeout.timeElapsed() > timeout) {
             Logger.logLine("Macro ran out of time!");
             deinit();
             return true;
@@ -69,7 +81,7 @@ public class TouchFlick implements Controller {
         flicker.stop();
         flicker.lock(false);
         sw.stop();
-        timeoutTimer.stop();
+        noBallTimeout.stop();
         initialHit = false;
     }
 }
