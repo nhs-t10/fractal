@@ -3,6 +3,7 @@
 [![CircleCI](https://circleci.com/gh/nhs-t10/fractal.svg?style=svg)](https://circleci.com/gh/nhs-t10/fractal) [![Build Status](https://travis-ci.org/nhs-t10/fractal.svg?branch=master)](https://travis-ci.org/nhs-t10/fractal)
 
 T-10's modular codebase
+[Robot controller]() version: 2.4
 
 ##Structure & Reference
 Please check the [wiki](https://github.com/nhs-t10/fractal/wiki) to learn the core concepts of fractal in detail.
