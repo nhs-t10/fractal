@@ -68,11 +68,11 @@ public class PressBeacon implements Controller {
     public boolean tick() {
         beacon.update(camera.getAnalysis());
         Logger.logLine(camera.getString());
-        double leftProb = updateRolling();
 
         if (!detectedBeaconStatus && instruments.IRdistance >= 1.1) {
+            double leftProb = updateRolling();
             driveTrain.stop();
-            if (beacon.shouldPressLeft() || beacon.shouldPressRight()) {
+            if (frames >= 15) {
                 isPressingLeft = rollingMode? (leftProb >= 0.5d): beacon.shouldPressLeft();
                 detectedBeaconStatus = true;
             }
