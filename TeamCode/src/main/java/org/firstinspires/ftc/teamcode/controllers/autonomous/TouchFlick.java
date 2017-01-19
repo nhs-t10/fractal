@@ -81,6 +81,7 @@ public class TouchFlick implements Controller {
         flicker.stop();
         flicker.lock(false);
         sw.stop();
+        pressTimeout.stop();
         noBallTimeout.stop();
         initialHit = false;
     }
