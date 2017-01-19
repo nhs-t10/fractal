@@ -98,7 +98,7 @@ public abstract class BonnieAuto extends T10Autonomous {
         registerController(new TouchFlick(flicker, 600, 1500));
         //Drive to the line
         registerController(new TurnX(instruments, driveTrain, team == Team.RED ? 65 : -55));
-        registerController(new DriveToLine(instruments, driveTrain, team == Team.RED ? 65 : -65));
+        registerController(new DriveToLine(instruments, driveTrain, team == Team.RED ? 65 : -55));
         //Go for 1st beacon
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
         registerController(new DriftToLine(instruments, driveTrain, team));

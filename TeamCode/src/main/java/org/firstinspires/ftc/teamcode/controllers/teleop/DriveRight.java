@@ -20,7 +20,7 @@ public class DriveRight implements Controller {
     public DriveRight (Instruments i, DriveTrain d) {
         instruments = i;
         driveTrain = d;
-        angleTurning = new AngleTurning(-90);
+        angleTurning = new AngleTurning(180);
     }
     public boolean tick (){
         ArrayList<Float> values = angleTurning.getDrivePowers(instruments.yaw, 0.3f);
