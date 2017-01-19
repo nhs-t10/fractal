@@ -31,6 +31,8 @@ import org.firstinspires.ftc.teamcode.tissues.TTouch;
 public abstract class BonnieAuto extends T10Autonomous {
     private TCamera camera;
     public Team team;
+    private int blueAngle = -57;
+    private int redAngle = 57;
     @Override
     public void registration() {
         setTeam();
@@ -97,50 +99,51 @@ public abstract class BonnieAuto extends T10Autonomous {
         registerController(new Stall(100));
         registerController(new TouchFlick(flicker, 600, 1500));
         //Drive to the line
-        registerController(new TurnX(instruments, driveTrain, team == Team.RED ? 65 : -55));
-        registerController(new DriveToLine(instruments, driveTrain, team == Team.RED ? 65 : -55));
+        registerController(new TurnX(instruments, driveTrain, team == Team.RED ? redAngle : blueAngle));
+        registerController(new DriveToLine(instruments, driveTrain, team == Team.RED ? redAngle : blueAngle));
         //Go for 1st beacon
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
         registerController(new DriftToLine(instruments, driveTrain, team));
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
-        registerController(new PressBeacon(team, instruments, driveTrain, pusher, camera));
+        registerController(new PressBeacon(team, instruments, driveTrain, pusher, camera, true));
  //        registerController(new DriveFromWall(instruments, driveTrain, 0.12));
 //        //Shift backwards, sideways
-//        registerController(new Controller() {
-//            @Override
-//            public boolean tick() {
-//                if (instruments.IRdistance <= 1) {
-//                    driveTrain.stop();
-//                    return true;
-//                }
-//                driveTrain.goForward(0.5f);
-//                return false;
-//            }
-//        });
-//        registerController(new Controller() {
-//            @Override
-//            public boolean tick() {
-//                driveTrain.driveSideways((team == Team.RED ? 0.5f : -0.5f));
-//                return true;
-//            }
-//        });
-//        registerController(new Stall(500));
-//        registerController(new Controller() {
-//            @Override
-//            public boolean tick() {
-//                driveTrain.stop();
-//                return true;
-//            }
-//        });
+        registerController(new Controller() {
+            @Override
+            public boolean tick() {
+                if (instruments.IRdistance <= 1.5) {
+                    driveTrain.stop();
+                    return true;
+                }
+                driveTrain.goForward(0.2f);
+                return false;
+            }
+        });
+        registerController(new Controller() {
+            @Override
+            public boolean tick() {
+                driveTrain.driveSideways((team == Team.RED ? 0.2f : -0.2f));
+                return true;
+            }
+        });
+        registerController(new Stall(500));
+        registerController(new Controller() {
+            @Override
+            public boolean tick() {
+                driveTrain.stop();
+                return true;
+            }
+        });
         //Go for 2nd beacon
         registerController(new DriftToLine(instruments, driveTrain, -0.3f));
-        registerController(new AlignToNearest(driveTrain, instruments));
-        registerController(new TurnX(instruments, driveTrain, 0));
-        registerController(new DriveToLine(instruments, driveTrain, (team == Team.RED ? 2 : -2)));
+//        registerController(new AlignToNearest(driveTrain, instruments));
+//        registerController(new TurnX(instruments, driveTrain, 0));
+//        registerController(new DriveToLine(instruments, driveTrain, (team == Team.RED ? 2 : -2)));
+//        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
+//        registerController(new DriftToLine(instruments, driveTrain, team));
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
-        registerController(new DriftToLine(instruments, driveTrain, team));
-        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
-        registerController(new PressBeacon(team, instruments, driveTrain, pusher, camera));
+        registerController(new DriftToLine(instruments, driveTrain, 0.3f));
+        registerController(new PressBeacon(team, instruments, driveTrain, pusher, camera, true));
         registerController(new DriveFromWall(instruments, driveTrain, 0.08));
         //LAST STEP: Align perfectly to a wall. Necessary for driver controlled period so we have a calibrated IMU!!
         registerController(new AlignToNearest(driveTrain, instruments));
