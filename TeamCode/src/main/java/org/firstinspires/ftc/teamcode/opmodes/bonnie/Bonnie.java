@@ -55,14 +55,14 @@ public class Bonnie extends T10Opmode {
         Controller[] autoPressRight = {
                 new OnButtonPress(Controls.AutoPressRight),
                 new AlignToNearest(drivetrain, instruments),
-                new DriftToLine(instruments, drivetrain, 0.2f),
+                new DriftToLine(instruments, drivetrain, 0.12f),
                 new AlignToNearest(drivetrain, instruments),
                 new ApproachBeacon(drivetrain, instruments, pusher)
         };
         Controller[] autoPressLeft = {
                 new OnButtonPress(Controls.AutoPressLeft),
                 new AlignToNearest(drivetrain, instruments), //1.3, 2.5
-                new DriftToLine(instruments, drivetrain, -0.2f),
+                new DriftToLine(instruments, drivetrain, -0.12f),
                 new AlignToNearest(drivetrain, instruments),
                 new ApproachBeacon(drivetrain, instruments, pusher)
         };
