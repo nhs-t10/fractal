@@ -25,7 +25,7 @@ public class ApproachBeacon implements Controller {
         this.pusher = pusher;
     }
     public boolean tick() {
-        if (instruments.IRdistance >= 1.8) {
+        if (instruments.IRdistance >= 1.95) {
             driveTrain.stop();
             return true;
         }
