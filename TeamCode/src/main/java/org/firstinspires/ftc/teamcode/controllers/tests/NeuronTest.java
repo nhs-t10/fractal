@@ -39,6 +39,7 @@ public class NeuronTest implements Controller {
         bc.update(camera.getAnalysis());
         Logger.logLine("Light 1: " + instruments.light1);
         Logger.logLine("Light 2:" + instruments.light2);
+        Logger.logLine("Centered at line: " + ld.centeredAtLine(instruments.light1, instruments.light2));
         Logger.logLine(camera.getString());
         if(!pressed) pressed = bc.isPressed();
         Logger.logLine("pressed: " + pressed);

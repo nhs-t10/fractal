@@ -13,7 +13,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
  */
 public abstract class T10Opmode extends OpMode {
     public final void init() {
-        this.msStuckDetectInit = 10000;
+        this.msStuckDetectInit = 30000;
         initStatics();
         Logger.logLine("Initializing...");
         run();
