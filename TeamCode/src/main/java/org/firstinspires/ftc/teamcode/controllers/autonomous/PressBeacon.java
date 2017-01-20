@@ -32,22 +32,21 @@ public class PressBeacon implements Controller {
     private boolean detectedBeaconStatus = false;
     private boolean isPressingLeft = false;
 
-    private boolean rollingMode = false;
     private int frames = 0;
     private int isLeft = 0;
 
     public PressBeacon(Team t, Instruments i, DriveTrain d, Pusher p, TCamera c) {
-        this(t, i, d, p, c, false);
-    }
-    //        sw = new Time.Stopwatch();
-    public PressBeacon(Team t, Instruments i, DriveTrain d, Pusher p, TCamera c, boolean rolling) {
         instruments = i;
         driveTrain = d;
         pusher = p;
         camera = c;
-        rollingMode = rolling;
         beacon = new BeaconCheck(t);
         angleTurning = new AngleTurning((t == Team.RED ? 90 : -90));
+    }
+    //        sw = new Time.Stopwatch();
+    @Deprecated
+    public PressBeacon(Team t, Instruments i, DriveTrain d, Pusher p, TCamera c, boolean rolling) {
+        this(t, i, d, p, c);
     }
 
     @Deprecated
@@ -73,7 +72,7 @@ public class PressBeacon implements Controller {
             double leftProb = updateRolling();
             driveTrain.stop();
             if (frames >= 15) {
-                isPressingLeft = rollingMode? (leftProb >= 0.5d): beacon.shouldPressLeft();
+                isPressingLeft = (leftProb >= 0.5d);
                 detectedBeaconStatus = true;
             }
             return false;
