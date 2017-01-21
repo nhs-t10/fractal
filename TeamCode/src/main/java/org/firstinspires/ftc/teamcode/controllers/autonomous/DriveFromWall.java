@@ -21,6 +21,7 @@ public class DriveFromWall implements Controller {
     private Time.Stopwatch stopwatch;
     private boolean backwards = false;
     double limit = 0;
+    private int count = 0;
     public DriveFromWall(Instruments i, MecanumDrivetrain dt, double l) {
         instruments = i;
         driveTrain = dt;
@@ -36,8 +37,11 @@ public class DriveFromWall implements Controller {
             stopwatch.start();
         }
         if (((!backwards && instruments.distance >= limit) || (backwards && instruments.distance <= limit)) && stopwatch.timeElapsed() > 600) {
-            driveTrain.stop();
-            return true;
+            if (count >= 2) {
+                driveTrain.stop();
+                return true;
+            }
+            else count++;
         }
         ArrayList<Float> powers = angleTurning.getDrivePowers(yaw, (backwards ? -0.3f : 0.3f));
         driveTrain.drive(powers.get(0), powers.get(1));
