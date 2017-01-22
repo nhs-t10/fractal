@@ -27,6 +27,7 @@ public class PressBeacon implements Controller {
     private Pusher pusher;
     private BeaconCheck beacon;
     private AngleTurning angleTurning;
+    private boolean Speed = false;
 
     // STATE:
     private boolean detectedBeaconStatus = false;
@@ -68,7 +69,7 @@ public class PressBeacon implements Controller {
         beacon.update(camera.getAnalysis());
         Logger.logLine(camera.getString());
 
-        if (!detectedBeaconStatus && instruments.IRdistance >= 1.1) {
+        if (!detectedBeaconStatus && instruments.IRdistance >= 1.3) {
             double leftProb = updateRolling();
             driveTrain.stop();
             if (frames >= 15) {
@@ -78,14 +79,13 @@ public class PressBeacon implements Controller {
             return false;
 
         }
-        if (detectedBeaconStatus && instruments.IRdistance >= 1.95) {
+        if (detectedBeaconStatus && instruments.IRdistance >= 2.1) {
             driveTrain.stop();
             if (isPressingLeft) pusher.pushLeft();
             else pusher.pushRight();
             return true;
         }
-
-        ArrayList<Float> powers = angleTurning.getDrivePowers(instruments.yaw, -0.1f);
+        ArrayList<Float> powers = angleTurning.getDrivePowers(instruments.yaw, (Speed ? -0.2f : -0.1f));
         driveTrain.drive(powers.get(0), powers.get(1));
         return false;
     }

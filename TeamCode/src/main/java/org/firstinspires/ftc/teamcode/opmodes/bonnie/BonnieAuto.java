@@ -32,7 +32,7 @@ import org.firstinspires.ftc.teamcode.tissues.TTouch;
 public abstract class BonnieAuto extends T10Autonomous {
     private TCamera camera;
     public Team team;
-    private int blueAngle = -57;
+    private int blueAngle = -60;
     private int redAngle = 47;
     @Override
     public void registration() {
@@ -125,16 +125,16 @@ public abstract class BonnieAuto extends T10Autonomous {
                 return true;
             }
         });
-
+        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
         registerController(new DriftToLine(instruments, driveTrain, (team == Team.RED ? 0.1f : -0.1f), true));
-//        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
+        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
         registerController(new PressBeacon(team, instruments, driveTrain, pusher, camera, true));
  //        registerController(new DriveFromWall(instruments, driveTrain, 0.12));
 //        //Shift backwards, sideways
         registerController(new Controller() {
             @Override
             public boolean tick() {
-                if (instruments.IRdistance <= 1.3) {
+                if (instruments.IRdistance <= 1.1) {
                     driveTrain.stop();
                     return true;
                 }

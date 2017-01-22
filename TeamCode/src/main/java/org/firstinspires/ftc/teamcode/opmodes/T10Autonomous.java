@@ -20,7 +20,7 @@ public abstract class T10Autonomous extends OpMode {
     private int index = 0;
 
     public final void init() {
-        this.msStuckDetectInit = 30000;
+        this.msStuckDetectInit = 60000;
         initStatics();
         Logger.logLine("Initializing... CCC");
         registration();
