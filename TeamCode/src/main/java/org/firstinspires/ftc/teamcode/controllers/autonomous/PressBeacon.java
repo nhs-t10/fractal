@@ -28,6 +28,7 @@ public class PressBeacon implements Controller {
     private BeaconCheck beacon;
     private AngleTurning angleTurning;
     private boolean Speed = false;
+    private Team t;
 
     // STATE:
     private boolean detectedBeaconStatus = false;
@@ -42,6 +43,7 @@ public class PressBeacon implements Controller {
         pusher = p;
         camera = c;
         beacon = new BeaconCheck(t);
+        this.t = t;
         angleTurning = new AngleTurning((t == Team.RED ? 90 : -90));
     }
     //        sw = new Time.Stopwatch();
@@ -79,13 +81,13 @@ public class PressBeacon implements Controller {
             return false;
 
         }
-        if (detectedBeaconStatus && instruments.IRdistance >= 2.1) {
+        if (detectedBeaconStatus && instruments.IRdistance >= (t == Team.RED ? 2.1 : 2.1)) {
             driveTrain.stop();
             if (isPressingLeft) pusher.pushLeft();
             else pusher.pushRight();
             return true;
         }
-        ArrayList<Float> powers = angleTurning.getDrivePowers(instruments.yaw, (Speed ? -0.2f : -0.1f));
+        ArrayList<Float> powers = angleTurning.getDrivePowers(instruments.yaw, (Speed ? -0.1f : -0.1f));
         driveTrain.drive(powers.get(0), powers.get(1));
         return false;
     }
