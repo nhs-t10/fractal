@@ -47,16 +47,19 @@ public class BonnieCollection implements Controller {
         }
 
         if(liftBtn.getToggle()) {
+            if(!spinner.get(1).inUse()) spinner.get(1).lock(true);
+            else spinner.get(1).lock(false);
+
             spinner.get(1).toggle(1);
         }
 
         if(spinnerInBtn.getToggle()) {
             for (Spinner s: spinner) {
-                s.toggle(1);
+                if(!s.inUse()) s.toggle(1);
             }
         } else if(spinnerOutBtn.getToggle()) {
             for (Spinner s: spinner) {
-                s.toggle(-1);
+                if(!s.inUse()) s.toggle(-1);
             }
         }
 

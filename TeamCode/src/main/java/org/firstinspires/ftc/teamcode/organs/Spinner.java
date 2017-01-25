@@ -32,6 +32,18 @@ public class Spinner implements Component, Lock {
         return on;
     }
 
+    boolean lockedstate = false;
+
+    @Override
+    public void lock(boolean status) {
+        lockedstate = status;
+    }
+
+    @Override
+    public boolean inUse() {
+        return lockedstate;
+    }
+
     @Override
     public String getName() {
         return "Ball Collector (Spinner)";
