@@ -23,8 +23,6 @@ public class BonnieCollection implements Controller {
     private DebouncingButton spinnerOutBtn = new DebouncingButton(Controls.SpinnerOut);
     private DebouncingButton liftBtn = new DebouncingButton(Controls.BallLift);
 
-    private boolean move = true;
-
     @Deprecated
     public BonnieCollection(Flicker f, Spinner sp) {
         this(f, new Stopper(), new ArrayList<Spinner>(Arrays.asList(sp)));
@@ -54,15 +52,14 @@ public class BonnieCollection implements Controller {
 
         if(spinnerInBtn.getToggle()) {
             for (Spinner s: spinner) {
-                if(s.isOn() != move) s.toggle(1);
+                s.toggle(1);
             }
         } else if(spinnerOutBtn.getToggle()) {
             for (Spinner s: spinner) {
-                if(s.isOn() != move) s.toggle(-1);
+                s.toggle(-1);
             }
         }
 
-        move = !move;
         return false;
     }
 }
