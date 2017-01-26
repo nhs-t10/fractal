@@ -1,11 +1,11 @@
 package org.firstinspires.ftc.teamcode.opmodes;
 
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+
 import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.statics.ControlParser;
 import org.firstinspires.ftc.teamcode.statics.Controls;
 import org.firstinspires.ftc.teamcode.statics.Hardware;
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
 /**
  * Created by Admin on 4/19/2016.

@@ -1,10 +1,10 @@
 package org.firstinspires.ftc.teamcode.tissues;
 
+import com.qualcomm.robotcore.hardware.AnalogInput;
+
 import org.firstinspires.ftc.teamcode.debug.Component;
 import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.statics.Hardware;
-
-import com.qualcomm.robotcore.hardware.AnalogInput;
 
 /**
  * Created by max on 4/17/16.

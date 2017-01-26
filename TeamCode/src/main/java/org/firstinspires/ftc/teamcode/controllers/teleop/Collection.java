@@ -4,12 +4,8 @@ import org.firstinspires.ftc.teamcode.controllers.Controller;
 import org.firstinspires.ftc.teamcode.neurons.DebouncingButton;
 import org.firstinspires.ftc.teamcode.organs.Flicker;
 import org.firstinspires.ftc.teamcode.organs.Spinner;
-import org.firstinspires.ftc.teamcode.organs.Stopper;
 import org.firstinspires.ftc.teamcode.statics.ControlParser;
 import org.firstinspires.ftc.teamcode.statics.Controls;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * Created by robotics on 5/31/16.

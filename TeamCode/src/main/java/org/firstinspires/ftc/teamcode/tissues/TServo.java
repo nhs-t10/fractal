@@ -1,10 +1,10 @@
 package org.firstinspires.ftc.teamcode.tissues;
 
-import org.firstinspires.ftc.teamcode.debug.Component;
-import org.firstinspires.ftc.teamcode.statics.Hardware;
-
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
+
+import org.firstinspires.ftc.teamcode.debug.Component;
+import org.firstinspires.ftc.teamcode.statics.Hardware;
 
 /**
  * Created by max on 4/17/16.

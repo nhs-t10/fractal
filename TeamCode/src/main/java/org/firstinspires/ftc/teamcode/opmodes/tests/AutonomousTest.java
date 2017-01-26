@@ -1,27 +1,12 @@
 package org.firstinspires.ftc.teamcode.opmodes.tests;
 
-import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import org.firstinspires.ftc.teamcode.controllers.Controller;
-import org.firstinspires.ftc.teamcode.controllers.Team;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.DriftToLine;
-import org.firstinspires.ftc.teamcode.controllers.autonomous.DriveToLine;
-import org.firstinspires.ftc.teamcode.controllers.autonomous.LineFollow;
-import org.firstinspires.ftc.teamcode.controllers.autonomous.PressBeacon;
-import org.firstinspires.ftc.teamcode.controllers.autonomous.TurnX;
-import org.firstinspires.ftc.teamcode.controllers.autonomous.TurnXDegrees;
-import org.firstinspires.ftc.teamcode.controllers.tests.ChangeableVariable;
-import org.firstinspires.ftc.teamcode.controllers.tests.Stall;
-import org.firstinspires.ftc.teamcode.debug.Logger;
-import org.firstinspires.ftc.teamcode.neurons.BeaconCheck;
-import org.firstinspires.ftc.teamcode.neurons.LineAlignment;
-import org.firstinspires.ftc.teamcode.opmodes.T10Autonomous;
 import org.firstinspires.ftc.teamcode.opmodes.T10Linear;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
 import org.firstinspires.ftc.teamcode.organs.Pusher;
 import org.firstinspires.ftc.teamcode.organs.drivetrains.MecanumDrivetrain;
-import org.firstinspires.ftc.teamcode.organs.drivetrains.TreadDrivetrain;
 import org.firstinspires.ftc.teamcode.tissues.TCamera;
 
 /**

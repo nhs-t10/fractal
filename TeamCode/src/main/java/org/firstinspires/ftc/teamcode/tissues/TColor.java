@@ -1,10 +1,11 @@
 package org.firstinspires.ftc.teamcode.tissues;
 
+import android.graphics.Color;
+
 import org.firstinspires.ftc.teamcode.debug.Component;
 import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.lib.AdafruitColor;
 import org.firstinspires.ftc.teamcode.statics.Hardware;
-import android.graphics.Color;
 
 /**
  * Created by max on 4/17/16.

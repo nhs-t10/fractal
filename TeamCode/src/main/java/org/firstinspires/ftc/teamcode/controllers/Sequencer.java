@@ -1,14 +1,9 @@
 package org.firstinspires.ftc.teamcode.controllers;
 
-import android.util.Log;
-
 import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.neurons.DebouncingButton;
 import org.firstinspires.ftc.teamcode.statics.Controls;
 import org.firstinspires.ftc.teamcode.statics.DriveSpeed;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 
 /**
  * Created by max on 12/7/16.

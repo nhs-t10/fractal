@@ -1,7 +1,7 @@
 package org.firstinspires.ftc.teamcode.lib;
 
 /**
- * Created by robotics on 1/24/17.
+ * Created by rob1otics on 1/24/17.
  */
 public class Lock {
     public static final String DEFAULT_PASS = "pass";

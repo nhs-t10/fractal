@@ -1,7 +1,5 @@
 package org.firstinspires.ftc.teamcode.opmodes.clyde;
 
-import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-
 import org.firstinspires.ftc.teamcode.controllers.Team;
 
 /**

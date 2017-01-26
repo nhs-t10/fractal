@@ -1,7 +1,6 @@
 package org.firstinspires.ftc.teamcode.controllers.autonomous;
 
 import org.firstinspires.ftc.teamcode.controllers.Controller;
-import org.firstinspires.ftc.teamcode.controllers.tests.Stall;
 import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.neurons.Time;
 import org.firstinspires.ftc.teamcode.organs.Flicker;

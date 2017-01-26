@@ -1,12 +1,12 @@
 package org.firstinspires.ftc.teamcode.tissues;
+
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.util.Range;
+
 import org.firstinspires.ftc.teamcode.debug.Component;
 import org.firstinspires.ftc.teamcode.lib.Sleep;
 import org.firstinspires.ftc.teamcode.neurons.Time;
 import org.firstinspires.ftc.teamcode.statics.Hardware;
-
-import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorController;
-import com.qualcomm.robotcore.util.Range;
 
 /**
  * Created by robotics on 4/12/16.

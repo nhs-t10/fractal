@@ -1,13 +1,10 @@
 package org.firstinspires.ftc.teamcode.controllers.autonomous;
 
-import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.controllers.Controller;
 import org.firstinspires.ftc.teamcode.controllers.Team;
 import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.neurons.AngleTurning;
 import org.firstinspires.ftc.teamcode.neurons.BeaconCheck;
-import org.firstinspires.ftc.teamcode.neurons.LineAlignment;
-import org.firstinspires.ftc.teamcode.neurons.Time;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
 import org.firstinspires.ftc.teamcode.organs.Pusher;
 import org.firstinspires.ftc.teamcode.organs.drivetrains.DriveTrain;

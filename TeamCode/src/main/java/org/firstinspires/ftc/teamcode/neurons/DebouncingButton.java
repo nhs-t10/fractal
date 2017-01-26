@@ -1,7 +1,5 @@
 package org.firstinspires.ftc.teamcode.neurons;
 
-import org.firstinspires.ftc.robotcore.external.Telemetry;
-import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.statics.ControlParser;
 
 /**

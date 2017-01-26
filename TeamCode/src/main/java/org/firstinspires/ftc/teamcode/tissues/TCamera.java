@@ -5,7 +5,6 @@ import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.lib.LASABridge;
 import org.firstinspires.ftc.teamcode.statics.Hardware;
 import org.lasarobotics.vision.ftc.resq.Beacon;
-import org.opencv.core.Point;
 
 /**
  * Created by max on 11/3/16.

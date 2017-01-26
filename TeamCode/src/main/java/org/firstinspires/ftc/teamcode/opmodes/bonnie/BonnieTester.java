@@ -5,15 +5,8 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.debug.Component;
 import org.firstinspires.ftc.teamcode.debug.Logger;
-import org.firstinspires.ftc.teamcode.organs.Flicker;
-import org.firstinspires.ftc.teamcode.organs.Pusher;
-import org.firstinspires.ftc.teamcode.organs.Spinner;
-import org.firstinspires.ftc.teamcode.organs.Stopper;
-import org.firstinspires.ftc.teamcode.organs.drivetrains.MecanumDrivetrain;
 import org.firstinspires.ftc.teamcode.statics.Hardware;
 import org.firstinspires.ftc.teamcode.tissues.TMotor;
-
-import java.util.ArrayList;
 
 /**
  * Created by max on 5/5/16.

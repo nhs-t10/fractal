@@ -1,11 +1,10 @@
 package org.firstinspires.ftc.teamcode.opmodes;
 
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+
 import org.firstinspires.ftc.teamcode.controllers.Controller;
 import org.firstinspires.ftc.teamcode.debug.Logger;
-import org.firstinspires.ftc.teamcode.statics.ControlParser;
-import org.firstinspires.ftc.teamcode.statics.Controls;
 import org.firstinspires.ftc.teamcode.statics.Hardware;
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
 import java.util.ArrayList;
 

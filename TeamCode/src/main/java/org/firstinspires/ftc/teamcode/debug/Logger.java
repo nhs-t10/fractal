@@ -1,7 +1,7 @@
 package org.firstinspires.ftc.teamcode.debug;
 
-import org.firstinspires.ftc.teamcode.lib.Sleep;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
+import org.firstinspires.ftc.teamcode.lib.Sleep;
 
 import java.util.ArrayList;
 import java.util.Arrays;

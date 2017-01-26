@@ -3,9 +3,6 @@ package org.firstinspires.ftc.teamcode.controllers.autonomous;
 import org.firstinspires.ftc.teamcode.controllers.Controller;
 import org.firstinspires.ftc.teamcode.controllers.tests.Stall;
 import org.firstinspires.ftc.teamcode.organs.Flicker;
-import org.firstinspires.ftc.teamcode.statics.Hardware;
-import org.firstinspires.ftc.teamcode.tissues.TEncoderMotor;
-import org.firstinspires.ftc.teamcode.tissues.TMotor;
 
 /**
  * Created by robotics on 11/15/16.

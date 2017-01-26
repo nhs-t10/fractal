@@ -3,13 +3,11 @@ package org.firstinspires.ftc.teamcode.lib;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.teamcode.debug.Logger;
-import org.firstinspires.ftc.teamcode.statics.Hardware;
 import org.lasarobotics.vision.android.Cameras;
 import org.lasarobotics.vision.ftc.resq.Beacon;
 import org.lasarobotics.vision.opmode.VisionOpMode;
 import org.lasarobotics.vision.opmode.extensions.CameraControlExtension;
 import org.lasarobotics.vision.util.ScreenOrientation;
-import org.opencv.core.Point;
 import org.opencv.core.Size;
 
 /**
