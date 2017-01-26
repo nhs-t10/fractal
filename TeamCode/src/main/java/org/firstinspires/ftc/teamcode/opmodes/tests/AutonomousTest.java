@@ -5,6 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.controllers.Controller;
 import org.firstinspires.ftc.teamcode.controllers.Team;
+import org.firstinspires.ftc.teamcode.controllers.autonomous.AverageTime;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.DriftToLine;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.DriveToLine;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.LineFollow;
@@ -37,7 +38,8 @@ public class AutonomousTest extends T10Linear {
         Instruments instruments = new Instruments();
         instruments.start();
         cam = new TCamera();
-        registerController(new DriftToLine(instruments, md, -0.1f, true));
+        registerController(new AverageTime());
+//        registerController(new DriftToLine(instruments, md, -0.1f, true));
 //        registerController(new PressBeacon(true, Team.RED, instruments, md, p, cam));
 //        registerController(new TurnX(instruments, md, 0));
 //        registerController(new Stall(1000));
