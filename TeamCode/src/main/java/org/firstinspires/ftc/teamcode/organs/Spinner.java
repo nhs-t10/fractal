@@ -9,8 +9,9 @@ import org.firstinspires.ftc.teamcode.tissues.TMotor;
 /**
  * Created by robotics on 9/22/16.
  */
-public class Spinner implements Component, Lock {
+public class Spinner implements Component {
     private TMotor spinner;
+    private Lock lock = new Lock();
     private boolean on = false;
     private int direction = -1;
 
@@ -32,16 +33,21 @@ public class Spinner implements Component, Lock {
         return on;
     }
 
-    boolean lockedstate = false;
-
-    @Override
     public void lock(boolean status) {
-        lockedstate = status;
+        lock(status, lock.DEFAULT_PASS);
     }
 
-    @Override
+    public void lock(boolean status, String key) {
+        if(status) lock.lock(key);
+        else lock.ulock(key);
+    }
+
     public boolean inUse() {
-        return lockedstate;
+        return lock.isLocked();
+    }
+
+    public boolean usesKey(String key) {
+        return lock.usesKey(key);
     }
 
     @Override
