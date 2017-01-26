@@ -5,7 +5,6 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.DerivativeTuning;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.IntegralTuning;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.PorpotionalTuning;
-import org.firstinspires.ftc.teamcode.controllers.autonomous.ZieglerNichols;
 import org.firstinspires.ftc.teamcode.opmodes.T10Autonomous;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
 import org.firstinspires.ftc.teamcode.organs.drivetrains.MecanumDrivetrain;

@@ -3,7 +3,6 @@ package org.firstinspires.ftc.teamcode.opmodes.bonnie;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
 import org.firstinspires.ftc.teamcode.controllers.Team;
-import org.firstinspires.ftc.teamcode.opmodes.clyde.ClydeAuto;
 
 /**
  * Created by max on 11/15/16.

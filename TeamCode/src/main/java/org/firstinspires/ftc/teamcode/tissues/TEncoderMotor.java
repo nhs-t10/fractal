@@ -1,11 +1,6 @@
 package org.firstinspires.ftc.teamcode.tissues;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.HardwareMap;
-
-import org.firstinspires.ftc.robotcore.external.Telemetry;
-import org.firstinspires.ftc.teamcode.debug.Logger;
-import org.firstinspires.ftc.teamcode.lib.Sleep;
 
 /**
  * Created by robotics on 11/3/16.

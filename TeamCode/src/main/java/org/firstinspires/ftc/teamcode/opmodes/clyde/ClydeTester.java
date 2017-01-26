@@ -11,8 +11,6 @@ import org.firstinspires.ftc.teamcode.organs.Spinner;
 import org.firstinspires.ftc.teamcode.organs.drivetrains.MecanumDrivetrain;
 import org.firstinspires.ftc.teamcode.statics.Hardware;
 
-import java.util.ArrayList;
-
 /**
  * Created by max on 5/5/16.
  * Tests organs/tissues sequentially and indicates their success

@@ -1,10 +1,9 @@
 package org.firstinspires.ftc.teamcode.statics;
 
-import org.firstinspires.ftc.teamcode.debug.Logger;
 import com.qualcomm.robotcore.hardware.Gamepad;
-import org.firstinspires.ftc.robotcore.external.Telemetry;
 
-import java.lang.reflect.Array;
+import org.firstinspires.ftc.teamcode.debug.Logger;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

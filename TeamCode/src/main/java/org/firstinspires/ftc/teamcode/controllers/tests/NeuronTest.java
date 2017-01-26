@@ -10,9 +10,6 @@ import org.firstinspires.ftc.teamcode.neurons.LineDetection;
 import org.firstinspires.ftc.teamcode.neurons.LinearizedDistance;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
 import org.firstinspires.ftc.teamcode.tissues.TCamera;
-import org.lasarobotics.vision.ftc.resq.Beacon;
-
-import javax.security.auth.login.LoginException;
 
 /**
  * Created by nhs on 10/27/16.

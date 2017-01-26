@@ -3,8 +3,6 @@ package org.firstinspires.ftc.teamcode.controllers.tests;
 import org.firstinspires.ftc.teamcode.controllers.Controller;
 import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.neurons.DebouncingButton;
-import org.firstinspires.ftc.teamcode.statics.ControlParser;
-import org.firstinspires.ftc.teamcode.statics.Controls;
 
 /**
  * Created by robotics on 11/18/16.
