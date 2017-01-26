@@ -22,21 +22,21 @@ import java.util.ArrayList;
 @TeleOp(name="ClydeOp", group="Clyde")
 public class clyde extends T10Opmode {
     private MecanumDrivetrain drivetrain;
-    private Flicker flicker;
-    private Spinner spinner;
-    private Pusher pusher;
+//    private Flicker flicker;
+//    private Spinner spinner;
+//    private Pusher pusher;
 
     private ArrayList<Controller> controllers = new ArrayList<Controller>();
     public void run() {
         Logger.logLine("Chassis 1 initialized.");
         drivetrain = new MecanumDrivetrain();
-        flicker = new Flicker(false, 1);
-        spinner = new Spinner(1);
-        pusher = new Pusher();
+//        flicker = new Flicker(false, 1);
+//        spinner = new Spinner(1);
+//        pusher = new Pusher();
 
         controllers.add(new OneStickMecanum(drivetrain));
-        controllers.add(new Collection(flicker, spinner));
-        controllers.add(new ButtonPusher(pusher));
+//        controllers.add(new Collection(flicker, spinner));
+//        controllers.add(new ButtonPusher(pusher));
     }
     public void tick() {
         for(int i=0; i<controllers.size(); i++) {
