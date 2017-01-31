@@ -20,5 +20,6 @@ public class CSVTester extends T10Opmode {
     @Override
     public void tick() {
         dp.logData(1, 1);
+        dp.getData(1);
     }
 }

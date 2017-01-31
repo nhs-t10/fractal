@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode.lib;
 /**
  * Created by max on 4/17/16.
  */
+@Deprecated
 public class Sleep {
     private static void sleep(long length) {
         try {

@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.debug;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.lib.Sleep;
+import org.firstinspires.ftc.teamcode.neurons.Time;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,6 +23,7 @@ public class Logger {
         mode = m;
     }
 
+    @Deprecated
     private static void renderLines() {
         for(int i=0; i<lines.size(); i++) {
             telemetry.addData(Integer.toString(i), lines.get(i));
@@ -54,14 +56,16 @@ public class Logger {
      * @param contents Arraylist of strings to log
      */
     public static void logLines(ArrayList<String> contents) {
-        lines = contents;
-        renderLines();
+        for(String str: contents) {
+            logLine(str);
+        }
     }
 
     public static void addData(String key, String value) {
         telemetry.addData(key, value);
     }
 
+    @Deprecated
     public static void clear() {
         for(int i=0; i<lines.size(); i++) {
             lines.set(i, "");
@@ -71,13 +75,13 @@ public class Logger {
 
     public static boolean test() {
         logLine("hello");
-        Sleep.secs(1);
+        Time.sleep(1000);
         logLine("my");
-        Sleep.secs(1);
+        Time.sleep(1000);
         logLine("name");
-        Sleep.secs(1);
+        Time.sleep(1000);
         logLine("is");
-        Sleep.secs(1);
+        Time.sleep(1000);
         logLine("logger");
         return true;
     }
