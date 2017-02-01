@@ -3,7 +3,6 @@ package org.firstinspires.ftc.teamcode.controllers.autonomous;
 import org.firstinspires.ftc.teamcode.controllers.Controller;
 import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.neurons.AngleTurning;
-import org.firstinspires.ftc.teamcode.neurons.DeNoiser;
 import org.firstinspires.ftc.teamcode.neurons.Time;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
 import org.firstinspires.ftc.teamcode.organs.drivetrains.MecanumDrivetrain;
@@ -16,7 +15,6 @@ import java.util.ArrayList;
 public class DriveFromWall implements Controller {
     MecanumDrivetrain driveTrain;
     Instruments instruments;
-    DeNoiser deNoiser;
     private Double yaw;
     private AngleTurning angleTurning;
     private Time.Stopwatch stopwatch;
@@ -29,15 +27,15 @@ public class DriveFromWall implements Controller {
         limit = Math.abs(l);
         stopwatch = new Time.Stopwatch();
         backwards = (Math.signum(l) == -1);
-        deNoiser = new DeNoiser(instruments);
     }
     public boolean tick() {
         Logger.logLine("d:" + instruments.distance);
         if(yaw == null) {
             yaw = instruments.yaw;
             angleTurning = new AngleTurning(yaw);
+            stopwatch.start();
         }
-        if (((!backwards && deNoiser.distance() >= limit) || (backwards && deNoiser.distance() <= limit)) && stopwatch.timeElapsed() > 600) {
+        if (((!backwards && instruments.distance >= limit) || (backwards && instruments.distance <= limit)) && stopwatch.timeElapsed() > 600) {
             if (count >= 2) {
                 driveTrain.stop();
                 return true;

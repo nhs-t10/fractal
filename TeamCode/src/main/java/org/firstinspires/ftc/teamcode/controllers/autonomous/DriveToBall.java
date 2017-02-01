@@ -3,7 +3,6 @@ package org.firstinspires.ftc.teamcode.controllers.autonomous;
 import org.firstinspires.ftc.teamcode.controllers.Controller;
 import org.firstinspires.ftc.teamcode.neurons.AngleTurning;
 import org.firstinspires.ftc.teamcode.neurons.Time;
-import org.firstinspires.ftc.teamcode.neurons.DeNoiser;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
 import org.firstinspires.ftc.teamcode.organs.drivetrains.DriveTrain;
 
@@ -16,7 +15,6 @@ import java.util.ArrayList;
 public class DriveToBall implements Controller{
     DriveTrain driveTrain;
     Instruments instruments;
-    DeNoiser deNoiser;
     private Double yaw;
     private AngleTurning angleTurning;
     private Time.Stopwatch stopwatch;
@@ -28,7 +26,6 @@ public class DriveToBall implements Controller{
         limit = l;
         stopwatch = new Time.Stopwatch();
         time = t * 1000;
-        deNoiser = new DeNoiser(instruments);
     }
     public boolean tick(){
         if(yaw == null) {
@@ -37,7 +34,7 @@ public class DriveToBall implements Controller{
             stopwatch.start();
         }
         stopwatch.reset();
-        if (deNoiser.distance() <= limit || stopwatch.timeElapsed() >= time){
+        if (instruments.distance <= limit || stopwatch.timeElapsed() >= time){
             driveTrain.stop();
             return true;
         }

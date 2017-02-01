@@ -43,7 +43,6 @@ public class Instruments extends Thread {
     private boolean gatherData;
     private long tickInterval;
 
-
     public Instruments() {
         //colorsensor = new TColor(Hardware.Color);
         ultrasensor = new TUltra(Hardware.Ultra);
@@ -97,6 +96,4 @@ public class Instruments extends Thread {
         light2 = lightsensor2.reflectedValue();
         yaw = imusensor.getYaw();
     }
-
-
 }
