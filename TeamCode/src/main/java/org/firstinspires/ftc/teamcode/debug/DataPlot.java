@@ -17,8 +17,22 @@ public class DataPlot {
         f.writeLine("x,y");
     }
 
-    public void logData(double x, double y) {
-        f.writeLine("" + x + "," + y);
+    public void logData(Object... data) {
+        String dataStr = "";
+
+        for(Object d: data) {
+            dataStr+= d.toString();
+            dataStr+= ",";
+        }
+
+        //delete extra comma
+        dataStr = dataStr.substring(0, dataStr.lastIndexOf(","));
+
+        logData(dataStr);
+    }
+
+    public void logDataRaw(String str) {
+        f.writeLine(str);
     }
 
     public String getData(int line) {

@@ -6,6 +6,8 @@ import org.firstinspires.ftc.teamcode.neurons.Time;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by max on 4/17/16.
@@ -71,6 +73,16 @@ public class Logger {
             lines.set(i, "");
         }
         renderLines();
+    }
+
+    private static Map<String, DataPlot> plotMap = new HashMap<String, DataPlot>();
+
+    public static void logFile(String key, String str) {
+        if(!plotMap.containsKey(key)) {
+            plotMap.put(key, new DataPlot());
+        }
+
+        plotMap.get(key).logDataRaw(str);
     }
 
     public static boolean test() {
