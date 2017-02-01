@@ -27,7 +27,7 @@ public class DriveToBall implements Controller{
             yaw = instruments.yaw;
             angleTurning = new AngleTurning(yaw);
         }
-        if (instruments.IRdistance >= limit){
+        if (instruments.distance >= limit){
             driveTrain.stop();
             return true;
         }

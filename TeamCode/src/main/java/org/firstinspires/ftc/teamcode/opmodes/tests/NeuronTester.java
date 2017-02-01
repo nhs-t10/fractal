@@ -17,15 +17,17 @@ import org.firstinspires.ftc.teamcode.tissues.TCamera;
 @TeleOp(name="Neuron Tester", group="Testers")
 public class NeuronTester extends T10Opmode {
     public NeuronTest neuronTest;
-    public TCamera camera;
+//    public TCamera camera;
     public Instruments instruments;
     public ButtonPusher bp;
     public void run() {
         instruments = new Instruments();
         instruments.start();
         bp = new ButtonPusher(new Pusher());
-        camera = new TCamera();
-        neuronTest = new NeuronTest(instruments, camera);
+//        camera = new TCamera();
+        neuronTest = new NeuronTest(instruments
+//                ,camera
+ );
     }
     public void tick() {
         neuronTest.tick();
@@ -33,6 +35,6 @@ public class NeuronTester extends T10Opmode {
     }
     @Override
     public void stop() {
-        camera.stop();
+//        camera.stop();
     }
 }
