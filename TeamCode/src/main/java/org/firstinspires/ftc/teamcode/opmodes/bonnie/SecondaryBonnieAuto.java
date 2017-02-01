@@ -41,8 +41,8 @@ public abstract class SecondaryBonnieAuto extends T10Autonomous{
 //        registerController(new Stall(10000));
         registerController(new DriveFromWall(instruments, driveTrain, (team == Team.RED ? 0.1 : 0.1)));
         registerController(new TurnX (instruments, driveTrain, (team == Team.RED ? 45 : -50)));
-        registerController(new DriveToBall (instruments, driveTrain, 1.3));
-        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? -45 : 35)));
+        registerController(new DriveToBall (instruments, driveTrain, .12, 2.2));
+        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? -45 : 30)));
 
         //shooting
         registerController(new Controller() {

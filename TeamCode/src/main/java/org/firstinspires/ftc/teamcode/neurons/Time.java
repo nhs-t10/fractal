@@ -37,8 +37,10 @@ public class Time {
         private boolean recording = false;
 
         public void start() {
-            recording = true;
-            reset();
+            if (!recording) {
+                reset();
+                recording = true;
+            }
         }
 
         public void stop() {
