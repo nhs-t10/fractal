@@ -27,6 +27,7 @@ public class Lock {
     public void ulock(String key) {
         if(pass.equals(key)) {
             lockedstate = false;
+            pass = DEFAULT_PASS;
         }
     }
 
