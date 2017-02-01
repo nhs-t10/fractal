@@ -4,6 +4,7 @@ import android.os.Environment;
 
 import org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity;
 import org.firstinspires.ftc.teamcode.debug.Logger;
+import org.firstinspires.ftc.teamcode.neurons.Time;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -23,19 +24,26 @@ public class T10FileWrapper {
     private File pathFile;
     private String path = "/sdcard/";
     private String name;
+    private String ext;
+    private int num = 1;
 
-    public T10FileWrapper(String path, String name) {
+    public T10FileWrapper(String path, String name, String ext) {
         pathFile = new File(path);
         if(!pathFile.exists()) {
             pathFile.mkdirs();
         }
 
-        file = new File(path+name);
+        file = new File(path+name+"_"+Time.getDateStr()+ext);
+
         try {
             file.createNewFile();
         } catch (IOException io) {
             io.printStackTrace();
         }
+    }
+
+    public void writeLine(String input) {
+        write(input + "\n");
     }
 
     public void write(String input) {
@@ -45,7 +53,7 @@ public class T10FileWrapper {
         }
 
         try {
-            FileOutputStream fos = new FileOutputStream(file);
+            FileOutputStream fos = new FileOutputStream(file, true);
             fos.write(input.getBytes());
             fos.close();
         } catch(IOException io) {

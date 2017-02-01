@@ -6,11 +6,13 @@ package org.firstinspires.ftc.teamcode.opmodes.tests;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.debug.DataPlot;
+import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.opmodes.T10Opmode;
 
 @TeleOp(name="CSV", group="Testers")
 public class CSVTester extends T10Opmode {
     DataPlot dp;
+    int line = 1;
 
     @Override
     public void run() {
@@ -19,7 +21,8 @@ public class CSVTester extends T10Opmode {
 
     @Override
     public void tick() {
-        dp.logData(1, 1);
-        dp.getData(1);
+        dp.logData(line, line);
+        Logger.logLine(dp.getData(line));
+        line++;
     }
 }
