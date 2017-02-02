@@ -34,6 +34,8 @@ public class PressBeacon implements Controller {
     private int frames = 0;
     private int isLeft = 0;
 
+    private double pastDistance;
+
     public PressBeacon(Team t, Instruments i, DriveTrain d, Pusher p, TCamera c) {
         instruments = i;
         driveTrain = d;
@@ -78,7 +80,8 @@ public class PressBeacon implements Controller {
             return false;
 
         }
-        if (detectedBeaconStatus && instruments.IRdistance >= (t == Team.RED ? 2.1 : 2.1)) {
+//        if (detectedBeaconStatus && instruments.IRdistance >= (t == Team.RED ? 2.1 : 2.1)) {
+        if (pastDistance == instruments.IRdistance && detectedBeaconStatus && instruments.IRdistance >= 1.5){
             driveTrain.stop();
             if (isPressingLeft) pusher.pushLeft();
             else pusher.pushRight();
@@ -86,6 +89,7 @@ public class PressBeacon implements Controller {
         }
         ArrayList<Float> powers = angleTurning.getDrivePowers(instruments.yaw, (Speed ? -0.1f : -0.1f));
         driveTrain.drive(powers.get(0), powers.get(1));
+        pastDistance = instruments.IRdistance;
         return false;
     }
 }

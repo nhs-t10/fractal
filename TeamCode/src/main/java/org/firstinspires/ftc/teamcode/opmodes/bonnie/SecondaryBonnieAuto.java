@@ -38,11 +38,12 @@ public abstract class SecondaryBonnieAuto extends T10Autonomous{
         final Spinner liftSpinner = new Spinner(Hardware.LiftSpinner, 1);
 
         //Drive to shooting place
-//        registerController(new Stall(10000));
+        registerController(new Stall(10000));
         registerController(new DriveFromWall(instruments, driveTrain, (team == Team.RED ? 0.1 : 0.1)));
+
         registerController(new TurnX (instruments, driveTrain, (team == Team.RED ? 45 : -50)));
-        registerController(new DriveToBall (instruments, driveTrain, .12, 2.2));
-        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? -45 : 30)));
+        registerController(new DriveToBall (instruments, driveTrain, .12, 1.9));
+        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 135 : 30)));
 
         //shooting
         registerController(new Controller() {

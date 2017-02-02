@@ -33,7 +33,6 @@ public class DriveToBall implements Controller{
             angleTurning = new AngleTurning(yaw);
             stopwatch.start();
         }
-        stopwatch.reset();
         if (instruments.distance <= limit || stopwatch.timeElapsed() >= time){
             driveTrain.stop();
             return true;
