@@ -30,7 +30,7 @@ public class TurnX implements Controller {
             started = true;
         }
         ArrayList<Float> values = angleTurning.getPivotPowers(instruments.yaw);
-        Logger.logFile("yaw", instruments.yaw + "," + sw.timeElapsed());
+//        Logger.logFile("yaw", instruments.yaw + "," + sw.timeElapsed());
         if (values.get(0) == 0.0 && values.get(1) == 0.0) {
             driveTrain.stop();
             return true;

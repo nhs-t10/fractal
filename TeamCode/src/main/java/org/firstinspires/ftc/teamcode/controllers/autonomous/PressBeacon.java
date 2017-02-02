@@ -81,7 +81,7 @@ public class PressBeacon implements Controller {
 
         }
 //        if (detectedBeaconStatus && instruments.IRdistance >= (t == Team.RED ? 2.1 : 2.1)) {
-        if (pastDistance == instruments.IRdistance && detectedBeaconStatus && instruments.IRdistance >= 1.5){
+        if (pastDistance == instruments.IRdistance && detectedBeaconStatus && instruments.IRdistance >= 2.48){
             driveTrain.stop();
             if (isPressingLeft) pusher.pushLeft();
             else pusher.pushRight();
