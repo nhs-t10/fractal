@@ -6,6 +6,7 @@ import org.firstinspires.ftc.teamcode.controllers.Controller;
 import org.firstinspires.ftc.teamcode.controllers.teleop.ButtonPusher;
 import org.firstinspires.ftc.teamcode.controllers.teleop.Collection;
 import org.firstinspires.ftc.teamcode.controllers.teleop.OneStickMecanum;
+import org.firstinspires.ftc.teamcode.controllers.teleop.Tray;
 import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.opmodes.T10Opmode;
 import org.firstinspires.ftc.teamcode.organs.Flicker;
@@ -34,6 +35,7 @@ public class clyde extends T10Opmode {
 //        pusher = new Pusher();
 
         controllers.add(new OneStickMecanum(drivetrain));
+        controllers.add(new Tray());
 //        controllers.add(new Collection(flicker, spinner));
 //        controllers.add(new ButtonPusher(pusher));
     }
