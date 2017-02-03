@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
  * Created by robotics on 4/14/16.
  */
 public class Hardware {
-    public static String MotorLeftRear, MotorRightRear, MotorLeftFront, MotorRightFront, Spinner, Flicker, LiftSpinner;
+    public static String MotorLeftRear, MotorRightRear, MotorLeftFront, MotorRightFront, Spinner, Flicker, LiftSpinner, ClydeTray;
 
     public static String ServoStop, ServoPusherRight, ServoPusherLeft;
 
@@ -29,6 +29,8 @@ public class Hardware {
         Spinner = "m5";
         Flicker = "m6";
         LiftSpinner = "m7";
+
+        ClydeTray = "m5";
 
         //GimbalVertical = "m6";
         ServoStop = "s1";
