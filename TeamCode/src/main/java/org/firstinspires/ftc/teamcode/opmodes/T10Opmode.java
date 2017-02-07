@@ -13,7 +13,7 @@ import org.firstinspires.ftc.teamcode.statics.Hardware;
  */
 public abstract class T10Opmode extends OpMode {
     public final void init() {
-        this.msStuckDetectInit = 30000;
+        this.msStuckDetectInit = 300000;
         initStatics();
         Logger.logLine("Initializing...");
         run();
