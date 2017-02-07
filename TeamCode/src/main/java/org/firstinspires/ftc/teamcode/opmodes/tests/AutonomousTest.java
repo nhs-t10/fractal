@@ -41,13 +41,13 @@ public class AutonomousTest extends T10Linear {
         cam = new TCamera();
 //        registerController(new AverageTime());
         registerController(new TurnX(instruments, md, 90));
-        final View relativeLayout = ((Activity) hardwareMap.appContext).findViewById(R.id.RelativeLayout);
-        relativeLayout.post(new Runnable() {
-            public void run() {
-                relativeLayout.setBackgroundColor(Color.GREEN);
-            }
-        });
-//        registerController(new DriftToLine(instruments, md, -0.1f, true));
+//        final View relativeLayout = ((Activity) hardwareMap.appContext).findViewById(R.id.RelativeLayout);
+//        relativeLayout.post(new Runnable() {
+//            public void run() {
+//                relativeLayout.setBackgroundColor(Color.GREEN);
+//            }
+//        });
+////        registerController(new DriftToLine(instruments, md, -0.1f, true));
 //        registerController(new PressBeacon(true, Team.RED, instruments, md, p, cam));
 //        registerController(new TurnX(instruments, md, 0));
 //        registerController(new Stall(1000));

@@ -15,13 +15,16 @@ public abstract class PID {
     protected double prevError = 1;
     private double pastError = 0;
     private Time.Stopwatch sw;
+    private Time.Stopwatch stopwatch;
     private boolean startedCount = false;
     private boolean sign = true;
     private boolean count = false;
     public double getPower (double error, boolean lightSensor) {
         if(!startedCount) {
             sw = new Time.Stopwatch();
+            stopwatch = new Time.Stopwatch();
             sw.start();
+            stopwatch.start();
             startedCount = true;
         }
         if ( (.5 > Math.abs(error)) && (.2 > Math.abs((prevError - error)))) {
@@ -42,6 +45,7 @@ public abstract class PID {
         Logger.logLine("prevError: " + (error - prevError) + ", " + error + ", " + prevError + ", count: " + count);
         Logger.logLine("derivative: " + d);
         Logger.logLine("Time Elapsed: " + sw.timeElapsed());
+        Logger.logFile("Error", "Error: " + error + ", Time: " + stopwatch.timeElapsed());
         if (count != true) {
             prevError = error;
         }
