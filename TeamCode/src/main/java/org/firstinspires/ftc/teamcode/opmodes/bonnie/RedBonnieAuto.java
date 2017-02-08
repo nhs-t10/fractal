@@ -9,6 +9,16 @@ import org.firstinspires.ftc.teamcode.controllers.Team;
  */
 @Autonomous(name="Red Bonnie", group="Autonomous")
 public class RedBonnieAuto extends BonnieAuto {
+    public RedBonnieAuto() {
+        DRIVE_FROM_WALL_LIM = 0.24;
+        TURNX_TO_VORTEX = 90.0;
+        TURNX_TO_LINE = 47.0;
+        TURNX_TO_WALL = 90.0;
+        SIDEWAYS_POWER = -0.2f;
+        DRIFT_TO_LINE_SPD = 0.1f;
+        DRIFT_TO_LINE_SPD_2 = -0.1f;
+    }
+
     @Override
     public void setTeam() {
         team = Team.RED;
