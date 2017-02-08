@@ -13,13 +13,13 @@ public class AngleTurning extends PID {
     private boolean setKi = true;
     private double prevPower = 0;
     private double pastAngle = 1000;
-    private final float minPower = 0.08f;
+    private final float minPower = 0.07f;
     private float power;
     public AngleTurning (double dest) {
         destination = dest;
         Kp = 2.0;
-        Ki = 0.1;
-        Kd = 0.0;
+        Ki = 0.0;
+        Kd = 1.0;
     }
     @Deprecated
     public ArrayList<Float> getDrivePowers(double currentAngle){

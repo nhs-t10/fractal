@@ -19,6 +19,7 @@ public abstract class PID {
     private boolean startedCount = false;
     private boolean sign = true;
     private boolean count = false;
+    private float time;
     public double getPower (double error, boolean lightSensor) {
         if(!startedCount) {
             sw = new Time.Stopwatch();
@@ -27,25 +28,28 @@ public abstract class PID {
             stopwatch.start();
             startedCount = true;
         }
-        if ( (.5 > Math.abs(error)) && (.2 > Math.abs((prevError - error)))) {
+        time = sw.timeElapsed();
+        if ((1 > error && error > 0 && Math.signum(error) == 1) || (-1 < error && error < 0 && Math.signum(error) == -1))
+//                && (.2 > Math.abs((prevError - error)))
+                 {
            Logger.logLine("derivative " + (error - prevError));
            prevError = error;
            return 0;
         }
 
         double p = Kp * error;
-        double d = Kd * (error - prevError);
+        double d = Kd * ((error - prevError) / time);
         if (error > 0 == !sign){
             sign = !sign;
             pastError = 0;
         }
-        pastError = pastError + error * sw.timeElapsed() / 1000;
+        pastError = pastError + error * time / 1000;
         sw.reset();
         double i = Ki * pastError;
         Logger.logLine("prevError: " + (error - prevError) + ", " + error + ", " + prevError + ", count: " + count);
         Logger.logLine("derivative: " + d);
-        Logger.logLine("Time Elapsed: " + sw.timeElapsed());
-        Logger.logFile("Error", "Error: " + error + ", Time: " + stopwatch.timeElapsed());
+        Logger.logLine("Time Elapsed: " + time);
+        Logger.logFile("Error", "Error: " + error + ", Time: " + stopwatch.timeElapsed() + "Power" + (p + d + i));
         if (count != true) {
             prevError = error;
         }

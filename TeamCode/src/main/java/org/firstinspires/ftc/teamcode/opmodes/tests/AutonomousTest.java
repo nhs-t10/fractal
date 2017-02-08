@@ -8,6 +8,7 @@ import org.firstinspires.ftc.teamcode.controllers.Team;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.AverageTime;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.DriftToLine;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.TurnX;
+import org.firstinspires.ftc.teamcode.controllers.tests.Stall;
 import org.firstinspires.ftc.teamcode.opmodes.T10Linear;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
 import org.firstinspires.ftc.teamcode.organs.Pusher;
@@ -40,7 +41,7 @@ public class AutonomousTest extends T10Linear {
         instruments.start();
         cam = new TCamera();
 //        registerController(new AverageTime());
-        registerController(new TurnX(instruments, md, 90));
+//        registerController(new TurnX(instruments, md, 90));
 //        final View relativeLayout = ((Activity) hardwareMap.appContext).findViewById(R.id.RelativeLayout);
 //        relativeLayout.post(new Runnable() {
 //            public void run() {
@@ -49,18 +50,18 @@ public class AutonomousTest extends T10Linear {
 //        });
 ////        registerController(new DriftToLine(instruments, md, -0.1f, true));
 //        registerController(new PressBeacon(true, Team.RED, instruments, md, p, cam));
-//        registerController(new TurnX(instruments, md, 0));
-//        registerController(new Stall(1000));
-//        registerController(new TurnX(instruments, md, 90));
-//        registerController(new Stall(1000));
-//        registerController(new TurnX(instruments, md, -60));
-//        registerController(new Stall(1000));
-//        registerController(new TurnX(instruments, md, -65));
-//        registerController(new Stall(1000));
-//        registerController(new TurnX(instruments, md, -170));
-//        registerController(new Stall(1000));
-//        registerController(new TurnX(instruments, md, 189));
-//        registerController(new Stall(1000));
+        registerController(new TurnX(instruments, md, 0));
+        registerController(new Stall(1000));
+        registerController(new TurnX(instruments, md, 90));
+        registerController(new Stall(1000));
+        registerController(new TurnX(instruments, md, -60));
+        registerController(new Stall(1000));
+        registerController(new TurnX(instruments, md, -65));
+        registerController(new Stall(1000));
+        registerController(new TurnX(instruments, md, -170));
+        registerController(new Stall(1000));
+        registerController(new TurnX(instruments, md, 189));
+        registerController(new Stall(1000));
 
     }
     @Override
