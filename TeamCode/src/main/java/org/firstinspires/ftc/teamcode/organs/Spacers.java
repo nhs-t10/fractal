@@ -24,7 +24,7 @@ public class Spacers implements Component {
         servo.stop();
     }
     public void raise() {
-        servo.move(1f);
+        servo.move(-1f);
         Sleep.secs(1);
         servo.stop();
     }
@@ -37,6 +37,8 @@ public class Spacers implements Component {
     }
 
     public boolean test() {
+        lower();
+        raise();
         return true;
     }
 }
