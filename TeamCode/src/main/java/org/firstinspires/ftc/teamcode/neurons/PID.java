@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.neurons;
+ package org.firstinspires.ftc.teamcode.neurons;
 
 import org.firstinspires.ftc.teamcode.debug.Logger;
 
@@ -9,35 +9,36 @@ import org.firstinspires.ftc.teamcode.debug.Logger;
  */
 
 public abstract class PID {
-    protected double Kp = 1;
-    protected double Kd = 0.5;
-    protected double Ki = 0.0;
-    protected double prevError = 1;
+    protected double Kp;
+    protected double Kd;
+    protected double Ki;
+    protected double prevError = 0;
     private double pastError = 0;
     private Time.Stopwatch sw;
-    private Time.Stopwatch stopwatch;
     private boolean startedCount = false;
     private boolean sign = true;
     private boolean count = false;
     private float time;
+    private float cumTime;
     public double getPower (double error, boolean lightSensor) {
         if(!startedCount) {
             sw = new Time.Stopwatch();
-            stopwatch = new Time.Stopwatch();
             sw.start();
-            stopwatch.start();
             startedCount = true;
+            prevError = error;
         }
-        time = sw.timeElapsed();
         if ((1 > error && error > 0 && Math.signum(error) == 1) || (-1 < error && error < 0 && Math.signum(error) == -1))
 //                && (.2 > Math.abs((prevError - error)))
                  {
-           Logger.logLine("derivative " + (error - prevError));
-           prevError = error;
+//           Logger.logLine("derivative " + (error - prevError));
            return 0;
         }
-
+        time = sw.timeElapsed();
+        cumTime = cumTime + time;
         double p = Kp * error;
+        if (time == 0){
+            time = 1;
+        }
         double d = Kd * ((error - prevError) / time);
         if (error > 0 == !sign){
             sign = !sign;
@@ -46,10 +47,11 @@ public abstract class PID {
         pastError = pastError + error * time / 1000;
         sw.reset();
         double i = Ki * pastError;
-        Logger.logLine("prevError: " + (error - prevError) + ", " + error + ", " + prevError + ", count: " + count);
-        Logger.logLine("derivative: " + d);
-        Logger.logLine("Time Elapsed: " + time);
-        Logger.logFile("Error", "Error: " + error + ", Time: " + stopwatch.timeElapsed() + "Power" + (p + d + i));
+//        Logger.logLine("prevError: " + (error - prevError) + ", " + error + ", " + prevError + ", count: " + count);
+//        Logger.logLine("derivative: " + d);
+//        Logger.logLine("Time Elapsed: " + time);
+//        Logger.logFile("Error", "Error: " + error + ", Time: " + stopwatch.timeElapsed() + ", Power: " + ((p + d + i) / 180));
+        Logger.logFile("Error", error + ", " + cumTime + "," + ((p + d + i) / 180) + "," + d);
         if (count != true) {
             prevError = error;
         }
