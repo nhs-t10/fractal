@@ -12,28 +12,36 @@ import org.firstinspires.ftc.teamcode.tissues.TTouch;
  */
 public class Spacers implements Component {
     public String getName() { return "Spacers"; }
-    private TCRServo servo;
+    private TCRServo servoRight;
+    private TCRServo servoLeft;
     private TTouch contactLeft;
+    private TTouch contactRight;
     public Spacers() {
-        servo = new TCRServo(Hardware.ServoSpacers);
+        servoLeft = new TCRServo(Hardware.SpacerLeft);
+        servoRight = new TCRServo(Hardware.SpacerRight);
         contactLeft = new TTouch(Hardware.ContactLeft);
+        contactRight = new TTouch(Hardware.ContactRight);
     }
     public void lower() {
-        servo.move(1f);
+        servoRight.move(1f);
+        servoLeft.move(1f);
         Sleep.secs(1);
-        servo.stop();
+        servoRight.stop();
+        servoLeft.stop();
     }
     public void raise() {
-        servo.move(-1f);
+        servoLeft.move(-1f);
+        servoRight.move(-1f);
         Sleep.secs(1);
-        servo.stop();
+        servoLeft.stop();
+        servoRight.stop();
     }
 
     public boolean isTouchingLeft() {
         return contactLeft.isPressed();
     }
     public boolean isTouchingRight() {
-        return true;
+        return contactRight.isPressed();
     }
 
     public boolean test() {

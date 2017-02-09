@@ -8,9 +8,9 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 public class Hardware {
     public static String MotorLeftRear, MotorRightRear, MotorLeftFront, MotorRightFront, Spinner, Flicker, LiftSpinner, ClydeTray;
 
-    public static String ServoStop, ServoPusherRight, ServoPusherLeft, ServoSpacers;
+    public static String ServoStop, ServoPusherRight, ServoPusherLeft, SpacerLeft, SpacerRight;
 
-    public static String IMU, Color, Ultra, Lightone, Lighttwo, Touch, ContactLeft, IRDistance;
+    public static String IMU, Color, Ultra, Lightone, Lighttwo, Touch, ContactLeft, ContactRight, IRDistance;
 
     private static HardwareMap hardwareMap;
 
@@ -25,7 +25,8 @@ public class Hardware {
         MotorRightFront = "m4";
         ServoPusherRight = "pusherR";
         ServoPusherLeft = "pusherL";
-        ServoSpacers = "spacer";
+        SpacerLeft = "spacerL";
+        SpacerRight = "spacerR";
 
         Spinner = "m5";
         Flicker = "m6";
@@ -43,5 +44,6 @@ public class Hardware {
         Lighttwo = "l2";
         Touch = "t1";
         ContactLeft = "t2";
+        ContactRight = "t3";
     }
 }
