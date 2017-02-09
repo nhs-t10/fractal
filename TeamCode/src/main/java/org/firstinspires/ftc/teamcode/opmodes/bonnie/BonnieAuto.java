@@ -14,6 +14,7 @@ import org.firstinspires.ftc.teamcode.opmodes.T10Autonomous;
 import org.firstinspires.ftc.teamcode.organs.Flicker;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
 import org.firstinspires.ftc.teamcode.organs.Pusher;
+import org.firstinspires.ftc.teamcode.organs.Spacers;
 import org.firstinspires.ftc.teamcode.organs.Spinner;
 import org.firstinspires.ftc.teamcode.organs.Stopper;
 import org.firstinspires.ftc.teamcode.organs.drivetrains.MecanumDrivetrain;
@@ -41,6 +42,7 @@ public abstract class BonnieAuto extends T10Autonomous {
         final Stopper stopper = new Stopper();
         final Spinner spinner = new Spinner(-1);
         final Spinner liftSpinner = new Spinner(Hardware.LiftSpinner, 1);
+        final Spacers spacers = new Spacers();
         //Advance from the wall and flick
         registerController(new DriveFromWall(instruments, driveTrain, (team == Team.RED ? 0.24 : 0.24)));
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : 90)));
@@ -123,7 +125,7 @@ public abstract class BonnieAuto extends T10Autonomous {
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
         registerController(new DriftToLine(instruments, driveTrain, (team == Team.RED ? 0.1f : -0.1f), true));
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
-        registerController(new PressBeacon(team, instruments, driveTrain, pusher, camera, true));
+        registerController(new PressBeacon(team, instruments, driveTrain, pusher, camera, spacers));
  //        registerController(new DriveFromWall(instruments, driveTrain, 0.12));
 //        //Shift backwards, sideways
         registerController(new Controller() {
@@ -163,7 +165,7 @@ public abstract class BonnieAuto extends T10Autonomous {
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
         registerController(new DriftToLine(instruments, driveTrain, (team == Team.RED ? -0.1f : 0.12f), true));
 //        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
-        registerController(new PressBeacon(team, instruments, driveTrain, pusher, camera, true));
+        registerController(new PressBeacon(team, instruments, driveTrain, pusher, camera, spacers));
         registerController(new DriveFromWall(instruments, driveTrain, 0.08));
         //LAST STEP: Align perfectly to a wall. Necessary for driver controlled period so we have a calibrated IMU!!
         registerController(new AlignToNearest(driveTrain, instruments));
