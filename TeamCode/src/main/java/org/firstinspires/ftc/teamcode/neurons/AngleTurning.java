@@ -29,7 +29,7 @@ public class AngleTurning extends PID {
         ArrayList<Float> powers = new ArrayList<Float>();
         float power = convertPower(getPower(getError(currentAngle), false));
         Logger.logLine("Angle: " + currentAngle);
-//        Logger.logLine("Error: "+ getError(currentAngle));
+        Logger.logLine("Error: "+ getError(currentAngle));
 //        Logger.logLine("Power: " + power);
         powers.add(speed + power);
         powers.add(speed - power);
@@ -44,7 +44,7 @@ public class AngleTurning extends PID {
                 power = Math.signum(power) * minPower;
             }
 //            Logger.logLine("Angle: " + currentAngle);
-//            Logger.logLine("Error: " + getError(currentAngle));
+            Logger.logLine("Error: " + getError(currentAngle));
 //            Logger.logLine("Power: " + power);
         }
         ArrayList<Float> powers = new ArrayList<Float>();

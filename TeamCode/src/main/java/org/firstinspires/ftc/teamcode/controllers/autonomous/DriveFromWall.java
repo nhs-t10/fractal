@@ -6,6 +6,7 @@ import org.firstinspires.ftc.teamcode.neurons.AngleTurning;
 import org.firstinspires.ftc.teamcode.neurons.Time;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
 import org.firstinspires.ftc.teamcode.organs.Spacers;
+import org.firstinspires.ftc.teamcode.organs.drivetrains.DriveTrain;
 import org.firstinspires.ftc.teamcode.organs.drivetrains.MecanumDrivetrain;
 
 import java.util.ArrayList;
@@ -21,16 +22,21 @@ public class DriveFromWall implements Controller {
     private Time.Stopwatch stopwatch;
     private Spacers spacers;
     private boolean backwards = false;
-    public boolean spacerUp = false;
+    public boolean spacerUp;
+    private boolean spacersTouched = false;
     double limit = 0;
     private int count = 0;
-    public DriveFromWall(Instruments i, MecanumDrivetrain dt, double l) {
+    public DriveFromWall(Instruments i, MecanumDrivetrain dt, double l){
+        this(i, dt, l, true);
+    }
+    public DriveFromWall(Instruments i, MecanumDrivetrain dt, double l, boolean spacer) {
         instruments = i;
         driveTrain = dt;
         limit = Math.abs(l);
         spacers = new Spacers();
         stopwatch = new Time.Stopwatch();
         backwards = (Math.signum(l) == -1);
+        spacerUp = spacer;
     }
     public boolean tick() {
         Logger.logLine("d:" + instruments.distance);
@@ -39,9 +45,13 @@ public class DriveFromWall implements Controller {
             angleTurning = new AngleTurning(yaw);
             stopwatch.start();
         }
-        if (spacerUp){
+        if (!spacerUp){
             if (spacers.isTouchingLeft() || spacers.isTouchingRight()){
-                spacers.lowerTimed(500);
+                spacers.lower();
+                spacersTouched = true;
+            }
+            else if (spacersTouched){
+                spacers.stop();
                 spacerUp = true;
             }
             else spacers.raise();

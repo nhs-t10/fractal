@@ -34,6 +34,7 @@ import com.qualcomm.robotcore.hardware.DigitalChannelController;
 @TeleOp(name="Autonomous Test", group="Autonomous Tests")
 public class AutonomousTest extends T10Linear {
     private TCamera cam;
+    private int stallTime = 2000;
     public void registration()  {
         final MecanumDrivetrain md = new MecanumDrivetrain();
         Pusher p = new Pusher();
@@ -51,17 +52,17 @@ public class AutonomousTest extends T10Linear {
 ////        registerController(new DriftToLine(instruments, md, -0.1f, true));
 //        registerController(new PressBeacon(true, Team.RED, instruments, md, p, cam));
         registerController(new TurnX(instruments, md, 0));
-        registerController(new Stall(1000));
+        registerController(new Stall(stallTime));
         registerController(new TurnX(instruments, md, 90));
-        registerController(new Stall(1000));
+        registerController(new Stall(stallTime));
         registerController(new TurnX(instruments, md, -60));
-        registerController(new Stall(1000));
+        registerController(new Stall(stallTime));
         registerController(new TurnX(instruments, md, -65));
-        registerController(new Stall(1000));
+        registerController(new Stall(stallTime));
         registerController(new TurnX(instruments, md, -170));
-        registerController(new Stall(1000));
+        registerController(new Stall(stallTime));
         registerController(new TurnX(instruments, md, 189));
-        registerController(new Stall(1000));
+        registerController(new Stall(stallTime));
 
     }
     @Override
