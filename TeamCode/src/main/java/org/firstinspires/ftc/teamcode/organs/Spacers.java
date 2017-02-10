@@ -25,16 +25,24 @@ public class Spacers implements Component {
     public void lower() {
         servoRight.move(1f);
         servoLeft.move(1f);
-        Sleep.secs(1);
-        servoRight.stop();
-        servoLeft.stop();
     }
     public void raise() {
         servoLeft.move(-1f);
         servoRight.move(-1f);
-        Sleep.secs(1);
-        servoLeft.stop();
+    }
+    public void stop(){
         servoRight.stop();
+        servoLeft.stop();
+    }
+    public void lowerTimed(double t){
+        lower();
+        Sleep.secs(t);
+        stop();
+    }
+    public void raiseTimed(int t){
+        raise();
+        Sleep.ms(t);
+        stop();
     }
 
     public boolean isTouchingLeft() {
