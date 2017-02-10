@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.organs;
 
 import org.firstinspires.ftc.teamcode.debug.Component;
 import org.firstinspires.ftc.teamcode.lib.Sleep;
+import org.firstinspires.ftc.teamcode.neurons.Time;
 import org.firstinspires.ftc.teamcode.statics.Hardware;
 import org.firstinspires.ftc.teamcode.tissues.TCRServo;
 import org.firstinspires.ftc.teamcode.tissues.TServo;
@@ -16,11 +17,13 @@ public class Spacers implements Component {
     private TCRServo servoLeft;
     private TTouch contactLeft;
     private TTouch contactRight;
+    private Time.Stopwatch sw;
     public Spacers() {
         servoLeft = new TCRServo(Hardware.SpacerLeft);
         servoRight = new TCRServo(Hardware.SpacerRight);
         contactLeft = new TTouch(Hardware.ContactLeft);
         contactRight = new TTouch(Hardware.ContactRight);
+        sw = new Time.Stopwatch();
     }
     public void lower() {
         servoRight.move(1f);
@@ -35,9 +38,11 @@ public class Spacers implements Component {
         servoLeft.stop();
     }
     public void lowerTimed(double t){
-        lower();
-        Sleep.secs(t);
-        stop();
+        sw.start();
+        if (sw.timeElapsed() < t){
+            lower();
+        }
+        else stop();
     }
     public void raiseTimed(int t){
         raise();
