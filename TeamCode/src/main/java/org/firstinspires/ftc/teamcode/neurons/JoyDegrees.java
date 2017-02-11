@@ -7,6 +7,6 @@ import java.util.ArrayList;
  */
 public class JoyDegrees {
     public static double toDeg(ArrayList<Float> coords) {
-        return Math.atan2(coords.get(1), coords.get(0));
+        return Math.atan2(coords.get(1), coords.get(0)) - 180;
     }
 }
