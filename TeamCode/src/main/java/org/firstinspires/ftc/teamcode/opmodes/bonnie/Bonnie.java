@@ -8,6 +8,7 @@ import org.firstinspires.ftc.teamcode.controllers.autonomous.ApproachBeacon;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.DriftToLine;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.TouchFlick;
 import org.firstinspires.ftc.teamcode.controllers.teleop.AlignToNearest;
+import org.firstinspires.ftc.teamcode.controllers.teleop.AutoAngle;
 import org.firstinspires.ftc.teamcode.controllers.teleop.BonnieCollection;
 import org.firstinspires.ftc.teamcode.controllers.teleop.ButtonPusher;
 import org.firstinspires.ftc.teamcode.controllers.teleop.OnButtonPress;
@@ -51,7 +52,10 @@ public class Bonnie extends T10Opmode {
         instruments.start();
         liftSpinner = new Spinner(Hardware.LiftSpinner, 1);
         pusher = new Pusher();
-
+        Controller[] autoAim = {
+                new OnButtonPress(Controls.AutoAim),
+                new AutoAngle(instruments, drivetrain)
+        };
         Controller[] autoPressRight = {
                 new OnButtonPress(Controls.AutoPressRight),
                 new AlignToNearest(drivetrain, instruments),
@@ -117,6 +121,7 @@ public class Bonnie extends T10Opmode {
                 new Stall(100),
                 new TouchFlick(flicker, 600)
         };
+        controllers.add(new Sequencer(autoAim, true));
         controllers.add(new Sequencer(autoPressRight, true));
         controllers.add(new Sequencer(autoPressLeft, true));
         controllers.add(new Sequencer(stopperFlip, true));
