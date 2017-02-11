@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.controllers.teleop;
 
 import org.firstinspires.ftc.teamcode.controllers.Controller;
+import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.neurons.AngleTurning;
 import org.firstinspires.ftc.teamcode.neurons.JoyDegrees;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
@@ -26,6 +27,7 @@ public class AutoAngle implements Controller {
     public boolean tick() {
         boolean click = ControlParser.button(Controls.AutoAim);
         if(!released) {
+            Logger.logLine("theta: " + JoyDegrees.toDeg(ControlParser.range(Controls.AimStick)));
             if(click) return false;
             else {
                 released = true;
