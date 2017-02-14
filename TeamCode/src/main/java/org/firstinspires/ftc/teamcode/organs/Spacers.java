@@ -1,6 +1,8 @@
 package org.firstinspires.ftc.teamcode.organs;
 
+import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.debug.Component;
+import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.lib.Sleep;
 import org.firstinspires.ftc.teamcode.neurons.Time;
 import org.firstinspires.ftc.teamcode.statics.Hardware;
@@ -13,29 +15,43 @@ import org.firstinspires.ftc.teamcode.tissues.TTouch;
  */
 public class Spacers implements Component {
     public String getName() { return "Spacers"; }
-    private TCRServo servoRight;
-    private TCRServo servoLeft;
+    private TCRServo servo;
     private TTouch contactLeft;
     private TTouch contactRight;
     private Time.Stopwatch sw;
+
+    private boolean topTouched = false;
     public Spacers() {
-        servoLeft = new TCRServo(Hardware.SpacerLeft);
-        servoRight = new TCRServo(Hardware.SpacerRight);
+        servo = new TCRServo(Hardware.Spacer);
         contactLeft = new TTouch(Hardware.ContactLeft);
         contactRight = new TTouch(Hardware.ContactRight);
         sw = new Time.Stopwatch();
     }
     public void lower() {
-        servoRight.move(1f);
-        servoLeft.move(1f);
+        servo.move(1f);
     }
     public void raise() {
-        servoLeft.move(-1f);
-        servoRight.move(-1f);
+        servo.move(-1f);
+    }
+    public boolean raiseUntil() {
+        if (!isTouchingLeft() || !isTouchingRight()) lower();
+            else stop();
+        return isTouchingLeft() && isTouchingRight();
+    }
+    public boolean raiseProper() {
+        if(isTouchingLeft() && isTouchingRight()) topTouched = true;
+        if(topTouched) {
+            if(!isTouchingLeft() && !isTouchingRight()) {
+                stop();
+                return true;
+            }
+            else lower();
+        }
+        else raise();
+        return false;
     }
     public void stop(){
-        servoRight.stop();
-        servoLeft.stop();
+        servo.stop();
     }
     public void lowerTimed(double t){
         sw.start();
@@ -51,10 +67,10 @@ public class Spacers implements Component {
     }
 
     public boolean isTouchingLeft() {
-        return contactLeft.isPressed();
+        return !contactLeft.isPressed();
     }
     public boolean isTouchingRight() {
-        return contactRight.isPressed();
+        return !contactRight.isPressed();
     }
 
     public boolean test() {

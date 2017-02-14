@@ -45,7 +45,7 @@ public abstract class BonnieAuto extends T10Autonomous {
         final Spacers spacers = new Spacers();
         //Advance from the wall and flick
         registerController(new DriveFromWall(instruments, driveTrain, (team == Team.RED ? 0.24 : 0.24), false));
-        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : 90), false));
+        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : 90)));
 
          registerController(new Controller() {
                     @Override
@@ -99,11 +99,11 @@ public abstract class BonnieAuto extends T10Autonomous {
         //DRIVE TO THE line
         if (team == Team.RED) {
 //            registerController(new TurnX(instruments, dri));
-            registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : 90), false));
+            registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : 90)));
             registerController(new DriveFromWall(instruments, driveTrain, -0.24, false));
         }
-        registerController(new TurnX(instruments, driveTrain, team == Team.RED ? redAngle : blueAngle, false));
-        registerController(new DriveToLine(instruments, driveTrain, team == Team.RED ? redAngle : blueAngle, false));
+        registerController(new TurnX(instruments, driveTrain, team == Team.RED ? redAngle : blueAngle));
+        registerController(new DriveToLine(instruments, driveTrain, team == Team.RED ? redAngle : blueAngle));
         //Go for 1st beacon
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
 

@@ -11,6 +11,9 @@ public class Controls {
     // DRIVING
     public static final String AutoPressRight = "DR1";
     public static final String AutoPressLeft = "DL1";
+    public static final String SpacerUp = "DU1";
+    public static final String SpacerDown = "DD1";
+    public static final String SpacerAuto = "^DU1";
     public static final String AutoAim = "RSB1";
     public static final String AimStick = "RS1";
     public static final String AutoAlign = "LSB1";

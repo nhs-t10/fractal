@@ -13,12 +13,14 @@ import org.firstinspires.ftc.teamcode.controllers.teleop.BonnieCollection;
 import org.firstinspires.ftc.teamcode.controllers.teleop.ButtonPusher;
 import org.firstinspires.ftc.teamcode.controllers.teleop.OnButtonPress;
 import org.firstinspires.ftc.teamcode.controllers.teleop.OneStickMecanum;
+import org.firstinspires.ftc.teamcode.controllers.teleop.SpacerMove;
 import org.firstinspires.ftc.teamcode.controllers.tests.Stall;
 import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.opmodes.T10Opmode;
 import org.firstinspires.ftc.teamcode.organs.Flicker;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
 import org.firstinspires.ftc.teamcode.organs.Pusher;
+import org.firstinspires.ftc.teamcode.organs.Spacers;
 import org.firstinspires.ftc.teamcode.organs.Spinner;
 import org.firstinspires.ftc.teamcode.organs.Stopper;
 import org.firstinspires.ftc.teamcode.organs.drivetrains.MecanumDrivetrain;
@@ -40,6 +42,7 @@ public class Bonnie extends T10Opmode {
     private Spinner liftSpinner;
     private Pusher pusher;
     private Instruments instruments;
+    private Spacers spacers;
 
     private ArrayList<Controller> controllers = new ArrayList<Controller>();
     public void run() {
@@ -47,6 +50,7 @@ public class Bonnie extends T10Opmode {
         drivetrain = new MecanumDrivetrain();
         flicker = new Flicker(false, -1);
         final Stopper stopper = new Stopper();
+        spacers = new Spacers();
         spinner = new Spinner(-1);
         instruments = new Instruments();
         instruments.start();
@@ -128,6 +132,7 @@ public class Bonnie extends T10Opmode {
         controllers.add(new Sequencer(autoAlignNearest, true));
         controllers.add(new Sequencer(autoBallScore, true));
         controllers.add(new OneStickMecanum(drivetrain));
+        controllers.add(new SpacerMove(spacers));
         controllers.add(new BonnieCollection(flicker, stopper, new ArrayList<Spinner>(Arrays.asList(spinner, liftSpinner))));
         controllers.add(new ButtonPusher(pusher));
     }
