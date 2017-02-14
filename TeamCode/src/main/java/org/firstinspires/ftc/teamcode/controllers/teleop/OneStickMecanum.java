@@ -30,13 +30,13 @@ public class OneStickMecanum implements Controller {
 
         ArrayList<Float> joy2Values = ControlParser.range(Controls.JoySecondary);
         ArrayList<Float> sidePowers = HumanDriving.joyToPowers(joy2Values);
-
-        if (Math.abs(sidePowers.get(0)) > 0.1) {
-            drivetrain.driveSideways(-sidePowers.get(0));
-        } else {
-            if(!DriveSpeed.macroBusy) drivetrain.drive(powers.get(0), powers.get(1));
+        if (!DriveSpeed.macroBusy) {
+            if (Math.abs(sidePowers.get(0)) > 0.1) {
+                drivetrain.driveSideways(-sidePowers.get(0));
+            } else {
+                drivetrain.drive(powers.get(0), powers.get(1));
+            }
         }
-
         return false;
     }
 }
