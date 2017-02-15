@@ -67,7 +67,6 @@ public class PressBeacon implements Controller {
                 detectedBeaconStatus = true;
             }
             return false;
-
         }
 //        if (detectedBeaconStatus && instruments.IRdistance >= (t == Team.RED ? 2.1 : 2.1)) {
         if (spacers.isTouchingRight() && spacers.isTouchingLeft()){

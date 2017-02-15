@@ -1,15 +1,18 @@
 package org.firstinspires.ftc.teamcode.opmodes.bonnie;
 
 import org.firstinspires.ftc.teamcode.controllers.Controller;
+import org.firstinspires.ftc.teamcode.controllers.Parallel;
 import org.firstinspires.ftc.teamcode.controllers.Team;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.DriftToLine;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.DriveFromWall;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.DriveToLine;
+import org.firstinspires.ftc.teamcode.controllers.autonomous.PrepSpacers;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.PressBeacon;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.TouchFlick;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.TurnX;
 import org.firstinspires.ftc.teamcode.controllers.teleop.AlignToNearest;
 import org.firstinspires.ftc.teamcode.controllers.tests.Stall;
+import org.firstinspires.ftc.teamcode.lib.Sleep;
 import org.firstinspires.ftc.teamcode.opmodes.T10Autonomous;
 import org.firstinspires.ftc.teamcode.organs.Flicker;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
@@ -44,9 +47,8 @@ public abstract class BonnieAuto extends T10Autonomous {
         final Spinner liftSpinner = new Spinner(Hardware.LiftSpinner, 1);
         final Spacers spacers = new Spacers();
         //Advance from the wall and flick
-        registerController(new DriveFromWall(instruments, driveTrain, (team == Team.RED ? 0.24 : 0.24), false));
+        registerController(new Parallel(new DriveFromWall(instruments, driveTrain, (team == Team.RED ? 0.24 : 0.24), false), new PrepSpacers()));
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : 90)));
-
          registerController(new Controller() {
                     @Override
                     public boolean tick() {
@@ -103,6 +105,7 @@ public abstract class BonnieAuto extends T10Autonomous {
             registerController(new DriveFromWall(instruments, driveTrain, -0.24, false));
         }
         registerController(new TurnX(instruments, driveTrain, team == Team.RED ? redAngle : blueAngle));
+        registerController(new Stall(250));
         registerController(new DriveToLine(instruments, driveTrain, team == Team.RED ? redAngle : blueAngle));
         //Go for 1st beacon
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
