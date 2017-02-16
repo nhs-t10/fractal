@@ -106,7 +106,7 @@ public abstract class BonnieAuto extends T10Autonomous {
             registerController(new DriveFromWall(instruments, driveTrain, -0.24, false));
         }
         registerController(new TurnX(instruments, driveTrain, team == Team.RED ? redAngle : blueAngle));
-        registerController(new Stall(250));
+        registerController(new Stall(500));
         registerController(new DriveToLine(instruments, driveTrain, team == Team.RED ? redAngle : blueAngle));
         //Go for 1st beacon
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
@@ -127,7 +127,7 @@ public abstract class BonnieAuto extends T10Autonomous {
             }
         });
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
-        registerController(new DriftToLine(instruments, driveTrain, (team == Team.RED ? 0.1f : -0.1f), true));
+        registerController(new DriftToLine(instruments, driveTrain, (team == Team.RED ? 0.15f : -0.15f), true));
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
         registerController(new PressBeacon(team, instruments, driveTrain, pusher, camera, spacers));
  //        registerController(new DriveFromWall(instruments, driveTrain, 0.12));
@@ -167,7 +167,7 @@ public abstract class BonnieAuto extends T10Autonomous {
 //        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
 //        registerController(new DriftToLine(instruments, driveTrain, team); 0.22
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
-        registerController(new DriftToLine(instruments, driveTrain, (team == Team.RED ? -0.1f : 0.12f), true));
+        registerController(new DriftToLine(instruments, driveTrain, (team == Team.RED ? -0.15f : 0.15f), true));
 //        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
         registerController(new PressBeacon(team, instruments, driveTrain, pusher, camera, spacers));
         registerController(new DriveFromWall(instruments, driveTrain, 0.08));
