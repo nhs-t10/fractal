@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.opmodes.bonnie;
 
 import org.firstinspires.ftc.teamcode.controllers.Controller;
+import org.firstinspires.ftc.teamcode.controllers.ControllerThreader;
 import org.firstinspires.ftc.teamcode.controllers.Parallel;
 import org.firstinspires.ftc.teamcode.controllers.Team;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.DriftToLine;
@@ -55,7 +56,8 @@ public abstract class BonnieAuto extends T10Autonomous {
         final Spinner liftSpinner = new Spinner(Hardware.LiftSpinner, 1);
         final Spacers spacers = new Spacers();
         //Advance from the wall and flick
-        registerController(new Parallel(new DriveFromWall(instruments, driveTrain, DRIVE_FROM_WALL_LIM), new PrepSpacers()));
+        registerController(new ControllerThreader(new PrepSpacers()));
+        registerController(new DriveFromWall(instruments, driveTrain, DRIVE_FROM_WALL_LIM));
         registerController(new TurnX(instruments, driveTrain, TURNX_TO_VORTEX));
 
          registerController(new Controller() {
