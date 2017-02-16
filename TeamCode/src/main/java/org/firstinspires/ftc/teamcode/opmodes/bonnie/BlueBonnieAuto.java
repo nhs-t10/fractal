@@ -18,7 +18,6 @@ public class BlueBonnieAuto extends BonnieAuto {
         DRIFT_TO_LINE_SPD = -0.1f;
         DRIFT_TO_LINE_SPD_2 = 0.12f;
     }
-
     @Override
     public void setTeam() {
         team = Team.BLUE;
