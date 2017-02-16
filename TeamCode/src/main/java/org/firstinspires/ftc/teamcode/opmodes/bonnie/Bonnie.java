@@ -13,10 +13,12 @@ import org.firstinspires.ftc.teamcode.controllers.teleop.BonnieCollection;
 import org.firstinspires.ftc.teamcode.controllers.teleop.ButtonPusher;
 import org.firstinspires.ftc.teamcode.controllers.teleop.OnButtonPress;
 import org.firstinspires.ftc.teamcode.controllers.teleop.OneStickMecanum;
+import org.firstinspires.ftc.teamcode.controllers.teleop.RollerMove;
 import org.firstinspires.ftc.teamcode.controllers.teleop.SpacerMove;
 import org.firstinspires.ftc.teamcode.controllers.tests.Stall;
 import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.opmodes.T10Opmode;
+import org.firstinspires.ftc.teamcode.organs.ButtonRoller;
 import org.firstinspires.ftc.teamcode.organs.Flicker;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
 import org.firstinspires.ftc.teamcode.organs.Pusher;
@@ -43,6 +45,7 @@ public class Bonnie extends T10Opmode {
     private Pusher pusher;
     private Instruments instruments;
     private Spacers spacers;
+    private ButtonRoller buttonRoller;
 
     private ArrayList<Controller> controllers = new ArrayList<Controller>();
     public void run() {
@@ -51,6 +54,7 @@ public class Bonnie extends T10Opmode {
         flicker = new Flicker(false, -1);
         final Stopper stopper = new Stopper();
         spacers = new Spacers();
+        buttonRoller = new ButtonRoller();
         spinner = new Spinner(-1);
         instruments = new Instruments();
         instruments.start();
@@ -135,6 +139,8 @@ public class Bonnie extends T10Opmode {
         controllers.add(new SpacerMove(spacers));
         controllers.add(new BonnieCollection(flicker, stopper, new ArrayList<Spinner>(Arrays.asList(spinner, liftSpinner))));
         controllers.add(new ButtonPusher(pusher));
+        controllers.add(new RollerMove(buttonRoller));
+
     }
     public void tick() {
         for(int i=0; i<controllers.size(); i++) {

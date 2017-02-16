@@ -41,7 +41,7 @@ public class Spacers implements Component {
     public boolean raiseProper() {
         if(isTouchingLeft() && isTouchingRight()) topTouched = true;
         if(topTouched) {
-            if(!isTouchingLeft() && !isTouchingRight()) {
+            if(!isTouchingLeft() || !isTouchingRight()) {
                 stop();
                 return true;
             }

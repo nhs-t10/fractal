@@ -6,6 +6,7 @@ import org.firstinspires.ftc.teamcode.controllers.Team;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.DriftToLine;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.DriveFromWall;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.DriveToLine;
+import org.firstinspires.ftc.teamcode.controllers.autonomous.PrepForAuto;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.PrepSpacers;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.PressBeacon;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.TouchFlick;
@@ -171,7 +172,7 @@ public abstract class BonnieAuto extends T10Autonomous {
         registerController(new PressBeacon(team, instruments, driveTrain, pusher, camera, spacers));
         registerController(new DriveFromWall(instruments, driveTrain, 0.08));
         //LAST STEP: Align perfectly to a wall. Necessary for driver controlled period so we have a calibrated IMU!!
-        registerController(new AlignToNearest(driveTrain, instruments));
+        registerController(new Parallel(new AlignToNearest(driveTrain, instruments), new PrepForAuto()));
 //        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? -135 : 135)));
 //        registerController(new HitBall(instruments, driveTrain, team));
 

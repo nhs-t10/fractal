@@ -23,7 +23,7 @@ public class SpacerMove implements Controller {
         else if (ControlParser.button(Controls.SpacerUp)) {
             spacers.lower();
         }
-        else if (ControlParser.button(Controls.SpacerAuto)) spacers.raiseUntil();
+        else if (ControlParser.button(Controls.SpacerAuto)) spacers.raiseProper();
         else spacers.stop();
         Logger.logLine("" + spacers.isTouchingRight() + " " + spacers.isTouchingLeft());
         return false;
