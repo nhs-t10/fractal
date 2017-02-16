@@ -7,6 +7,7 @@ import org.firstinspires.ftc.teamcode.neurons.AngleTurning;
 import org.firstinspires.ftc.teamcode.neurons.BeaconCheck;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
 import org.firstinspires.ftc.teamcode.organs.Pusher;
+import org.firstinspires.ftc.teamcode.organs.Spacers;
 import org.firstinspires.ftc.teamcode.organs.drivetrains.DriveTrain;
 import org.firstinspires.ftc.teamcode.tissues.TCamera;
 
@@ -23,6 +24,7 @@ public class PressBeacon implements Controller {
     private TCamera camera;
     private Pusher pusher;
     private BeaconCheck beacon;
+    private Spacers spacers;
     private AngleTurning angleTurning;
     private boolean Speed = false;
     private Team t;
@@ -36,30 +38,17 @@ public class PressBeacon implements Controller {
 
     private double pastDistance;
 
-    public PressBeacon(Team t, Instruments i, DriveTrain d, Pusher p, TCamera c) {
+    public PressBeacon(Team t, Instruments i, DriveTrain d, Pusher p, TCamera c, Spacers s) {
         instruments = i;
         driveTrain = d;
         pusher = p;
         camera = c;
+        spacers = s;
         beacon = new BeaconCheck(t);
         this.t = t;
         angleTurning = new AngleTurning((t == Team.RED ? 90 : -90));
     }
     //        sw = new Time.Stopwatch();
-    @Deprecated
-    public PressBeacon(Team t, Instruments i, DriveTrain d, Pusher p, TCamera c, boolean rolling) {
-        this(t, i, d, p, c);
-    }
-
-    @Deprecated
-    public PressBeacon(boolean testing, Team t, Instruments i, DriveTrain d, Pusher p, TCamera c) {
-        instruments = i;
-        driveTrain = d;
-        pusher = p;
-        camera = c;
-        beacon = new BeaconCheck(t);
-        angleTurning = new AngleTurning(180);
-    }
     private double updateRolling() {
         if (beacon.shouldPressLeft()) isLeft++;
         if (beacon.shouldPressLeft() || beacon.shouldPressRight()) frames++;
@@ -78,10 +67,9 @@ public class PressBeacon implements Controller {
                 detectedBeaconStatus = true;
             }
             return false;
-
         }
 //        if (detectedBeaconStatus && instruments.IRdistance >= (t == Team.RED ? 2.1 : 2.1)) {
-        if (pastDistance == instruments.IRdistance && detectedBeaconStatus && instruments.IRdistance >= 2.48){
+        if (spacers.isTouchingRight() && spacers.isTouchingLeft()){
             driveTrain.stop();
             if (isPressingLeft) pusher.pushLeft();
             else pusher.pushRight();

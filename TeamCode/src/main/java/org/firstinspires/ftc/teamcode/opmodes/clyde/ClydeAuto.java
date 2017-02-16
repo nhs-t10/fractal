@@ -50,7 +50,7 @@ public abstract class ClydeAuto extends T10Autonomous {
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 180 : 0)));
         registerController(new DriftToLine(instruments, driveTrain, team, false));
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 180 : 0)));
-        registerController(new PressBeacon(team,instruments, driveTrain, pusher, camera));
+//        registerController(new PressBeacon(team,instruments, driveTrain, pusher, camera));
     }
     public abstract void setTeam();
     @Override

@@ -11,6 +11,11 @@ public class Controls {
     // DRIVING
     public static final String AutoPressRight = "DR1";
     public static final String AutoPressLeft = "DL1";
+    public static final String SpacerUp = "^DL1";
+    public static final String SpacerDown = "^DR1";
+    public static final String SpacerAuto = "^DU1";
+    public static final String AutoAim = "RSB1";
+    public static final String AimStick = "RS1";
     public static final String AutoAlign = "LSB1";
     public static final String JoyDrive = "LS1";
     public static final String JoySecondary = "RS1";
@@ -27,6 +32,8 @@ public class Controls {
     public static final String LeftPushBtn = "LB1";
     public static final String RightPushBtn = "RB1";
     public static final String BothPushBtn = "^LB1";
+    public static final String RollerWind = "DD1";
+    public static final String RollerUnwind = "DU1";
     // OLD
     @Deprecated
     public static final String DriveRight = "A1";

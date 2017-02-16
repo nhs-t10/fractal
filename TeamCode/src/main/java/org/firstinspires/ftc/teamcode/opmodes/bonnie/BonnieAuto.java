@@ -1,19 +1,24 @@
 package org.firstinspires.ftc.teamcode.opmodes.bonnie;
 
 import org.firstinspires.ftc.teamcode.controllers.Controller;
+import org.firstinspires.ftc.teamcode.controllers.Parallel;
 import org.firstinspires.ftc.teamcode.controllers.Team;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.DriftToLine;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.DriveFromWall;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.DriveToLine;
+import org.firstinspires.ftc.teamcode.controllers.autonomous.PrepForAuto;
+import org.firstinspires.ftc.teamcode.controllers.autonomous.PrepSpacers;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.PressBeacon;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.TouchFlick;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.TurnX;
 import org.firstinspires.ftc.teamcode.controllers.teleop.AlignToNearest;
 import org.firstinspires.ftc.teamcode.controllers.tests.Stall;
+import org.firstinspires.ftc.teamcode.lib.Sleep;
 import org.firstinspires.ftc.teamcode.opmodes.T10Autonomous;
 import org.firstinspires.ftc.teamcode.organs.Flicker;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
 import org.firstinspires.ftc.teamcode.organs.Pusher;
+import org.firstinspires.ftc.teamcode.organs.Spacers;
 import org.firstinspires.ftc.teamcode.organs.Spinner;
 import org.firstinspires.ftc.teamcode.organs.Stopper;
 import org.firstinspires.ftc.teamcode.organs.drivetrains.MecanumDrivetrain;
@@ -48,8 +53,9 @@ public abstract class BonnieAuto extends T10Autonomous {
         final Stopper stopper = new Stopper();
         final Spinner spinner = new Spinner(-1);
         final Spinner liftSpinner = new Spinner(Hardware.LiftSpinner, 1);
+        final Spacers spacers = new Spacers();
         //Advance from the wall and flick
-        registerController(new DriveFromWall(instruments, driveTrain, DRIVE_FROM_WALL_LIM));
+        registerController(new Parallel(new DriveFromWall(instruments, driveTrain, DRIVE_FROM_WALL_LIM), new PrepSpacers()));
         registerController(new TurnX(instruments, driveTrain, TURNX_TO_VORTEX));
 
          registerController(new Controller() {
@@ -108,6 +114,7 @@ public abstract class BonnieAuto extends T10Autonomous {
             registerController(new DriveFromWall(instruments, driveTrain, -0.24));
         }
         registerController(new TurnX(instruments, driveTrain, TURNX_TO_LINE));
+        registerController(new Stall(500));
         registerController(new DriveToLine(instruments, driveTrain, TURNX_TO_LINE));
         //Go for 1st beacon
         registerController(new TurnX(instruments, driveTrain, TURNX_TO_WALL));
@@ -130,7 +137,8 @@ public abstract class BonnieAuto extends T10Autonomous {
         registerController(new TurnX(instruments, driveTrain, TURNX_TO_WALL));
         registerController(new DriftToLine(instruments, driveTrain, DRIFT_TO_LINE_SPD, true));
         registerController(new TurnX(instruments, driveTrain, TURNX_TO_WALL));
-        registerController(new PressBeacon(team, instruments, driveTrain, pusher, camera));
+        registerController(new PressBeacon(team, instruments, driveTrain, pusher, camera, spacers));
+
  //        registerController(new DriveFromWall(instruments, driveTrain, 0.12));
 //        //Shift backwards, sideways
         registerController(new Controller() {
@@ -170,10 +178,10 @@ public abstract class BonnieAuto extends T10Autonomous {
         registerController(new TurnX(instruments, driveTrain, TURNX_TO_WALL));
         registerController(new DriftToLine(instruments, driveTrain, DRIFT_TO_LINE_SPD_2, true));
 //        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
-        registerController(new PressBeacon(team, instruments, driveTrain, pusher, camera));
+        registerController(new PressBeacon(team, instruments, driveTrain, pusher, camera, spacers));
         registerController(new DriveFromWall(instruments, driveTrain, 0.08));
         //LAST STEP: Align perfectly to a wall. Necessary for driver controlled period so we have a calibrated IMU!!
-        registerController(new AlignToNearest(driveTrain, instruments));
+        registerController(new Parallel(new AlignToNearest(driveTrain, instruments), new PrepForAuto()));
 //        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? -135 : 135)));
 //        registerController(new HitBall(instruments, driveTrain, team));
 
