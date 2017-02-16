@@ -34,6 +34,7 @@ public class Controls {
     public static final String BothPushBtn = "^LB1";
     public static final String RollerWind = "DD1";
     public static final String RollerUnwind = "DU1";
+    public static final String RollerStopper = "^DD1";
     // OLD
     @Deprecated
     public static final String DriveRight = "A1";

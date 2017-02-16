@@ -8,8 +8,11 @@ import org.firstinspires.ftc.teamcode.tissues.TServo;
  * Created by robotics on 11/29/16.
  */
 public class Stopper implements Component {
-    private TServo stopper;
-    private boolean open;
+    protected TServo stopper;
+    protected boolean open;
+
+    protected double openVal = 0.7;
+    protected double closeVal = 0.095;
 
     public Stopper() {
         stopper = new TServo(Hardware.ServoStop);
@@ -28,11 +31,11 @@ public class Stopper implements Component {
     }
 
     public void open() {
-        stopper.moveTo(0.7);
+        stopper.moveTo(openVal);
     }
 
     public void close() {
-        stopper.moveTo(0.095);
+        stopper.moveTo(closeVal);
     }
 
     public void push() {
