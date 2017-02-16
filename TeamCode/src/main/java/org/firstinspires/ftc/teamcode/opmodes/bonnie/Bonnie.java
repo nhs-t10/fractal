@@ -22,6 +22,7 @@ import org.firstinspires.ftc.teamcode.organs.ButtonRoller;
 import org.firstinspires.ftc.teamcode.organs.Flicker;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
 import org.firstinspires.ftc.teamcode.organs.Pusher;
+import org.firstinspires.ftc.teamcode.organs.RollerStopper;
 import org.firstinspires.ftc.teamcode.organs.Spacers;
 import org.firstinspires.ftc.teamcode.organs.Spinner;
 import org.firstinspires.ftc.teamcode.organs.Stopper;
@@ -138,9 +139,8 @@ public class Bonnie extends T10Opmode {
         controllers.add(new OneStickMecanum(drivetrain));
         controllers.add(new SpacerMove(spacers));
         controllers.add(new BonnieCollection(flicker, stopper, new ArrayList<Spinner>(Arrays.asList(spinner, liftSpinner))));
-        controllers.add(new ButtonPusher(pusher));
+        controllers.add(new ButtonPusher(pusher, new RollerStopper()));
         controllers.add(new RollerMove(buttonRoller));
-
     }
     public void tick() {
         for(int i=0; i<controllers.size(); i++) {
