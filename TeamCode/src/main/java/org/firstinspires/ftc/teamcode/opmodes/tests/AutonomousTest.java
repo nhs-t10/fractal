@@ -7,6 +7,8 @@ import org.firstinspires.ftc.teamcode.controllers.Controller;
 import org.firstinspires.ftc.teamcode.controllers.Team;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.AverageTime;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.DriftToLine;
+import org.firstinspires.ftc.teamcode.controllers.autonomous.DriveToLine;
+import org.firstinspires.ftc.teamcode.controllers.autonomous.PrepForAuto;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.TurnX;
 import org.firstinspires.ftc.teamcode.controllers.tests.Stall;
 import org.firstinspires.ftc.teamcode.opmodes.T10Linear;
@@ -50,20 +52,22 @@ public class AutonomousTest extends T10Linear {
 //            }
 //        });
 ////        registerController(new DriftToLine(instruments, md, -0.1f, true));
-//        registerController(new PressBeacon(true, Team.RED, instruments, md, p, cam));
-        registerController(new TurnX(instruments, md, 0));
-        registerController(new Stall(stallTime));
-        registerController(new TurnX(instruments, md, 90));
-        registerController(new Stall(stallTime));
-        registerController(new TurnX(instruments, md, -60));
-        registerController(new Stall(stallTime));
-        registerController(new TurnX(instruments, md, -65));
-        registerController(new Stall(stallTime));
-        registerController(new TurnX(instruments, md, -170));
-        registerController(new Stall(stallTime));
-        registerController(new TurnX(instruments, md, 189));
-        registerController(new Stall(stallTime));
-
+////        registerController(new PressBeacon(true, Team.RED, instruments, md, p, cam));
+//        registerController(new TurnX(instruments, md, 0));
+//        registerController(new Stall(stallTime));
+//        registerController(new TurnX(instruments, md, 90));
+//        registerController(new Stall(stallTime));
+//        registerController(new TurnX(instruments, md, -60));
+//        registerController(new Stall(stallTime));
+//        registerController(new TurnX(instruments, md, -65));
+//        registerController(new Stall(stallTime));
+//        registerController(new TurnX(instruments, md, -170));
+//        registerController(new Stall(stallTime));
+//        registerController(new TurnX(instruments, md, 189));
+//        registerController(new Stall(stallTime));
+        registerController(new PrepForAuto());
+        registerController(new TurnX(instruments, md, 65));
+        registerController(new DriveToLine(instruments, md, 65));
     }
     @Override
     public void stop() {

@@ -10,7 +10,7 @@ public class Hardware {
 
     public static String ServoStop, ServoPusherRight, ServoPusherLeft, Spacer, ButtonRoller, SecondButtonRoller;
 
-    public static String IMU, Color, Ultra, Lightone, Lighttwo, Touch, ContactLeft, ContactRight, IRDistance;
+    public static String IMU, Color, Ultra, Lightone, Lighttwo, Touch, ContactLeft, ContactRight, IRDistance, Unwinder;
 
     private static HardwareMap hardwareMap;
 
@@ -46,5 +46,6 @@ public class Hardware {
         Touch = "t1";
         ContactLeft = "t2";
         ContactRight = "t3";
+        Unwinder = "t4";
     }
 }

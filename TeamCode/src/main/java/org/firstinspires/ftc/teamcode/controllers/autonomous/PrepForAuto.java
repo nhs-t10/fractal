@@ -1,6 +1,8 @@
 package org.firstinspires.ftc.teamcode.controllers.autonomous;
 
 import org.firstinspires.ftc.teamcode.controllers.Controller;
+import org.firstinspires.ftc.teamcode.debug.Logger;
+import org.firstinspires.ftc.teamcode.organs.ButtonRoller;
 import org.firstinspires.ftc.teamcode.organs.SecondButtonRoller;
 
 /**
@@ -8,21 +10,17 @@ import org.firstinspires.ftc.teamcode.organs.SecondButtonRoller;
  */
 
 public class PrepForAuto implements Controller{
+    private ButtonRoller buttonRoller;
     private SecondButtonRoller secondButtonRoller;
     private boolean rollersReady = false;
 
     public PrepForAuto(){
+        buttonRoller = new ButtonRoller();
         secondButtonRoller = new SecondButtonRoller();
     }
 
     public boolean tick(){
-        if (rollersReady){
-            return true;
-        }
-        else {
-            secondButtonRoller.open();
-            rollersReady = true;
-            return false;
-        }
+        secondButtonRoller.close();
+        return buttonRoller.autoUnwind();
     }
 }

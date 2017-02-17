@@ -27,10 +27,14 @@ public class AngleTurning extends PID {
         return getDrivePowers(currentAngle, -0.5f);
     }
     public ArrayList<Float> getDrivePowers(double currentAngle, float speed) {
+        Kp = 3.0;
         if (currentAngle != pastAngle){
          pastAngle = currentAngle;
          powered = convertPower(getPower(getError(currentAngle), false));
+         if (Math.abs(powered) < minPower && powered != 0) {
+             powered = Math.signum(powered) * minPower;
          }
+        }
         ArrayList<Float> powers = new ArrayList<Float>();
 //        Logger.logLine("Angle: " + currentAngle);
 //        Logger.logLine("Error: "+ getError(currentAngle));

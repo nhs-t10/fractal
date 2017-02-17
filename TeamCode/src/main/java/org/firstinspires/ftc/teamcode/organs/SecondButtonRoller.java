@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode.organs;
 import org.firstinspires.ftc.teamcode.debug.Component;
 import org.firstinspires.ftc.teamcode.statics.Hardware;
 import org.firstinspires.ftc.teamcode.tissues.TServo;
+import org.firstinspires.ftc.teamcode.tissues.TTouch;
 
 /**
  * Created by Jacob on 2/15/2017.
@@ -11,6 +12,7 @@ import org.firstinspires.ftc.teamcode.tissues.TServo;
 public class SecondButtonRoller implements Component {
     public String getName() { return "SecondButtonRoller"; }
     private TServo secondButtonRoller;
+
     private boolean open;
 
     public SecondButtonRoller(){
