@@ -14,9 +14,9 @@ public class BlueBonnieAuto extends BonnieAuto {
         TURNX_TO_VORTEX = 90.0;
         TURNX_TO_LINE = -60.0;
         TURNX_TO_WALL = -90.0;
-        SIDEWAYS_POWER = 0.2f;
-        DRIFT_TO_LINE_SPD = -0.1f;
-        DRIFT_TO_LINE_SPD_2 = 0.12f;
+        SIDEWAYS_POWER = 0.3f;
+        DRIFT_TO_LINE_SPD = -0.15f;
+        DRIFT_TO_LINE_SPD_2 = 0.15f;
     }
     @Override
     public void setTeam() {

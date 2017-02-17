@@ -175,11 +175,11 @@ public abstract class BonnieAuto extends T10Autonomous {
 //        registerController(new DriveToLine(instruments, driveTrain, (team == Team.RED ? 2 : -2)));
 //        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
 //        registerController(new DriftToLine(instruments, driveTrain, team); 0.22
+        registerController(new ControllerThreader(new PrepForAuto()));
         registerController(new TurnX(instruments, driveTrain, TURNX_TO_WALL));
         registerController(new DriftToLine(instruments, driveTrain, DRIFT_TO_LINE_SPD_2, true));
 //        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
         registerController(new PressBeacon(team, instruments, driveTrain, pusher, camera, spacers));
-        registerController(new ControllerThreader(new PrepForAuto()));
         registerController(new DriveFromWall(instruments, driveTrain, 0.08));
         //LAST STEP: Align perfectly to a wall. Necessary for driver controlled period so we have a calibrated IMU!!
         registerController(new AlignToNearest(driveTrain, instruments));

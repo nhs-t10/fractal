@@ -19,7 +19,7 @@ public class PrepForAuto implements Controller{
     }
 
     public boolean tick(){
-        secondButtonRoller.close();
+        secondButtonRoller.open();
         return buttonRoller.autoUnwind();
     }
 }

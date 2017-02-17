@@ -11,7 +11,7 @@ public class RollerStopper extends Stopper {
         this.stopper = new TServo(Hardware.SecondButtonRoller);
         this.open = false;
 
-        this.openVal =  0.8;
+        this.openVal =  1.0;
         this.closeVal = 0.5;
         close();
     }
