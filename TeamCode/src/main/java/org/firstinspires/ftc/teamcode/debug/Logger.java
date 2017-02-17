@@ -1,7 +1,6 @@
 package org.firstinspires.ftc.teamcode.debug;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
-import org.firstinspires.ftc.teamcode.lib.Sleep;
 import org.firstinspires.ftc.teamcode.neurons.Time;
 
 import java.util.ArrayList;

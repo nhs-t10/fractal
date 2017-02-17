@@ -7,7 +7,6 @@ import org.firstinspires.ftc.teamcode.controllers.tests.NeuronTest;
 import org.firstinspires.ftc.teamcode.opmodes.T10Opmode;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
 import org.firstinspires.ftc.teamcode.organs.Pusher;
-import org.firstinspires.ftc.teamcode.tissues.TCamera;
 
 /**
  * Created by max on 11/15/16.

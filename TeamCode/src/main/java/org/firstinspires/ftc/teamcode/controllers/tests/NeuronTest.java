@@ -1,15 +1,14 @@
 package org.firstinspires.ftc.teamcode.controllers.tests;
 
 import org.firstinspires.ftc.teamcode.controllers.Controller;
-import org.firstinspires.ftc.teamcode.controllers.Team;
 import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.neurons.AngleTurning;
-//import org.firstinspires.ftc.teamcode.neurons.BeaconCheck;
 import org.firstinspires.ftc.teamcode.neurons.LineAlignment;
 import org.firstinspires.ftc.teamcode.neurons.LineDetection;
 import org.firstinspires.ftc.teamcode.neurons.LinearizedDistance;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
-import org.firstinspires.ftc.teamcode.tissues.TCamera;
+
+//import org.firstinspires.ftc.teamcode.neurons.BeaconCheck;
 
 /**
  * Created by nhs on 10/27/16.

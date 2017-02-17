@@ -3,15 +3,10 @@ package org.firstinspires.ftc.teamcode.opmodes.clyde;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.controllers.Controller;
-import org.firstinspires.ftc.teamcode.controllers.teleop.ButtonPusher;
-import org.firstinspires.ftc.teamcode.controllers.teleop.Collection;
 import org.firstinspires.ftc.teamcode.controllers.teleop.OneStickMecanum;
 import org.firstinspires.ftc.teamcode.controllers.teleop.Tray;
 import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.opmodes.T10Opmode;
-import org.firstinspires.ftc.teamcode.organs.Flicker;
-import org.firstinspires.ftc.teamcode.organs.Pusher;
-import org.firstinspires.ftc.teamcode.organs.Spinner;
 import org.firstinspires.ftc.teamcode.organs.drivetrains.MecanumDrivetrain;
 
 import java.util.ArrayList;

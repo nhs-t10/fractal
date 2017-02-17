@@ -1,13 +1,10 @@
 package org.firstinspires.ftc.teamcode.organs;
 
-import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.debug.Component;
-import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.lib.Sleep;
 import org.firstinspires.ftc.teamcode.neurons.Time;
 import org.firstinspires.ftc.teamcode.statics.Hardware;
 import org.firstinspires.ftc.teamcode.tissues.TCRServo;
-import org.firstinspires.ftc.teamcode.tissues.TServo;
 import org.firstinspires.ftc.teamcode.tissues.TTouch;
 
 /**

@@ -7,7 +7,6 @@ import org.firstinspires.ftc.teamcode.debug.Component;
 import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.organs.Spacers;
 import org.firstinspires.ftc.teamcode.statics.Hardware;
-import org.firstinspires.ftc.teamcode.tissues.TMotor;
 
 /**
  * Created by max on 5/5/16.

@@ -1,10 +1,5 @@
 package org.firstinspires.ftc.teamcode.controllers;
 
-import org.firstinspires.ftc.teamcode.debug.Logger;
-import org.firstinspires.ftc.teamcode.neurons.DebouncingButton;
-import org.firstinspires.ftc.teamcode.statics.Controls;
-import org.firstinspires.ftc.teamcode.statics.DriveSpeed;
-
 /**
  * Created by max on 12/7/16.
  * Takes in a "sequence" of controllers. Is repeated, so state should reset for sub-controllers every time.

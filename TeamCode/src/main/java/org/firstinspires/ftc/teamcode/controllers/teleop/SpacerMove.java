@@ -5,8 +5,6 @@ import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.organs.Spacers;
 import org.firstinspires.ftc.teamcode.statics.ControlParser;
 import org.firstinspires.ftc.teamcode.statics.Controls;
-import org.firstinspires.ftc.teamcode.statics.Hardware;
-import org.firstinspires.ftc.teamcode.tissues.TMotor;
 
 /**
  * Created by max on 2/2/17.

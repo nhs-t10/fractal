@@ -1,6 +1,5 @@
 package org.firstinspires.ftc.teamcode.organs;
 
-import org.firstinspires.ftc.teamcode.statics.Controls;
 import org.firstinspires.ftc.teamcode.statics.Hardware;
 import org.firstinspires.ftc.teamcode.tissues.TServo;
 
@@ -12,7 +11,7 @@ public class RollerStopper extends Stopper {
         this.stopper = new TServo(Hardware.SecondButtonRoller);
         this.open = false;
 
-        this.openVal =  1.0;
+        this.openVal =  0.8;
         this.closeVal = 0.5;
         close();
     }
