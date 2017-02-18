@@ -31,6 +31,9 @@ public class ButtonRoller implements Component {
             return false;
         }
     }
+    public boolean isTouching() {
+        return unwinder.isPressed();
+    }
     public boolean test(){
         unwind();
         wind();
