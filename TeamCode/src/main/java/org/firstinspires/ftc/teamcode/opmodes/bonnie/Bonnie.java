@@ -70,7 +70,7 @@ public class Bonnie extends T10Opmode {
                 new AlignToNearest(drivetrain, instruments),
                 new DriftToLine(instruments, drivetrain, 0.2f),
                 new AlignToNearest(drivetrain, instruments),
-                new ApproachBeacon(drivetrain, instruments, pusher),
+                new ApproachBeacon(drivetrain, instruments, pusher, spacers),
                 new AlignToNearest(drivetrain, instruments)
         };
         Controller[] autoPressLeft = {
@@ -78,7 +78,7 @@ public class Bonnie extends T10Opmode {
                 new AlignToNearest(drivetrain, instruments), //1.3, 2.5
                 new DriftToLine(instruments, drivetrain, -0.2f),
                 new AlignToNearest(drivetrain, instruments),
-                new ApproachBeacon(drivetrain, instruments, pusher),
+                new ApproachBeacon(drivetrain, instruments, pusher, spacers),
                 new AlignToNearest(drivetrain, instruments)
         };
         Controller[] autoAlignNearest = {

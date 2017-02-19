@@ -5,6 +5,7 @@ import org.firstinspires.ftc.teamcode.controllers.teleop.AlignToNearest;
 import org.firstinspires.ftc.teamcode.neurons.AngleTurning;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
 import org.firstinspires.ftc.teamcode.organs.Pusher;
+import org.firstinspires.ftc.teamcode.organs.Spacers;
 import org.firstinspires.ftc.teamcode.organs.drivetrains.DriveTrain;
 
 import java.util.ArrayList;
@@ -16,16 +17,18 @@ import java.util.ArrayList;
 public class ApproachBeacon implements Controller {
     private DriveTrain driveTrain;
     private Instruments instruments;
+    private Spacers spacers;
     private Pusher pusher;
     private AngleTurning at;
     private boolean inited = false;
-    public ApproachBeacon(DriveTrain driveTrain, Instruments instruments, Pusher pusher) {
+    public ApproachBeacon(DriveTrain driveTrain, Instruments instruments, Pusher pusher, Spacers spacers) {
         this.driveTrain = driveTrain;
         this.instruments = instruments;
         this.pusher = pusher;
+        this.spacers = spacers;
     }
     public boolean tick() {
-        if (instruments.IRdistance >= 2) {
+        if (spacers.isTouchingLeft() && spacers.isTouchingRight()) {
             driveTrain.stop();
             return true;
         }
