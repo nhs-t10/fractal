@@ -27,12 +27,6 @@ public abstract class PID {
             startedCount = true;
             prevError = error;
         }
-        if ((1 > error && error > 0 && Math.signum(error) == 1) || (-1 < error && error < 0 && Math.signum(error) == -1))
-//                && (.2 > Math.abs((prevError - error)))
-                 {
-//           Logger.logLine("derivative " + (error - prevError));
-           return 0;
-        }
         time = sw.timeElapsed();
         cumTime = cumTime + time;
         double p = Kp * error;
@@ -56,6 +50,13 @@ public abstract class PID {
             prevError = error;
         }
         count = !count;
+
+        if ((1 > error && error > 0 && Math.signum(error) == 1) || (-1 < error && error < 0 && Math.signum(error) == -1))
+//                && (.2 > Math.abs((prevError - error)))
+        {
+//           Logger.logLine("derivative " + (error - prevError));
+            return 0;
+        }
         return p + d + i;
     }
 }
