@@ -27,7 +27,7 @@ public class AngleTurning extends PID {
         return getDrivePowers(currentAngle, -0.5f);
     }
     public ArrayList<Float> getDrivePowers(double currentAngle, float speed) {
-        Kp = 3.0;
+        Kp = 5.0;
         if (currentAngle != pastAngle){
          pastAngle = currentAngle;
          powered = convertPower(getPower(getError(currentAngle), false));

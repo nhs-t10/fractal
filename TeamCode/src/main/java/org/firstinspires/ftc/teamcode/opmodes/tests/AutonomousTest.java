@@ -5,6 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.DriveToLine;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.PrepForAuto;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.TurnX;
+import org.firstinspires.ftc.teamcode.controllers.tests.Stall;
 import org.firstinspires.ftc.teamcode.opmodes.T10Linear;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
 import org.firstinspires.ftc.teamcode.organs.Pusher;
@@ -49,6 +50,7 @@ public class AutonomousTest extends T10Linear {
 //        registerController(new Stall(stallTime));
         registerController(new PrepForAuto());
         registerController(new TurnX(instruments, md, 65));
+        registerController(new Stall(1000));
         registerController(new DriveToLine(instruments, md, 65));
     }
     @Override

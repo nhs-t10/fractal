@@ -23,9 +23,9 @@ public class DriveToLine implements Controller {
         at = new AngleTurning(angle);
         ld = new LineDetection();
     }
-    public DriveToLine(Instruments i, DriveTrain d, Team t) {
-        this(i, d, t == Team.RED ? 60 : -65);
-    }
+//    public DriveToLine(Instruments i, DriveTrain d, Team t) {
+//        this(i, d, t == Team.RED ? 60 : -65);
+//    }
     public boolean tick() {
         if (ld.isAtLine(instruments.light1, instruments.light2)) {
             driveTrain.stop();

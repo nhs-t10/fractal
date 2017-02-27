@@ -45,7 +45,7 @@ public abstract class ClydeAuto extends T10Autonomous {
         });
         registerController(new Stall(3000));
         registerController(new FlickOnce(flicker));
-        registerController(new DriveToLine(instruments, driveTrain, team));
+//        registerController(new DriveToLine(instruments, driveTrain, team));
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 180 : 0)));
         registerController(new DriftToLine(instruments, driveTrain, team, false));
         registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 180 : 0)));

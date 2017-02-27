@@ -33,7 +33,7 @@ public abstract class PID {
         if (time == 0){
             time = 1;
         }
-        double d = Kd * ((error - prevError) / time);
+        double d = -1 * Math.abs(Kd * ((error - prevError) / time));
         if (error > 0 == !sign){
             sign = !sign;
             pastError = 0;
