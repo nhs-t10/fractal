@@ -14,7 +14,7 @@ public class RedBonnieAuto extends BonnieAuto {
         TURNX_TO_VORTEX = 90.0;
         TURNX_TO_LINE = 47.0;
         TURNX_TO_WALL = 90.0;
-        SIDEWAYS_POWER = -0.2f;
+        SIDEWAYS_POWER = -0.3f;
         DRIFT_TO_LINE_SPD = 0.1f;
         DRIFT_TO_LINE_SPD_2 = -0.1f;
     }

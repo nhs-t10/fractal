@@ -37,8 +37,12 @@ public class AutoAngle implements Controller {
         ArrayList<Float> values = angleTurning.getPivotPowers(instruments.yaw);
         if (values.get(0) == 0.0 && values.get(1) == 0.0) {
             driveTrain.stop();
+            released = false;
+            angleTurning = null;
+            Logger.logLine("Done!");
             return true;
         }
+        Logger.logLine("Turning...");
         driveTrain.drive(values.get(0), values.get(1));
         return false;
     }
