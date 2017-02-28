@@ -16,7 +16,7 @@ public class AngleTurning extends PID {
     private final float minPower = 0.09f;
     private float power;
     private float powered;
-    public AngleTurning (double dest) {
+        public AngleTurning (double dest) {
         destination = dest;
         Kp = 2.0;
         Ki = 0.0;
@@ -27,11 +27,14 @@ public class AngleTurning extends PID {
         return getDrivePowers(currentAngle, -0.5f);
     }
     public ArrayList<Float> getDrivePowers(double currentAngle, float speed) {
+       return getDrivePowers(currentAngle, speed, false);
+    }
+    public ArrayList<Float> getDrivePowers(double currentAngle, float speed, boolean lowPowered){
 //        Kp = 3.0;
         if (currentAngle != pastAngle){
          pastAngle = currentAngle;
          powered = convertPower(getPower(getError(currentAngle), false));
-         if (Math.abs(powered) < minPower && powered != 0) {
+         if (Math.abs(powered) < minPower && powered != 0 && !lowPowered) {
              powered = Math.signum(powered) * minPower;
          }
         }

@@ -75,7 +75,7 @@ public class PressBeacon implements Controller {
             else pusher.pushRight();
             return true;
         }
-        ArrayList<Float> powers = angleTurning.getDrivePowers(instruments.yaw, (Speed ? -0.1f : -0.1f));
+        ArrayList<Float> powers = angleTurning.getDrivePowers(instruments.yaw, (Speed ? -0.13f : -0.13f), true);
         driveTrain.drive(powers.get(0), powers.get(1));
         pastDistance = instruments.IRdistance;
         return false;
