@@ -113,8 +113,8 @@ public abstract class BonnieAuto extends T10Autonomous {
             registerController(new TurnX(instruments, driveTrain, TURNX_TO_WALL));
             registerController(new DriveFromWall(instruments, driveTrain, -0.24));
         }
-        registerController(new TurnX(instruments, driveTrain, TURNX_TO_LINE));
-        registerController(new Stall(500));
+//        registerController(new TurnX(instruments, driveTrain, TURNX_TO_LINE));
+//        registerController(new Stall(500));
         registerController(new DriveToLine(instruments, driveTrain, TURNX_TO_LINE));
         //Go for 1st beacon
         registerController(new TurnX(instruments, driveTrain, TURNX_TO_WALL));
