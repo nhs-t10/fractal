@@ -12,12 +12,13 @@ import org.firstinspires.ftc.teamcode.organs.drivetrains.MecanumDrivetrain;
 import org.firstinspires.ftc.teamcode.statics.Hardware;
 
 import java.util.ArrayList;
-
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 /**
  * Created by max on 5/5/16.
  * Tests organs/tissues sequentially and indicates their success
  */
 @TeleOp(name="Linear Tester", group="Testers")
+@Disabled
 public class Tester extends LinearOpMode {
     private void testComponent(Component c) {
         try {

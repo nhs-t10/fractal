@@ -8,13 +8,14 @@ import org.firstinspires.ftc.teamcode.opmodes.T10Opmode;
 import org.firstinspires.ftc.teamcode.tissues.TCamera;
 
 import java.util.ArrayList;
-
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 /**
  * Created by Admin on 4/19/2016.
  *
  * Tests tick-based controllers.
  */
 @TeleOp(name="Camera Tester", group="Testers")
+@Disabled
 public class CameraAdjust extends T10Opmode {
     private ArrayList<Controller> tests = new ArrayList<Controller>();
 

@@ -9,13 +9,14 @@ import org.firstinspires.ftc.teamcode.organs.Instruments;
 import org.firstinspires.ftc.teamcode.organs.drivetrains.MecanumDrivetrain;
 
 import java.util.ArrayList;
-
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 /**
  * Created by Admin on 4/19/2016.
  *
  * Tests tick-based controllers.
  */
 @TeleOp(name="Controller Tester", group="Testers")
+@Disabled
 public class ControllerTester extends T10Opmode {
     private ArrayList<Controller> tests = new ArrayList<Controller>();
 

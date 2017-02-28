@@ -8,8 +8,10 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.debug.DataPlot;
 import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.opmodes.T10Opmode;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 
 @TeleOp(name="CSV", group="Testers")
+@Disabled
 public class CSVTester extends T10Opmode {
     DataPlot dp;
     int line = 1;
