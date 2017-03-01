@@ -31,14 +31,14 @@ public class CorrectiveMeasures implements Controller{
     private boolean useful = false;
     private boolean backUp = false;
     private boolean aligned = false;
-    public CorrectiveMeasures(Instruments i, MecanumDrivetrain md, float speed){
+    public CorrectiveMeasures(Instruments i, MecanumDrivetrain md, float speed, double angle){
         s = speed;
         sw = new Time.Stopwatch();
         instruments = i;
         mecanumDrivetrain = md;
         spacerL = new TTouch(Hardware.ContactLeft);
         spacerR = new TTouch(Hardware.ContactRight);
-        at = new AngleTurning(90);
+        at = new AngleTurning(angle);
         ld = new LineDetection();
     }
     public boolean tick(){
