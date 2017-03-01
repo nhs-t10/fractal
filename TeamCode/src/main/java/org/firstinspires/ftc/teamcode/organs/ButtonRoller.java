@@ -10,7 +10,7 @@ import org.firstinspires.ftc.teamcode.tissues.TTouch;
  * Created by Jacob on 2/15/2017.
  */
 
-public class ButtonRoller implements Component, Lock {
+public class ButtonRoller implements Component {
     public String getName() { return "ButtonRoller"; }
     private TCRServo servo;
     private TTouch unwinder;
