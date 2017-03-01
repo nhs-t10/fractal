@@ -6,6 +6,8 @@ import org.firstinspires.ftc.teamcode.neurons.AngleTurning;
 import org.firstinspires.ftc.teamcode.neurons.LineDetection;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
 import org.firstinspires.ftc.teamcode.organs.drivetrains.DriveTrain;
+import org.firstinspires.ftc.teamcode.statics.Hardware;
+import org.firstinspires.ftc.teamcode.tissues.TTouch;
 
 import java.util.ArrayList;
 
@@ -15,11 +17,15 @@ import java.util.ArrayList;
 public class DriveToLine implements Controller {
     private Instruments instruments;
     private DriveTrain driveTrain;
+    private TTouch spacerL;
+    private TTouch spacerR;
     private AngleTurning at;
     private LineDetection ld;
     public DriveToLine(Instruments i, DriveTrain d, double angle){
         instruments = i;
         driveTrain = d;
+        spacerL = new TTouch(Hardware.ContactLeft);
+        spacerR = new TTouch(Hardware.ContactRight);
         at = new AngleTurning(angle);
         ld = new LineDetection();
     }
@@ -28,6 +34,10 @@ public class DriveToLine implements Controller {
 //    }
     public boolean tick() {
         if (ld.isAtLine(instruments.light1, instruments.light2)) {
+            driveTrain.stop();
+            return true;
+        }
+        if (spacerL.isPressed() || spacerR.isPressed()){
             driveTrain.stop();
             return true;
         }

@@ -45,7 +45,7 @@ public abstract class PID {
 //        Logger.logLine("derivative: " + d);
 //        Logger.logLine("Time Elapsed: " + time);
 //        Logger.logFile("Error", "Error: " + error + ", Time: " + stopwatch.timeElapsed() + ", Power: " + ((p + d + i) / 180));
-//        Logger.logFile("Error", error + ", " + cumTime + ", " + ((p + d + i) / 180) + "," + d);
+        Logger.logFile("Error", error + ", " + cumTime + ", " + ((p + d + i) / 180) + "," + d);
         if (count != true) {
             prevError = error;
         }

@@ -4,6 +4,7 @@ import org.firstinspires.ftc.teamcode.controllers.Controller;
 import org.firstinspires.ftc.teamcode.controllers.ControllerThreader;
 import org.firstinspires.ftc.teamcode.controllers.Parallel;
 import org.firstinspires.ftc.teamcode.controllers.Team;
+import org.firstinspires.ftc.teamcode.controllers.autonomous.CorrectiveMeasures;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.DriftToLine;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.DriveFromWall;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.DriveToLine;
@@ -117,6 +118,7 @@ public abstract class BonnieAuto extends T10Autonomous {
 //        registerController(new TurnX(instruments, driveTrain, TURNX_TO_LINE));
 //        registerController(new Stall(500));
         registerController(new DriveToLine(instruments, driveTrain, TURNX_TO_LINE));
+        registerController(new CorrectiveMeasures(instruments, driveTrain, DRIFT_TO_LINE_SPD_2));
         //Go for 1st beacon
         registerController(new TurnX(instruments, driveTrain, TURNX_TO_WALL));
 
