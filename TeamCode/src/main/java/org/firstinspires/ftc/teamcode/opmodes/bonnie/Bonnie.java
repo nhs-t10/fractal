@@ -6,6 +6,7 @@ import org.firstinspires.ftc.teamcode.controllers.Controller;
 import org.firstinspires.ftc.teamcode.controllers.Sequencer;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.ApproachBeacon;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.DriftToLine;
+import org.firstinspires.ftc.teamcode.controllers.autonomous.PrepForAuto;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.TouchFlick;
 import org.firstinspires.ftc.teamcode.controllers.teleop.AlignToNearest;
 import org.firstinspires.ftc.teamcode.controllers.teleop.AutoAngle;
@@ -130,6 +131,7 @@ public class Bonnie extends T10Opmode {
                 new Stall(100),
                 new TouchFlick(flicker, 600)
         };
+        controllers.add(new PrepForAuto(buttonRoller));
         controllers.add(new Sequencer(autoAim, true));
         controllers.add(new Sequencer(autoPressRight, true));
         controllers.add(new Sequencer(autoPressLeft, true));

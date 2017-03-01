@@ -13,13 +13,19 @@ public class PrepForAuto implements Controller{
     private RollerStopper secondButtonRoller;
     private boolean rollersReady = false;
 
-    public PrepForAuto(){
-        buttonRoller = new ButtonRoller();
+    public PrepForAuto(ButtonRoller br) {
+        buttonRoller = br;
         secondButtonRoller = new RollerStopper();
+
+    }
+
+    public PrepForAuto(){
+        this(new ButtonRoller());
     }
 
     public boolean tick(){
         secondButtonRoller.open();
+        buttonRoller.lock(true);
         return buttonRoller.autoUnwind();
     }
 }
