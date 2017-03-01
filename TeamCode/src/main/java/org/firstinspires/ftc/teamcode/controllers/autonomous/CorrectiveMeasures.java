@@ -38,12 +38,12 @@ public class CorrectiveMeasures implements Controller{
         mecanumDrivetrain = md;
         spacerL = new TTouch(Hardware.ContactLeft);
         spacerR = new TTouch(Hardware.ContactRight);
-        at = new AngleTurning(-90);
+        at = new AngleTurning(90);
         ld = new LineDetection();
     }
     public boolean tick(){
         if (!useful) {
-            if (!(spacerL.isPressed() || spacerR.isPressed()) && RobotState.spacersDropped) {
+            if (!(!spacerL.isPressed() || !spacerR.isPressed()) && RobotState.spacersDropped) {
                 return true;
             }
             sw.start();

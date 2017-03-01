@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.controllers.autonomous;
 
 import org.firstinspires.ftc.teamcode.controllers.Controller;
 import org.firstinspires.ftc.teamcode.controllers.Team;
+import org.firstinspires.ftc.teamcode.controllers.teleop.SpacerMove;
 import org.firstinspires.ftc.teamcode.neurons.AngleTurning;
 import org.firstinspires.ftc.teamcode.neurons.LineDetection;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
@@ -38,10 +39,10 @@ public class DriveToLine implements Controller {
             driveTrain.stop();
             return true;
         }
-//        if ((spacerL.isPressed() || spacerR.isPressed()) && RobotState.spacersDropped){
-//            driveTrain.stop();
-//            return true;
-//        }
+        if ((!spacerL.isPressed() || !spacerR.isPressed()) && RobotState.spacersDropped){
+            driveTrain.stop();
+            return true;
+        }
         ArrayList<Float> powers = at.getDrivePowers(instruments.yaw, -0.3f);
         driveTrain.drive(powers.get(0), powers.get(1));
         return false;
