@@ -5,7 +5,7 @@ import org.firstinspires.ftc.teamcode.neurons.HumanDriving;
 import org.firstinspires.ftc.teamcode.organs.drivetrains.MecanumDrivetrain;
 import org.firstinspires.ftc.teamcode.statics.ControlParser;
 import org.firstinspires.ftc.teamcode.statics.Controls;
-import org.firstinspires.ftc.teamcode.statics.DriveSpeed;
+import org.firstinspires.ftc.teamcode.statics.RobotState;
 
 import java.util.ArrayList;
 
@@ -30,7 +30,7 @@ public class OneStickMecanum implements Controller {
 
         ArrayList<Float> joy2Values = ControlParser.range(Controls.JoySecondary);
         ArrayList<Float> sidePowers = HumanDriving.joyToPowers(joy2Values);
-        if (!DriveSpeed.macroBusy) {
+        if (!RobotState.macroBusy) {
             if (Math.abs(sidePowers.get(0)) > 0.1) {
                 drivetrain.driveSideways(-sidePowers.get(0));
             } else {

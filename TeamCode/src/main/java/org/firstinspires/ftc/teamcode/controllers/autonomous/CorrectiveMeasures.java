@@ -9,6 +9,7 @@ import org.firstinspires.ftc.teamcode.organs.Spacers;
 import org.firstinspires.ftc.teamcode.organs.drivetrains.DriveTrain;
 import org.firstinspires.ftc.teamcode.organs.drivetrains.MecanumDrivetrain;
 import org.firstinspires.ftc.teamcode.statics.Hardware;
+import org.firstinspires.ftc.teamcode.statics.RobotState;
 import org.firstinspires.ftc.teamcode.tissues.TTouch;
 
 import java.util.ArrayList;
@@ -30,11 +31,11 @@ public class CorrectiveMeasures implements Controller{
     private boolean useful = false;
     private boolean backUp = false;
     private boolean aligned = false;
-    public CorrectiveMeasures(Instruments i, MecanumDrivetrain d, float speed){
+    public CorrectiveMeasures(Instruments i, MecanumDrivetrain md, float speed){
         s = speed;
         sw = new Time.Stopwatch();
         instruments = i;
-        mecanumDrivetrain = d;
+        mecanumDrivetrain = md;
         spacerL = new TTouch(Hardware.ContactLeft);
         spacerR = new TTouch(Hardware.ContactRight);
         at = new AngleTurning(-90);
@@ -42,7 +43,7 @@ public class CorrectiveMeasures implements Controller{
     }
     public boolean tick(){
         if (!useful) {
-            if (!(spacerL.isPressed() || spacerR.isPressed())) {
+            if (!(spacerL.isPressed() || spacerR.isPressed()) && RobotState.spacersDropped) {
                 return true;
             }
             sw.start();
@@ -66,7 +67,7 @@ public class CorrectiveMeasures implements Controller{
             mecanumDrivetrain.drive(values.get(0), values.get(1));
             return false;
         }
-
+// :)
         if (aligned){
             mecanumDrivetrain.driveSideways(s);
             if (ld.centeredAtLine(instruments.light1, instruments.light2)){

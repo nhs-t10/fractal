@@ -7,6 +7,7 @@ import org.firstinspires.ftc.teamcode.neurons.LineDetection;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
 import org.firstinspires.ftc.teamcode.organs.drivetrains.DriveTrain;
 import org.firstinspires.ftc.teamcode.statics.Hardware;
+import org.firstinspires.ftc.teamcode.statics.RobotState;
 import org.firstinspires.ftc.teamcode.tissues.TTouch;
 
 import java.util.ArrayList;
@@ -37,7 +38,7 @@ public class DriveToLine implements Controller {
             driveTrain.stop();
             return true;
         }
-        if (spacerL.isPressed() || spacerR.isPressed()){
+        if ((spacerL.isPressed() || spacerR.isPressed()) && RobotState.spacersDropped){
             driveTrain.stop();
             return true;
         }

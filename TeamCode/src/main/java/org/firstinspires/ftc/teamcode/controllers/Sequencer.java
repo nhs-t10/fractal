@@ -3,7 +3,7 @@ package org.firstinspires.ftc.teamcode.controllers;
 import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.neurons.DebouncingButton;
 import org.firstinspires.ftc.teamcode.statics.Controls;
-import org.firstinspires.ftc.teamcode.statics.DriveSpeed;
+import org.firstinspires.ftc.teamcode.statics.RobotState;
 
 /**
  * Created by max on 12/7/16.
@@ -27,7 +27,7 @@ public class Sequencer implements Controller {
             if (cancel.getToggle()) {
                 Logger.logLine("Macro cancelled");
                 index = 0;
-                DriveSpeed.macroBusy = false;
+                RobotState.macroBusy = false;
                 return true;
             }
         }
@@ -36,11 +36,11 @@ public class Sequencer implements Controller {
             if (index == queue.length - 1) {
                 Logger.logLine("Macro done");
                 index = 0;
-                DriveSpeed.macroBusy = false;
+                RobotState.macroBusy = false;
                 return true;
             }
             if (index == 1) Logger.logLine("Macro initiated");
-            DriveSpeed.macroBusy = true;
+            RobotState.macroBusy = true;
             index++;
             return false;
         }
