@@ -11,9 +11,11 @@ public class DataPlot {
     private static final String PATH = "/sdcard/FIRST/log/";
 
     private T10FileWrapper f;
-
     public DataPlot() {
-        f = new T10FileWrapper(PATH, FILE_NAME, FILE_EXTENSION);
+        this(FILE_NAME);
+    }
+    public DataPlot(String filename) {
+        f = new T10FileWrapper(PATH, filename, FILE_EXTENSION);
         f.writeLine("x,y");
     }
 

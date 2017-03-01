@@ -78,7 +78,7 @@ public class Logger {
 
     public static void logFile(String key, String str) {
         if(!plotMap.containsKey(key)) {
-            plotMap.put(key, new DataPlot());
+            plotMap.put(key, new DataPlot(key));
         }
 
         plotMap.get(key).logDataRaw(str);
