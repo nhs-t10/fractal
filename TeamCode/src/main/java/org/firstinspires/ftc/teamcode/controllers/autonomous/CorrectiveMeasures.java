@@ -51,7 +51,7 @@ public class CorrectiveMeasures implements Controller{
         }
 
         if (!backUp && useful){
-            if(instruments.distance >= .2 && sw.timeElapsed() > 500){
+            if(instruments.distance >= .16 && sw.timeElapsed() > 500){
                 backUp = true;
                 mecanumDrivetrain.stop();
             }
@@ -70,7 +70,7 @@ public class CorrectiveMeasures implements Controller{
 // :)
         if (aligned){
             mecanumDrivetrain.driveSideways(s);
-            if (ld.centeredAtLine(instruments.light1, instruments.light2)){
+            if (ld.isAtLine(instruments.light1, instruments.light2)){
                 mecanumDrivetrain.stop();
                 return true;
             }

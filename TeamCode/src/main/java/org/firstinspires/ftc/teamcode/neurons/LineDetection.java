@@ -9,7 +9,7 @@ public class LineDetection {
     public LineDetection() {}
     public boolean isAtLine(double leftLight, double rightLight) {
         Logger.logFile("Light values", leftLight + ", " + rightLight + ", " + Time.getTimeMillis());
-        return (leftLight >= .1 || rightLight >= .1);
+        return (leftLight >= .086 || rightLight >= .1);
     }
 
     public boolean centeredAtLine(double leftLight, double rightLight) {

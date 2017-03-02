@@ -138,7 +138,7 @@ public abstract class BonnieAuto extends T10Autonomous {
             }
         });
         registerController(new TurnX(instruments, driveTrain, TURNX_TO_WALL));
-        registerController(new DriftToLine(instruments, driveTrain, DRIFT_TO_LINE_SPD, true));
+        registerController(new DriftToLine(instruments, driveTrain, DRIFT_TO_LINE_SPD));
         registerController(new TurnX(instruments, driveTrain, TURNX_TO_WALL));
         registerController(new PressBeacon(team, instruments, driveTrain, pusher, camera, spacers));
 
@@ -179,7 +179,7 @@ public abstract class BonnieAuto extends T10Autonomous {
 //        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
 //        registerController(new DriftToLine(instruments, driveTrain, team); 0.22
         registerController(new TurnX(instruments, driveTrain, TURNX_TO_WALL));
-        registerController(new DriftToLine(instruments, driveTrain, DRIFT_TO_LINE_SPD_2, true));
+        registerController(new DriftToLine(instruments, driveTrain, DRIFT_TO_LINE_SPD_2));
 //        registerController(new TurnX(instruments, driveTrain, (team == Team.RED ? 90 : -90)));
         registerController(new PressBeacon(team, instruments, driveTrain, pusher, camera, spacers));
         registerController(new DriveFromWall(instruments, driveTrain, 0.08));

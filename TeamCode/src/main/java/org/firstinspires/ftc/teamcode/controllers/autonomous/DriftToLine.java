@@ -30,14 +30,7 @@ public class DriftToLine implements Controller {
         align = aligning;
     }
     public boolean tick() {
-         if (align && ld.centeredAtLine(instruments.light1, instruments.light2)) {
-            driveTrain.stop();
-//             Logger.logLine("Centered? " + ld.centeredAtLine(instruments.light1, instruments.light2));
-//             Logger.logLine("Light 1: " + instruments.light1 + "Light 2:" + instruments.light2);
-//             return false;
-            return true;
-        }
-        else if (!align && ld.isAtLine(instruments.light1, instruments.light2)) {
+        if (ld.isAtLine(instruments.light1, instruments.light2)) {
             driveTrain.stop();
             return true;
         }
