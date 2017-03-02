@@ -8,6 +8,7 @@ import org.firstinspires.ftc.teamcode.neurons.LineDetection;
 import org.firstinspires.ftc.teamcode.neurons.LinearizedDistance;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
 import org.firstinspires.ftc.teamcode.statics.Hardware;
+import org.firstinspires.ftc.teamcode.tissues.TCamera;
 
 //import org.firstinspires.ftc.teamcode.neurons.BeaconCheck;
 
@@ -17,16 +18,16 @@ import org.firstinspires.ftc.teamcode.statics.Hardware;
 
 public class NeuronTest implements Controller {
     private Instruments instruments;
-//    private TCamera camera;
+    private TCamera camera;
     private AngleTurning angleTurning;
     private LineAlignment li = new LineAlignment(10f);
     private LineDetection ld = new LineDetection();
 //    private BeaconCheck bc;
     private boolean pressed = false;
-    public NeuronTest(Instruments i
-//                      TCamera c
+    public NeuronTest(Instruments i,
+                      TCamera c
     ) {
-//        camera = c;
+        camera = c;
         instruments = i;
 //        bc = new BeaconCheck(Team.RED);
     }
@@ -39,7 +40,7 @@ public class NeuronTest implements Controller {
         Logger.logLine("Light 1: " + instruments.light1);
         Logger.logLine("Light 2:" + instruments.light2);
         Logger.logLine("Centered at line: " + ld.centeredAtLine(instruments.light1, instruments.light2));
-//        Logger.logLine(camera.getString());
+        Logger.logLine(camera.getString());
 //        if(!pressed) pressed = bc.isPressed();
         Logger.logLine("pressed: " + pressed);
         Logger.logLine("Voltage: " + Hardware.getVoltage());

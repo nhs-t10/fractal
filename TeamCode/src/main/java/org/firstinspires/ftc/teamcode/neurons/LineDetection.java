@@ -8,7 +8,7 @@ import org.firstinspires.ftc.teamcode.debug.Logger;
 public class LineDetection {
     public LineDetection() {}
     public boolean isAtLine(double leftLight, double rightLight) {
-        Logger.logFile("Light values", leftLight + ", " + rightLight + ", " + Time.getTimeMillis());
+//        Logger.logFile("Light values", leftLight + ", " + rightLight + ", " + Time.getTimeMillis());
         return (leftLight >= .086 || rightLight >= .1);
     }
 

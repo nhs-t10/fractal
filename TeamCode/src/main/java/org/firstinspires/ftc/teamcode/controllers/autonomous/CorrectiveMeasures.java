@@ -43,7 +43,7 @@ public class CorrectiveMeasures implements Controller{
     }
     public boolean tick(){
         if (!useful) {
-            if (!(!spacerL.isPressed() || !spacerR.isPressed()) && RobotState.spacersDropped) {
+            if ((spacerL.isPressed() || spacerR.isPressed()) && RobotState.spacersDropped) {
                 return true;
             }
             sw.start();

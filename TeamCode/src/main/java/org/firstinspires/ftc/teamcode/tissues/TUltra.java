@@ -20,8 +20,8 @@ public class TUltra implements Component {
 
     public TUltra(String u) {this(u, false);}
     public TUltra(String u, boolean disabled) {
-        if(disabled) ultrasonic = Hardware.getHardwareMap().analogInput.get(u);
         this.disabled = disabled;
+        if(!disabled) ultrasonic = Hardware.getHardwareMap().analogInput.get(u);
     }
 
     /**

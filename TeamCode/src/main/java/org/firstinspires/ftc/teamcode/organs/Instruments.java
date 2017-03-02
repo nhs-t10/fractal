@@ -46,7 +46,7 @@ public class Instruments extends Thread {
     public Instruments() {
         //colorsensor = new TColor(Hardware.Color);
         ultrasensor = new TUltra(Hardware.Ultra);
-        irdistance = new TUltra(Hardware.IRDistance, true);
+        irdistance = new TUltra(Hardware.IRDistance);
 
         lightsensor1 = new TLight(Hardware.Lightone);
         lightsensor2 = new TLight(Hardware.Lighttwo);
