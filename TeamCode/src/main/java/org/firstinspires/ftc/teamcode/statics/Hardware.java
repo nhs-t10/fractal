@@ -48,4 +48,7 @@ public class Hardware {
         ContactRight = "t3";
         Unwinder = "t4";
     }
+    public static double getVoltage() {
+        return hardwareMap.voltageSensor.iterator().next().getVoltage();
+    }
 }

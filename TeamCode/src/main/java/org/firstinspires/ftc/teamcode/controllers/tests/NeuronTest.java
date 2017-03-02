@@ -7,6 +7,7 @@ import org.firstinspires.ftc.teamcode.neurons.LineAlignment;
 import org.firstinspires.ftc.teamcode.neurons.LineDetection;
 import org.firstinspires.ftc.teamcode.neurons.LinearizedDistance;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
+import org.firstinspires.ftc.teamcode.statics.Hardware;
 
 //import org.firstinspires.ftc.teamcode.neurons.BeaconCheck;
 
@@ -41,6 +42,7 @@ public class NeuronTest implements Controller {
 //        Logger.logLine(camera.getString());
 //        if(!pressed) pressed = bc.isPressed();
         Logger.logLine("pressed: " + pressed);
+        Logger.logLine("Voltage: " + Hardware.getVoltage());
 //        ld.isAtLine(instruments.light1, instruments.light2);
         return false;
     }

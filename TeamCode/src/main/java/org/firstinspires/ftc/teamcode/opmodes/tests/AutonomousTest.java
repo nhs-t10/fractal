@@ -1,7 +1,9 @@
 package org.firstinspires.ftc.teamcode.opmodes.tests;
 
+import com.qualcomm.hardware.modernrobotics.ModernRoboticsUsbDcMotorController;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
+import org.firstinspires.ftc.teamcode.controllers.autonomous.DriftToLine;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.DriveToLine;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.PrepForAuto;
 import org.firstinspires.ftc.teamcode.controllers.autonomous.TurnX;
@@ -11,6 +13,7 @@ import org.firstinspires.ftc.teamcode.organs.Instruments;
 import org.firstinspires.ftc.teamcode.organs.Pusher;
 import org.firstinspires.ftc.teamcode.organs.drivetrains.MecanumDrivetrain;
 import org.firstinspires.ftc.teamcode.tissues.TCamera;
+import com.qualcomm.robotcore.hardware.VoltageSensor;
 
 /**
  * Created by Admin on 4/19/2016.
@@ -20,6 +23,7 @@ import org.firstinspires.ftc.teamcode.tissues.TCamera;
 public class AutonomousTest extends T10Linear {
     private TCamera cam;
     private int stallTime = 2000;
+    private ModernRoboticsUsbDcMotorController modernRoboticsUsbDcMotorController;
     public void registration()  {
         final MecanumDrivetrain md = new MecanumDrivetrain();
         Pusher p = new Pusher();
@@ -36,22 +40,24 @@ public class AutonomousTest extends T10Linear {
 //        });
 ////        registerController(new DriftToLine(instruments, md, -0.1f, true));
 ////        registerController(new PressBeacon(true, Team.RED, instruments, md, p, cam));
-        registerController(new TurnX(instruments, md, 0));
-        registerController(new Stall(stallTime, 0, instruments));
-        registerController(new TurnX(instruments, md, 90));
-        registerController(new Stall(stallTime, 90, instruments));
-        registerController(new TurnX(instruments, md, -60));
-        registerController(new Stall(stallTime, -60, instruments));
-        registerController(new TurnX(instruments, md, -65));
-        registerController(new Stall(stallTime, -65, instruments));
-        registerController(new TurnX(instruments, md, -170));
-        registerController(new Stall(stallTime, -170, instruments));
-        registerController(new TurnX(instruments, md, 189));
-        registerController(new Stall(stallTime, 189, instruments));
+//        registerController(new TurnX(instruments, md, 0));
+//        registerController(new Stall(stallTime, 0, instruments));
+//        registerController(new TurnX(instruments, md, 90));
+//        registerController(new Stall(stallTime, 90, instruments));
+//        registerController(new TurnX(instruments, md, -60));
+//        registerController(new Stall(stallTime, -60, instruments));
+//        registerController(new TurnX(instruments, md, -65));
+//        registerController(new Stall(stallTime, -65, instruments));
+//        registerController(new TurnX(instruments, md, -170));
+//        registerController(new Stall(stallTime, -170, instruments));
+//        registerController(new TurnX(instruments, md, 189));
+//        registerController(new Stall(stallTime, 189, instruments));
 //        registerController(new PrepForAuto());
 //        registerController(new TurnX(instruments, md, 65));
 //        registerController(new Stall(1000));
 //        registerController(new DriveToLine(instruments, md, 65));
+        registerController(new DriftToLine(instruments, md, -.15f));
+
     }
     @Override
     public void stop() {
