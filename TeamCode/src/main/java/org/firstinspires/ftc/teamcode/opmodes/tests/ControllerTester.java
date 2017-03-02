@@ -16,7 +16,6 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
  * Tests tick-based controllers.
  */
 @TeleOp(name="Controller Tester", group="Testers")
-@Disabled
 public class ControllerTester extends T10Opmode {
     private ArrayList<Controller> tests = new ArrayList<Controller>();
 

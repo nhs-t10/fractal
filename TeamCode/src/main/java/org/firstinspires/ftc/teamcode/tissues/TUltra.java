@@ -16,9 +16,12 @@ public class TUltra implements Component {
 
     private AnalogInput ultrasonic;
     public String getName(){return "Ultrasonic";}
+    private boolean disabled = false;
 
-    public TUltra(String u) {
-        ultrasonic = Hardware.getHardwareMap().analogInput.get(u);
+    public TUltra(String u) {this(u, false);}
+    public TUltra(String u, boolean disabled) {
+        if(disabled) ultrasonic = Hardware.getHardwareMap().analogInput.get(u);
+        this.disabled = disabled;
     }
 
     /**
@@ -26,10 +29,12 @@ public class TUltra implements Component {
      * @return value read from sensor
      */
     public double voltage() {
+        if(disabled) return -1;
         return ultrasonic.getVoltage();
     }
 
     public double distance() {
+        if(disabled) return -1;
         return voltage()/inputVoltage;
     }
 
