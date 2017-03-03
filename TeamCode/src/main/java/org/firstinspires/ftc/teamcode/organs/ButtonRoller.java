@@ -22,7 +22,7 @@ public class ButtonRoller implements Component {
     }
     public void unwind(){servo.move(1f);}
     public void wind(){servo.move(-1f);}
-    public void stop(){servo.move(0);}
+    public void stop(){servo.stop();}
     public boolean autoUnwind(){
         if (unwinder.isPressed()){
             stop();

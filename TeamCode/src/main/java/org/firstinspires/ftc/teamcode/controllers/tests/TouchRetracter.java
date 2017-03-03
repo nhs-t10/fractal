@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.controllers.tests;
 
 import org.firstinspires.ftc.teamcode.controllers.Controller;
+import org.firstinspires.ftc.teamcode.debug.Logger;
 import org.firstinspires.ftc.teamcode.organs.ButtonRoller;
 import org.firstinspires.ftc.teamcode.organs.RollerStopper;
 import org.firstinspires.ftc.teamcode.organs.Spacers;
@@ -22,7 +23,7 @@ public class TouchRetracter implements Controller {
     public boolean tick() {
         if(spacers.isTouchingRight()) spacers.lower();
         else spacers.stop();
-
+        
         if(buttonRoller.isTouching()) buttonRoller.wind();
         else buttonRoller.stop();
 

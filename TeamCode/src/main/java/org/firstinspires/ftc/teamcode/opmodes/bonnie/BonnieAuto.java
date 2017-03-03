@@ -118,7 +118,7 @@ public abstract class BonnieAuto extends T10Autonomous {
 //        registerController(new TurnX(instruments, driveTrain, TURNX_TO_LINE));
 //        registerController(new Stall(500));
         registerController(new DriveToLine(instruments, driveTrain, TURNX_TO_LINE));
-//        registerController(new CorrectiveMeasures(instruments, driveTrain, DRIFT_TO_LINE_SPD_2, TURNX_TO_WALL));
+        registerController(new CorrectiveMeasures(instruments, driveTrain, DRIFT_TO_LINE_SPD_2, TURNX_TO_WALL));
         //Go for 1st beacon
         registerController(new TurnX(instruments, driveTrain, TURNX_TO_WALL));
 
@@ -158,7 +158,7 @@ public abstract class BonnieAuto extends T10Autonomous {
         registerController(new Controller() {
             @Override
             public boolean tick() {
-                driveTrain.driveSideways(-SIDEWAYS_POWER);
+                driveTrain.driveSideways(-SIDEWAYS_POWER * 1.5f);
                 return true;
             }
         });

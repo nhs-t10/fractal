@@ -46,8 +46,11 @@ public class CorrectiveMeasures implements Controller{
             if ((spacerL.isPressed() || spacerR.isPressed()) && RobotState.spacersDropped) {
                 return true;
             }
-            sw.start();
+            if (!RobotState.spacersDropped) {
+                return false;
+            }
             useful = true;
+            sw.start();
         }
 
         if (!backUp && useful){
