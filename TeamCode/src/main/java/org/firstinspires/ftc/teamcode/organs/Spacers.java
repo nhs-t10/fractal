@@ -25,10 +25,10 @@ public class Spacers implements Component {
         sw = new Time.Stopwatch();
     }
     public void lower() {
-        servo.move(1f);
+        servo.move(1);
     }
     public void raise() {
-        servo.move(-1f);
+        servo.move(-1);
     }
     public boolean raiseUntil() {
         if (!isTouchingLeft() || !isTouchingRight()) lower();
