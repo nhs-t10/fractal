@@ -32,18 +32,18 @@ public class NeuronTest implements Controller {
 //        bc = new BeaconCheck(Team.RED);
     }
     public boolean tick() {
-        Logger.logLine("distance: " + instruments.distance);
-        Logger.logLine("yaw: " + instruments.yaw);
-        Logger.logLine("IR Distance: " + instruments.IRdistance);
-        Logger.logLine("IR Distance Linearized: " + LinearizedDistance.linearize((instruments.IRdistance)));
+//        Logger.logLine("distance: " + instruments.distance);
+//        Logger.logLine("yaw: " + instruments.yaw);
+//        Logger.logLine("IR Distance: " + instruments.IRdistance);
+//        Logger.logLine("IR Distance Linearized: " + LinearizedDistance.linearize((instruments.IRdistance)));
 //        bc.update(camera.getAnalysis());
-        Logger.logLine("Light 1: " + instruments.light1);
-        Logger.logLine("Light 2:" + instruments.light2);
-        Logger.logLine("Centered at line: " + ld.centeredAtLine(instruments.light1, instruments.light2));
+//        Logger.logLine("Light 1: " + instruments.light1);
+//        Logger.logLine("Light 2:" + instruments.light2);
+//        Logger.logLine("Centered at line: " + ld.centeredAtLine(instruments.light1, instruments.light2));
         Logger.logLine(camera.getString());
 //        if(!pressed) pressed = bc.isPressed();
-        Logger.logLine("pressed: " + pressed);
-        Logger.logLine("Voltage: " + Hardware.getVoltage());
+//        Logger.logLine("pressed: " + pressed);
+//        Logger.logLine("Voltage: " + Hardware.getVoltage());
 //        ld.isAtLine(instruments.light1, instruments.light2);
         return false;
     }

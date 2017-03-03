@@ -51,7 +51,7 @@ public abstract class PID {
         }
         count = !count;
 
-        if (((1.5 > error && error > 0 && error < prevError) || (-1.5 < error && error < 0 && error > prevError)) && Math.abs(d) < .1)
+        if (((1.5 > error && error > 0 && error < prevError) || (-1.5 < error && error < 0 && error > prevError)) && Math.abs(d) < .05)
 //                && (.2 > Math.abs((prevError - error)))
         {
 //           Logger.logLine("derivative " + (error - prevError));
