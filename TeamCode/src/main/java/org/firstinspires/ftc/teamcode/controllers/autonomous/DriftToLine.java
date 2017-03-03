@@ -5,6 +5,7 @@ import org.firstinspires.ftc.teamcode.controllers.Team;
 import org.firstinspires.ftc.teamcode.neurons.LineDetection;
 import org.firstinspires.ftc.teamcode.organs.Instruments;
 import org.firstinspires.ftc.teamcode.organs.drivetrains.MecanumDrivetrain;
+import org.firstinspires.ftc.teamcode.statics.Hardware;
 
 /**
  * Created by nhs on 11/16/16.
@@ -35,6 +36,7 @@ public class DriftToLine implements Controller {
             return true;
         }
         // "too close" fallback
+        double batteryPower = Hardware.getVoltage();
         if (instruments.distance <= 0.04) driveTrain.goForward(0.5f);
         else driveTrain.driveSideways(speed);
         return false;
