@@ -72,8 +72,8 @@ public class PressBeacon implements Controller {
 //        if (detectedBeaconStatus && instruments.IRdistance >= (t == Team.RED ? 2.1 : 2.1)) {
         if (spacers.isTouchingRight() && spacers.isTouchingLeft()){
             driveTrain.stop();
-            if (isPressingLeft) pusher.pushRight();
-            else pusher.pushLeft();
+            if (isPressingLeft) pusher.pushLeft();
+            else pusher.pushRight();
             return true;
         }
         ArrayList<Float> powers = angleTurning.getDrivePowers(instruments.yaw, (Speed ? -0.1f : -0.13f), true);

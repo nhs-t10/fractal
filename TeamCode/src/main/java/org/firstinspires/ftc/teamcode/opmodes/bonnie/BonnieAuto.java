@@ -41,13 +41,14 @@ public abstract class BonnieAuto extends T10Autonomous {
     protected float SIDEWAYS_POWER;
     protected float DRIFT_TO_LINE_SPD;
     protected float DRIFT_TO_LINE_SPD_2;
+    private Instruments instruments;
 
     @Override
     public void registration() {
         setTeam();
         camera = new TCamera();
         final MecanumDrivetrain driveTrain = new MecanumDrivetrain();
-        final Instruments instruments = new Instruments();
+        instruments = new Instruments();
         instruments.start();
         Pusher pusher = new Pusher();
         Flicker flicker = new Flicker(false, -1);
@@ -193,5 +194,6 @@ public abstract class BonnieAuto extends T10Autonomous {
     @Override
     public void stop() {
         camera.stop();
+        instruments.kill();
     }
 }

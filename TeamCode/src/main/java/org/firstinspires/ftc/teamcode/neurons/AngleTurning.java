@@ -13,7 +13,7 @@ public class AngleTurning extends PID {
     private boolean setKi = true;
     private double prevPower = 0;
     private double pastAngle = 1000;
-    private final float minPower = 0.085f;
+    private final float minPower = 0.08f;
     private float power;
     private float powered;
         public AngleTurning (double dest) {
@@ -55,7 +55,7 @@ public class AngleTurning extends PID {
                 power = Math.signum(power) * minPower;
             }
 //            Logger.logLine("Angle: " + currentAngle);
-            Logger.logLine("Error: " + getError(currentAngle));
+//            Logger.logLine("Error: " + getError(currentAngle));
 //            Logger.logLine("Power: " + power);
         }
         ArrayList<Float> powers = new ArrayList<Float>();
@@ -63,6 +63,7 @@ public class AngleTurning extends PID {
         powers.add(-power);
         return powers;
     }
+//    while
     public ArrayList<Float> getTuningPivotPowers(double currentAngle, double porportional, double integral, double derivative) {
         Kp = porportional;
         Ki = integral;

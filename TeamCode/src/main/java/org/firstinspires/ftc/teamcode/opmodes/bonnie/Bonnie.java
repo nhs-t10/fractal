@@ -149,4 +149,8 @@ public class Bonnie extends T10Opmode {
             controllers.get(i).tick();
         }
     }
+    @Override
+    public void stop() {
+        instruments.kill();
+    }
 }
