@@ -38,7 +38,7 @@ public class DriftToLine implements Controller {
         // "too close" fallback
         double batteryPower = Hardware.getVoltage();
         if (instruments.distance <= 0.04) driveTrain.goForward(0.5f);
-        else driveTrain.driveSideways(speed);
+        else driveTrain.driveSideways(((batteryPower >= 12.3f && align) ? .7f * speed : speed));
         return false;
     }
 }
