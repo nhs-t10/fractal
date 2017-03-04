@@ -66,6 +66,7 @@ public class PressBeacon implements Controller {
                 isPressingLeft = (leftProb >= 0.5d);
                 detectedBeaconStatus = true;
             }
+            Speed = true;
             return false;
         }
 //        if (detectedBeaconStatus && instruments.IRdistance >= (t == Team.RED ? 2.1 : 2.1)) {
@@ -75,7 +76,7 @@ public class PressBeacon implements Controller {
             else pusher.pushLeft();
             return true;
         }
-        ArrayList<Float> powers = angleTurning.getDrivePowers(instruments.yaw, (Speed ? -0.13f : -0.13f), true);
+        ArrayList<Float> powers = angleTurning.getDrivePowers(instruments.yaw, (Speed ? -0.1f : -0.13f), true);
         driveTrain.drive(powers.get(0), powers.get(1));
         pastDistance = instruments.IRdistance;
         return false;
