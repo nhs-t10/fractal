@@ -9,23 +9,21 @@ import org.firstinspires.ftc.teamcode.organs.RollerStopper;
  */
 
 public class PrepForAuto implements Controller{
-    private ButtonRoller buttonRoller;
+//    private ButtonRoller buttonRoller;
     private RollerStopper secondButtonRoller;
     private boolean rollersReady = false;
 
-    public PrepForAuto(ButtonRoller br) {
-        buttonRoller = br;
+    public PrepForAuto() {
+//        buttonRoller = br;
         secondButtonRoller = new RollerStopper();
 
     }
 
-    public PrepForAuto(){
-        this(new ButtonRoller());
-    }
 
     public boolean tick(){
         secondButtonRoller.open();
-        buttonRoller.lock(true);
-        return buttonRoller.autoUnwind();
+//        buttonRoller.lock(true);
+//        return buttonRoller.autoUnwind();
+        return true;
     }
 }

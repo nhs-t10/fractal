@@ -47,7 +47,7 @@ public class Bonnie extends T10Opmode {
     private Pusher pusher;
     private Instruments instruments;
     private Spacers spacers;
-    private ButtonRoller buttonRoller;
+//    private ButtonRoller buttonRoller;
 
     private ArrayList<Controller> controllers = new ArrayList<Controller>();
     public void run() {
@@ -56,7 +56,7 @@ public class Bonnie extends T10Opmode {
         flicker = new Flicker(false, -1);
         final Stopper stopper = new Stopper();
         spacers = new Spacers();
-        buttonRoller = new ButtonRoller();
+//        buttonRoller = new ButtonRoller();
         spinner = new Spinner(-1);
         instruments = new Instruments();
         instruments.start();
@@ -131,7 +131,7 @@ public class Bonnie extends T10Opmode {
                 new Stall(100),
                 new TouchFlick(flicker, 600)
         };
-        controllers.add(new PrepForAuto(buttonRoller));
+        controllers.add(new PrepForAuto());
         controllers.add(new Sequencer(autoAim, true));
         controllers.add(new Sequencer(autoPressRight, true));
         controllers.add(new Sequencer(autoPressLeft, true));
@@ -142,7 +142,7 @@ public class Bonnie extends T10Opmode {
         controllers.add(new SpacerMove(spacers));
         controllers.add(new BonnieCollection(flicker, stopper, new ArrayList<Spinner>(Arrays.asList(spinner, liftSpinner))));
         controllers.add(new ButtonPusher(pusher, new RollerStopper()));
-        controllers.add(new RollerMove(buttonRoller));
+//        controllers.add(new RollerMove(buttonRoller));
     }
     public void tick() {
         for(int i=0; i<controllers.size(); i++) {

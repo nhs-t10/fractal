@@ -9,6 +9,7 @@ import org.firstinspires.ftc.teamcode.tissues.TServo;
  */
 public class Stopper implements Component {
     protected TServo stopper;
+    protected TServo stopper2;
     protected boolean open;
 
     protected double openVal = 0.7;
@@ -16,6 +17,7 @@ public class Stopper implements Component {
 
     public Stopper() {
         stopper = new TServo(Hardware.ServoStop);
+        stopper2 = new TServo(Hardware.ServoStop);
         open = false;
         close();
     }
@@ -31,10 +33,12 @@ public class Stopper implements Component {
     }
 
     public void open() {
+        stopper2.moveTo(openVal);
         stopper.moveTo(openVal);
     }
 
     public void close() {
+        stopper2.moveTo(closeVal);
         stopper.moveTo(closeVal);
     }
 

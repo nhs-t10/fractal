@@ -9,6 +9,7 @@ import org.firstinspires.ftc.teamcode.tissues.TServo;
 public class RollerStopper extends Stopper {
     public RollerStopper() {
         this.stopper = new TServo(Hardware.SecondButtonRoller);
+        this.stopper2 = new TServo(Hardware.ButtonRoller);
         this.open = false;
 
         this.openVal =  1.0;

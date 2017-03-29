@@ -46,7 +46,6 @@ public class Hardware {
         Touch = "t1";
         ContactLeft = "t2";
         ContactRight = "t3";
-        Unwinder = "t4";
     }
     public static double getVoltage() {
         return hardwareMap.voltageSensor.iterator().next().getVoltage();
