@@ -1,0 +1,284 @@
+03-25 09:30:03.464 12911-12911/com.qualcomm.ftcrobotcontroller I/chatty: uid=10103(com.qualcomm.ftcrobotcontroller) expire 57 lines
+03-25 09:30:03.531 12911-12924/com.qualcomm.ftcrobotcontroller I/chatty: uid=10103(com.qualcomm.ftcrobotcontroller) Logging Thread expire 2 lines
+03-25 09:30:05.527 12911-12911/com.qualcomm.ftcrobotcontroller W/ClassManager: org.firstinspires.ftc.teamcode.opmodes.tests.AutonomousTest$1 java.lang.ClassNotFoundException: org.firstinspires.ftc.teamcode.opmodes.tests.AutonomousTest$1
+                                                                               java.lang.ClassNotFoundException: org.firstinspires.ftc.teamcode.opmodes.tests.AutonomousTest$1
+                                                                                   at java.lang.Class.classForName(Native Method)
+                                                                                   at java.lang.Class.forName(Class.java:324)
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.findAllClasses(ClassManager.java:125)
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.processAllClasses(ClassManager.java:158)
+                                                                                   at com.qualcomm.ftccommon.ClassManagerFactory.processClasses(ClassManagerFactory.java:64)
+                                                                                   at org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity.onCreate(FtcRobotControllerActivity.java:221)
+                                                                                   at android.app.Activity.performCreate(Activity.java:6245)
+                                                                                   at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1130)
+                                                                                   at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2379)
+                                                                                   at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2490)
+                                                                                   at android.app.ActivityThread.-wrap11(ActivityThread.java)
+                                                                                   at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1354)
+                                                                                   at android.os.Handler.dispatchMessage(Handler.java:102)
+                                                                                   at android.os.Looper.loop(Looper.java:148)
+                                                                                   at android.app.ActivityThread.main(ActivityThread.java:5443)
+                                                                                   at java.lang.reflect.Method.invoke(Native Method)
+                                                                                   at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:728)
+                                                                                   at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:618)
+                                                                                Caused by: java.lang.ClassNotFoundException: Didn't find class "org.firstinspires.ftc.teamcode.opmodes.tests.AutonomousTest$1" on path: DexPathList[[zip file "/system/framework/android.test.runner.jar", zip file "/data/app/com.qualcomm.ftcrobotcontroller-2/base.apk"],nativeLibraryDirectories=[/data/app/com.qualcomm.ftcrobotcontroller-2/lib/arm, /data/app/com.qualcomm.ftcrobotcontroller-2/base.apk!/lib/armeabi-v7a, /vendor/lib, /system/lib]]
+                                                                                   at dalvik.system.BaseDexClassLoader.findClass(BaseDexClassLoader.java:56)
+                                                                                   at java.lang.ClassLoader.loadClass(ClassLoader.java:511)
+                                                                                   at java.lang.ClassLoader.loadClass(ClassLoader.java:469)
+                                                                                   at java.lang.Class.classForName(Native Method) 
+                                                                                   at java.lang.Class.forName(Class.java:324) 
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.findAllClasses(ClassManager.java:125) 
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.processAllClasses(ClassManager.java:158) 
+                                                                                   at com.qualcomm.ftccommon.ClassManagerFactory.processClasses(ClassManagerFactory.java:64) 
+                                                                                   at org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity.onCreate(FtcRobotControllerActivity.java:221) 
+                                                                                   at android.app.Activity.performCreate(Activity.java:6245) 
+                                                                                   at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1130) 
+                                                                                   at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2379) 
+                                                                                   at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2490) 
+                                                                                   at android.app.ActivityThread.-wrap11(ActivityThread.java) 
+                                                                                   at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1354) 
+                                                                                   at android.os.Handler.dispatchMessage(Handler.java:102) 
+                                                                                   at android.os.Looper.loop(Looper.java:148) 
+                                                                                   at android.app.ActivityThread.main(ActivityThread.java:5443) 
+                                                                                   at java.lang.reflect.Method.invoke(Native Method) 
+                                                                                   at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:728) 
+                                                                                   at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:618) 
+                                                                               	Suppressed: java.lang.ClassNotFoundException: org.firstinspires.ftc.teamcode.opmodes.tests.AutonomousTest$1
+                                                                                   at java.lang.Class.classForName(Native Method)
+                                                                                   at java.lang.BootClassLoader.findClass(ClassLoader.java:781)
+                                                                                   at java.lang.BootClassLoader.loadClass(ClassLoader.java:841)
+                                                                                   at java.lang.ClassLoader.loadClass(ClassLoader.java:504)
+                                                                                   		... 19 more
+                                                                                Caused by: java.lang.NoClassDefFoundError: Class not found using the boot class loader; no stack trace available
+03-25 09:30:05.529 12911-12911/com.qualcomm.ftcrobotcontroller W/ClassManager: com.android.tools.fd.dummy.slice_9 java.lang.ClassNotFoundException: com.android.tools.fd.dummy.slice_9
+                                                                               java.lang.ClassNotFoundException: com.android.tools.fd.dummy.slice_9
+                                                                                   at java.lang.Class.classForName(Native Method)
+                                                                                   at java.lang.Class.forName(Class.java:324)
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.findAllClasses(ClassManager.java:125)
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.processAllClasses(ClassManager.java:158)
+                                                                                   at com.qualcomm.ftccommon.ClassManagerFactory.processClasses(ClassManagerFactory.java:64)
+                                                                                   at org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity.onCreate(FtcRobotControllerActivity.java:221)
+                                                                                   at android.app.Activity.performCreate(Activity.java:6245)
+                                                                                   at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1130)
+                                                                                   at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2379)
+                                                                                   at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2490)
+                                                                                   at android.app.ActivityThread.-wrap11(ActivityThread.java)
+                                                                                   at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1354)
+                                                                                   at android.os.Handler.dispatchMessage(Handler.java:102)
+                                                                                   at android.os.Looper.loop(Looper.java:148)
+                                                                                   at android.app.ActivityThread.main(ActivityThread.java:5443)
+                                                                                   at java.lang.reflect.Method.invoke(Native Method)
+                                                                                   at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:728)
+                                                                                   at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:618)
+                                                                                Caused by: java.lang.ClassNotFoundException: Didn't find class "com.android.tools.fd.dummy.slice_9" on path: DexPathList[[zip file "/system/framework/android.test.runner.jar", zip file "/data/app/com.qualcomm.ftcrobotcontroller-2/base.apk"],nativeLibraryDirectories=[/data/app/com.qualcomm.ftcrobotcontroller-2/lib/arm, /data/app/com.qualcomm.ftcrobotcontroller-2/base.apk!/lib/armeabi-v7a, /vendor/lib, /system/lib]]
+                                                                                   at dalvik.system.BaseDexClassLoader.findClass(BaseDexClassLoader.java:56)
+                                                                                   at java.lang.ClassLoader.loadClass(ClassLoader.java:511)
+                                                                                   at java.lang.ClassLoader.loadClass(ClassLoader.java:469)
+                                                                                   at java.lang.Class.classForName(Native Method) 
+                                                                                   at java.lang.Class.forName(Class.java:324) 
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.findAllClasses(ClassManager.java:125) 
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.processAllClasses(ClassManager.java:158) 
+                                                                                   at com.qualcomm.ftccommon.ClassManagerFactory.processClasses(ClassManagerFactory.java:64) 
+                                                                                   at org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity.onCreate(FtcRobotControllerActivity.java:221) 
+                                                                                   at android.app.Activity.performCreate(Activity.java:6245) 
+                                                                                   at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1130) 
+                                                                                   at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2379) 
+                                                                                   at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2490) 
+                                                                                   at android.app.ActivityThread.-wrap11(ActivityThread.java) 
+                                                                                   at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1354) 
+                                                                                   at android.os.Handler.dispatchMessage(Handler.java:102) 
+                                                                                   at android.os.Looper.loop(Looper.java:148) 
+                                                                                   at android.app.ActivityThread.main(ActivityThread.java:5443) 
+                                                                                   at java.lang.reflect.Method.invoke(Native Method) 
+                                                                                   at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:728) 
+                                                                                   at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:618) 
+                                                                               	Suppressed: java.lang.ClassNotFoundException: com.android.tools.fd.dummy.slice_9
+                                                                                   at java.lang.Class.classForName(Native Method)
+                                                                                   at java.lang.BootClassLoader.findClass(ClassLoader.java:781)
+                                                                                   at java.lang.BootClassLoader.loadClass(ClassLoader.java:841)
+                                                                                   at java.lang.ClassLoader.loadClass(ClassLoader.java:504)
+                                                                                   		... 19 more
+                                                                                Caused by: java.lang.NoClassDefFoundError: Class not found using the boot class loader; no stack trace available
+03-25 09:30:05.531 12911-12911/com.qualcomm.ftcrobotcontroller W/ClassManager: com.android.tools.fd.dummy.slice_8 java.lang.ClassNotFoundException: com.android.tools.fd.dummy.slice_8
+                                                                               java.lang.ClassNotFoundException: com.android.tools.fd.dummy.slice_8
+                                                                                   at java.lang.Class.classForName(Native Method)
+                                                                                   at java.lang.Class.forName(Class.java:324)
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.findAllClasses(ClassManager.java:125)
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.processAllClasses(ClassManager.java:158)
+                                                                                   at com.qualcomm.ftccommon.ClassManagerFactory.processClasses(ClassManagerFactory.java:64)
+                                                                                   at org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity.onCreate(FtcRobotControllerActivity.java:221)
+                                                                                   at android.app.Activity.performCreate(Activity.java:6245)
+                                                                                   at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1130)
+                                                                                   at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2379)
+                                                                                   at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2490)
+                                                                                   at android.app.ActivityThread.-wrap11(ActivityThread.java)
+                                                                                   at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1354)
+                                                                                   at android.os.Handler.dispatchMessage(Handler.java:102)
+                                                                                   at android.os.Looper.loop(Looper.java:148)
+                                                                                   at android.app.ActivityThread.main(ActivityThread.java:5443)
+                                                                                   at java.lang.reflect.Method.invoke(Native Method)
+                                                                                   at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:728)
+                                                                                   at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:618)
+                                                                                Caused by: java.lang.ClassNotFoundException: Didn't find class "com.android.tools.fd.dummy.slice_8" on path: DexPathList[[zip file "/system/framework/android.test.runner.jar", zip file "/data/app/com.qualcomm.ftcrobotcontroller-2/base.apk"],nativeLibraryDirectories=[/data/app/com.qualcomm.ftcrobotcontroller-2/lib/arm, /data/app/com.qualcomm.ftcrobotcontroller-2/base.apk!/lib/armeabi-v7a, /vendor/lib, /system/lib]]
+                                                                                   at dalvik.system.BaseDexClassLoader.findClass(BaseDexClassLoader.java:56)
+                                                                                   at java.lang.ClassLoader.loadClass(ClassLoader.java:511)
+                                                                                   at java.lang.ClassLoader.loadClass(ClassLoader.java:469)
+                                                                                   at java.lang.Class.classForName(Native Method) 
+                                                                                   at java.lang.Class.forName(Class.java:324) 
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.findAllClasses(ClassManager.java:125) 
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.processAllClasses(ClassManager.java:158) 
+                                                                                   at com.qualcomm.ftccommon.ClassManagerFactory.processClasses(ClassManagerFactory.java:64) 
+                                                                                   at org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity.onCreate(FtcRobotControllerActivity.java:221) 
+                                                                                   at android.app.Activity.performCreate(Activity.java:6245) 
+                                                                                   at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1130) 
+                                                                                   at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2379) 
+                                                                                   at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2490) 
+                                                                                   at android.app.ActivityThread.-wrap11(ActivityThread.java) 
+                                                                                   at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1354) 
+                                                                                   at android.os.Handler.dispatchMessage(Handler.java:102) 
+                                                                                   at android.os.Looper.loop(Looper.java:148) 
+                                                                                   at android.app.ActivityThread.main(ActivityThread.java:5443) 
+                                                                                   at java.lang.reflect.Method.invoke(Native Method) 
+                                                                                   at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:728) 
+                                                                                   at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:618) 
+                                                                               	Suppressed: java.lang.ClassNotFoundException: com.android.tools.fd.dummy.slice_8
+                                                                                   at java.lang.Class.classForName(Native Method)
+                                                                                   at java.lang.BootClassLoader.findClass(ClassLoader.java:781)
+                                                                                   at java.lang.BootClassLoader.loadClass(ClassLoader.java:841)
+                                                                                   at java.lang.ClassLoader.loadClass(ClassLoader.java:504)
+                                                                                   		... 19 more
+                                                                                Caused by: java.lang.NoClassDefFoundError: Class not found using the boot class loader; no stack trace available
+03-25 09:30:07.716 12911-12911/com.qualcomm.ftcrobotcontroller W/UserSensorTypeManager: configuration error: the sensor "Adafruit IMU" is already defined
+03-25 09:30:07.756 12911-12911/com.qualcomm.ftcrobotcontroller W/UserSensorTypeManager: configuration error: the sensor "MR Compass Sensor" is already defined
+03-25 09:30:07.762 12911-12911/com.qualcomm.ftcrobotcontroller W/UserSensorTypeManager: configuration error: the sensor "MR Range Sensor" is already defined
+03-25 09:30:08.344 12911-13000/com.qualcomm.ftcrobotcontroller D/OpenGLRenderer: Use EGL_SWAP_BEHAVIOR_PRESERVED: true
+03-25 09:30:08.428 12911-13000/com.qualcomm.ftcrobotcontroller I/OpenGLRenderer: Initialized EGL, version 1.4
+03-25 09:30:08.442 12911-12911/com.qualcomm.ftcrobotcontroller D/WifiDirect: broadcast: state - enabled: true
+03-25 09:30:08.445 12911-12911/com.qualcomm.ftcrobotcontroller D/WifiDirect: broadcast: connection changed: connectStatus=NOT_CONNECTED networkInfo.state=CONNECTED
+03-25 09:30:08.447 12911-12911/com.qualcomm.ftcrobotcontroller D/WifiDirect: broadcast: this device changed
+03-25 09:30:08.469 12911-12911/com.qualcomm.ftcrobotcontroller D/OpmodeRegistration: registered {DefaultOpMode} as {$Stop$Robot$}
+03-25 09:30:08.469 12911-12911/com.qualcomm.ftcrobotcontroller D/WifiDirect: cannot create group, does group already exist?
+03-25 09:30:08.488 12911-13006/com.qualcomm.ftcrobotcontroller D/MediaPlayer: setSubtitleAnchor in MediaPlayer
+03-25 09:30:08.520 12911-12911/com.qualcomm.ftcrobotcontroller D/WifiDirect: group owners address: /192.168.49.1
+03-25 09:30:08.520 12911-12911/com.qualcomm.ftcrobotcontroller D/WifiDirect: group formed, this device is the group owner (GO)
+03-25 09:30:08.520 12911-12911/com.qualcomm.ftcrobotcontroller I/FTCService: Wifi Direct - connected as group owner
+03-25 09:30:08.520 12911-12911/com.qualcomm.ftcrobotcontroller D/WifiDirect: stop discovering peers
+03-25 09:30:08.529 12911-12911/com.qualcomm.ftcrobotcontroller W/MediaPlayer: mediaplayer went away with unhandled events
+03-25 09:30:08.560 12911-13004/com.qualcomm.ftcrobotcontroller D/ExtendedUtils: extended extractor not needed, return default
+03-25 09:30:08.566 12911-12911/com.qualcomm.ftcrobotcontroller I/FTCService: Network Connection Passphrase: DCUw9tTT
+03-25 09:30:08.567 12911-13012/com.qualcomm.ftcrobotcontroller I/OMXClient: Using client-side OMX mux.
+03-25 09:30:08.570 12911-13012/com.qualcomm.ftcrobotcontroller E/OMXMaster: A component of name 'OMX.qcom.audio.decoder.aac' already exists, ignoring this one.
+03-25 09:30:08.596 12911-13006/com.qualcomm.ftcrobotcontroller W/AudioTrack: AUDIO_OUTPUT_FLAG_FAST denied by client; transfer 4, track 44100 Hz, output 48000 Hz
+03-25 09:30:13.476 12911-12911/com.qualcomm.ftcrobotcontroller I/RobotCore: Battery Checker, Level Remaining: 99.0
+03-25 09:30:13.482 12911-13009/com.qualcomm.ftcrobotcontroller I/FIRST: ======= INIT START =======
+03-25 09:30:13.484 12911-12911/com.qualcomm.ftcrobotcontroller I/RobotCore: Battery Checker, Level Remaining: 99.0
+03-25 09:30:13.504 12911-13009/com.qualcomm.ftcrobotcontroller D/OpmodeRegistration: registered {BlueBonnieAuto} as {Blue Bonnie}
+03-25 09:30:13.504 12911-13009/com.qualcomm.ftcrobotcontroller D/OpmodeRegistration: registered {BlueSecondaryBonnieAuto} as {2nd blue bonnie}
+03-25 09:30:13.505 12911-13009/com.qualcomm.ftcrobotcontroller D/OpmodeRegistration: registered {RedBonnieAuto} as {Red Bonnie}
+03-25 09:30:13.506 12911-13009/com.qualcomm.ftcrobotcontroller D/OpmodeRegistration: registered {RedSecondaryBonnieAuto} as {2nd RED bonnie *NOT BLUE*}
+03-25 09:30:13.507 12911-13009/com.qualcomm.ftcrobotcontroller D/OpmodeRegistration: registered {PIDTuning} as {PID Tuning}
+03-25 09:30:13.507 12911-13009/com.qualcomm.ftcrobotcontroller D/OpmodeRegistration: registered {ClydeTester} as {Clyde Tester}
+03-25 09:30:13.508 12911-13009/com.qualcomm.ftcrobotcontroller D/OpmodeRegistration: registered {clyde} as {ClydeOp}
+03-25 09:30:13.508 12911-13009/com.qualcomm.ftcrobotcontroller D/OpmodeRegistration: registered {CalibrateIMU} as {Adafruit IMU Calibration}
+03-25 09:30:13.509 12911-13009/com.qualcomm.ftcrobotcontroller D/OpmodeRegistration: registered {Bonnie} as {BonnieOp}
+03-25 09:30:13.510 12911-13009/com.qualcomm.ftcrobotcontroller D/OpmodeRegistration: registered {BonnieTester} as {Bonnie Tester}
+03-25 09:30:13.510 12911-13009/com.qualcomm.ftcrobotcontroller D/OpmodeRegistration: registered {Maintenance} as {Maintenance}
+03-25 09:30:13.511 12911-13009/com.qualcomm.ftcrobotcontroller D/OpmodeRegistration: registered {ControllerTester} as {Controller Tester}
+03-25 09:30:13.512 12911-13009/com.qualcomm.ftcrobotcontroller D/OpmodeRegistration: registered {NeuronTester} as {Neuron Tester}
+03-25 09:30:13.512 12911-13009/com.qualcomm.ftcrobotcontroller D/OpmodeRegistration: registered {AutonomousTest} as {Autonomous Test}
+03-25 09:30:13.522 12911-13009/com.qualcomm.ftcrobotcontroller D/RobotCore: arming modern motor controller Modern Robotics USB DC Motor Controller [AH03EUDR]...
+03-25 09:30:13.524 12911-13009/com.qualcomm.ftcrobotcontroller W/RobotCore: Unable to find USB device with serial number AH03EUDR
+03-25 09:30:13.524 12911-13009/com.qualcomm.ftcrobotcontroller D/RobotCore: arming modern motor controller Modern Robotics USB DC Motor Controller [AH03EUDR] (pretend)...
+03-25 09:30:13.532 12911-13017/com.qualcomm.ftcrobotcontroller D/Robocol: RobocolDatagramSocket listening addr=/192.168.49.1:20884 cbRec=65520 cbSend=163840 msRecTO=300
+03-25 09:30:13.534 12911-13009/com.qualcomm.ftcrobotcontroller D/RobotCore: ...arming modern motor controller Modern Robotics USB DC Motor Controller [AH03EUDR] complete
+03-25 09:30:13.535 12911-13009/com.qualcomm.ftcrobotcontroller D/RobotCore: arming modern motor controller Modern Robotics USB DC Motor Controller [AI041S18]...
+03-25 09:30:13.536 12911-13009/com.qualcomm.ftcrobotcontroller W/RobotCore: Unable to find USB device with serial number AI041S18
+03-25 09:30:13.536 12911-13009/com.qualcomm.ftcrobotcontroller D/RobotCore: arming modern motor controller Modern Robotics USB DC Motor Controller [AI041S18] (pretend)...
+03-25 09:30:13.538 12911-13009/com.qualcomm.ftcrobotcontroller D/RobotCore: ...arming modern motor controller Modern Robotics USB DC Motor Controller [AI041S18] complete
+03-25 09:30:13.538 12911-13009/com.qualcomm.ftcrobotcontroller D/RobotCore: arming modern motor controller Modern Robotics USB DC Motor Controller [AL00VM5O]...
+03-25 09:30:13.539 12911-13009/com.qualcomm.ftcrobotcontroller W/RobotCore: Unable to find USB device with serial number AL00VM5O
+03-25 09:30:13.539 12911-13009/com.qualcomm.ftcrobotcontroller D/RobotCore: arming modern motor controller Modern Robotics USB DC Motor Controller [AL00VM5O] (pretend)...
+03-25 09:30:13.540 12911-13009/com.qualcomm.ftcrobotcontroller D/RobotCore: ...arming modern motor controller Modern Robotics USB DC Motor Controller [AL00VM5O] complete
+03-25 09:30:13.541 12911-13009/com.qualcomm.ftcrobotcontroller D/RobotCore: arming modern servo controller Modern Robotics USB Servo Controller [AL00YAWG]...
+03-25 09:30:13.541 12911-13009/com.qualcomm.ftcrobotcontroller W/RobotCore: Unable to find USB device with serial number AL00YAWG
+03-25 09:30:13.542 12911-13009/com.qualcomm.ftcrobotcontroller D/RobotCore: arming modern servo controller Modern Robotics USB Servo Controller [AL00YAWG] (pretend)...
+03-25 09:30:13.543 12911-13009/com.qualcomm.ftcrobotcontroller D/RobotCore: ...arming modern servo controller Modern Robotics USB Servo Controller [AL00YAWG] complete
+03-25 09:30:13.543 12911-13009/com.qualcomm.ftcrobotcontroller D/RobotCore: arming modern motor controller Modern Robotics USB DC Motor Controller [AL00XT5Y]...
+03-25 09:30:13.544 12911-13009/com.qualcomm.ftcrobotcontroller W/RobotCore: Unable to find USB device with serial number AL00XT5Y
+03-25 09:30:13.544 12911-13009/com.qualcomm.ftcrobotcontroller D/RobotCore: arming modern motor controller Modern Robotics USB DC Motor Controller [AL00XT5Y] (pretend)...
+03-25 09:30:13.545 12911-13009/com.qualcomm.ftcrobotcontroller D/RobotCore: ...arming modern motor controller Modern Robotics USB DC Motor Controller [AL00XT5Y] complete
+03-25 09:30:13.546 12911-13009/com.qualcomm.ftcrobotcontroller W/RobotCore: Unable to find USB device with serial number AL00XJIG
+03-25 09:30:13.576 12911-13009/com.qualcomm.ftcrobotcontroller I/RobotCore: Analytics has completed initialization.
+03-25 09:30:13.576 12911-13009/com.qualcomm.ftcrobotcontroller I/RobotCore: ========= Device Information ===================================================
+03-25 09:30:13.576 12911-13009/com.qualcomm.ftcrobotcontroller I/RobotCore: Type                                               Name                           Connection
+03-25 09:30:13.577 12911-13009/com.qualcomm.ftcrobotcontroller I/RobotCore: Modern Robotics Digital Touch Sensor               t4                             USB AL00XJIG; digital port 3
+03-25 09:30:13.577 12911-13009/com.qualcomm.ftcrobotcontroller I/RobotCore: Servo                                              pusherL                        USB AL00YAWG; port 2
+03-25 09:30:13.577 12911-13009/com.qualcomm.ftcrobotcontroller I/RobotCore: Analog Input                                       l1                             USB AL00XJIG; analog port 0
+03-25 09:30:13.578 12911-13009/com.qualcomm.ftcrobotcontroller I/RobotCore: Analog Input                                       l2                             USB AL00XJIG; analog port 1
+03-25 09:30:13.578 12911-13009/com.qualcomm.ftcrobotcontroller I/RobotCore: Servo                                              pusherR                        USB AL00YAWG; port 3
+03-25 09:30:13.578 12911-13009/com.qualcomm.ftcrobotcontroller I/RobotCore: Continuous Rotation Servo                          br                             USB AL00YAWG; port 5
+03-25 09:30:13.578 12911-13009/com.qualcomm.ftcrobotcontroller I/RobotCore: Adafruit BNO055 IMU                                imu                            USB AL00XJIG; port 0
+03-25 09:30:13.578 12911-13009/com.qualcomm.ftcrobotcontroller I/RobotCore: Modern Robotics USB DC Motor Controller            Motor Controller 4             USB AI041S18
+03-25 09:30:13.578 12911-13009/com.qualcomm.ftcrobotcontroller I/RobotCore: Analog Input                                       u1                             USB AL00XJIG; analog port 2
+03-25 09:30:13.578 12911-13009/com.qualcomm.ftcrobotcontroller I/RobotCore: Modern Robotics USB DC Motor Controller            Motor Controller 3             USB AL00XT5Y
+03-25 09:30:13.578 12911-13009/com.qualcomm.ftcrobotcontroller I/RobotCore: Servo                                              s1                             USB AL00YAWG; port 1
+03-25 09:30:13.578 12911-13009/com.qualcomm.ftcrobotcontroller I/RobotCore: Modern Robotics USB DC Motor Controller            Motor Controller 1             USB AH03EUDR
+03-25 09:30:13.578 12911-13009/com.qualcomm.ftcrobotcontroller I/RobotCore: Servo                                              br2                            USB AL00YAWG; port 6
+03-25 09:30:13.578 12911-13009/com.qualcomm.ftcrobotcontroller I/RobotCore: DC Motor                                           m1                             USB AH03EUDR; port 2
+03-25 09:30:13.579 12911-13009/com.qualcomm.ftcrobotcontroller I/RobotCore: Modern Robotics USB Core Device Interface Module   Device Interface Module 1      USB AL00XJIG
+03-25 09:30:13.579 12911-13009/com.qualcomm.ftcrobotcontroller I/RobotCore: DC Motor                                           m2                             USB AH03EUDR; port 1
+03-25 09:30:13.579 12911-13009/com.qualcomm.ftcrobotcontroller I/RobotCore: Modern Robotics USB Servo Controller               Servo Controller 2             USB AL00YAWG
+03-25 09:30:13.579 12911-13009/com.qualcomm.ftcrobotcontroller I/RobotCore: DC Motor                                           m3                             USB AI041S18; port 2
+03-25 09:30:13.579 12911-13009/com.qualcomm.ftcrobotcontroller I/RobotCore: DC Motor                                           m4                             USB AI041S18; port 1
+03-25 09:30:13.579 12911-13009/com.qualcomm.ftcrobotcontroller I/RobotCore: DC Motor                                           m5                             USB AL00VM5O; port 1
+03-25 09:30:13.579 12911-13009/com.qualcomm.ftcrobotcontroller I/RobotCore: DC Motor                                           m6                             USB AL00XT5Y; port 2
+03-25 09:30:13.579 12911-13009/com.qualcomm.ftcrobotcontroller I/RobotCore: Analog Input                                       ir1                            USB AL00XJIG; analog port 4
+03-25 09:30:13.579 12911-13009/com.qualcomm.ftcrobotcontroller I/RobotCore: DC Motor                                           m7                             USB AL00XT5Y; port 1
+03-25 09:30:13.579 12911-13009/com.qualcomm.ftcrobotcontroller I/RobotCore: Modern Robotics USB DC Motor Controller            Motor Controller poop          USB AL00VM5O
+03-25 09:30:13.579 12911-13009/com.qualcomm.ftcrobotcontroller I/RobotCore: Continuous Rotation Servo                          spacer                         USB AL00YAWG; port 4
+03-25 09:30:13.579 12911-13009/com.qualcomm.ftcrobotcontroller I/RobotCore: Modern Robotics Digital Touch Sensor               t1                             USB AL00XJIG; digital port 0
+03-25 09:30:13.579 12911-13009/com.qualcomm.ftcrobotcontroller I/RobotCore: Modern Robotics Digital Touch Sensor               t2                             USB AL00XJIG; digital port 1
+03-25 09:30:13.579 12911-13009/com.qualcomm.ftcrobotcontroller I/RobotCore: Modern Robotics Digital Touch Sensor               t3                             USB AL00XJIG; digital port 2
+03-25 09:30:13.579 12911-13009/com.qualcomm.ftcrobotcontroller I/FIRST: ======= INIT FINISH =======
+03-25 09:30:13.590 12911-13026/com.qualcomm.ftcrobotcontroller D/RobotCore: system telemetry: key=$System$Warning$ msg="unable to open Modern Robotics USB Servo Controller [AL00YAWG]; unable to open Modern Robotics USB DC Motor Controller [AL00VM5O]; unable to open Modern Robotics USB DC Motor Controller [AL00XT5Y]; unable to open Modern Robotics USB DC Motor Controller [AH03EUDR]; unable to open Modern Robotics USB Core Device Interface Module [AL00XJIG]; unable to open Modern Robotics USB DC Motor Controller [AI041S18]"
+03-25 09:30:13.604 12911-13006/com.qualcomm.ftcrobotcontroller D/MediaPlayer: setSubtitleAnchor in MediaPlayer
+03-25 09:30:13.606 12911-12911/com.qualcomm.ftcrobotcontroller D/MediaPlayer: setSubtitleAnchor in MediaPlayer
+03-25 09:30:13.622 12911-13004/com.qualcomm.ftcrobotcontroller D/ExtendedUtils: extended extractor not needed, return default
+03-25 09:30:13.629 12911-13030/com.qualcomm.ftcrobotcontroller I/OMXClient: Using client-side OMX mux.
+03-25 09:30:13.632 12911-13030/com.qualcomm.ftcrobotcontroller E/OMXMaster: A component of name 'OMX.qcom.audio.decoder.aac' already exists, ignoring this one.
+03-25 09:30:13.650 12911-13006/com.qualcomm.ftcrobotcontroller W/AudioTrack: AUDIO_OUTPUT_FLAG_FAST denied by client; transfer 4, track 8000 Hz, output 48000 Hz
+03-25 09:30:13.673 12911-13006/com.qualcomm.ftcrobotcontroller D/MediaPlayer: setSubtitleAnchor in MediaPlayer
+03-25 09:30:13.673 12911-12911/com.qualcomm.ftcrobotcontroller D/MediaPlayer: setSubtitleAnchor in MediaPlayer
+03-25 09:30:13.699 12911-13004/com.qualcomm.ftcrobotcontroller D/ExtendedUtils: extended extractor not needed, return default
+03-25 09:30:13.701 12911-13038/com.qualcomm.ftcrobotcontroller I/OMXClient: Using client-side OMX mux.
+03-25 09:30:13.704 12911-13038/com.qualcomm.ftcrobotcontroller E/OMXMaster: A component of name 'OMX.qcom.audio.decoder.aac' already exists, ignoring this one.
+03-25 09:30:13.762 12911-13020/com.qualcomm.ftcrobotcontroller D/Robocol: RobocolDatagramSocket connected to /192.168.49.3:20884
+03-25 09:30:14.093 12911-13026/com.qualcomm.ftcrobotcontroller I/RobotCore: Attempting to switch to op mode $Stop$Robot$
+03-25 09:30:14.349 12911-13026/com.qualcomm.ftcrobotcontroller I/RobotCore: robot battery read duration: n=0, mean=0.000ms sd=-0.000ms
+03-25 09:30:14.669 12911-13006/com.qualcomm.ftcrobotcontroller W/AudioTrack: AUDIO_OUTPUT_FLAG_FAST denied by client; transfer 4, track 44100 Hz, output 48000 Hz
+03-25 09:30:14.691 12911-13006/com.qualcomm.ftcrobotcontroller D/MediaPlayer: setSubtitleAnchor in MediaPlayer
+03-25 09:30:14.691 12911-12911/com.qualcomm.ftcrobotcontroller D/MediaPlayer: setSubtitleAnchor in MediaPlayer
+03-25 09:30:14.711 12911-13004/com.qualcomm.ftcrobotcontroller D/ExtendedUtils: extended extractor not needed, return default
+03-25 09:30:14.715 12911-13047/com.qualcomm.ftcrobotcontroller I/OMXClient: Using client-side OMX mux.
+03-25 09:30:14.718 12911-13047/com.qualcomm.ftcrobotcontroller E/OMXMaster: A component of name 'OMX.qcom.audio.decoder.aac' already exists, ignoring this one.
+03-25 09:30:15.714 12911-13006/com.qualcomm.ftcrobotcontroller W/AudioTrack: AUDIO_OUTPUT_FLAG_FAST denied by client; transfer 4, track 44100 Hz, output 48000 Hz
+03-25 09:30:41.682 12911-13000/com.qualcomm.ftcrobotcontroller E/Surface: getSlotFromBufferLocked: unknown buffer: 0xb9b1fe48
+03-25 09:30:42.205 12911-13026/com.qualcomm.ftcrobotcontroller I/FIRST: ======= TEARDOWN =======
+03-25 09:30:42.206 12911-13026/com.qualcomm.ftcrobotcontroller D/RobotCore: disarming modern motor controller Modern Robotics USB DC Motor Controller [AL00XT5Y]...
+03-25 09:30:42.211 12911-13026/com.qualcomm.ftcrobotcontroller D/RobotCore: ...disarming modern motor controller Modern Robotics USB DC Motor Controller [AL00XT5Y] complete
+03-25 09:30:42.211 12911-13026/com.qualcomm.ftcrobotcontroller D/RobotCore: disarming modern motor controller Modern Robotics USB DC Motor Controller [AI041S18]...
+03-25 09:30:42.213 12911-13026/com.qualcomm.ftcrobotcontroller D/RobotCore: ...disarming modern motor controller Modern Robotics USB DC Motor Controller [AI041S18] complete
+03-25 09:30:42.213 12911-13026/com.qualcomm.ftcrobotcontroller D/RobotCore: disarming modern motor controller Modern Robotics USB DC Motor Controller [AH03EUDR]...
+03-25 09:30:42.215 12911-13026/com.qualcomm.ftcrobotcontroller D/RobotCore: ...disarming modern motor controller Modern Robotics USB DC Motor Controller [AH03EUDR] complete
+03-25 09:30:42.215 12911-13026/com.qualcomm.ftcrobotcontroller D/RobotCore: disarming modern motor controller Modern Robotics USB DC Motor Controller [AL00VM5O]...
+03-25 09:30:42.217 12911-13026/com.qualcomm.ftcrobotcontroller D/RobotCore: ...disarming modern motor controller Modern Robotics USB DC Motor Controller [AL00VM5O] complete
+03-25 09:30:42.217 12911-13026/com.qualcomm.ftcrobotcontroller D/RobotCore: disarming modern servo controller "Modern Robotics USB Servo Controller [AL00YAWG]"...
+03-25 09:30:42.222 12911-13026/com.qualcomm.ftcrobotcontroller D/RobotCore: ...disarming modern servo controller Modern Robotics USB Servo Controller [AL00YAWG] complete
+03-25 09:30:42.230 12911-13026/com.qualcomm.ftcrobotcontroller I/FIRST: ======= TEARDOWN COMPLETE =======
+03-25 09:30:42.272 12911-13020/com.qualcomm.ftcrobotcontroller D/RobotCore: system telemetry: key=$System$None$ msg=""
+03-25 09:30:57.813 12911-13020/com.qualcomm.ftcrobotcontroller D/Robocol: no packet received: SocketTimeoutException
+03-25 09:31:16.017 12911-12921/com.qualcomm.ftcrobotcontroller I/art: CollectorTransition marksweep + semispace GC freed 6701(-92KB) AllocSpace objects, 2(128KB) LOS objects, 25% free, 10MB/13MB, paused 41.862ms total 41.862ms
+03-25 09:31:16.030 12911-12911/com.qualcomm.ftcrobotcontroller D/OpmodeRegistration: registered {DefaultOpMode} as {$Stop$Robot$}
+
+
+
+The macro freezes the robut

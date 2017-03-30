@@ -47,7 +47,7 @@ public class Logger {
             /*lines.remove(0);
             lines.add(contents);
             renderLines();*/
-            telemetry.addLine(contents);
+//            telemetry.addLine(contents);
         }
     }
 

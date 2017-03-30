@@ -1,0 +1,610 @@
+03-25 09:25:03.810 10270-10270/com.qualcomm.ftcrobotcontroller I/chatty: uid=10103(com.qualcomm.ftcrobotcontroller) expire 50 lines
+03-25 09:25:03.874 10270-10283/com.qualcomm.ftcrobotcontroller I/chatty: uid=10103(com.qualcomm.ftcrobotcontroller) Logging Thread expire 2 lines
+03-25 09:25:05.828 10270-10270/com.qualcomm.ftcrobotcontroller W/ClassManager: com.qualcomm.hardware.modernrobotics.ReadWriteRunnable$BlockingState java.lang.ClassNotFoundException: com.qualcomm.hardware.modernrobotics.ReadWriteRunnable$BlockingState
+                                                                               java.lang.ClassNotFoundException: com.qualcomm.hardware.modernrobotics.ReadWriteRunnable$BlockingState
+                                                                                   at java.lang.Class.classForName(Native Method)
+                                                                                   at java.lang.Class.forName(Class.java:324)
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.findAllClasses(ClassManager.java:125)
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.processAllClasses(ClassManager.java:158)
+                                                                                   at com.qualcomm.ftccommon.ClassManagerFactory.processClasses(ClassManagerFactory.java:64)
+                                                                                   at org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity.onCreate(FtcRobotControllerActivity.java:221)
+                                                                                   at android.app.Activity.performCreate(Activity.java:6245)
+                                                                                   at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1130)
+                                                                                   at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2379)
+                                                                                   at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2490)
+                                                                                   at android.app.ActivityThread.-wrap11(ActivityThread.java)
+                                                                                   at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1354)
+                                                                                   at android.os.Handler.dispatchMessage(Handler.java:102)
+                                                                                   at android.os.Looper.loop(Looper.java:148)
+                                                                                   at android.app.ActivityThread.main(ActivityThread.java:5443)
+                                                                                   at java.lang.reflect.Method.invoke(Native Method)
+                                                                                   at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:728)
+                                                                                   at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:618)
+                                                                                Caused by: java.lang.ClassNotFoundException: Didn't find class "com.qualcomm.hardware.modernrobotics.ReadWriteRunnable$BlockingState" on path: DexPathList[[zip file "/system/framework/android.test.runner.jar", zip file "/data/app/com.qualcomm.ftcrobotcontroller-2/base.apk"],nativeLibraryDirectories=[/data/app/com.qualcomm.ftcrobotcontroller-2/lib/arm, /data/app/com.qualcomm.ftcrobotcontroller-2/base.apk!/lib/armeabi-v7a, /vendor/lib, /system/lib]]
+                                                                                   at dalvik.system.BaseDexClassLoader.findClass(BaseDexClassLoader.java:56)
+                                                                                   at java.lang.ClassLoader.loadClass(ClassLoader.java:511)
+                                                                                   at java.lang.ClassLoader.loadClass(ClassLoader.java:469)
+                                                                                   at java.lang.Class.classForName(Native Method) 
+                                                                                   at java.lang.Class.forName(Class.java:324) 
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.findAllClasses(ClassManager.java:125) 
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.processAllClasses(ClassManager.java:158) 
+                                                                                   at com.qualcomm.ftccommon.ClassManagerFactory.processClasses(ClassManagerFactory.java:64) 
+                                                                                   at org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity.onCreate(FtcRobotControllerActivity.java:221) 
+                                                                                   at android.app.Activity.performCreate(Activity.java:6245) 
+                                                                                   at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1130) 
+                                                                                   at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2379) 
+                                                                                   at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2490) 
+                                                                                   at android.app.ActivityThread.-wrap11(ActivityThread.java) 
+                                                                                   at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1354) 
+                                                                                   at android.os.Handler.dispatchMessage(Handler.java:102) 
+                                                                                   at android.os.Looper.loop(Looper.java:148) 
+                                                                                   at android.app.ActivityThread.main(ActivityThread.java:5443) 
+                                                                                   at java.lang.reflect.Method.invoke(Native Method) 
+                                                                                   at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:728) 
+                                                                                   at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:618) 
+                                                                               	Suppressed: java.lang.ClassNotFoundException: com.qualcomm.hardware.modernrobotics.ReadWriteRunnable$BlockingState
+                                                                                   at java.lang.Class.classForName(Native Method)
+                                                                                   at java.lang.BootClassLoader.findClass(ClassLoader.java:781)
+                                                                                   at java.lang.BootClassLoader.loadClass(ClassLoader.java:841)
+                                                                                   at java.lang.ClassLoader.loadClass(ClassLoader.java:504)
+                                                                                   		... 19 more
+                                                                                Caused by: java.lang.NoClassDefFoundError: Class not found using the boot class loader; no stack trace available
+03-25 09:25:05.829 10270-10270/com.qualcomm.ftcrobotcontroller W/ClassManager: com.android.tools.fd.dummy.slice_2 java.lang.ClassNotFoundException: com.android.tools.fd.dummy.slice_2
+                                                                               java.lang.ClassNotFoundException: com.android.tools.fd.dummy.slice_2
+                                                                                   at java.lang.Class.classForName(Native Method)
+                                                                                   at java.lang.Class.forName(Class.java:324)
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.findAllClasses(ClassManager.java:125)
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.processAllClasses(ClassManager.java:158)
+                                                                                   at com.qualcomm.ftccommon.ClassManagerFactory.processClasses(ClassManagerFactory.java:64)
+                                                                                   at org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity.onCreate(FtcRobotControllerActivity.java:221)
+                                                                                   at android.app.Activity.performCreate(Activity.java:6245)
+                                                                                   at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1130)
+                                                                                   at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2379)
+                                                                                   at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2490)
+                                                                                   at android.app.ActivityThread.-wrap11(ActivityThread.java)
+                                                                                   at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1354)
+                                                                                   at android.os.Handler.dispatchMessage(Handler.java:102)
+                                                                                   at android.os.Looper.loop(Looper.java:148)
+                                                                                   at android.app.ActivityThread.main(ActivityThread.java:5443)
+                                                                                   at java.lang.reflect.Method.invoke(Native Method)
+                                                                                   at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:728)
+                                                                                   at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:618)
+                                                                                Caused by: java.lang.ClassNotFoundException: Didn't find class "com.android.tools.fd.dummy.slice_2" on path: DexPathList[[zip file "/system/framework/android.test.runner.jar", zip file "/data/app/com.qualcomm.ftcrobotcontroller-2/base.apk"],nativeLibraryDirectories=[/data/app/com.qualcomm.ftcrobotcontroller-2/lib/arm, /data/app/com.qualcomm.ftcrobotcontroller-2/base.apk!/lib/armeabi-v7a, /vendor/lib, /system/lib]]
+                                                                                   at dalvik.system.BaseDexClassLoader.findClass(BaseDexClassLoader.java:56)
+                                                                                   at java.lang.ClassLoader.loadClass(ClassLoader.java:511)
+                                                                                   at java.lang.ClassLoader.loadClass(ClassLoader.java:469)
+                                                                                   at java.lang.Class.classForName(Native Method) 
+                                                                                   at java.lang.Class.forName(Class.java:324) 
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.findAllClasses(ClassManager.java:125) 
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.processAllClasses(ClassManager.java:158) 
+                                                                                   at com.qualcomm.ftccommon.ClassManagerFactory.processClasses(ClassManagerFactory.java:64) 
+                                                                                   at org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity.onCreate(FtcRobotControllerActivity.java:221) 
+                                                                                   at android.app.Activity.performCreate(Activity.java:6245) 
+                                                                                   at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1130) 
+                                                                                   at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2379) 
+                                                                                   at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2490) 
+                                                                                   at android.app.ActivityThread.-wrap11(ActivityThread.java) 
+                                                                                   at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1354) 
+                                                                                   at android.os.Handler.dispatchMessage(Handler.java:102) 
+                                                                                   at android.os.Looper.loop(Looper.java:148) 
+                                                                                   at android.app.ActivityThread.main(ActivityThread.java:5443) 
+                                                                                   at java.lang.reflect.Method.invoke(Native Method) 
+                                                                                   at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:728) 
+                                                                                   at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:618) 
+                                                                               	Suppressed: java.lang.ClassNotFoundException: com.android.tools.fd.dummy.slice_2
+                                                                                   at java.lang.Class.classForName(Native Method)
+                                                                                   at java.lang.BootClassLoader.findClass(ClassLoader.java:781)
+                                                                                   at java.lang.BootClassLoader.loadClass(ClassLoader.java:841)
+                                                                                   at java.lang.ClassLoader.loadClass(ClassLoader.java:504)
+                                                                                   		... 19 more
+                                                                                Caused by: java.lang.NoClassDefFoundError: Class not found using the boot class loader; no stack trace available
+03-25 09:25:05.830 10270-10270/com.qualcomm.ftcrobotcontroller W/ClassManager: com.qualcomm.modernrobotics.R$color java.lang.ClassNotFoundException: com.qualcomm.modernrobotics.R$color
+                                                                               java.lang.ClassNotFoundException: com.qualcomm.modernrobotics.R$color
+                                                                                   at java.lang.Class.classForName(Native Method)
+                                                                                   at java.lang.Class.forName(Class.java:324)
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.findAllClasses(ClassManager.java:125)
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.processAllClasses(ClassManager.java:158)
+                                                                                   at com.qualcomm.ftccommon.ClassManagerFactory.processClasses(ClassManagerFactory.java:64)
+                                                                                   at org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity.onCreate(FtcRobotControllerActivity.java:221)
+                                                                                   at android.app.Activity.performCreate(Activity.java:6245)
+                                                                                   at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1130)
+                                                                                   at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2379)
+                                                                                   at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2490)
+                                                                                   at android.app.ActivityThread.-wrap11(ActivityThread.java)
+                                                                                   at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1354)
+                                                                                   at android.os.Handler.dispatchMessage(Handler.java:102)
+                                                                                   at android.os.Looper.loop(Looper.java:148)
+                                                                                   at android.app.ActivityThread.main(ActivityThread.java:5443)
+                                                                                   at java.lang.reflect.Method.invoke(Native Method)
+                                                                                   at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:728)
+                                                                                   at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:618)
+                                                                                Caused by: java.lang.ClassNotFoundException: Didn't find class "com.qualcomm.modernrobotics.R$color" on path: DexPathList[[zip file "/system/framework/android.test.runner.jar", zip file "/data/app/com.qualcomm.ftcrobotcontroller-2/base.apk"],nativeLibraryDirectories=[/data/app/com.qualcomm.ftcrobotcontroller-2/lib/arm, /data/app/com.qualcomm.ftcrobotcontroller-2/base.apk!/lib/armeabi-v7a, /vendor/lib, /system/lib]]
+                                                                                   at dalvik.system.BaseDexClassLoader.findClass(BaseDexClassLoader.java:56)
+                                                                                   at java.lang.ClassLoader.loadClass(ClassLoader.java:511)
+                                                                                   at java.lang.ClassLoader.loadClass(ClassLoader.java:469)
+                                                                                   at java.lang.Class.classForName(Native Method) 
+                                                                                   at java.lang.Class.forName(Class.java:324) 
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.findAllClasses(ClassManager.java:125) 
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.processAllClasses(ClassManager.java:158) 
+                                                                                   at com.qualcomm.ftccommon.ClassManagerFactory.processClasses(ClassManagerFactory.java:64) 
+                                                                                   at org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity.onCreate(FtcRobotControllerActivity.java:221) 
+                                                                                   at android.app.Activity.performCreate(Activity.java:6245) 
+                                                                                   at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1130) 
+                                                                                   at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2379) 
+                                                                                   at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2490) 
+                                                                                   at android.app.ActivityThread.-wrap11(ActivityThread.java) 
+                                                                                   at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1354) 
+                                                                                   at android.os.Handler.dispatchMessage(Handler.java:102) 
+                                                                                   at android.os.Looper.loop(Looper.java:148) 
+                                                                                   at android.app.ActivityThread.main(ActivityThread.java:5443) 
+                                                                                   at java.lang.reflect.Method.invoke(Native Method) 
+                                                                                   at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:728) 
+                                                                                   at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:618) 
+                                                                               	Suppressed: java.lang.ClassNotFoundException: com.qualcomm.modernrobotics.R$color
+                                                                                   at java.lang.Class.classForName(Native Method)
+                                                                                   at java.lang.BootClassLoader.findClass(ClassLoader.java:781)
+                                                                                   at java.lang.BootClassLoader.loadClass(ClassLoader.java:841)
+                                                                                   at java.lang.ClassLoader.loadClass(ClassLoader.java:504)
+                                                                                   		... 19 more
+                                                                                Caused by: java.lang.NoClassDefFoundError: Class not found using the boot class loader; no stack trace available
+03-25 09:25:05.833 10270-10270/com.qualcomm.ftcrobotcontroller W/ClassManager: com.android.tools.fd.dummy.slice_5 java.lang.ClassNotFoundException: com.android.tools.fd.dummy.slice_5
+                                                                               java.lang.ClassNotFoundException: com.android.tools.fd.dummy.slice_5
+                                                                                   at java.lang.Class.classForName(Native Method)
+                                                                                   at java.lang.Class.forName(Class.java:324)
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.findAllClasses(ClassManager.java:125)
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.processAllClasses(ClassManager.java:158)
+                                                                                   at com.qualcomm.ftccommon.ClassManagerFactory.processClasses(ClassManagerFactory.java:64)
+                                                                                   at org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity.onCreate(FtcRobotControllerActivity.java:221)
+                                                                                   at android.app.Activity.performCreate(Activity.java:6245)
+                                                                                   at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1130)
+                                                                                   at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2379)
+                                                                                   at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2490)
+                                                                                   at android.app.ActivityThread.-wrap11(ActivityThread.java)
+                                                                                   at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1354)
+                                                                                   at android.os.Handler.dispatchMessage(Handler.java:102)
+                                                                                   at android.os.Looper.loop(Looper.java:148)
+                                                                                   at android.app.ActivityThread.main(ActivityThread.java:5443)
+                                                                                   at java.lang.reflect.Method.invoke(Native Method)
+                                                                                   at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:728)
+                                                                                   at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:618)
+                                                                                Caused by: java.lang.ClassNotFoundException: Didn't find class "com.android.tools.fd.dummy.slice_5" on path: DexPathList[[zip file "/system/framework/android.test.runner.jar", zip file "/data/app/com.qualcomm.ftcrobotcontroller-2/base.apk"],nativeLibraryDirectories=[/data/app/com.qualcomm.ftcrobotcontroller-2/lib/arm, /data/app/com.qualcomm.ftcrobotcontroller-2/base.apk!/lib/armeabi-v7a, /vendor/lib, /system/lib]]
+                                                                                   at dalvik.system.BaseDexClassLoader.findClass(BaseDexClassLoader.java:56)
+                                                                                   at java.lang.ClassLoader.loadClass(ClassLoader.java:511)
+                                                                                   at java.lang.ClassLoader.loadClass(ClassLoader.java:469)
+                                                                                   at java.lang.Class.classForName(Native Method) 
+                                                                                   at java.lang.Class.forName(Class.java:324) 
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.findAllClasses(ClassManager.java:125) 
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.processAllClasses(ClassManager.java:158) 
+                                                                                   at com.qualcomm.ftccommon.ClassManagerFactory.processClasses(ClassManagerFactory.java:64) 
+                                                                                   at org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity.onCreate(FtcRobotControllerActivity.java:221) 
+                                                                                   at android.app.Activity.performCreate(Activity.java:6245) 
+                                                                                   at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1130) 
+                                                                                   at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2379) 
+                                                                                   at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2490) 
+                                                                                   at android.app.ActivityThread.-wrap11(ActivityThread.java) 
+                                                                                   at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1354) 
+                                                                                   at android.os.Handler.dispatchMessage(Handler.java:102) 
+                                                                                   at android.os.Looper.loop(Looper.java:148) 
+                                                                                   at android.app.ActivityThread.main(ActivityThread.java:5443) 
+                                                                                   at java.lang.reflect.Method.invoke(Native Method) 
+                                                                                   at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:728) 
+                                                                                   at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:618) 
+                                                                               	Suppressed: java.lang.ClassNotFoundException: com.android.tools.fd.dummy.slice_5
+                                                                                   at java.lang.Class.classForName(Native Method)
+                                                                                   at java.lang.BootClassLoader.findClass(ClassLoader.java:781)
+                                                                                   at java.lang.BootClassLoader.loadClass(ClassLoader.java:841)
+                                                                                   at java.lang.ClassLoader.loadClass(ClassLoader.java:504)
+                                                                                   		... 19 more
+                                                                                Caused by: java.lang.NoClassDefFoundError: Class not found using the boot class loader; no stack trace available
+03-25 09:25:05.838 10270-10270/com.qualcomm.ftcrobotcontroller W/ClassManager: com.android.tools.fd.dummy.slice_4 java.lang.ClassNotFoundException: com.android.tools.fd.dummy.slice_4
+                                                                               java.lang.ClassNotFoundException: com.android.tools.fd.dummy.slice_4
+                                                                                   at java.lang.Class.classForName(Native Method)
+                                                                                   at java.lang.Class.forName(Class.java:324)
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.findAllClasses(ClassManager.java:125)
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.processAllClasses(ClassManager.java:158)
+                                                                                   at com.qualcomm.ftccommon.ClassManagerFactory.processClasses(ClassManagerFactory.java:64)
+                                                                                   at org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity.onCreate(FtcRobotControllerActivity.java:221)
+                                                                                   at android.app.Activity.performCreate(Activity.java:6245)
+                                                                                   at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1130)
+                                                                                   at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2379)
+                                                                                   at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2490)
+                                                                                   at android.app.ActivityThread.-wrap11(ActivityThread.java)
+                                                                                   at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1354)
+                                                                                   at android.os.Handler.dispatchMessage(Handler.java:102)
+                                                                                   at android.os.Looper.loop(Looper.java:148)
+                                                                                   at android.app.ActivityThread.main(ActivityThread.java:5443)
+                                                                                   at java.lang.reflect.Method.invoke(Native Method)
+                                                                                   at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:728)
+                                                                                   at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:618)
+                                                                                Caused by: java.lang.ClassNotFoundException: Didn't find class "com.android.tools.fd.dummy.slice_4" on path: DexPathList[[zip file "/system/framework/android.test.runner.jar", zip file "/data/app/com.qualcomm.ftcrobotcontroller-2/base.apk"],nativeLibraryDirectories=[/data/app/com.qualcomm.ftcrobotcontroller-2/lib/arm, /data/app/com.qualcomm.ftcrobotcontroller-2/base.apk!/lib/armeabi-v7a, /vendor/lib, /system/lib]]
+                                                                                   at dalvik.system.BaseDexClassLoader.findClass(BaseDexClassLoader.java:56)
+                                                                                   at java.lang.ClassLoader.loadClass(ClassLoader.java:511)
+                                                                                   at java.lang.ClassLoader.loadClass(ClassLoader.java:469)
+                                                                                   at java.lang.Class.classForName(Native Method) 
+                                                                                   at java.lang.Class.forName(Class.java:324) 
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.findAllClasses(ClassManager.java:125) 
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.processAllClasses(ClassManager.java:158) 
+                                                                                   at com.qualcomm.ftccommon.ClassManagerFactory.processClasses(ClassManagerFactory.java:64) 
+                                                                                   at org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity.onCreate(FtcRobotControllerActivity.java:221) 
+                                                                                   at android.app.Activity.performCreate(Activity.java:6245) 
+                                                                                   at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1130) 
+                                                                                   at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2379) 
+                                                                                   at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2490) 
+                                                                                   at android.app.ActivityThread.-wrap11(ActivityThread.java) 
+                                                                                   at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1354) 
+                                                                                   at android.os.Handler.dispatchMessage(Handler.java:102) 
+                                                                                   at android.os.Looper.loop(Looper.java:148) 
+                                                                                   at android.app.ActivityThread.main(ActivityThread.java:5443) 
+                                                                                   at java.lang.reflect.Method.invoke(Native Method) 
+                                                                                   at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:728) 
+                                                                                   at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:618) 
+                                                                               	Suppressed: java.lang.ClassNotFoundException: com.android.tools.fd.dummy.slice_4
+                                                                                   at java.lang.Class.classForName(Native Method)
+                                                                                   at java.lang.BootClassLoader.findClass(ClassLoader.java:781)
+                                                                                   at java.lang.BootClassLoader.loadClass(ClassLoader.java:841)
+                                                                                   at java.lang.ClassLoader.loadClass(ClassLoader.java:504)
+                                                                                   		... 19 more
+                                                                                Caused by: java.lang.NoClassDefFoundError: Class not found using the boot class loader; no stack trace available
+03-25 09:25:05.841 10270-10270/com.qualcomm.ftcrobotcontroller W/ClassManager: com.android.tools.fd.dummy.slice_7 java.lang.ClassNotFoundException: com.android.tools.fd.dummy.slice_7
+                                                                               java.lang.ClassNotFoundException: com.android.tools.fd.dummy.slice_7
+                                                                                   at java.lang.Class.classForName(Native Method)
+                                                                                   at java.lang.Class.forName(Class.java:324)
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.findAllClasses(ClassManager.java:125)
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.processAllClasses(ClassManager.java:158)
+                                                                                   at com.qualcomm.ftccommon.ClassManagerFactory.processClasses(ClassManagerFactory.java:64)
+                                                                                   at org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity.onCreate(FtcRobotControllerActivity.java:221)
+                                                                                   at android.app.Activity.performCreate(Activity.java:6245)
+                                                                                   at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1130)
+                                                                                   at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2379)
+                                                                                   at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2490)
+                                                                                   at android.app.ActivityThread.-wrap11(ActivityThread.java)
+                                                                                   at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1354)
+                                                                                   at android.os.Handler.dispatchMessage(Handler.java:102)
+                                                                                   at android.os.Looper.loop(Looper.java:148)
+                                                                                   at android.app.ActivityThread.main(ActivityThread.java:5443)
+                                                                                   at java.lang.reflect.Method.invoke(Native Method)
+                                                                                   at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:728)
+                                                                                   at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:618)
+                                                                                Caused by: java.lang.ClassNotFoundException: Didn't find class "com.android.tools.fd.dummy.slice_7" on path: DexPathList[[zip file "/system/framework/android.test.runner.jar", zip file "/data/app/com.qualcomm.ftcrobotcontroller-2/base.apk"],nativeLibraryDirectories=[/data/app/com.qualcomm.ftcrobotcontroller-2/lib/arm, /data/app/com.qualcomm.ftcrobotcontroller-2/base.apk!/lib/armeabi-v7a, /vendor/lib, /system/lib]]
+                                                                                   at dalvik.system.BaseDexClassLoader.findClass(BaseDexClassLoader.java:56)
+                                                                                   at java.lang.ClassLoader.loadClass(ClassLoader.java:511)
+                                                                                   at java.lang.ClassLoader.loadClass(ClassLoader.java:469)
+                                                                                   at java.lang.Class.classForName(Native Method) 
+                                                                                   at java.lang.Class.forName(Class.java:324) 
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.findAllClasses(ClassManager.java:125) 
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.processAllClasses(ClassManager.java:158) 
+                                                                                   at com.qualcomm.ftccommon.ClassManagerFactory.processClasses(ClassManagerFactory.java:64) 
+                                                                                   at org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity.onCreate(FtcRobotControllerActivity.java:221) 
+                                                                                   at android.app.Activity.performCreate(Activity.java:6245) 
+                                                                                   at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1130) 
+                                                                                   at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2379) 
+                                                                                   at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2490) 
+                                                                                   at android.app.ActivityThread.-wrap11(ActivityThread.java) 
+                                                                                   at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1354) 
+                                                                                   at android.os.Handler.dispatchMessage(Handler.java:102) 
+                                                                                   at android.os.Looper.loop(Looper.java:148) 
+                                                                                   at android.app.ActivityThread.main(ActivityThread.java:5443) 
+                                                                                   at java.lang.reflect.Method.invoke(Native Method) 
+                                                                                   at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:728) 
+                                                                                   at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:618) 
+                                                                               	Suppressed: java.lang.ClassNotFoundException: com.android.tools.fd.dummy.slice_7
+                                                                                   at java.lang.Class.classForName(Native Method)
+                                                                                   at java.lang.BootClassLoader.findClass(ClassLoader.java:781)
+                                                                                   at java.lang.BootClassLoader.loadClass(ClassLoader.java:841)
+                                                                                   at java.lang.ClassLoader.loadClass(ClassLoader.java:504)
+                                                                                   		... 19 more
+                                                                                Caused by: java.lang.NoClassDefFoundError: Class not found using the boot class loader; no stack trace available
+03-25 09:25:05.844 10270-10270/com.qualcomm.ftcrobotcontroller W/ClassManager: com.android.tools.fd.dummy.slice_6 java.lang.ClassNotFoundException: com.android.tools.fd.dummy.slice_6
+                                                                               java.lang.ClassNotFoundException: com.android.tools.fd.dummy.slice_6
+                                                                                   at java.lang.Class.classForName(Native Method)
+                                                                                   at java.lang.Class.forName(Class.java:324)
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.findAllClasses(ClassManager.java:125)
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.processAllClasses(ClassManager.java:158)
+                                                                                   at com.qualcomm.ftccommon.ClassManagerFactory.processClasses(ClassManagerFactory.java:64)
+                                                                                   at org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity.onCreate(FtcRobotControllerActivity.java:221)
+                                                                                   at android.app.Activity.performCreate(Activity.java:6245)
+                                                                                   at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1130)
+                                                                                   at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2379)
+                                                                                   at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2490)
+                                                                                   at android.app.ActivityThread.-wrap11(ActivityThread.java)
+                                                                                   at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1354)
+                                                                                   at android.os.Handler.dispatchMessage(Handler.java:102)
+                                                                                   at android.os.Looper.loop(Looper.java:148)
+                                                                                   at android.app.ActivityThread.main(ActivityThread.java:5443)
+                                                                                   at java.lang.reflect.Method.invoke(Native Method)
+                                                                                   at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:728)
+                                                                                   at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:618)
+                                                                                Caused by: java.lang.ClassNotFoundException: Didn't find class "com.android.tools.fd.dummy.slice_6" on path: DexPathList[[zip file "/system/framework/android.test.runner.jar", zip file "/data/app/com.qualcomm.ftcrobotcontroller-2/base.apk"],nativeLibraryDirectories=[/data/app/com.qualcomm.ftcrobotcontroller-2/lib/arm, /data/app/com.qualcomm.ftcrobotcontroller-2/base.apk!/lib/armeabi-v7a, /vendor/lib, /system/lib]]
+                                                                                   at dalvik.system.BaseDexClassLoader.findClass(BaseDexClassLoader.java:56)
+                                                                                   at java.lang.ClassLoader.loadClass(ClassLoader.java:511)
+                                                                                   at java.lang.ClassLoader.loadClass(ClassLoader.java:469)
+                                                                                   at java.lang.Class.classForName(Native Method) 
+                                                                                   at java.lang.Class.forName(Class.java:324) 
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.findAllClasses(ClassManager.java:125) 
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.processAllClasses(ClassManager.java:158) 
+                                                                                   at com.qualcomm.ftccommon.ClassManagerFactory.processClasses(ClassManagerFactory.java:64) 
+                                                                                   at org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity.onCreate(FtcRobotControllerActivity.java:221) 
+                                                                                   at android.app.Activity.performCreate(Activity.java:6245) 
+                                                                                   at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1130) 
+                                                                                   at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2379) 
+                                                                                   at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2490) 
+                                                                                   at android.app.ActivityThread.-wrap11(ActivityThread.java) 
+                                                                                   at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1354) 
+                                                                                   at android.os.Handler.dispatchMessage(Handler.java:102) 
+                                                                                   at android.os.Looper.loop(Looper.java:148) 
+                                                                                   at android.app.ActivityThread.main(ActivityThread.java:5443) 
+                                                                                   at java.lang.reflect.Method.invoke(Native Method) 
+                                                                                   at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:728) 
+                                                                                   at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:618) 
+                                                                               	Suppressed: java.lang.ClassNotFoundException: com.android.tools.fd.dummy.slice_6
+                                                                                   at java.lang.Class.classForName(Native Method)
+                                                                                   at java.lang.BootClassLoader.findClass(ClassLoader.java:781)
+                                                                                   at java.lang.BootClassLoader.loadClass(ClassLoader.java:841)
+                                                                                   at java.lang.ClassLoader.loadClass(ClassLoader.java:504)
+                                                                                   		... 19 more
+                                                                                Caused by: java.lang.NoClassDefFoundError: Class not found using the boot class loader; no stack trace available
+03-25 09:25:05.846 10270-10270/com.qualcomm.ftcrobotcontroller W/ClassManager: org.firstinspires.ftc.teamcode.opmodes.tests.AutonomousTest$1 java.lang.ClassNotFoundException: org.firstinspires.ftc.teamcode.opmodes.tests.AutonomousTest$1
+                                                                               java.lang.ClassNotFoundException: org.firstinspires.ftc.teamcode.opmodes.tests.AutonomousTest$1
+                                                                                   at java.lang.Class.classForName(Native Method)
+                                                                                   at java.lang.Class.forName(Class.java:324)
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.findAllClasses(ClassManager.java:125)
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.processAllClasses(ClassManager.java:158)
+                                                                                   at com.qualcomm.ftccommon.ClassManagerFactory.processClasses(ClassManagerFactory.java:64)
+                                                                                   at org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity.onCreate(FtcRobotControllerActivity.java:221)
+                                                                                   at android.app.Activity.performCreate(Activity.java:6245)
+                                                                                   at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1130)
+                                                                                   at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2379)
+                                                                                   at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2490)
+                                                                                   at android.app.ActivityThread.-wrap11(ActivityThread.java)
+                                                                                   at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1354)
+                                                                                   at android.os.Handler.dispatchMessage(Handler.java:102)
+                                                                                   at android.os.Looper.loop(Looper.java:148)
+                                                                                   at android.app.ActivityThread.main(ActivityThread.java:5443)
+                                                                                   at java.lang.reflect.Method.invoke(Native Method)
+                                                                                   at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:728)
+                                                                                   at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:618)
+                                                                                Caused by: java.lang.ClassNotFoundException: Didn't find class "org.firstinspires.ftc.teamcode.opmodes.tests.AutonomousTest$1" on path: DexPathList[[zip file "/system/framework/android.test.runner.jar", zip file "/data/app/com.qualcomm.ftcrobotcontroller-2/base.apk"],nativeLibraryDirectories=[/data/app/com.qualcomm.ftcrobotcontroller-2/lib/arm, /data/app/com.qualcomm.ftcrobotcontroller-2/base.apk!/lib/armeabi-v7a, /vendor/lib, /system/lib]]
+                                                                                   at dalvik.system.BaseDexClassLoader.findClass(BaseDexClassLoader.java:56)
+                                                                                   at java.lang.ClassLoader.loadClass(ClassLoader.java:511)
+                                                                                   at java.lang.ClassLoader.loadClass(ClassLoader.java:469)
+                                                                                   at java.lang.Class.classForName(Native Method) 
+                                                                                   at java.lang.Class.forName(Class.java:324) 
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.findAllClasses(ClassManager.java:125) 
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.processAllClasses(ClassManager.java:158) 
+                                                                                   at com.qualcomm.ftccommon.ClassManagerFactory.processClasses(ClassManagerFactory.java:64) 
+                                                                                   at org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity.onCreate(FtcRobotControllerActivity.java:221) 
+                                                                                   at android.app.Activity.performCreate(Activity.java:6245) 
+                                                                                   at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1130) 
+                                                                                   at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2379) 
+                                                                                   at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2490) 
+                                                                                   at android.app.ActivityThread.-wrap11(ActivityThread.java) 
+                                                                                   at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1354) 
+                                                                                   at android.os.Handler.dispatchMessage(Handler.java:102) 
+                                                                                   at android.os.Looper.loop(Looper.java:148) 
+                                                                                   at android.app.ActivityThread.main(ActivityThread.java:5443) 
+                                                                                   at java.lang.reflect.Method.invoke(Native Method) 
+                                                                                   at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:728) 
+                                                                                   at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:618) 
+                                                                               	Suppressed: java.lang.ClassNotFoundException: org.firstinspires.ftc.teamcode.opmodes.tests.AutonomousTest$1
+                                                                                   at java.lang.Class.classForName(Native Method)
+                                                                                   at java.lang.BootClassLoader.findClass(ClassLoader.java:781)
+                                                                                   at java.lang.BootClassLoader.loadClass(ClassLoader.java:841)
+                                                                                   at java.lang.ClassLoader.loadClass(ClassLoader.java:504)
+                                                                                   		... 19 more
+                                                                                Caused by: java.lang.NoClassDefFoundError: Class not found using the boot class loader; no stack trace available
+03-25 09:25:05.848 10270-10270/com.qualcomm.ftcrobotcontroller W/ClassManager: com.android.tools.fd.dummy.slice_9 java.lang.ClassNotFoundException: com.android.tools.fd.dummy.slice_9
+                                                                               java.lang.ClassNotFoundException: com.android.tools.fd.dummy.slice_9
+                                                                                   at java.lang.Class.classForName(Native Method)
+                                                                                   at java.lang.Class.forName(Class.java:324)
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.findAllClasses(ClassManager.java:125)
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.processAllClasses(ClassManager.java:158)
+                                                                                   at com.qualcomm.ftccommon.ClassManagerFactory.processClasses(ClassManagerFactory.java:64)
+                                                                                   at org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity.onCreate(FtcRobotControllerActivity.java:221)
+                                                                                   at android.app.Activity.performCreate(Activity.java:6245)
+                                                                                   at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1130)
+                                                                                   at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2379)
+                                                                                   at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2490)
+                                                                                   at android.app.ActivityThread.-wrap11(ActivityThread.java)
+                                                                                   at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1354)
+                                                                                   at android.os.Handler.dispatchMessage(Handler.java:102)
+                                                                                   at android.os.Looper.loop(Looper.java:148)
+                                                                                   at android.app.ActivityThread.main(ActivityThread.java:5443)
+                                                                                   at java.lang.reflect.Method.invoke(Native Method)
+                                                                                   at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:728)
+                                                                                   at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:618)
+                                                                                Caused by: java.lang.ClassNotFoundException: Didn't find class "com.android.tools.fd.dummy.slice_9" on path: DexPathList[[zip file "/system/framework/android.test.runner.jar", zip file "/data/app/com.qualcomm.ftcrobotcontroller-2/base.apk"],nativeLibraryDirectories=[/data/app/com.qualcomm.ftcrobotcontroller-2/lib/arm, /data/app/com.qualcomm.ftcrobotcontroller-2/base.apk!/lib/armeabi-v7a, /vendor/lib, /system/lib]]
+                                                                                   at dalvik.system.BaseDexClassLoader.findClass(BaseDexClassLoader.java:56)
+                                                                                   at java.lang.ClassLoader.loadClass(ClassLoader.java:511)
+                                                                                   at java.lang.ClassLoader.loadClass(ClassLoader.java:469)
+                                                                                   at java.lang.Class.classForName(Native Method) 
+                                                                                   at java.lang.Class.forName(Class.java:324) 
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.findAllClasses(ClassManager.java:125) 
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.processAllClasses(ClassManager.java:158) 
+                                                                                   at com.qualcomm.ftccommon.ClassManagerFactory.processClasses(ClassManagerFactory.java:64) 
+                                                                                   at org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity.onCreate(FtcRobotControllerActivity.java:221) 
+                                                                                   at android.app.Activity.performCreate(Activity.java:6245) 
+                                                                                   at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1130) 
+                                                                                   at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2379) 
+                                                                                   at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2490) 
+                                                                                   at android.app.ActivityThread.-wrap11(ActivityThread.java) 
+                                                                                   at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1354) 
+                                                                                   at android.os.Handler.dispatchMessage(Handler.java:102) 
+                                                                                   at android.os.Looper.loop(Looper.java:148) 
+                                                                                   at android.app.ActivityThread.main(ActivityThread.java:5443) 
+                                                                                   at java.lang.reflect.Method.invoke(Native Method) 
+                                                                                   at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:728) 
+                                                                                   at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:618) 
+                                                                               	Suppressed: java.lang.ClassNotFoundException: com.android.tools.fd.dummy.slice_9
+                                                                                   at java.lang.Class.classForName(Native Method)
+                                                                                   at java.lang.BootClassLoader.findClass(ClassLoader.java:781)
+                                                                                   at java.lang.BootClassLoader.loadClass(ClassLoader.java:841)
+                                                                                   at java.lang.ClassLoader.loadClass(ClassLoader.java:504)
+                                                                                   		... 19 more
+                                                                                Caused by: java.lang.NoClassDefFoundError: Class not found using the boot class loader; no stack trace available
+03-25 09:25:05.850 10270-10270/com.qualcomm.ftcrobotcontroller W/ClassManager: com.android.tools.fd.dummy.slice_8 java.lang.ClassNotFoundException: com.android.tools.fd.dummy.slice_8
+                                                                               java.lang.ClassNotFoundException: com.android.tools.fd.dummy.slice_8
+                                                                                   at java.lang.Class.classForName(Native Method)
+                                                                                   at java.lang.Class.forName(Class.java:324)
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.findAllClasses(ClassManager.java:125)
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.processAllClasses(ClassManager.java:158)
+                                                                                   at com.qualcomm.ftccommon.ClassManagerFactory.processClasses(ClassManagerFactory.java:64)
+                                                                                   at org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity.onCreate(FtcRobotControllerActivity.java:221)
+                                                                                   at android.app.Activity.performCreate(Activity.java:6245)
+                                                                                   at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1130)
+                                                                                   at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2379)
+                                                                                   at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2490)
+                                                                                   at android.app.ActivityThread.-wrap11(ActivityThread.java)
+                                                                                   at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1354)
+                                                                                   at android.os.Handler.dispatchMessage(Handler.java:102)
+                                                                                   at android.os.Looper.loop(Looper.java:148)
+                                                                                   at android.app.ActivityThread.main(ActivityThread.java:5443)
+                                                                                   at java.lang.reflect.Method.invoke(Native Method)
+                                                                                   at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:728)
+                                                                                   at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:618)
+                                                                                Caused by: java.lang.ClassNotFoundException: Didn't find class "com.android.tools.fd.dummy.slice_8" on path: DexPathList[[zip file "/system/framework/android.test.runner.jar", zip file "/data/app/com.qualcomm.ftcrobotcontroller-2/base.apk"],nativeLibraryDirectories=[/data/app/com.qualcomm.ftcrobotcontroller-2/lib/arm, /data/app/com.qualcomm.ftcrobotcontroller-2/base.apk!/lib/armeabi-v7a, /vendor/lib, /system/lib]]
+                                                                                   at dalvik.system.BaseDexClassLoader.findClass(BaseDexClassLoader.java:56)
+                                                                                   at java.lang.ClassLoader.loadClass(ClassLoader.java:511)
+                                                                                   at java.lang.ClassLoader.loadClass(ClassLoader.java:469)
+                                                                                   at java.lang.Class.classForName(Native Method) 
+                                                                                   at java.lang.Class.forName(Class.java:324) 
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.findAllClasses(ClassManager.java:125) 
+                                                                                   at com.qualcomm.robotcore.util.ClassManager.processAllClasses(ClassManager.java:158) 
+                                                                                   at com.qualcomm.ftccommon.ClassManagerFactory.processClasses(ClassManagerFactory.java:64) 
+                                                                                   at org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity.onCreate(FtcRobotControllerActivity.java:221) 
+                                                                                   at android.app.Activity.performCreate(Activity.java:6245) 
+                                                                                   at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1130) 
+                                                                                   at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2379) 
+                                                                                   at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2490) 
+                                                                                   at android.app.ActivityThread.-wrap11(ActivityThread.java) 
+                                                                                   at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1354) 
+                                                                                   at android.os.Handler.dispatchMessage(Handler.java:102) 
+                                                                                   at android.os.Looper.loop(Looper.java:148) 
+                                                                                   at android.app.ActivityThread.main(ActivityThread.java:5443) 
+                                                                                   at java.lang.reflect.Method.invoke(Native Method) 
+                                                                                   at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:728) 
+                                                                                   at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:618) 
+                                                                               	Suppressed: java.lang.ClassNotFoundException: com.android.tools.fd.dummy.slice_8
+                                                                                   at java.lang.Class.classForName(Native Method)
+                                                                                   at java.lang.BootClassLoader.findClass(ClassLoader.java:781)
+                                                                                   at java.lang.BootClassLoader.loadClass(ClassLoader.java:841)
+                                                                                   at java.lang.ClassLoader.loadClass(ClassLoader.java:504)
+                                                                                   		... 19 more
+                                                                                Caused by: java.lang.NoClassDefFoundError: Class not found using the boot class loader; no stack trace available
+03-25 09:25:08.086 10270-10270/com.qualcomm.ftcrobotcontroller W/UserSensorTypeManager: configuration error: the sensor "Adafruit IMU" is already defined
+03-25 09:25:08.128 10270-10270/com.qualcomm.ftcrobotcontroller W/UserSensorTypeManager: configuration error: the sensor "MR Compass Sensor" is already defined
+03-25 09:25:08.133 10270-10270/com.qualcomm.ftcrobotcontroller W/UserSensorTypeManager: configuration error: the sensor "MR Range Sensor" is already defined
+03-25 09:25:08.760 10270-10358/com.qualcomm.ftcrobotcontroller D/OpenGLRenderer: Use EGL_SWAP_BEHAVIOR_PRESERVED: true
+03-25 09:25:08.844 10270-10358/com.qualcomm.ftcrobotcontroller I/OpenGLRenderer: Initialized EGL, version 1.4
+03-25 09:25:08.859 10270-10270/com.qualcomm.ftcrobotcontroller D/WifiDirect: broadcast: state - enabled: true
+03-25 09:25:08.862 10270-10270/com.qualcomm.ftcrobotcontroller D/WifiDirect: broadcast: connection changed: connectStatus=NOT_CONNECTED networkInfo.state=CONNECTED
+03-25 09:25:08.863 10270-10270/com.qualcomm.ftcrobotcontroller D/WifiDirect: broadcast: this device changed
+03-25 09:25:08.888 10270-10270/com.qualcomm.ftcrobotcontroller D/OpmodeRegistration: registered {DefaultOpMode} as {$Stop$Robot$}
+03-25 09:25:08.889 10270-10270/com.qualcomm.ftcrobotcontroller D/WifiDirect: cannot create group, does group already exist?
+03-25 09:25:08.907 10270-10365/com.qualcomm.ftcrobotcontroller D/MediaPlayer: setSubtitleAnchor in MediaPlayer
+03-25 09:25:08.948 10270-10270/com.qualcomm.ftcrobotcontroller D/WifiDirect: group owners address: /192.168.49.1
+03-25 09:25:08.948 10270-10270/com.qualcomm.ftcrobotcontroller D/WifiDirect: group formed, this device is the group owner (GO)
+03-25 09:25:08.949 10270-10270/com.qualcomm.ftcrobotcontroller I/FTCService: Wifi Direct - connected as group owner
+03-25 09:25:08.949 10270-10270/com.qualcomm.ftcrobotcontroller D/WifiDirect: stop discovering peers
+03-25 09:25:08.956 10270-10270/com.qualcomm.ftcrobotcontroller W/MediaPlayer: mediaplayer went away with unhandled events
+03-25 09:25:08.958 10270-10363/com.qualcomm.ftcrobotcontroller D/ExtendedUtils: extended extractor not needed, return default
+03-25 09:25:08.964 10270-10370/com.qualcomm.ftcrobotcontroller I/OMXClient: Using client-side OMX mux.
+03-25 09:25:08.966 10270-10370/com.qualcomm.ftcrobotcontroller E/OMXMaster: A component of name 'OMX.qcom.audio.decoder.aac' already exists, ignoring this one.
+03-25 09:25:08.990 10270-10270/com.qualcomm.ftcrobotcontroller I/FTCService: Network Connection Passphrase: DCUw9tTT
+03-25 09:25:08.998 10270-10365/com.qualcomm.ftcrobotcontroller W/AudioTrack: AUDIO_OUTPUT_FLAG_FAST denied by client; transfer 4, track 44100 Hz, output 48000 Hz
+03-25 09:25:13.889 10270-10270/com.qualcomm.ftcrobotcontroller I/RobotCore: Battery Checker, Level Remaining: 96.0
+03-25 09:25:13.890 10270-10270/com.qualcomm.ftcrobotcontroller I/RobotCore: Battery Checker, Level Remaining: 96.0
+03-25 09:25:13.895 10270-10368/com.qualcomm.ftcrobotcontroller I/FIRST: ======= INIT START =======
+03-25 09:25:13.910 10270-10368/com.qualcomm.ftcrobotcontroller D/OpmodeRegistration: registered {BlueBonnieAuto} as {Blue Bonnie}
+03-25 09:25:13.911 10270-10368/com.qualcomm.ftcrobotcontroller D/OpmodeRegistration: registered {BlueSecondaryBonnieAuto} as {2nd blue bonnie}
+03-25 09:25:13.911 10270-10368/com.qualcomm.ftcrobotcontroller D/OpmodeRegistration: registered {RedBonnieAuto} as {Red Bonnie}
+03-25 09:25:13.912 10270-10368/com.qualcomm.ftcrobotcontroller D/OpmodeRegistration: registered {RedSecondaryBonnieAuto} as {2nd RED bonnie *NOT BLUE*}
+03-25 09:25:13.912 10270-10368/com.qualcomm.ftcrobotcontroller D/OpmodeRegistration: registered {PIDTuning} as {PID Tuning}
+03-25 09:25:13.913 10270-10368/com.qualcomm.ftcrobotcontroller D/OpmodeRegistration: registered {ClydeTester} as {Clyde Tester}
+03-25 09:25:13.914 10270-10368/com.qualcomm.ftcrobotcontroller D/OpmodeRegistration: registered {clyde} as {ClydeOp}
+03-25 09:25:13.914 10270-10368/com.qualcomm.ftcrobotcontroller D/OpmodeRegistration: registered {CalibrateIMU} as {Adafruit IMU Calibration}
+03-25 09:25:13.915 10270-10368/com.qualcomm.ftcrobotcontroller D/OpmodeRegistration: registered {Bonnie} as {BonnieOp}
+03-25 09:25:13.915 10270-10368/com.qualcomm.ftcrobotcontroller D/OpmodeRegistration: registered {BonnieTester} as {Bonnie Tester}
+03-25 09:25:13.915 10270-10368/com.qualcomm.ftcrobotcontroller D/OpmodeRegistration: registered {Maintenance} as {Maintenance}
+03-25 09:25:13.916 10270-10368/com.qualcomm.ftcrobotcontroller D/OpmodeRegistration: registered {ControllerTester} as {Controller Tester}
+03-25 09:25:13.917 10270-10368/com.qualcomm.ftcrobotcontroller D/OpmodeRegistration: registered {NeuronTester} as {Neuron Tester}
+03-25 09:25:13.917 10270-10368/com.qualcomm.ftcrobotcontroller D/OpmodeRegistration: registered {AutonomousTest} as {Autonomous Test}
+03-25 09:25:13.928 10270-10368/com.qualcomm.ftcrobotcontroller D/RobotCore: arming modern motor controller Modern Robotics USB DC Motor Controller [AH03EUDR]...
+03-25 09:25:13.928 10270-10368/com.qualcomm.ftcrobotcontroller W/RobotCore: Unable to find USB device with serial number AH03EUDR
+03-25 09:25:13.929 10270-10368/com.qualcomm.ftcrobotcontroller D/RobotCore: arming modern motor controller Modern Robotics USB DC Motor Controller [AH03EUDR] (pretend)...
+03-25 09:25:13.931 10270-10368/com.qualcomm.ftcrobotcontroller D/RobotCore: ...arming modern motor controller Modern Robotics USB DC Motor Controller [AH03EUDR] complete
+03-25 09:25:13.932 10270-10368/com.qualcomm.ftcrobotcontroller D/RobotCore: arming modern motor controller Modern Robotics USB DC Motor Controller [AI041S18]...
+03-25 09:25:13.932 10270-10368/com.qualcomm.ftcrobotcontroller W/RobotCore: Unable to find USB device with serial number AI041S18
+03-25 09:25:13.933 10270-10368/com.qualcomm.ftcrobotcontroller D/RobotCore: arming modern motor controller Modern Robotics USB DC Motor Controller [AI041S18] (pretend)...
+03-25 09:25:13.936 10270-10368/com.qualcomm.ftcrobotcontroller D/RobotCore: ...arming modern motor controller Modern Robotics USB DC Motor Controller [AI041S18] complete
+03-25 09:25:13.936 10270-10368/com.qualcomm.ftcrobotcontroller D/RobotCore: arming modern motor controller Modern Robotics USB DC Motor Controller [AL00VM5O]...
+03-25 09:25:13.936 10270-10368/com.qualcomm.ftcrobotcontroller W/RobotCore: Unable to find USB device with serial number AL00VM5O
+03-25 09:25:13.937 10270-10368/com.qualcomm.ftcrobotcontroller D/RobotCore: arming modern motor controller Modern Robotics USB DC Motor Controller [AL00VM5O] (pretend)...
+03-25 09:25:13.938 10270-10368/com.qualcomm.ftcrobotcontroller D/RobotCore: ...arming modern motor controller Modern Robotics USB DC Motor Controller [AL00VM5O] complete
+03-25 09:25:13.939 10270-10368/com.qualcomm.ftcrobotcontroller D/RobotCore: arming modern servo controller Modern Robotics USB Servo Controller [AL00YAWG]...
+03-25 09:25:13.940 10270-10368/com.qualcomm.ftcrobotcontroller W/RobotCore: Unable to find USB device with serial number AL00YAWG
+03-25 09:25:13.940 10270-10368/com.qualcomm.ftcrobotcontroller D/RobotCore: arming modern servo controller Modern Robotics USB Servo Controller [AL00YAWG] (pretend)...
+03-25 09:25:13.941 10270-10466/com.qualcomm.ftcrobotcontroller D/Robocol: RobocolDatagramSocket listening addr=/192.168.49.1:20884 cbRec=65520 cbSend=163840 msRecTO=300
+03-25 09:25:13.946 10270-10368/com.qualcomm.ftcrobotcontroller D/RobotCore: ...arming modern servo controller Modern Robotics USB Servo Controller [AL00YAWG] complete
+03-25 09:25:13.947 10270-10368/com.qualcomm.ftcrobotcontroller D/RobotCore: arming modern motor controller Modern Robotics USB DC Motor Controller [AL00XT5Y]...
+03-25 09:25:13.947 10270-10368/com.qualcomm.ftcrobotcontroller W/RobotCore: Unable to find USB device with serial number AL00XT5Y
+03-25 09:25:13.948 10270-10368/com.qualcomm.ftcrobotcontroller D/RobotCore: arming modern motor controller Modern Robotics USB DC Motor Controller [AL00XT5Y] (pretend)...
+03-25 09:25:13.951 10270-10368/com.qualcomm.ftcrobotcontroller D/RobotCore: ...arming modern motor controller Modern Robotics USB DC Motor Controller [AL00XT5Y] complete
+03-25 09:25:13.952 10270-10368/com.qualcomm.ftcrobotcontroller W/RobotCore: Unable to find USB device with serial number AL00XJIG
+03-25 09:25:13.987 10270-10368/com.qualcomm.ftcrobotcontroller I/RobotCore: Analytics has completed initialization.
+03-25 09:25:13.987 10270-10368/com.qualcomm.ftcrobotcontroller I/RobotCore: ========= Device Information ===================================================
+03-25 09:25:13.987 10270-10368/com.qualcomm.ftcrobotcontroller I/RobotCore: Type                                               Name                           Connection
+03-25 09:25:13.988 10270-10368/com.qualcomm.ftcrobotcontroller I/RobotCore: Modern Robotics Digital Touch Sensor               t4                             USB AL00XJIG; digital port 3
+03-25 09:25:13.988 10270-10368/com.qualcomm.ftcrobotcontroller I/RobotCore: Servo                                              pusherL                        USB AL00YAWG; port 2
+03-25 09:25:13.989 10270-10368/com.qualcomm.ftcrobotcontroller I/RobotCore: Analog Input                                       l1                             USB AL00XJIG; analog port 0
+03-25 09:25:13.989 10270-10368/com.qualcomm.ftcrobotcontroller I/RobotCore: Analog Input                                       l2                             USB AL00XJIG; analog port 1
+03-25 09:25:13.989 10270-10368/com.qualcomm.ftcrobotcontroller I/RobotCore: Servo                                              pusherR                        USB AL00YAWG; port 3
+03-25 09:25:13.989 10270-10368/com.qualcomm.ftcrobotcontroller I/RobotCore: Continuous Rotation Servo                          br                             USB AL00YAWG; port 5
+03-25 09:25:13.989 10270-10368/com.qualcomm.ftcrobotcontroller I/RobotCore: Adafruit BNO055 IMU                                imu                            USB AL00XJIG; port 0
+03-25 09:25:13.989 10270-10368/com.qualcomm.ftcrobotcontroller I/RobotCore: Modern Robotics USB DC Motor Controller            Motor Controller 4             USB AI041S18
+03-25 09:25:13.989 10270-10368/com.qualcomm.ftcrobotcontroller I/RobotCore: Analog Input                                       u1                             USB AL00XJIG; analog port 2
+03-25 09:25:13.989 10270-10368/com.qualcomm.ftcrobotcontroller I/RobotCore: Modern Robotics USB DC Motor Controller            Motor Controller 3             USB AL00XT5Y
+03-25 09:25:13.989 10270-10368/com.qualcomm.ftcrobotcontroller I/RobotCore: Servo                                              s1                             USB AL00YAWG; port 1
+03-25 09:25:13.989 10270-10368/com.qualcomm.ftcrobotcontroller I/RobotCore: Modern Robotics USB DC Motor Controller            Motor Controller 1             USB AH03EUDR
+03-25 09:25:13.989 10270-10368/com.qualcomm.ftcrobotcontroller I/RobotCore: Servo                                              br2                            USB AL00YAWG; port 6
+03-25 09:25:13.990 10270-10368/com.qualcomm.ftcrobotcontroller I/RobotCore: DC Motor                                           m1                             USB AH03EUDR; port 2
+03-25 09:25:13.990 10270-10368/com.qualcomm.ftcrobotcontroller I/RobotCore: Modern Robotics USB Core Device Interface Module   Device Interface Module 1      USB AL00XJIG
+03-25 09:25:13.990 10270-10368/com.qualcomm.ftcrobotcontroller I/RobotCore: DC Motor                                           m2                             USB AH03EUDR; port 1
+03-25 09:25:13.990 10270-10368/com.qualcomm.ftcrobotcontroller I/RobotCore: Modern Robotics USB Servo Controller               Servo Controller 2             USB AL00YAWG
+03-25 09:25:13.990 10270-10368/com.qualcomm.ftcrobotcontroller I/RobotCore: DC Motor                                           m3                             USB AI041S18; port 2
+03-25 09:25:13.990 10270-10368/com.qualcomm.ftcrobotcontroller I/RobotCore: DC Motor                                           m4                             USB AI041S18; port 1
+03-25 09:25:13.990 10270-10368/com.qualcomm.ftcrobotcontroller I/RobotCore: DC Motor                                           m5                             USB AL00VM5O; port 1
+03-25 09:25:13.990 10270-10368/com.qualcomm.ftcrobotcontroller I/RobotCore: DC Motor                                           m6                             USB AL00XT5Y; port 2
+03-25 09:25:13.990 10270-10368/com.qualcomm.ftcrobotcontroller I/RobotCore: Analog Input                                       ir1                            USB AL00XJIG; analog port 4
+03-25 09:25:13.990 10270-10368/com.qualcomm.ftcrobotcontroller I/RobotCore: DC Motor                                           m7                             USB AL00XT5Y; port 1
+03-25 09:25:13.990 10270-10368/com.qualcomm.ftcrobotcontroller I/RobotCore: Modern Robotics USB DC Motor Controller            Motor Controller poop          USB AL00VM5O
+03-25 09:25:13.990 10270-10368/com.qualcomm.ftcrobotcontroller I/RobotCore: Continuous Rotation Servo                          spacer                         USB AL00YAWG; port 4
+03-25 09:25:13.990 10270-10368/com.qualcomm.ftcrobotcontroller I/RobotCore: Modern Robotics Digital Touch Sensor               t1                             USB AL00XJIG; digital port 0
+03-25 09:25:13.990 10270-10368/com.qualcomm.ftcrobotcontroller I/RobotCore: Modern Robotics Digital Touch Sensor               t2                             USB AL00XJIG; digital port 1
+03-25 09:25:13.990 10270-10368/com.qualcomm.ftcrobotcontroller I/RobotCore: Modern Robotics Digital Touch Sensor               t3                             USB AL00XJIG; digital port 2
+03-25 09:25:13.990 10270-10368/com.qualcomm.ftcrobotcontroller I/FIRST: ======= INIT FINISH =======
+03-25 09:25:13.999 10270-10476/com.qualcomm.ftcrobotcontroller D/RobotCore: system telemetry: key=$System$Warning$ msg="unable to open Modern Robotics USB Servo Controller [AL00YAWG]; unable to open Modern Robotics USB DC Motor Controller [AL00XT5Y]; unable to open Modern Robotics USB DC Motor Controller [AH03EUDR]; unable to open Modern Robotics USB Core Device Interface Module [AL00XJIG]; unable to open Modern Robotics USB DC Motor Controller [AI041S18]; unable to open Modern Robotics USB DC Motor Controller [AL00VM5O]"
+03-25 09:25:14.018 10270-10365/com.qualcomm.ftcrobotcontroller D/MediaPlayer: setSubtitleAnchor in MediaPlayer
+03-25 09:25:14.034 10270-10270/com.qualcomm.ftcrobotcontroller W/MediaPlayer: mediaplayer went away with unhandled events
+03-25 09:25:14.035 10270-10363/com.qualcomm.ftcrobotcontroller D/ExtendedUtils: extended extractor not needed, return default
+03-25 09:25:14.038 10270-10480/com.qualcomm.ftcrobotcontroller I/OMXClient: Using client-side OMX mux.
+03-25 09:25:14.043 10270-10480/com.qualcomm.ftcrobotcontroller E/OMXMaster: A component of name 'OMX.qcom.audio.decoder.aac' already exists, ignoring this one.
+03-25 09:25:14.057 10270-10365/com.qualcomm.ftcrobotcontroller W/AudioTrack: AUDIO_OUTPUT_FLAG_FAST denied by client; transfer 4, track 8000 Hz, output 48000 Hz
+03-25 09:25:14.088 10270-10365/com.qualcomm.ftcrobotcontroller D/MediaPlayer: setSubtitleAnchor in MediaPlayer
+03-25 09:25:14.088 10270-10270/com.qualcomm.ftcrobotcontroller D/MediaPlayer: setSubtitleAnchor in MediaPlayer
+03-25 09:25:14.110 10270-10363/com.qualcomm.ftcrobotcontroller D/ExtendedUtils: extended extractor not needed, return default
+03-25 09:25:14.114 10270-10489/com.qualcomm.ftcrobotcontroller I/OMXClient: Using client-side OMX mux.
+03-25 09:25:14.117 10270-10489/com.qualcomm.ftcrobotcontroller E/OMXMaster: A component of name 'OMX.qcom.audio.decoder.aac' already exists, ignoring this one.
+03-25 09:25:14.243 10270-10473/com.qualcomm.ftcrobotcontroller D/Robocol: no packet received: SocketTimeoutException
+03-25 09:25:14.501 10270-10476/com.qualcomm.ftcrobotcontroller I/RobotCore: Attempting to switch to op mode $Stop$Robot$
+03-25 09:25:14.762 10270-10473/com.qualcomm.ftcrobotcontroller D/Robocol: RobocolDatagramSocket connected to /192.168.49.3:20884
+03-25 09:25:15.004 10270-10476/com.qualcomm.ftcrobotcontroller I/RobotCore: Attempting to switch to op mode $Stop$Robot$
+03-25 09:25:15.077 10270-10365/com.qualcomm.ftcrobotcontroller W/AudioTrack: AUDIO_OUTPUT_FLAG_FAST denied by client; transfer 4, track 44100 Hz, output 48000 Hz
+03-25 09:25:15.104 10270-10365/com.qualcomm.ftcrobotcontroller D/MediaPlayer: setSubtitleAnchor in MediaPlayer
+03-25 09:25:15.104 10270-10270/com.qualcomm.ftcrobotcontroller D/MediaPlayer: setSubtitleAnchor in MediaPlayer
+03-25 09:25:15.112 10270-10270/com.qualcomm.ftcrobotcontroller E/MediaPlayer: invoke failed: wrong state 8
+03-25 09:25:15.113 10270-10270/com.qualcomm.ftcrobotcontroller W/MediaPlayer: mediaplayer went away with unhandled events
+03-25 09:25:15.129 10270-10363/com.qualcomm.ftcrobotcontroller D/ExtendedUtils: extended extractor not needed, return default
+03-25 09:25:15.143 10270-10538/com.qualcomm.ftcrobotcontroller I/OMXClient: Using client-side OMX mux.
+03-25 09:25:15.147 10270-10538/com.qualcomm.ftcrobotcontroller E/OMXMaster: A component of name 'OMX.qcom.audio.decoder.aac' already exists, ignoring this one.
+03-25 09:25:15.262 10270-10476/com.qualcomm.ftcrobotcontroller I/RobotCore: robot battery read duration: n=0, mean=0.000ms sd=-0.000ms
+03-25 09:25:16.121 10270-10365/com.qualcomm.ftcrobotcontroller W/AudioTrack: AUDIO_OUTPUT_FLAG_FAST denied by client; transfer 4, track 44100 Hz, output 48000 Hz

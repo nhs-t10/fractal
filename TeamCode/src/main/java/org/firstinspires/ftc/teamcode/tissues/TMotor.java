@@ -14,6 +14,7 @@ import org.firstinspires.ftc.teamcode.statics.Hardware;
 public class TMotor implements Component {
     protected DcMotor motor;
     private Time.Stopwatch stopwatch;
+    private double prevPower = 0.0;
 
     public TMotor(String m) {
         motor = Hardware.getHardwareMap().dcMotor.get(m);
@@ -35,6 +36,8 @@ public class TMotor implements Component {
      */
     public void move(double power) {
         power = (float) Range.clip(power, -1.0, 1.0);
+        if (prevPower == power) return;
+        else prevPower = power;
         motor.setPower(power);
     }
 
